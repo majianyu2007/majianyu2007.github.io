@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Usage of Structure Block in Minecraft PE - MaJianyu&#39;s Blog</title><meta name="Description" content="MaJianyu&#39;s Blog -- My Blog"><meta property="og:title" content="Usage of Structure Block in Minecraft PE" />
+<meta property="og:description" content="写在前面：看到我写游戏，是不是感到非常惊讶？是否有很多问号？其实我从2013年接触我的世界，最早玩0.10.5版本，接触了多玩我的世界盒子和" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mjy.js.org/usage-of-structure-block-in-minecraft-pe/" />
+<meta property="og:image" content="https://mjy.js.org/logo.png"/>
+<meta property="article:published_time" content="2020-11-22T11:31:46+08:00" />
+<meta property="article:modified_time" content="2020-11-22T11:31:46+08:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://mjy.js.org/logo.png"/>
+
+<meta name="twitter:title" content="Usage of Structure Block in Minecraft PE"/>
+<meta name="twitter:description" content="写在前面：看到我写游戏，是不是感到非常惊讶？是否有很多问号？其实我从2013年接触我的世界，最早玩0.10.5版本，接触了多玩我的世界盒子和"/>
+<meta name="application-name" content="MaJianyu&#39;s Blog">
+<meta name="apple-mobile-web-app-title" content="MaJianyu&#39;s Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://mjy.js.org/usage-of-structure-block-in-minecraft-pe/" /><link rel="prev" href="https://mjy.js.org/how-to-turn-wordpress-into-a-black-and-white-two-color-style-to-show-condolences/" /><link rel="next" href="https://mjy.js.org/free-secondary-domain-name/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Usage of Structure Block in Minecraft PE",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/mjy.js.org\/usage-of-structure-block-in-minecraft-pe\/"
+        },"image": ["https:\/\/mjy.js.org\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Minecarft","wordcount":  1011 ,
+        "url": "https:\/\/mjy.js.org\/usage-of-structure-block-in-minecraft-pe\/","datePublished": "2020-11-22T11:31:46+08:00","dateModified": "2020-11-22T11:31:46+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "majianyu","logo": "https:\/\/mjy.js.org\/images\/avatar.png"},"author": {
+                "@type": "Person",
+                "name": "majianyu"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="MaJianyu&#39;s Blog"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/logo.png"
+        data-srcset="/logo.png, /logo.png 1.5x, /logo.png 2x"
+        data-sizes="auto"
+        alt="/logo.png"
+        title="/logo.png" /></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/categories/documentation/"> 文档 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="/room/"> A Dark Room </a><a class="menu-item" href="/music/"> Tap Music </a><a class="menu-item" href="/games/"> Games </a><a class="menu-item" href="https://github.com/majianyu2007" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="MaJianyu&#39;s Blog"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/logo.png"
+        data-srcset="/logo.png, /logo.png 1.5x, /logo.png 2x"
+        data-sizes="auto"
+        alt="/logo.png"
+        title="/logo.png" /></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/categories/documentation/" title="">文档</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="/room/" title="">A Dark Room</a><a class="menu-item" href="/music/" title="">Tap Music</a><a class="menu-item" href="/games/" title="">Games</a><a class="menu-item" href="https://github.com/majianyu2007" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">Usage of Structure Block in Minecraft PE</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://mjy.js.org/" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>majianyu</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/games/"><i class="far fa-folder fa-fw"></i>Games</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-11-22">2020-11-22</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1011 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
+            </div><div class="content" id="content"><p>写在前面：看到我写游戏，是不是感到非常惊讶？是否有很多问号？其实我从2013年接触我的世界，最早玩0.10.5版本，接触了多玩我的世界盒子和葫芦侠。最早玩我的世界还是用的三星的GT-I9050,安卓2.3，除了运行0.10.5,再大的版本就运行不了了。后来，我用我妈的红米玩0.12.2，地狱疣和药水炼制让我着迷。后来中间潜心学习了一段时间，终于在网易代理后又拾起了我的世界。现在手机版都有地狱更新了，我玩着新版本，没有感觉不熟悉，反而是满满的回忆。今天的我的世界,盒子类几乎没有，唯一好的盒子还是Toolbox，最近也要看广告才能解锁高级功能。
+今天教大家如何在我的世界中使用结构方块，其实官方名字叫“建筑方块”。
+首先，在创建世界时，打开“启用实验玩法”，确定开启了作弊和创造。建议下载Toolbox，我就用的toolbox。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/2020042717372011.jpg"
+        data-srcset="/2020042717372011.jpg, /2020042717372011.jpg 1.5x, /2020042717372011.jpg 2x"
+        data-sizes="auto"
+        alt="/2020042717372011.jpg"
+        title="jpg" />
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/2020042717372010.jpg"
+        data-srcset="/2020042717372010.jpg, /2020042717372010.jpg 1.5x, /2020042717372010.jpg 2x"
+        data-sizes="auto"
+        alt="/2020042717372010.jpg"
+        title="jpg" />
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/202004271737209.jpg"
+        data-srcset="/202004271737209.jpg, /202004271737209.jpg 1.5x, /202004271737209.jpg 2x"
+        data-sizes="auto"
+        alt="/202004271737209.jpg"
+        title="jpg" />
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/202004271737208.jpg"
+        data-srcset="/202004271737208.jpg, /202004271737208.jpg 1.5x, /202004271737208.jpg 2x"
+        data-sizes="auto"
+        alt="/202004271737208.jpg"
+        title="jpg" /></p>
+<p>接着，点击小稿头，找到世界-获取项目，不要点上面的四个，弹出键盘关闭即可。
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/202004271737207.jpg"
+        data-srcset="/202004271737207.jpg, /202004271737207.jpg 1.5x, /202004271737207.jpg 2x"
+        data-sizes="auto"
+        alt="/202004271737207.jpg"
+        title="jpg" /></p>
+<p>在最下面找到这个方块，点击“添加”
+然后放在地下，你想复制的地方，可以不是一个维度，比如复制各种遗迹。
+放下“建筑方块”会看到以下界面
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/202004271737206.jpg"
+        data-srcset="/202004271737206.jpg, /202004271737206.jpg 1.5x, /202004271737206.jpg 2x"
+        data-sizes="auto"
+        alt="/202004271737206.jpg"
+        title="jpg" /></p>
+<p>这就是要复制的范围，大小可以调，点击“建筑方块”
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/202004271737205.jpg"
+        data-srcset="/202004271737205.jpg, /202004271737205.jpg 1.5x, /202004271737205.jpg 2x"
+        data-sizes="auto"
+        alt="/202004271737205.jpg"
+        title="jpg" /></p>
+<p>会看到一个3D图像和右边的大小和偏移。可以自行调节，比对3D图像，X轴是红色，Y轴是绿色，Z轴是红色，偏移是复制结构偏移多少格，像这样
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/202004271737203.jpg"
+        data-srcset="/202004271737203.jpg, /202004271737203.jpg 1.5x, /202004271737203.jpg 2x"
+        data-sizes="auto"
+        alt="/202004271737203.jpg"
+        title="jpg" /></p>
+<p>X轴和Y轴最大64，Y轴未知（自己试试）
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/202004271737204.jpg"
+        data-srcset="/202004271737204.jpg, /202004271737204.jpg 1.5x, /202004271737204.jpg 2x"
+        data-sizes="auto"
+        alt="/202004271737204.jpg"
+        title="jpg" />
+可以选择包含实体或移除方块。包含实体如果打开了，掉落物，各种动物，怪物，村民都可以保存下来。如果打开了移除方块，就会只保留实体。
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/202004271737202.jpg"
+        data-srcset="/202004271737202.jpg, /202004271737202.jpg 1.5x, /202004271737202.jpg 2x"
+        data-sizes="auto"
+        alt="/202004271737202.jpg"
+        title="jpg" /></p>
+<p>保存到磁盘中可以导出为3D图像，或复制到另一个世界。不过toolbox的世界与原版不互通，并且找不到toolbox的文档目录，我已经发邮件问作者，还没回。保存到内存的话，应该是退出世界就没有了。
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/202004271737201.jpg"
+        data-srcset="/202004271737201.jpg, /202004271737201.jpg 1.5x, /202004271737201.jpg 2x"
+        data-sizes="auto"
+        alt="/202004271737201.jpg"
+        title="jpg" /></p>
+<p>保存的话，写上一个名字，会自动为你补全mystructure:这是，找个你想复制的地方，放下“建筑方块”,模式选择“加载”，也是光输入你保存时写的的名字。我这里是test，如果存在，则字体变亮，如果不存在，会是灰色。输入正确后，会显示出你保存的大小，调整即可。最后点击“加载”会有点卡，一点一点加载，甚是舒服！最后就是这个样子
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/20200427173720.jpg"
+        data-srcset="/20200427173720.jpg, /20200427173720.jpg 1.5x, /20200427173720.jpg 2x"
+        data-sizes="auto"
+        alt="/20200427173720.jpg"
+        title="jpg" /></p>
+<p>突然出现的“山”是不是很有趣？也可以把末地船复制到大海上，稍加修缮，就成真正在海上的船了！
+写在最后：近的物体，还是用clone命令吧。两者皆用，建筑我行！（这应该是全网第一篇教程，有不明白的可以点游戏中建筑方块里面的问号）</p>
+</div>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-9101785228583606"
+     data-ad-slot="9293552420"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2020-11-22</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/usage-of-structure-block-in-minecraft-pe/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://mjy.js.org/usage-of-structure-block-in-minecraft-pe/" data-title="Usage of Structure Block in Minecraft PE" data-hashtags="Minecarft"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://mjy.js.org/usage-of-structure-block-in-minecraft-pe/" data-hashtag="Minecarft"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://mjy.js.org/usage-of-structure-block-in-minecraft-pe/" data-title="Usage of Structure Block in Minecraft PE"><i class="fab fa-hacker-news fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://mjy.js.org/usage-of-structure-block-in-minecraft-pe/" data-title="Usage of Structure Block in Minecraft PE"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://mjy.js.org/usage-of-structure-block-in-minecraft-pe/" data-title="Usage of Structure Block in Minecraft PE"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/minecarft/">Minecarft</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/how-to-turn-wordpress-into-a-black-and-white-two-color-style-to-show-condolences/" class="prev" rel="prev" title="How to Turn WordPress Into a Black and White Two Color Style to Show Condolences"><i class="fas fa-angle-left fa-fw"></i>How to Turn WordPress Into a Black and White Two Color Style to Show Condolences</a>
+            <a href="/free-secondary-domain-name/" class="next" rel="next" title="Free secondary domain name">Free secondary domain name<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="gitalk" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://github.com/gitalk/gitalk"></a>Gitalk</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2019 - 2020</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://mjy.js.org/" target="_blank">majianyu</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+			<script data-ad-client="ca-pub-9101785228583606" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-9101785228583606"
+     data-ad-slot="1096525875"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css"><script type="text/javascript" src="https://polyfill.io/v3/polyfill.min.js?features=Array.prototype.fill%2CArray.prototype.find%2CArray.from%2CIntersectionObserver%2CMath.sign%2CObject.assign%2CPromise%2CObject.entries%2CElement.prototype.closest%2CrequestAnimationFrame%2CCustomEvent%2Chtml5shiv%2CObject.values%2Cfetch%2CElement.prototype.after"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/twemoji@13.0.0/dist/twemoji.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript" src="https://v1.cnzz.com/z_stat.php?id=1279520654&amp;web_id=1279520654"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{"gitalk":{"admin":["majianyu2007"],"clientID":"4f1d7513e3fa7bf0740c","clientSecret":"887ea98f6c5d8eb4275a4c37437a6af9e6daabe8","id":"2020-11-22T11:31:46+08:00","owner":"majianyu2007","repo":"majianyu2007.github.io","title":"Usage of Structure Block in Minecraft PE"}},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"search":{"algoliaAppID":"UKCXXMKXAR","algoliaIndex":"index.zh-cn","algoliaSearchKey":"cf380377c386f5818a404d6e239d3f04","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"},"twemoji":true};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

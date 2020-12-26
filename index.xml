@@ -1,0 +1,80 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>MaJianyu&#39;s Blog</title>
+        <link>https://mjy.js.org/</link>
+        <description>MaJianyu&#39;s Blog -- My Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>mjy20070413@gmail.com (majianyu)</managingEditor>
+            <webMaster>mjy20070413@gmail.com (majianyu)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 26 Dec 2020 18:28:45 &#43;0800</lastBuildDate>
+            <atom:link href="https://mjy.js.org/index.xml" rel="self" type="application/rss+xml" />
+        <item>
+    <title>Gearhost</title>
+    <link>https://mjy.js.org/gearhost/</link>
+    <pubDate>Sat, 26 Dec 2020 18:28:45 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://mjy.js.org/gearhost/</guid>
+    <description><![CDATA[##介绍 GearHost是一家国外主机提供商，支持.NET,PHP,Node.js。 提供100M免费空间。 免费空间介绍： Ideal for experimenting with .NET and PHP cloud applications in]]></description>
+</item><item>
+    <title>NAT64 for IPV6 Only VPS</title>
+    <link>https://mjy.js.org/nat64/</link>
+    <pubDate>Sat, 12 Dec 2020 20:54:39 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://mjy.js.org/nat64/</guid>
+    <description><![CDATA[有些服务商提供仅IPV6的VPS，但是像Github这类的就没有ipv6，所以我们可以借助公共NAT64 trex.fi 1 echo -e &#34;nameserver 2001:67c:2b0::4\nnameserver 2001:67c:2b0::6&#34; &gt; /etc/resolv.conf 复制到终端即可。 官]]></description>
+</item><item>
+    <title>Docker on LXC</title>
+    <link>https://mjy.js.org/docker-on-lxc/</link>
+    <pubDate>Sun, 29 Nov 2020 08:20:19 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://mjy.js.org/docker-on-lxc/</guid>
+    <description><![CDATA[众所周知，lxc容器启动不了docker。而openVZ需要主机提供商修改某些配置文件。 这台机器由Euserv提供，是免费的，配置是1h1g]]></description>
+</item><item>
+    <title>SSH light video</title>
+    <link>https://mjy.js.org/ssh-light-video/</link>
+    <pubDate>Sat, 28 Nov 2020 19:08:19 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://mjy.js.org/ssh-light-video/</guid>
+    <description><![CDATA[录制SSH轻视频 安装asciinema 1 apt-get install asciinema 开始录制 1 asciinema rec xxx.cast 录制结束：Ctrl + D]]></description>
+</item><item>
+    <title>Free secondary domain name</title>
+    <link>https://mjy.js.org/free-secondary-domain-name/</link>
+    <pubDate>Sun, 22 Nov 2020 11:35:39 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://mjy.js.org/free-secondary-domain-name/</guid>
+    <description><![CDATA[Freenom域名不友好，只能找个免费的二级域名。c1.biz要购买免费空间，不支持改NS，co.cc已沦陷。目前可以用的有pp.ua和eu]]></description>
+</item><item>
+    <title>Usage of Structure Block in Minecraft PE</title>
+    <link>https://mjy.js.org/usage-of-structure-block-in-minecraft-pe/</link>
+    <pubDate>Sun, 22 Nov 2020 11:31:46 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://mjy.js.org/usage-of-structure-block-in-minecraft-pe/</guid>
+    <description><![CDATA[写在前面：看到我写游戏，是不是感到非常惊讶？是否有很多问号？其实我从2013年接触我的世界，最早玩0.10.5版本，接触了多玩我的世界盒子和]]></description>
+</item><item>
+    <title>How to Turn WordPress Into a Black and White Two Color Style to Show Condolences</title>
+    <link>https://mjy.js.org/how-to-turn-wordpress-into-a-black-and-white-two-color-style-to-show-condolences/</link>
+    <pubDate>Fri, 20 Nov 2020 22:33:18 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://mjy.js.org/how-to-turn-wordpress-into-a-black-and-white-two-color-style-to-show-condolences/</guid>
+    <description><![CDATA[2020年4月4日，是一个黑白的日子。作为一个站长，我们也应该把自己的网站变成黑白（非强制），利用简单的CSS即可 1、这个方法不只可以用于W]]></description>
+</item><item>
+    <title>X Prober</title>
+    <link>https://mjy.js.org/x-prober/</link>
+    <pubDate>Sat, 14 Nov 2020 21:30:39 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://mjy.js.org/x-prober/</guid>
+    <description><![CDATA[GitHub地址：https://github.com/kmvan/x-prober 按照说明，下载php文件，也可以自己编译 下载地址http]]></description>
+</item><item>
+    <title>WordPress Uses ReCaptcha</title>
+    <link>https://mjy.js.org/wordpress-uses-recaptcha/</link>
+    <pubDate>Fri, 13 Nov 2020 08:29:40 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://mjy.js.org/wordpress-uses-recaptcha/</guid>
+    <description><![CDATA[首先，准备一个谷歌账号，一个梯？子#（自备）谷歌访问助手即可（自己百度）。一个Wordpress网站，能上Wordpress.org的插件 1]]></description>
+</item><item>
+    <title>UTM Virtual Machine</title>
+    <link>https://mjy.js.org/utm-virtual-machine/</link>
+    <pubDate>Thu, 12 Nov 2020 18:25:16 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://mjy.js.org/utm-virtual-machine/</guid>
+    <description><![CDATA[写在前面：手里有台iPhone7，不知干什么好，没有Android的可玩性，即使Android不root，也会有像termux的容器。9-1]]></description>
+</item></channel>
+</rss>
