@@ -1,7 +1,7 @@
 # Gearhost
 
 
-##介绍
+## 介绍 ##
 
 GearHost是一家国外主机提供商，支持.NET,PHP,Node.js。
 提供100M免费空间。
@@ -18,13 +18,13 @@ GearHost是一家国外主机提供商，支持.NET,PHP,Node.js。
 
 [官网](5656.gq/dxraKA)的介绍是：Signup for free and deploy 100 CloudSites and 100 Databases for $0/mo.
 实际上没有绑定银行卡仅能创建5个CloudSites。
-##注册
+## 注册 ##
 
 点击[这里](5656.gq/dxraKA)进行注册。只需要一个电子邮件地址，注册完后会收到一封确认邮件，确认后登录来到管理界面
 
 ![管理界面](/gearhost/1.png)
 
-##创建
+## 创建 ##
 点击右上角的“Add CloudSite”进行创建
 
 ![创建](/gearhost/2.png)
@@ -35,7 +35,7 @@ GearHost是一家国外主机提供商，支持.NET,PHP,Node.js。
 
 创建时会显示“Building”，耐心等待，一般五六分钟后就可以使用了。
 
-##使用
+## 使用 ##
 创建完成后，点击右边的放大镜符号可以预览（使用gearhostpreview.com地址）。点击❌删除。
 
 点击创建好的app蓝字，来到仪表板，在这里可以选择“Overview”,“Publish”,“Config”,“Scale”,“Domains”,“Email”,“Add-ons”,“Webjobs”.
@@ -53,36 +53,36 @@ GearHost是一家国外主机提供商，支持.NET,PHP,Node.js。
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-#Overview
+# Overview #
 
 在这里查看CPU Time，Data In，Data Out，Http Server Errors，Requests等数据，并有图表展示
 ![Overview](/gearhost/5.png)
-#Publish
+# Publish #
 
 在这里查看上传信息，并有FTP信息，可以通过Git部署，可以点击FileZilla图标下载FTP登录信息并导入。
 
 注：FTP的Password不可自定义，只可以重置（重新生成）。
 ![Publish](/gearhost/6.png)
-#Config
+# Config #
 
 ![Config](/gearhost/7.png)
 
 没什么好说的，可以设置.NET版本和php版本，包括默认文档设置，变量设置。
-#Scale
+# Scale #
 ![Scale](/gearhost/8.png)
 
 此处可以升级你的CloudSites。
-#Domains
+# Domains #
 ![Domains](/gearhost/9.png)
 绑定自己的域名，可以改NS，也可以设置A记录（支持二级域名）
-#Email
+# Email #
 需要信用卡验证
-#Add-ons
+# Add-ons #
 需要信用卡验证
-#Webjobs
+# Webjobs #
 需要更高级别的虚拟主机（付费主机）
 
-##PHP info
+## PHP info ##
 ```
 PHP Version 7.1.4
 System	Windows NT CSSN0009 6.3 build 9600 (Windows Server 2012 R2 Standard Edition) i586
@@ -1226,7 +1226,7 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
 If you did not receive a copy of the PHP license, or have any questions about PHP licensing, please contact license@php.net.
 ```
 
-##最后
+## 最后 ##
 
 这个空间还是很稳定的，100M，可以放点小程序，但是像WordPress就算了，三天两头会超100M，超了100M不会封号，但是会禁止访问，允许FTP，文件小于100M时便可以正常访问。
 
