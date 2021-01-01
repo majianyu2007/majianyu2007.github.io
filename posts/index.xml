@@ -4,7 +4,14 @@
         <link>https://mjy.js.org/posts/</link>
         <description>所有文章 | MaJianyu&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>mjy20070413@gmail.com (majianyu)</managingEditor>
-            <webMaster>mjy20070413@gmail.com (majianyu)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 31 Dec 2020 20:37:19 &#43;0800</lastBuildDate><atom:link href="https://mjy.js.org/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>mjy20070413@gmail.com (majianyu)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 01 Jan 2021 13:46:54 &#43;0800</lastBuildDate><atom:link href="https://mjy.js.org/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Markdown学习笔记</title>
+    <link>https://mjy.js.org/markdown/</link>
+    <pubDate>Fri, 01 Jan 2021 13:46:54 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://mjy.js.org/markdown/</guid>
+    <description><![CDATA[后缀 .md .markdown .MD .MARKDOWN 标头 1 2 3 4 5 # h1标头 ## h2标头 ### h3标头 ...... ###### h6标头 h1标头 h2标头 h3标头 &hellip;&hellip; h6标头 H后数越大，字体越小 重点 1 2 3 4 5 6 7]]></description>
+</item><item>
     <title>End 2020</title>
     <link>https://mjy.js.org/end-2020/</link>
     <pubDate>Thu, 31 Dec 2020 20:37:19 &#43;0800</pubDate>
@@ -40,6 +47,13 @@
     <guid>https://mjy.js.org/ssh-light-video/</guid>
     <description><![CDATA[录制SSH轻视频 安装asciinema 1 apt-get install asciinema 开始录制 1 asciinema rec xxx.cast 录制结束：Ctrl + D]]></description>
 </item><item>
+    <title>js.org free domain</title>
+    <link>https://mjy.js.org/js-org-free-domain/</link>
+    <pubDate>Sat, 28 Nov 2020 18:12:19 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://mjy.js.org/js-org-free-domain/</guid>
+    <description><![CDATA[了解 官方链接 需求 1.一个托管在Github Pages上的Site。必须要有内容，不能草草一个html了事； 2.一台电脑； 3.一个Github]]></description>
+</item><item>
     <title>Free secondary domain name</title>
     <link>https://mjy.js.org/free-secondary-domain-name/</link>
     <pubDate>Sun, 22 Nov 2020 11:35:39 &#43;0800</pubDate>
@@ -60,19 +74,5 @@
     <author>作者</author>
     <guid>https://mjy.js.org/how-to-turn-wordpress-into-a-black-and-white-two-color-style-to-show-condolences/</guid>
     <description><![CDATA[2020年4月4日，是一个黑白的日子。作为一个站长，我们也应该把自己的网站变成黑白（非强制），利用简单的CSS即可 1、这个方法不只可以用于W]]></description>
-</item><item>
-    <title>X Prober</title>
-    <link>https://mjy.js.org/x-prober/</link>
-    <pubDate>Sat, 14 Nov 2020 21:30:39 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://mjy.js.org/x-prober/</guid>
-    <description><![CDATA[GitHub地址：https://github.com/kmvan/x-prober 按照说明，下载php文件，也可以自己编译 下载地址http]]></description>
-</item><item>
-    <title>WordPress Uses ReCaptcha</title>
-    <link>https://mjy.js.org/wordpress-uses-recaptcha/</link>
-    <pubDate>Fri, 13 Nov 2020 08:29:40 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://mjy.js.org/wordpress-uses-recaptcha/</guid>
-    <description><![CDATA[首先，准备一个谷歌账号，一个梯？子#（自备）谷歌访问助手即可（自己百度）。一个Wordpress网站，能上Wordpress.org的插件 1]]></description>
 </item></channel>
 </rss>

@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>notes - 标签 - MaJianyu&#39;s Blog</title>
+        <link>https://mjy.js.org/tags/notes/</link>
+        <description>notes - 标签 - MaJianyu&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>mjy20070413@gmail.com (majianyu)</managingEditor>
+            <webMaster>mjy20070413@gmail.com (majianyu)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 01 Jan 2021 13:46:54 &#43;0800</lastBuildDate><atom:link href="https://mjy.js.org/tags/notes/" rel="self" type="application/rss+xml" /><item>
+    <title>Markdown学习笔记</title>
+    <link>https://mjy.js.org/markdown/</link>
+    <pubDate>Fri, 01 Jan 2021 13:46:54 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://mjy.js.org/markdown/</guid>
+    <description><![CDATA[后缀 .md .markdown .MD .MARKDOWN 标头 1 2 3 4 5 # h1标头 ## h2标头 ### h3标头 ...... ###### h6标头 h1标头 h2标头 h3标头 &hellip;&hellip; h6标头 H后数越大，字体越小 重点 1 2 3 4 5 6 7]]></description>
+</item></channel>
+</rss>
