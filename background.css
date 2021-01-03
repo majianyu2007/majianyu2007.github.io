@@ -1,0 +1,29 @@
+ *{  
+            margin: 0px;  
+            padding: 0px;  
+        }  
+        video{  
+            position: fixed;  
+            right: 0px;  
+            bottom: 0px;  
+            min-width: 100%;  
+            min-height: 100%;  
+            height: auto;  
+            width: auto;  
+            /*加滤镜*/  
+            /*-webkit-filter: grayscale(100%);*/  
+            /*filter:grayscale(100%);*/  
+            z-index:-11
+        }  
+        source{  
+            min-width: 100%;  
+            min-height: 100%;  
+            height: auto;  
+            width: auto;  
+        } 
+		p{
+		    width: 100%;
+			text-align: center;
+			font-size: 40px;
+			color: white;
+		}
