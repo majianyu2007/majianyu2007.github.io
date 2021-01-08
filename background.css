@@ -6,7 +6,4 @@ video{
             min-height: 100%;  
             height: auto;  
             width: auto;  
-            /*加滤镜*/  
-            /*-webkit-filter: grayscale(100%);*/  
-            /*filter:grayscale(100%);*/  
             z-index:-11
