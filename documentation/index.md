@@ -4,7 +4,7 @@
 
 ---
 
-<iframe src="https://myzb.pp.ua/player/index.php?url=https://mjy.js.org/mbg.mp4&name=健身房的年轻后生不讲武德偷袭马老师，把马保国老师的眼睛给蹭了一下&pic=https://mjy.js.org/mbg.jpg" allowfullscreen="" mozallowfullscreen="" msallowfullscreen="" oallowfullscreen="" webkitallowfullscreen="" width="100%" height="500px" frameborder="0"></iframe>
+[MBG](https://mjy.js.org/mbg.mp4)
 
 ---
 SharePoint上传,共享
