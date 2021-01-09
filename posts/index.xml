@@ -4,7 +4,14 @@
         <link>https://mjy.js.org/posts/</link>
         <description>所有文章 | MaJianyu&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>mjy20070413@gmail.com (majianyu)</managingEditor>
-            <webMaster>mjy20070413@gmail.com (majianyu)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 01 Jan 2021 13:46:54 &#43;0800</lastBuildDate><atom:link href="https://mjy.js.org/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>mjy20070413@gmail.com (majianyu)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 09 Jan 2021 13:37:54 &#43;0800</lastBuildDate><atom:link href="https://mjy.js.org/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Alwaysdata</title>
+    <link>https://mjy.js.org/alwaysdata/</link>
+    <pubDate>Sat, 09 Jan 2021 13:37:54 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://mjy.js.org/alwaysdata/</guid>
+    <description><![CDATA[介绍 官网 又是一个免费空间，换一种说法，是应用云。 终身免费，无广告，100MB（有点像Gearhost）无限功能。 free-for.dev的介]]></description>
+</item><item>
     <title>Markdown学习笔记</title>
     <link>https://mjy.js.org/markdown/</link>
     <pubDate>Fri, 01 Jan 2021 13:46:54 &#43;0800</pubDate>
@@ -67,12 +74,5 @@
     <author>作者</author>
     <guid>https://mjy.js.org/usage-of-structure-block-in-minecraft-pe/</guid>
     <description><![CDATA[写在前面：看到我写游戏，是不是感到非常惊讶？是否有很多问号？其实我从2013年接触我的世界，最早玩0.10.5版本，接触了多玩我的世界盒子和]]></description>
-</item><item>
-    <title>How to Turn WordPress Into a Black and White Two Color Style to Show Condolences</title>
-    <link>https://mjy.js.org/how-to-turn-wordpress-into-a-black-and-white-two-color-style-to-show-condolences/</link>
-    <pubDate>Fri, 20 Nov 2020 22:33:18 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://mjy.js.org/how-to-turn-wordpress-into-a-black-and-white-two-color-style-to-show-condolences/</guid>
-    <description><![CDATA[2020年4月4日，是一个黑白的日子。作为一个站长，我们也应该把自己的网站变成黑白（非强制），利用简单的CSS即可 1、这个方法不只可以用于W]]></description>
 </item></channel>
 </rss>
