@@ -1,7 +1,8 @@
 ## 这是mjy.js.org的网站更新日志 ##
 
 changelogs
-
+# 2021/2/9 #
+移除cnzz统计代码，原因：国外加载太慢
 # 2021/1/8 #
 加入了instant.page
 
