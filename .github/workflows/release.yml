@@ -13,9 +13,9 @@ jobs:
     uses: actions/create-release@latest
     env:
      GITHUB_TOKEN: ${{ secrets.DRAFTER_TOKEN }}
-	with:
-    tag_name: $date
-    release_name: $date
-    body: $date 的release
-    draft: false
-    prerelease: false
+    with:
+     tag_name: $date
+     release_name: $date
+     body: $date 的release
+     draft: false
+     prerelease: false
