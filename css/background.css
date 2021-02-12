@@ -7,35 +7,3 @@ video{
             height: auto;  
             width: auto;  
             z-index:-11
-
-        *{
-
-            padding: 0;
-
-            margin: 0;
-
-        }
-
- 
-
-        header{
-
-            padding: 50px;
-
-        }
-
- 
-
-        .header{
-
-            padding: 25px;
-
-            background-color: rgba(0,0,0,0.5);/* IE9、标准浏览器、IE6和部分IE7内核的浏览器(如QQ浏览器)会读懂 */
-
-        }
-
-        .header p{
-
-            color: #FFFFFF;
-
-        }
