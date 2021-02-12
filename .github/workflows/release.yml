@@ -17,8 +17,8 @@ jobs:
       env:
        GITHUB_TOKEN: ${{ secrets.DRAFTER_TOKEN }}
       with:
-       tag_name: ${{ date }}
-       release_name: ${{ date }}
-       body: ${{ date }}的release
+       tag_name: release
+       release_name: release
+       body: Today的release
        draft: false
        prerelease: false
