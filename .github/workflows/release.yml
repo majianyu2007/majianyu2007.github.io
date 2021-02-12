@@ -8,7 +8,7 @@ on:
       - master
 
 jobs:
-    name: Release
+ - name: Release
     id: create_release
     uses: actions/create-release@latest
     env:
