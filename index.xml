@@ -1,0 +1,80 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>MaJianyu&#39;s Blog</title>
+        <link>https://mjy.js.org/</link>
+        <description>MaJianyu&#39;s Blog -- My Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>mjy20070413@gmail.com (majianyu)</managingEditor>
+            <webMaster>mjy20070413@gmail.com (majianyu)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 18 Feb 2021 12:52:10 &#43;0800</lastBuildDate>
+            <atom:link href="https://mjy.js.org/index.xml" rel="self" type="application/rss+xml" />
+        <item>
+    <title>安装Minecraft</title>
+    <link>https://mjy.js.org/install-mc/</link>
+    <pubDate>Thu, 18 Feb 2021 12:52:10 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://mjy.js.org/install-mc/</guid>
+    <description><![CDATA[前言 本页可以教你在Android（安卓）和ios（苹果）上安装Minecraft。不定期更新。 安卓 正版 去https://play.googl]]></description>
+</item><item>
+    <title>中华人民共和国民法典</title>
+    <link>https://mjy.js.org/civil-code-of-the-people-s-republic-of-china/</link>
+    <pubDate>Fri, 12 Feb 2021 20:15:19 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://mjy.js.org/civil-code-of-the-people-s-republic-of-china/</guid>
+    <description><![CDATA[中华人民共和国主席令 第四十五号 《中华人民共和国民法典》已由中华人民共和国第十三届全国人民代表 大会第三次会议于 2020 年 5 月 28 日通过,现予公布,自 2021]]></description>
+</item><item>
+    <title>Alwaysdata</title>
+    <link>https://mjy.js.org/alwaysdata/</link>
+    <pubDate>Sat, 09 Jan 2021 13:37:54 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://mjy.js.org/alwaysdata/</guid>
+    <description><![CDATA[介绍 官网 又是一个免费空间，换一种说法，是应用云。 终身免费，无广告，100MB（有点像Gearhost）无限功能。 free-for.dev的介]]></description>
+</item><item>
+    <title>Markdown学习笔记</title>
+    <link>https://mjy.js.org/markdown/</link>
+    <pubDate>Fri, 01 Jan 2021 13:46:54 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://mjy.js.org/markdown/</guid>
+    <description><![CDATA[后缀 .md .markdown .MD .MARKDOWN 标头 1 2 3 4 5 # h1标头 ## h2标头 ### h3标头 ...... ###### h6标头 h1标头 h2标头 h3标头 &hellip;&hellip; h6标头 H后数越大，字体越小 重点 1 2 3 4 5 6 7]]></description>
+</item><item>
+    <title>End 2020</title>
+    <link>https://mjy.js.org/end-2020/</link>
+    <pubDate>Thu, 31 Dec 2020 20:37:19 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://mjy.js.org/end-2020/</guid>
+    <description><![CDATA[2020年结束了，2021年正向我们走来。 总结 2020，一年里，接触了web等技术，搞坏了手中的RspberryPi 3B+，不过我利用它学习]]></description>
+</item><item>
+    <title>Gearhost</title>
+    <link>https://mjy.js.org/gearhost/</link>
+    <pubDate>Sat, 26 Dec 2020 18:28:45 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://mjy.js.org/gearhost/</guid>
+    <description><![CDATA[介绍 GearHost是一家国外主机提供商，支持.NET,PHP,Node.js。 提供100M免费空间。 免费空间介绍： Ideal for experimenting with .NET and PHP cloud applications in a limited]]></description>
+</item><item>
+    <title>NAT64 for IPV6 Only VPS</title>
+    <link>https://mjy.js.org/nat64/</link>
+    <pubDate>Sat, 12 Dec 2020 20:54:39 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://mjy.js.org/nat64/</guid>
+    <description><![CDATA[有些服务商提供仅IPV6的VPS，但是像Github这类的就没有ipv6，所以我们可以借助公共NAT64 trex.fi 1 echo -e &#34;nameserver 2001:67c:2b0::4\nnameserver 2001:67c:2b0::6&#34; &gt; /etc/resolv.conf 复制到终端即可。 官]]></description>
+</item><item>
+    <title>Docker on LXC</title>
+    <link>https://mjy.js.org/docker-on-lxc/</link>
+    <pubDate>Sun, 29 Nov 2020 08:20:19 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://mjy.js.org/docker-on-lxc/</guid>
+    <description><![CDATA[众所周知，lxc容器启动不了docker。而openVZ需要主机提供商修改某些配置文件。 这台机器由Euserv提供，是免费的，配置是1h1g]]></description>
+</item><item>
+    <title>SSH light video</title>
+    <link>https://mjy.js.org/ssh-light-video/</link>
+    <pubDate>Sat, 28 Nov 2020 19:08:19 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://mjy.js.org/ssh-light-video/</guid>
+    <description><![CDATA[录制SSH轻视频 安装asciinema 1 apt-get install asciinema 开始录制 1 asciinema rec xxx.cast 录制结束：Ctrl + D]]></description>
+</item><item>
+    <title>js.org free domain</title>
+    <link>https://mjy.js.org/js-org-free-domain/</link>
+    <pubDate>Sat, 28 Nov 2020 18:12:19 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://mjy.js.org/js-org-free-domain/</guid>
+    <description><![CDATA[了解 官方链接 需求 1.一个托管在Github Pages上的Site。必须要有内容，不能草草一个html了事； 2.一台电脑； 3.一个Github]]></description>
+</item></channel>
+</rss>

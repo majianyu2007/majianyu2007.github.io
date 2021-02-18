@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>js.org - 标签 - MaJianyu&#39;s Blog</title>
+        <link>https://mjy.js.org/tags/js.org/</link>
+        <description>js.org - 标签 - MaJianyu&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>mjy20070413@gmail.com (majianyu)</managingEditor>
+            <webMaster>mjy20070413@gmail.com (majianyu)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 28 Nov 2020 18:12:19 &#43;0800</lastBuildDate><atom:link href="https://mjy.js.org/tags/js.org/" rel="self" type="application/rss+xml" /><item>
+    <title>js.org free domain</title>
+    <link>https://mjy.js.org/js-org-free-domain/</link>
+    <pubDate>Sat, 28 Nov 2020 18:12:19 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://mjy.js.org/js-org-free-domain/</guid>
+    <description><![CDATA[了解 官方链接 需求 1.一个托管在Github Pages上的Site。必须要有内容，不能草草一个html了事； 2.一台电脑； 3.一个Github]]></description>
+</item></channel>
+</rss>
