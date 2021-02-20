@@ -1,22 +1,22 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>ubuntu - 标签 - MaJianyu&#39;s Blog</title>
-        <link>https://mjy.js.org/tags/ubuntu/</link>
+        <link>../../tags/ubuntu/</link>
         <description>ubuntu - 标签 - MaJianyu&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>mjy20070413@gmail.com (majianyu)</managingEditor>
-            <webMaster>mjy20070413@gmail.com (majianyu)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 29 Nov 2020 08:20:19 &#43;0800</lastBuildDate><atom:link href="https://mjy.js.org/tags/ubuntu/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>mjy20070413@gmail.com (majianyu)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 29 Nov 2020 08:20:19 &#43;0800</lastBuildDate><atom:link href="../../tags/ubuntu/" rel="self" type="application/rss+xml" /><item>
     <title>Docker on LXC</title>
-    <link>https://mjy.js.org/docker-on-lxc/</link>
+    <link>../../docker-on-lxc/</link>
     <pubDate>Sun, 29 Nov 2020 08:20:19 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>https://mjy.js.org/docker-on-lxc/</guid>
+    <guid>../../docker-on-lxc/</guid>
     <description><![CDATA[众所周知，lxc容器启动不了docker。而openVZ需要主机提供商修改某些配置文件。 这台机器由Euserv提供，是免费的，配置是1h1g]]></description>
 </item><item>
     <title>SSH light video</title>
-    <link>https://mjy.js.org/ssh-light-video/</link>
+    <link>../../ssh-light-video/</link>
     <pubDate>Sat, 28 Nov 2020 19:08:19 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>https://mjy.js.org/ssh-light-video/</guid>
+    <guid>../../ssh-light-video/</guid>
     <description><![CDATA[录制SSH轻视频 安装asciinema 1 apt-get install asciinema 开始录制 1 asciinema rec xxx.cast 录制结束：Ctrl + D]]></description>
 </item></channel>
 </rss>

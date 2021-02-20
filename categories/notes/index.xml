@@ -1,36 +1,36 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>notes - 分类 - MaJianyu&#39;s Blog</title>
-        <link>https://mjy.js.org/categories/notes/</link>
+        <link>../../categories/notes/</link>
         <description>notes - 分类 - MaJianyu&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>mjy20070413@gmail.com (majianyu)</managingEditor>
-            <webMaster>mjy20070413@gmail.com (majianyu)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 12 Feb 2021 20:15:19 &#43;0800</lastBuildDate><atom:link href="https://mjy.js.org/categories/notes/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>mjy20070413@gmail.com (majianyu)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 12 Feb 2021 20:15:19 &#43;0800</lastBuildDate><atom:link href="../../categories/notes/" rel="self" type="application/rss+xml" /><item>
     <title>中华人民共和国民法典</title>
-    <link>https://mjy.js.org/civil-code-of-the-people-s-republic-of-china/</link>
+    <link>../../civil-code-of-the-people-s-republic-of-china/</link>
     <pubDate>Fri, 12 Feb 2021 20:15:19 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>https://mjy.js.org/civil-code-of-the-people-s-republic-of-china/</guid>
+    <guid>../../civil-code-of-the-people-s-republic-of-china/</guid>
     <description><![CDATA[中华人民共和国主席令 第四十五号 《中华人民共和国民法典》已由中华人民共和国第十三届全国人民代表 大会第三次会议于 2020 年 5 月 28 日通过,现予公布,自 2021]]></description>
 </item><item>
     <title>Markdown学习笔记</title>
-    <link>https://mjy.js.org/markdown/</link>
+    <link>../../markdown/</link>
     <pubDate>Fri, 01 Jan 2021 13:46:54 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>https://mjy.js.org/markdown/</guid>
+    <guid>../../markdown/</guid>
     <description><![CDATA[后缀 .md .markdown .MD .MARKDOWN 标头 1 2 3 4 5 # h1标头 ## h2标头 ### h3标头 ...... ###### h6标头 h1标头 h2标头 h3标头 &hellip;&hellip; h6标头 H后数越大，字体越小 重点 1 2 3 4 5 6 7]]></description>
 </item><item>
     <title>End 2020</title>
-    <link>https://mjy.js.org/end-2020/</link>
+    <link>../../end-2020/</link>
     <pubDate>Thu, 31 Dec 2020 20:37:19 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>https://mjy.js.org/end-2020/</guid>
+    <guid>../../end-2020/</guid>
     <description><![CDATA[2020年结束了，2021年正向我们走来。 总结 2020，一年里，接触了web等技术，搞坏了手中的RspberryPi 3B+，不过我利用它学习]]></description>
 </item><item>
     <title>Awe the White Angel</title>
-    <link>https://mjy.js.org/awe-the-white-angel/</link>
+    <link>../../awe-the-white-angel/</link>
     <pubDate>Wed, 04 Nov 2020 12:15:21 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>https://mjy.js.org/awe-the-white-angel/</guid>
+    <guid>../../awe-the-white-angel/</guid>
     <description><![CDATA[这个春节，家家户户因为新型冠状病毒而闭门不出。可有这么一群人，为了“制服”病毒而投身于工作之中，他们就是值得敬畏的白衣天使们。 钟南山院士，1]]></description>
 </item></channel>
 </rss>
