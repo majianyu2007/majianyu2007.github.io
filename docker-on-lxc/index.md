@@ -6,7 +6,7 @@
 
 这台机器由[Euserv](https://euserv.com/)提供，是免费的，配置是1h1g，在2020.04.16订(bai)购(piao)。
 
-![dockeronlxc1](/images/dockeronlxc1.png)
+![dockeronlxc1](https://cdn.jsdelivr.net/gh/majianyu2007/majianyu2007.github.io@master/images/dockeronlxc1.png)
 
 闲着也是闲着，硬盘这么小(仅仅10GB)建个站就满了。于是想变着花样去玩。
 

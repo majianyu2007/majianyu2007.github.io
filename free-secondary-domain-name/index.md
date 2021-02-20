@@ -47,7 +47,7 @@ TG，方法
 
 发送手机，同意协议，然后就行了
 
-![webp](/28362c5c3c15be0e16038bf0397ad51fd064a468_2570.jpg.webp)![webp](/0546859329ceb129869ccf1f7b70852117d7e63e_2570.jpg.webp)![webp](/e0a24bf767d891006b22a843f6da242a3bb7f649_2570.jpg.webp)![webp](/7ac58af942a15ff5f27633d62ed3d1750ae958ba_2570.jpg.webp)
+![webp](https://cdn.jsdelivr.net/gh/majianyu2007/majianyu2007.github.io@master/28362c5c3c15be0e16038bf0397ad51fd064a468_2570.jpg.webp)![webp](https://cdn.jsdelivr.net/gh/majianyu2007/majianyu2007.github.io@master/0546859329ceb129869ccf1f7b70852117d7e63e_2570.jpg.webp)![webp](https://cdn.jsdelivr.net/gh/majianyu2007/majianyu2007.github.io@master/e0a24bf767d891006b22a843f6da242a3bb7f649_2570.jpg.webp)![webp](https://cdn.jsdelivr.net/gh/majianyu2007/majianyu2007.github.io@master/7ac58af942a15ff5f27633d62ed3d1750ae958ba_2570.jpg.webp)
 
 
 

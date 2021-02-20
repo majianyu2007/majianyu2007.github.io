@@ -5,7 +5,7 @@
 
 - 安装asciinema
 ```shell
-apt-get install asciinema
+sudo apt-get install asciinema
 ```
 
 - 开始录制
