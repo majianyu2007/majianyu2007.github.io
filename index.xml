@@ -4,9 +4,16 @@
         <link>../../</link>
         <description>MaJianyu&#39;s Blog -- My Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>mjy20070413@gmail.com (majianyu)</managingEditor>
-            <webMaster>mjy20070413@gmail.com (majianyu)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 18 Feb 2021 12:52:10 &#43;0800</lastBuildDate>
+            <webMaster>mjy20070413@gmail.com (majianyu)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 13 Jun 2021 10:55:45 &#43;0800</lastBuildDate>
             <atom:link href="../../index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>保尔·柯察金人物关系课件</title>
+    <link>../../baoer/</link>
+    <pubDate>Sun, 13 Jun 2021 10:55:45 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>../../baoer/</guid>
+    <description><![CDATA[原创，纯手做，大部分摘自百度百科。 下载地址（戳这）]]></description>
+</item><item>
     <title>安装Minecraft</title>
     <link>../../install-mc/</link>
     <pubDate>Thu, 18 Feb 2021 12:52:10 &#43;0800</pubDate>
@@ -69,12 +76,5 @@
     <author>作者</author>
     <guid>../../ssh-light-video/</guid>
     <description><![CDATA[录制SSH轻视频 安装asciinema 1 sudo apt-get install asciinema 开始录制 1 asciinema rec xxx.cast 录制结束：Ctrl + D]]></description>
-</item><item>
-    <title>保尔·柯察金人物关系课件</title>
-    <link>../../baoer/</link>
-    <pubDate>Sat, 28 Nov 2020 19:08:19 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>../../baoer/</guid>
-    <description><![CDATA[原创，纯手做，大部分摘自百度百科。 下载地址（戳这）]]></description>
 </item></channel>
 </rss>
