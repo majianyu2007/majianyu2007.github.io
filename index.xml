@@ -70,11 +70,11 @@
     <guid>../../ssh-light-video/</guid>
     <description><![CDATA[录制SSH轻视频 安装asciinema 1 sudo apt-get install asciinema 开始录制 1 asciinema rec xxx.cast 录制结束：Ctrl + D]]></description>
 </item><item>
-    <title>js.org free domain</title>
-    <link>../../js-org-free-domain/</link>
-    <pubDate>Sat, 28 Nov 2020 18:12:19 &#43;0800</pubDate>
+    <title>保尔·柯察金人物关系课件</title>
+    <link>../../baoer/</link>
+    <pubDate>Sat, 28 Nov 2020 19:08:19 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>../../js-org-free-domain/</guid>
-    <description><![CDATA[了解 官方链接 需求 1.一个托管在Github Pages上的Site。必须要有内容，不能草草一个html了事； 2.一台电脑； 3.一个Github]]></description>
+    <guid>../../baoer/</guid>
+    <description><![CDATA[原创，纯手做，大部分摘自百度百科。 下载地址（戳这）]]></description>
 </item></channel>
 </rss>
