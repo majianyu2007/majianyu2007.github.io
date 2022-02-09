@@ -1,0 +1,22 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>ios - 标签 - MaJianyu&#39;s Blog</title>
+        <link>mjy.js.org/tags/ios/</link>
+        <description>ios - 标签 - MaJianyu&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>mjy20070413@gmail.com (majianyu)</managingEditor>
+            <webMaster>mjy20070413@gmail.com (majianyu)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 18 Feb 2021 12:52:10 &#43;0800</lastBuildDate><atom:link href="mjy.js.org/tags/ios/" rel="self" type="application/rss+xml" /><item>
+    <title>安装Minecraft</title>
+    <link>mjy.js.org/install-mc/</link>
+    <pubDate>Thu, 18 Feb 2021 12:52:10 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>mjy.js.org/install-mc/</guid>
+    <description><![CDATA[前言 本页可以教你在Android（安卓）和ios（苹果）上安装Minecraft。不定期更新。 安卓 正版 去https://play.googl]]></description>
+</item><item>
+    <title>UTM Virtual Machine</title>
+    <link>mjy.js.org/utm-virtual-machine/</link>
+    <pubDate>Thu, 12 Nov 2020 18:25:16 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>mjy.js.org/utm-virtual-machine/</guid>
+    <description><![CDATA[写在前面：手里有台iPhone7，不知干什么好，没有Android的可玩性，即使Android不root，也会有像termux的容器。9-1]]></description>
+</item></channel>
+</rss>
