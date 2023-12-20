@@ -1,0 +1,62 @@
+<!DOCTYPE html><html lang="zh-CN" theme-mode="dark"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>js.org free domain | MaJianyuのBlog</title><link rel="icon" type="image/x-icon" href="/favicon.ico"><script>var config = {"root":"/","search":{"preload":false,"activeHolder":"Enter here","blurHolder":"Search","noResult":"Data \"$0\" not found"},"code":{"codeInfo":"$0 - $1 lines","copy":"code.copy","copyFinish":"code.copyFinish","expand":"code.expand"}}</script><script src="//unpkg.com/valine/dist/Valine.min.js"></script><script src="//unpkg.com/mermaid@9.2.2/dist/mermaid.min.js"></script><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lightgallery.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-zoom.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-thumbnail.css"><link type="text/css" rel="stylesheet" href="/lib/fontawesome/css/all.min.css"><link rel="stylesheet" href="/css/arknights.css"><script>if (window.localStorage.getItem('theme-mode') === 'light')
+ document.documentElement.setAttribute('theme-mode', 'light')
+if (window.localStorage.getItem('theme-mode') === 'dark')
+ document.documentElement.setAttribute('theme-mode', 'dark')</script><style>@font-face {
+ font-family: Bender;
+ src: local('Bender'), url("/font/Bender.ttf"), url("/font/Bender.otf");
+}
+@font-face {
+ font-family: BenderLight;
+ src: local('BenderLight'), url("/font/BenderLight.ttf");
+}
+@font-face {
+ font-family: 'JetBrains Mono';
+ src: local('JetBrains Mono'), url('/font/JetBrainsMono-Regular.woff2') format('woff2');
+}</style><style>:root {
+  --dark-background: url('https://ak.hypergryph.com/assets/index/images/ak/pc/bk.jpg');
+  --light-background: url('/img/bk.jpg');
+}</style><meta name="generator" content="Hexo 6.3.0"></head><body><div class="loading" style="opacity: 0;"><div class="loadingBar left"></div><div class="loadingBar right"></div></div><main><header class="closed"><div class="navBtn"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><nav><div class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Search" spellcheck="false" maxlength="50" type="text" id="search-input"></span></div><div class="navItem" id="search-holder"></div><div class="search-popup"><div id="search-result"></div></div><ol class="navContent"><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li><li class="navItem"><a class="navBlock" href="/about/"><span class="navItemTitle">About</span></a></li><li class="navItem"><a class="navBlock" href="/resources/"><span class="navItemTitle">Resources</span></a></li></ol></nav></header><article><div id="post-bg"><div id="post-title"><h1>js.org free domain</h1><div id="post-info"><span>First Post: <div class="control"><time datetime="2020-11-28T02:12:19.000Z" id="date"> 2020-11-28</time></div></span><br><span>Last Update: <div class="control"><time datetime="2023-12-20T05:42:49.549Z" id="updated"> 2023-12-20</time></div></span><br><span>Word Count: <div class="control">324</div></span><br><span>Read Time: <div class="control">1 min</div></span></div></div><hr><div id="post-content"><h2 id="了解"><a href="#了解" class="headerlink" title="了解"></a>了解</h2><p><a href="js.org">官方链接</a></p>
+<h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>1.一个托管在Github Pages上的Site。必须<strong>要有内容</strong>，不能草草一个html了事；</p>
+<p>2.一台电脑；</p>
+<p>3.一个Github账号；</p>
+<p>4.明白PR的方法。</p>
+<p>5.:boom::boom::boom:<br><em><strong>Due to the increased number of requests for js.org subdomains recently, with many having questionable relevancy to the JavaScript community and ecosystem, we’ve decided that going forward js.org will be focusing on accepting subdomain requests from projects with a clear relation to the JS community.</strong></em></p>
+<p><em><strong>As some examples, personal pages, blogs, and Discord bot pages will no longer be accepted. Projects such as NPM packages, libraries, tools that have a clear direct relation to JavaScript, will be accepted when requesting a JS.ORG subdomain. This decision does not affect subdomains that have already been granted.</strong></em><br>:boom::boom::boom:</p>
+<p>意思是你的申请必须关于js，npm。提高了门槛。</p>
+<h2 id="详细步骤"><a href="#详细步骤" class="headerlink" title="详细步骤"></a>详细步骤</h2><p>打开js.org官方仓库。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/js-org/js.org">直达链接</a></p>
+<p>点击Fork</p>
+<p>修改cnames_active.js。</p>
+<p>最好按照字母顺序，不按照也没有关系</p>
+<p>插入如下</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-string">&quot;你想要申请的前缀&quot;</span>: <span class="hljs-string">&quot;你的仓库URL&quot;</span>,<br></code></pre></td></tr></table></figure>
+<p>保存<br>打开你的仓库，确保Pages环境存在，添加CNAME文件，内容为</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs CNAME">你的前缀.js.org<br></code></pre></td></tr></table></figure>
+
+<p>点击仓库上方的Pull requests，点击绿色的“New pull request”</p>
+<p>标题<strong>不要</strong>为Update cnames_active.js<br>改成“你的前缀.js.org”<br>其他的不用管，直接提交即可。</p>
+<p>坐等成功</p>
+<p>我的已经成功了，见<br><a target="_blank" rel="noopener" href="https://github.com/js-org/js.org/pull/5039">#5039</a></p>
+<p><a href="https://mjy.js.org/">Blog</a></p>
+<div id="paginator"></div></div><div id="post-footer"><div id="pages"><div class="footer-link" style="width: 50%;text-align:right;border-right:1px #fe2 solid"><a href="/2020/11/28/ssh-light-video/">← Next SSH light video</a></div><div class="footer-link" style="width: 50%;right:1px;border-left:1px #fe2 solid"><a href="/2020/11/21/Free-secondary-domain-name/">Free secondary domain name Prev →</a></div></div></div><details id="reward"><summary>reward</summary><div><span>支付宝 | Alipay</span><br><img src="/img/Alipay.png"></div><div><span>微信 | Wechat</span><br><img src="/img/WeChat.png"></div></details><div id="comments"><div id="valine"></div></div></div><div class="bottom-btn"><div><a class="i-top" id="to-top" onClick="scrolls.scrolltop();" title="To Top" style="opacity: 0; display: none;">∧ </a><a class="i-index" id="to-index" href="#toc-div" title="To Catalog">≡</a><a class="i-color" id="color-mode" onClick="colorMode.change()" title="Change Theme"></a></div></div></article><aside><div id="about"><a href="/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo"></a><h1 id="Dr"><a href="/">MaJianyu</a></h1><div id="description"><p>Blog</p></div><div id="social-links"><a class="social" target="_blank" rel="noopener" href="https://github.com/majianyu2007"><i class="fab fa-github" alt="GitHub"></i></a><a class="social" href="mailto:mjy20070413@gmail.com"><i class="fa fa-envelope" alt="E-Mail"></i></a><a class="social" target="_blank" rel="noopener" href="https://space.bilibili.com/600064036"><i class="fa-brands fa-bilibili" alt="BiliBili"></i></a><a class="social" target="_blank" rel="noopener" href="https://weibo.com/6355323915"><i class="fab fa-weibo" alt="Weibo"></i></a><a class="social" target="_blank" rel="noopener" href="https://www.zhihu.com/people/majianyu"><i class="fab fa-zhihu" alt="Zhihu"></i></a></div></div><div id="aside-block"><div id="toc-div"><h1>Catalog</h1><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%86%E8%A7%A3"><span class="toc-number">1.</span> <span class="toc-text">了解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9C%80%E6%B1%82"><span class="toc-number">2.</span> <span class="toc-text">需求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4"><span class="toc-number">3.</span> <span class="toc-text">详细步骤</span></a></li></ol></div></div><footer><nobr></nobr><a href="https://icp.gov.moe/?keyword=20216556" target="_blank">萌ICP备20216556号</a><wbr><nobr>Published with <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> Theme <a target="_blank" rel="noopener" href="https://github.com/Yue-plus/hexo-theme-arknights">Arknights</a></nobr><wbr><nobr> by <a target="_blank" rel="noopener" href="https://github.com/Yue-plus">Yue_plus</a></nobr></footer></aside></main><canvas id="canvas-dust"></canvas><script src="/js/search.js"></script><script src="/js/arknights.js"></script><script src="//unpkg.com/lightgallery@2.7.1/lightgallery.min.js"></script><script src="//unpkg.com/lightgallery@2.7.1/plugins/zoom/lg-zoom.min.js"></script><script src="//unpkg.com/lightgallery@2.7.1/plugins/thumbnail/lg-thumbnail.min.js"></script><script src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9101785228583606" crossorigin="anonymous"></script><script src="/js/pjax.js"></script><script class="pjax-js">reset= () => {new Valine({
+ el: '#valine'
+ , appId: 'TqguUooxk9DlzIsrooNDLs8E-gzGzoHsz'
+ , appKey: '1mPdCyykHneI4TGAvXtU9P31', serverURLs: 'https://tqguuoox.lc-cn-n1-shared.com' , placeholder: 'This comment is sent by Penguin Logistics.'
+ , path: window.location.pathname
+});document.querySelector('.lg-container')?.remove()
+lightGallery(document.getElementById('post-bg'), {
+  plugins: [lgZoom,lgThumbnail],
+  selector: '.item-img'})}</script><script>window.addEventListener("load",() => {pjax = new Pjax({
+ cacheBust: false,
+ selectors: ['title','article','#aside-block','.pjax-js'],
+ switches: {'article': Pjax.switches.sideBySide},
+ switchesOptions: {
+   'article': {
+     classNames: {
+       remove: "pjax-out",
+       add: "pjax-in"
+     }
+   }
+ }
+});
+document.addEventListener("pjax:complete", reset);reset()})</script></body></html>

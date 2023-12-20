@@ -1,0 +1,127 @@
+<!DOCTYPE html><html lang="zh-CN" theme-mode="dark"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Markdown学习笔记 | MaJianyuのBlog</title><link rel="icon" type="image/x-icon" href="/favicon.ico"><script>var config = {"root":"/","search":{"preload":false,"activeHolder":"Enter here","blurHolder":"Search","noResult":"Data \"$0\" not found"},"code":{"codeInfo":"$0 - $1 lines","copy":"code.copy","copyFinish":"code.copyFinish","expand":"code.expand"}}</script><script src="//unpkg.com/valine/dist/Valine.min.js"></script><script src="//unpkg.com/mermaid@9.2.2/dist/mermaid.min.js"></script><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lightgallery.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-zoom.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-thumbnail.css"><link type="text/css" rel="stylesheet" href="/lib/fontawesome/css/all.min.css"><link rel="stylesheet" href="/css/arknights.css"><script>if (window.localStorage.getItem('theme-mode') === 'light')
+ document.documentElement.setAttribute('theme-mode', 'light')
+if (window.localStorage.getItem('theme-mode') === 'dark')
+ document.documentElement.setAttribute('theme-mode', 'dark')</script><style>@font-face {
+ font-family: Bender;
+ src: local('Bender'), url("/font/Bender.ttf"), url("/font/Bender.otf");
+}
+@font-face {
+ font-family: BenderLight;
+ src: local('BenderLight'), url("/font/BenderLight.ttf");
+}
+@font-face {
+ font-family: 'JetBrains Mono';
+ src: local('JetBrains Mono'), url('/font/JetBrainsMono-Regular.woff2') format('woff2');
+}</style><style>:root {
+  --dark-background: url('https://ak.hypergryph.com/assets/index/images/ak/pc/bk.jpg');
+  --light-background: url('/img/bk.jpg');
+}</style><meta name="generator" content="Hexo 6.3.0"></head><body><div class="loading" style="opacity: 0;"><div class="loadingBar left"></div><div class="loadingBar right"></div></div><main><header class="closed"><div class="navBtn"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><nav><div class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Search" spellcheck="false" maxlength="50" type="text" id="search-input"></span></div><div class="navItem" id="search-holder"></div><div class="search-popup"><div id="search-result"></div></div><ol class="navContent"><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li><li class="navItem"><a class="navBlock" href="/about/"><span class="navItemTitle">About</span></a></li><li class="navItem"><a class="navBlock" href="/resources/"><span class="navItemTitle">Resources</span></a></li></ol></nav></header><article><div id="post-bg"><div id="post-title"><h1>Markdown学习笔记</h1><div id="post-info"><span>First Post: <div class="control"><time datetime="2020-12-31T21:46:54.000Z" id="date"> 2021-01-01</time></div></span><br><span>Last Update: <div class="control"><time datetime="2023-12-20T05:42:49.545Z" id="updated"> 2023-12-20</time></div></span><br><span>Word Count: <div class="control">362</div></span><br><span>Read Time: <div class="control">1 min</div></span></div></div><hr><div id="post-content"><h2 id="后缀"><a href="#后缀" class="headerlink" title="后缀"></a>后缀</h2><p>.md</p>
+<p>.markdown</p>
+<p>.MD</p>
+<p>.MARKDOWN</p>
+<h2 id="标头"><a href="#标头" class="headerlink" title="标头"></a>标头</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># h1标头</span><br><span class="hljs-section">## h2标头</span><br><span class="hljs-section">### h3标头</span><br>......<br><span class="hljs-section">###### h6标头</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="h1标头"><a href="#h1标头" class="headerlink" title="h1标头"></a>h1标头</h1><h2 id="h2标头"><a href="#h2标头" class="headerlink" title="h2标头"></a>h2标头</h2><h3 id="h3标头"><a href="#h3标头" class="headerlink" title="h3标头"></a>h3标头</h3><p>……</p>
+<h6 id="h6标头"><a href="#h6标头" class="headerlink" title="h6标头"></a>h6标头</h6><p>H后数越大，字体越小</p>
+<h2 id="重点"><a href="#重点" class="headerlink" title="重点"></a>重点</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-emphasis">*要斜体的文字*</span><br><br><span class="hljs-strong">**要加黑的文字**</span><br><br><span class="hljs-emphasis">_要斜体的文字_</span><br><br><span class="hljs-strong">__要加黑的文字__</span><br><br></code></pre></td></tr></table></figure>
+
+<p><em>要斜体的文字</em></p>
+<p><strong>要加黑的文字</strong></p>
+<p><em>要斜体的文字</em></p>
+<p><strong>要加黑的文字</strong></p>
+<h2 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h2><h3 id="无序"><a href="#无序" class="headerlink" title="无序"></a>无序</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-bullet">*</span> 1<br><span class="hljs-bullet">*</span> 2<br><span class="hljs-bullet">*</span> 3<br><span class="hljs-bullet">*</span> 4<br><span class="hljs-bullet">*</span> 5<br><span class="hljs-bullet"> *</span> 1<br><span class="hljs-bullet"> *</span> 2<br><span class="hljs-bullet"> *</span> 3<br><span class="hljs-bullet"> *</span> 4<br><span class="hljs-bullet"> *</span> 5<br></code></pre></td></tr></table></figure>
+
+
+<ul>
+<li>1</li>
+<li>2</li>
+<li>3</li>
+<li>4</li>
+<li>5</li>
+<li>1</li>
+<li>2</li>
+<li>3</li>
+<li>4</li>
+<li>5</li>
+</ul>
+<p>在此博客上空格加“*”是同样的效果。</p>
+<h3 id="有序"><a href="#有序" class="headerlink" title="有序"></a>有序</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-bullet">1.</span> 1<br><span class="hljs-bullet">2.</span> 2<br><span class="hljs-bullet">3.</span> 3<br><span class="hljs-bullet">4.</span> 4<br><span class="hljs-bullet">5.</span> 5<br></code></pre></td></tr></table></figure>
+<ol>
+<li>1</li>
+<li>2</li>
+<li>3</li>
+<li>4</li>
+<li>5</li>
+</ol>
+<p>使用一个回车后会自动补充</p>
+<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p>###图片</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs markdown">![<span class="hljs-string">图片描述</span>](<span class="hljs-link">图片位置</span>)<br></code></pre></td></tr></table></figure>
+<p class='item-img' data-src='/logo.png'><img src="/logo.png" alt="Logo"></p>
+<h3 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs markdown">[<span class="hljs-string">链接描述</span>](<span class="hljs-link">链接</span>)<br></code></pre></td></tr></table></figure>
+
+<p><a href="https://mjy.js.org/">Blog</a></p>
+<h3 id="块引用"><a href="#块引用" class="headerlink" title="块引用"></a>块引用</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs markdown">As Kanye West said:<br><br><span class="hljs-quote">&gt; We&#x27;re living the future so</span><br><span class="hljs-quote">&gt; the present is our past.</span><br></code></pre></td></tr></table></figure>
+
+<p>As Kanye West said:</p>
+<blockquote>
+<p>We’re living the future so<br>the present is our past.</p>
+</blockquote>
+<h3 id="内联代码"><a href="#内联代码" class="headerlink" title="内联代码"></a>内联代码</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs markdown">I think you should use an<br><span class="hljs-code">`&lt;addr&gt;`</span> element here instead.<br></code></pre></td></tr></table></figure>
+<p>I think you should use an<br><code>&lt;addr&gt;</code> element here instead.</p>
+<h2 id="语法高亮"><a href="#语法高亮" class="headerlink" title="语法高亮"></a>语法高亮</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-code">` `</span> `语言类型<br>code<br><span class="hljs-code">` `</span> `<br>// 中间无空格<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span> <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;Hello world&quot;</span>;<span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure>
+<p>将代码前加上四个空格有同样的效果</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-code">    &lt;?php echo &quot;Hello world&quot;;?&gt;</span><br><span class="hljs-code">四个空格+code</span><br></code></pre></td></tr></table></figure>
+<pre><code>&lt;?php echo &quot;Hello world&quot;;?&gt;
+&lt;?php echo &quot;1&quot;;?&gt;
+&lt;?php echo &quot;2&quot;;?&gt;
+&lt;?php echo &quot;3&quot;;?&gt;
+</code></pre>
+<h2 id="任务清单"><a href="#任务清单" class="headerlink" title="任务清单"></a>任务清单</h2><ul>
+<li><input disabled="" type="checkbox"> 未完成</li>
+<li><input checked="" disabled="" type="checkbox"> 已完成</li>
+</ul>
+<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs markdown">A | B<br>-- | --<br>1 | 2<br>2 | 3<br></code></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>A</th>
+<th>B</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr>
+<td>2</td>
+<td>3</td>
+</tr>
+</tbody></table>
+<h2 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">del</span>&gt;</span></span>Del<span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">del</span>&gt;</span></span><br></code></pre></td></tr></table></figure>
+
+<p><del>Del</del></p>
+<h2 id="表情"><a href="#表情" class="headerlink" title="表情"></a>表情</h2><p><a target="_blank" rel="noopener" href="https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md">URL</a></p>
+<div id="paginator"></div></div><div id="post-footer"><div id="pages"><div class="footer-link" style="width: 50%;text-align:right;border-right:1px #fe2 solid"><a href="/2021/01/08/Alwaysdata/">← Next Alwaysdata</a></div><div class="footer-link" style="width: 50%;right:1px;border-left:1px #fe2 solid"><a href="/2020/12/31/end-2020/">End 2020 Prev →</a></div></div></div><details id="reward"><summary>reward</summary><div><span>支付宝 | Alipay</span><br><img src="/img/Alipay.png"></div><div><span>微信 | Wechat</span><br><img src="/img/WeChat.png"></div></details><div id="comments"><div id="valine"></div></div></div><div class="bottom-btn"><div><a class="i-top" id="to-top" onClick="scrolls.scrolltop();" title="To Top" style="opacity: 0; display: none;">∧ </a><a class="i-index" id="to-index" href="#toc-div" title="To Catalog">≡</a><a class="i-color" id="color-mode" onClick="colorMode.change()" title="Change Theme"></a></div></div></article><aside><div id="about"><a href="/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo"></a><h1 id="Dr"><a href="/">MaJianyu</a></h1><div id="description"><p>Blog</p></div><div id="social-links"><a class="social" target="_blank" rel="noopener" href="https://github.com/majianyu2007"><i class="fab fa-github" alt="GitHub"></i></a><a class="social" href="mailto:mjy20070413@gmail.com"><i class="fa fa-envelope" alt="E-Mail"></i></a><a class="social" target="_blank" rel="noopener" href="https://space.bilibili.com/600064036"><i class="fa-brands fa-bilibili" alt="BiliBili"></i></a><a class="social" target="_blank" rel="noopener" href="https://weibo.com/6355323915"><i class="fab fa-weibo" alt="Weibo"></i></a><a class="social" target="_blank" rel="noopener" href="https://www.zhihu.com/people/majianyu"><i class="fab fa-zhihu" alt="Zhihu"></i></a></div></div><div id="aside-block"><div id="toc-div"><h1>Catalog</h1><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8E%E7%BC%80"><span class="toc-number">1.</span> <span class="toc-text">后缀</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%87%E5%A4%B4"><span class="toc-number">2.</span> <span class="toc-text">标头</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#h1%E6%A0%87%E5%A4%B4"><span class="toc-number"></span> <span class="toc-text">h1标头</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#h2%E6%A0%87%E5%A4%B4"><span class="toc-number">1.</span> <span class="toc-text">h2标头</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#h3%E6%A0%87%E5%A4%B4"><span class="toc-number">1.1.</span> <span class="toc-text">h3标头</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#h6%E6%A0%87%E5%A4%B4"><span class="toc-number">1.1.0.0.1.</span> <span class="toc-text">h6标头</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%8D%E7%82%B9"><span class="toc-number">2.</span> <span class="toc-text">重点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%92%E5%BA%8F"><span class="toc-number">3.</span> <span class="toc-text">排序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%A0%E5%BA%8F"><span class="toc-number">3.1.</span> <span class="toc-text">无序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%89%E5%BA%8F"><span class="toc-number">3.2.</span> <span class="toc-text">有序</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E7%94%A8"><span class="toc-number">4.</span> <span class="toc-text">引用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%93%BE%E6%8E%A5"><span class="toc-number">4.1.</span> <span class="toc-text">链接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9D%97%E5%BC%95%E7%94%A8"><span class="toc-number">4.2.</span> <span class="toc-text">块引用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E8%81%94%E4%BB%A3%E7%A0%81"><span class="toc-number">4.3.</span> <span class="toc-text">内联代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95%E9%AB%98%E4%BA%AE"><span class="toc-number">5.</span> <span class="toc-text">语法高亮</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%BB%E5%8A%A1%E6%B8%85%E5%8D%95"><span class="toc-number">6.</span> <span class="toc-text">任务清单</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A8%E6%A0%BC"><span class="toc-number">7.</span> <span class="toc-text">表格</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E7%BA%BF"><span class="toc-number">8.</span> <span class="toc-text">删除线</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A8%E6%83%85"><span class="toc-number">9.</span> <span class="toc-text">表情</span></a></li></ol></div></div><footer><nobr></nobr><a href="https://icp.gov.moe/?keyword=20216556" target="_blank">萌ICP备20216556号</a><wbr><nobr>Published with <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> Theme <a target="_blank" rel="noopener" href="https://github.com/Yue-plus/hexo-theme-arknights">Arknights</a></nobr><wbr><nobr> by <a target="_blank" rel="noopener" href="https://github.com/Yue-plus">Yue_plus</a></nobr></footer></aside></main><canvas id="canvas-dust"></canvas><script src="/js/search.js"></script><script src="/js/arknights.js"></script><script src="//unpkg.com/lightgallery@2.7.1/lightgallery.min.js"></script><script src="//unpkg.com/lightgallery@2.7.1/plugins/zoom/lg-zoom.min.js"></script><script src="//unpkg.com/lightgallery@2.7.1/plugins/thumbnail/lg-thumbnail.min.js"></script><script src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9101785228583606" crossorigin="anonymous"></script><script src="/js/pjax.js"></script><script class="pjax-js">reset= () => {new Valine({
+ el: '#valine'
+ , appId: 'TqguUooxk9DlzIsrooNDLs8E-gzGzoHsz'
+ , appKey: '1mPdCyykHneI4TGAvXtU9P31', serverURLs: 'https://tqguuoox.lc-cn-n1-shared.com' , placeholder: 'This comment is sent by Penguin Logistics.'
+ , path: window.location.pathname
+});document.querySelector('.lg-container')?.remove()
+lightGallery(document.getElementById('post-bg'), {
+  plugins: [lgZoom,lgThumbnail],
+  selector: '.item-img'})}</script><script>window.addEventListener("load",() => {pjax = new Pjax({
+ cacheBust: false,
+ selectors: ['title','article','#aside-block','.pjax-js'],
+ switches: {'article': Pjax.switches.sideBySide},
+ switchesOptions: {
+   'article': {
+     classNames: {
+       remove: "pjax-out",
+       add: "pjax-in"
+     }
+   }
+ }
+});
+document.addEventListener("pjax:complete", reset);reset()})</script></body></html>

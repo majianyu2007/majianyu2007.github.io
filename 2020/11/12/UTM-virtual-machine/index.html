@@ -1,0 +1,87 @@
+<!DOCTYPE html><html lang="zh-CN" theme-mode="dark"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>UTM Virtual Machine | MaJianyuのBlog</title><link rel="icon" type="image/x-icon" href="/favicon.ico"><script>var config = {"root":"/","search":{"preload":false,"activeHolder":"Enter here","blurHolder":"Search","noResult":"Data \"$0\" not found"},"code":{"codeInfo":"$0 - $1 lines","copy":"code.copy","copyFinish":"code.copyFinish","expand":"code.expand"}}</script><script src="//unpkg.com/valine/dist/Valine.min.js"></script><script src="//unpkg.com/mermaid@9.2.2/dist/mermaid.min.js"></script><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lightgallery.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-zoom.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-thumbnail.css"><link type="text/css" rel="stylesheet" href="/lib/fontawesome/css/all.min.css"><link rel="stylesheet" href="/css/arknights.css"><script>if (window.localStorage.getItem('theme-mode') === 'light')
+ document.documentElement.setAttribute('theme-mode', 'light')
+if (window.localStorage.getItem('theme-mode') === 'dark')
+ document.documentElement.setAttribute('theme-mode', 'dark')</script><style>@font-face {
+ font-family: Bender;
+ src: local('Bender'), url("/font/Bender.ttf"), url("/font/Bender.otf");
+}
+@font-face {
+ font-family: BenderLight;
+ src: local('BenderLight'), url("/font/BenderLight.ttf");
+}
+@font-face {
+ font-family: 'JetBrains Mono';
+ src: local('JetBrains Mono'), url('/font/JetBrainsMono-Regular.woff2') format('woff2');
+}</style><style>:root {
+  --dark-background: url('https://ak.hypergryph.com/assets/index/images/ak/pc/bk.jpg');
+  --light-background: url('/img/bk.jpg');
+}</style><meta name="generator" content="Hexo 6.3.0"></head><body><div class="loading" style="opacity: 0;"><div class="loadingBar left"></div><div class="loadingBar right"></div></div><main><header class="closed"><div class="navBtn"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><nav><div class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Search" spellcheck="false" maxlength="50" type="text" id="search-input"></span></div><div class="navItem" id="search-holder"></div><div class="search-popup"><div id="search-result"></div></div><ol class="navContent"><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li><li class="navItem"><a class="navBlock" href="/about/"><span class="navItemTitle">About</span></a></li><li class="navItem"><a class="navBlock" href="/resources/"><span class="navItemTitle">Resources</span></a></li></ol></nav></header><article><div id="post-bg"><div id="post-title"><h1>UTM Virtual Machine</h1><div id="post-info"><span>First Post: <div class="control"><time datetime="2020-11-12T02:25:16.000Z" id="date"> 2020-11-12</time></div></span><br><span>Last Update: <div class="control"><time datetime="2023-12-20T05:42:49.549Z" id="updated"> 2023-12-20</time></div></span><br><span>Word Count: <div class="control">1.7k</div></span><br><span>Read Time: <div class="control">6 min</div></span></div></div><hr><div id="post-content"><p>写在前面：手里有台iPhone7，不知干什么好，没有Android的可玩性，即使Android不root，也会有像termux的容器。9-11岁时，我还在玩limbo，bochs，lbochs，APQ。这些都是一些模拟器。bochs和lbochs是基于bochs的，而limbo和APQ是基于qemu的。要我给他们排序的话，bochs是最简单的，我记得我最早用过的镜像是andows.img，用起来简单，把sdl和镜像放在指定位置就行了。点击app启动，音量键控制左右键，滑动屏幕控制鼠标。点击左下角（还是右下角，我忘了）呼出键盘。就是在朋友同学面前装B用的。lbochs支持更多扩展，limbo有各种版本，对于X86的安卓兼容较好，一般在Android上我首选limbo。APQ比较稳定，但是前提是要Root，仅支持VNC，得自己去改配置。就这样。我接触到了qemu。</p>
+<p>在qemu的世界，我只做了XP的镜像，当年我家的电脑配置不高，仅仅有2G而已，一般开个虚拟机就要处在死机的边缘。但我还是经常用它来做镜像，传到手机上。那段时间，我只是从贴吧收藏大佬分享的镜像，大多都是XP和98，再高的就是7，8，10，不过开个机都要等几个小时。</p>
+<p>以前我有一台iPhone 4，完美越狱，用的盘古越狱工具。唯一能装B的，也就是一个叫Bochs的应用。在百度上，我勉勉强强找到了安装方法，但是打开就闪退，并且教程都是用的iPhone1或3，后来，我在威锋源上找到了一个writeful的源，但是后来威锋源关闭，新版的Bochs出来，但是仅仅支持iOS10以下，也就是32位系统，这时，我已经用着iPhone7了。</p>
+<p>对于iPhone7而言，可以用三种方式运行Windows。一种叫Idos2，在iOS10以前，是Idos，是用来运行dos游戏的，idos2用的dosbox，但是仅能在越狱后浏览其目录，放上教程里提供的镜像，输入“win95”启动，虽然麻烦，却异常稳定，只是显卡没有驱动。</p>
+<p>再后来，国外大神开发了iBox，基于Bochs，国外大神演示时用的iPhone7，跑起了Windows，但是却花屏。我把Windows3.11，Windows95，Windows98的镜像放在里面，却异常好用！其实就是能在64位设备上运行的Bochs而已。</p>
+<p>第三个，就是今天说的UTM虚拟机，基于qemu，能跑起Windows XP，貌似能跑起Windows7，10。也能跑起Android x86，Linux。以下是详细步骤。项目主页：<a target="_blank" rel="noopener" href="https://getutm.app/">https://getutm.app/</a> GitHub：<a target="_blank" rel="noopener" href="https://github.com/utmapp/UTM">https://github.com/utmapp/UTM</a></p>
+<p>1.建议越狱。</p>
+<p>为什么呢？说白了——便于续签。没错，便于续签！要不然你忍心7天装一次吗？iPhone X以下设备可以使用checkra1n越狱，可以的话我可以出一期教程。</p>
+<p>2.安装UTM</p>
+<p>如果你越狱了，直接从爱思助手拖放ipa文件即可，要没有越狱（像是iPhone11），可以用altstore。</p>
+<p>altstore教程：</p>
+<p>1.打开<a target="_blank" rel="noopener" href="https://altstore.io/%E4%B8%8B%E8%BD%BD%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E3%80%82Windows%E7%89%88%E4%BB%85%E6%94%AF%E6%8C%81Windows10">https://altstore.io/下载应用程序。Windows版仅支持Windows10</a> 。</p>
+<p class='item-img' data-src='https://i.loli.net/2020/05/01/T8IZQbfJkzdXLF3.png'><img src="https://i.loli.net/2020/05/01/T8IZQbfJkzdXLF3.png" alt="pic"><br>解压后点击AltInstaller.msi，进行安装，根据需求安装即可。</p>
+<p>在安装的目录下，像D:\Program Files (x86)\ 找到AltServer，打开，点击AltServer.exe，启动，在右下角图标左键。</p>
+<p class='item-img' data-src='https://i.loli.net/2020/05/01/dhubM5rGjWx1tke.png'><img src="https://i.loli.net/2020/05/01/dhubM5rGjWx1tke.png" alt="pic"><br>选择“Install AltStore”选择你的设备。</p>
+<p class='item-img' data-src='https://i.loli.net/2020/05/01/72XT5dHIsqPaYt3.png'><img src="https://i.loli.net/2020/05/01/72XT5dHIsqPaYt3.png" alt="pic"><br>如实填写你的Apple ID和密码，要进行签名，不是盗号！注意，要下载官网的iTunes，不是Windows10自带的应用商店里的！要不然会报错！也不能不安装！</p>
+<p>安装完成后，添加源：<a target="_blank" rel="noopener" href="https://alt.getutm.app/">https://alt.getutm.app</a></p>
+<p>然后搜索并下载即可。</p>
+<p>下载完成了，就该玩了。准备好一个镜像，ISO文件，Windows的可以从这里下载：<a target="_blank" rel="noopener" href="http://msdn.itellyou.cn/">http://msdn.itellyou.cn/</a></p>
+<p>ed2k连接用迅雷下载即可。打开iTunes，找到左上角的小手机，点一下，如果是灰色，无法点击，那就等一会。点进去找到文件共享，在App找到“UTM”，这时里面是空的，添加你下载的镜像进去。接下来就是手机操作了（温馨提示：iPhone7建议用XP，iPhoneX以上最好不要用8.1或10，其他随意~）</p>
+<p>下载好的应用是这样子的</p>
+<p class='item-img' data-src='https://i.loli.net/2020/05/01/e3TKP4DdCQ1lSWm.png'><img src="https://i.loli.net/2020/05/01/e3TKP4DdCQ1lSWm.png" alt="pic"><br>加载很慢，截图截到3M<br>打开后。会出现一段提示，大概是不能强制关闭UTM，要点左上面的小X号</p>
+<p>打开后，是这样的</p>
+<p class='item-img' data-src='https://i.loli.net/2020/05/01/jV8Lr3ZmGNOl9eo.png'><img src="https://i.loli.net/2020/05/01/jV8Lr3ZmGNOl9eo.png" alt="pic"><br>那两个是我提前创建好的。点击右上角的+，会这样：</p>
+<p class='item-img' data-src='https://i.loli.net/2020/05/01/fwsHnUy79YTtA4J.png'><img src="https://i.loli.net/2020/05/01/fwsHnUy79YTtA4J.png" alt="pic"><br>内存，iPhone7设置到768差不多，最高的应该是1015吧，点击加载镜像，如下</p>
+<p class='item-img' data-src='https://i.loli.net/2020/05/01/oYZSMsv8i2T5dk6.png'><img src="https://i.loli.net/2020/05/01/oYZSMsv8i2T5dk6.png" alt="pic"><br>点击右上角的+，创建一个驱动器，如图</p>
+<p class='item-img' data-src='https://i.loli.net/2020/05/01/8qfijOIHSLBuXEF.png'><img src="https://i.loli.net/2020/05/01/8qfijOIHSLBuXEF.png" alt="pic"><br>镜像类型，硬盘就是disk，光驱就是cd&#x2F;dvd，如图</p>
+<p class='item-img' data-src='https://i.loli.net/2020/05/01/3nhPlu6W1KtxTJV.png'><img src="https://i.loli.net/2020/05/01/3nhPlu6W1KtxTJV.png" alt="pic"><br>先选cd&#x2F;dvd，点击文件路径，点击右上角的+，如图</p>
+<p class='item-img' data-src='https://i.loli.net/2020/05/01/vnLVM6Sblpe5AkB.png'><img src="https://i.loli.net/2020/05/01/vnLVM6Sblpe5AkB.png" alt="pic"><br>会这样</p>
+<p class='item-img' data-src='https://i.loli.net/2020/05/01/1kNJEcW2Hf6LhUe.png'><img src="https://i.loli.net/2020/05/01/1kNJEcW2Hf6LhUe.png" alt="pic"><br>如果选的cd&#x2F;dvd，选“导入”，会这样</p>
+<p class='item-img' data-src='https://i.loli.net/2020/05/01/Wevqyri87jakPOQ.png'><img src="https://i.loli.net/2020/05/01/Wevqyri87jakPOQ.png" alt="pic"><br>这是我已经打开utm文件夹，具体可以点击“我的iPhone”找到“UTM”文件夹，选择你复制的镜像ISO文件，如图</p>
+<p class='item-img' data-src='https://i.loli.net/2020/05/01/zYtWGIiEkJRs146.png'><img src="https://i.loli.net/2020/05/01/zYtWGIiEkJRs146.png" alt="pic"><br>再点一次镜像，加载，重复第（调整disk或cd&#x2F;dvd）步选择disk，不要选导入，如果你有现成的，那就选导入，一般是xxx.img，创建，一般填hda.img，第二行看系统大小来定，XP可以是10G，win7可以是20G，10G填10240，20G填20480，以此类推。</p>
+<p>创建完成后，点击播放建，开机，正常安装系统即可。来了电话回自动暂停，来了微信，就点击上面的暂停键，暂停。如图（会加载缓慢）</p>
+<p class='item-img' data-src='https://i.loli.net/2020/05/01/Xl1ow2tg3qPU7xf.png'><img src="https://i.loli.net/2020/05/01/Xl1ow2tg3qPU7xf.png" alt="pic"><br class='item-img' data-src='https://i.loli.net/2020/05/01/Xl1ow2tg3qPU7xf.png'><img src="https://i.loli.net/2020/05/01/Xl1ow2tg3qPU7xf.png" alt="pic"><br>继续运行点击中间即可。退出点击X，如果开着机，相当于强制关机。</p>
+<p class='item-img' data-src='https://i.loli.net/2020/05/01/BDYJa1RFfnIX4Qt.png'><img src="https://i.loli.net/2020/05/01/BDYJa1RFfnIX4Qt.png" alt="pic"></p>
+<hr>
+<p>Q&amp;A：</p>
+<p>Q：为什么安装AltStore会出现签名错误？</p>
+<p>A：13.3.1有此问题，建议越狱后使用，或用爱思助手安装。</p>
+<p>Q：为什么7天后提示我验证应用？</p>
+<p>A：普遍问题，建议越狱后安装续签插件。免费开发者账户需要7天一签，付费的一年一签。</p>
+<p>Q：越狱后如何在手机上直接安装UTM.ipa？</p>
+<p>A：下载Filza，在里面点选ipa文件安装。</p>
+<p>Q：为什么我在一些云上续签了，但是启动VM时会崩溃？</p>
+<p>A：许多“云”签名服务（包括AppCake）不能与UTM一起使用，因为它们使用了错误的签名证书。如果尝试启动VM时发生崩溃，则可能是您的签名证书无效。</p>
+<p>Q：有什么免费的续签方法吗？</p>
+<p>A：如果您运行的是普通iOS，则使用iOS App Signer 可以免费，轻松地重新签名IPA 。然后，您可以使用iTunes，音乐应用程序或Xcode安装它。</p>
+<p>注：图片加载于sm.ms图床，部分资料参考与UTM官网。</p>
+<div id="paginator"></div></div><div id="post-footer"><div id="pages"><div class="footer-link" style="width: 50%;text-align:right;border-right:1px #fe2 solid"><a href="/2020/11/12/WordPress-uses-reCaptcha/">← Next WordPress Uses ReCaptcha</a></div><div class="footer-link" style="width: 50%;right:1px;border-left:1px #fe2 solid"><a href="/2020/11/09/How-to-understand-the-exploration-of-adolescence-requires-confidence/">How to Understand the Exploration of Adolescence Requires Confidence Prev →</a></div></div></div><details id="reward"><summary>reward</summary><div><span>支付宝 | Alipay</span><br><img src="/img/Alipay.png"></div><div><span>微信 | Wechat</span><br><img src="/img/WeChat.png"></div></details><div id="comments"><div id="valine"></div></div></div><div class="bottom-btn"><div><a class="i-top" id="to-top" onClick="scrolls.scrolltop();" title="To Top" style="opacity: 0; display: none;">∧ </a><a class="i-color" id="color-mode" onClick="colorMode.change()" title="Change Theme"></a></div></div></article><aside><div id="about"><a href="/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo"></a><h1 id="Dr"><a href="/">MaJianyu</a></h1><div id="description"><p>Blog</p></div><div id="social-links"><a class="social" target="_blank" rel="noopener" href="https://github.com/majianyu2007"><i class="fab fa-github" alt="GitHub"></i></a><a class="social" href="mailto:mjy20070413@gmail.com"><i class="fa fa-envelope" alt="E-Mail"></i></a><a class="social" target="_blank" rel="noopener" href="https://space.bilibili.com/600064036"><i class="fa-brands fa-bilibili" alt="BiliBili"></i></a><a class="social" target="_blank" rel="noopener" href="https://weibo.com/6355323915"><i class="fab fa-weibo" alt="Weibo"></i></a><a class="social" target="_blank" rel="noopener" href="https://www.zhihu.com/people/majianyu"><i class="fab fa-zhihu" alt="Zhihu"></i></a></div></div><div id="aside-block"></div><footer><nobr></nobr><a href="https://icp.gov.moe/?keyword=20216556" target="_blank">萌ICP备20216556号</a><wbr><nobr>Published with <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> Theme <a target="_blank" rel="noopener" href="https://github.com/Yue-plus/hexo-theme-arknights">Arknights</a></nobr><wbr><nobr> by <a target="_blank" rel="noopener" href="https://github.com/Yue-plus">Yue_plus</a></nobr></footer></aside></main><canvas id="canvas-dust"></canvas><script src="/js/search.js"></script><script src="/js/arknights.js"></script><script src="//unpkg.com/lightgallery@2.7.1/lightgallery.min.js"></script><script src="//unpkg.com/lightgallery@2.7.1/plugins/zoom/lg-zoom.min.js"></script><script src="//unpkg.com/lightgallery@2.7.1/plugins/thumbnail/lg-thumbnail.min.js"></script><script src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9101785228583606" crossorigin="anonymous"></script><script src="/js/pjax.js"></script><script class="pjax-js">reset= () => {new Valine({
+ el: '#valine'
+ , appId: 'TqguUooxk9DlzIsrooNDLs8E-gzGzoHsz'
+ , appKey: '1mPdCyykHneI4TGAvXtU9P31', serverURLs: 'https://tqguuoox.lc-cn-n1-shared.com' , placeholder: 'This comment is sent by Penguin Logistics.'
+ , path: window.location.pathname
+});document.querySelector('.lg-container')?.remove()
+lightGallery(document.getElementById('post-bg'), {
+  plugins: [lgZoom,lgThumbnail],
+  selector: '.item-img'})}</script><script>window.addEventListener("load",() => {pjax = new Pjax({
+ cacheBust: false,
+ selectors: ['title','article','#aside-block','.pjax-js'],
+ switches: {'article': Pjax.switches.sideBySide},
+ switchesOptions: {
+   'article': {
+     classNames: {
+       remove: "pjax-out",
+       add: "pjax-in"
+     }
+   }
+ }
+});
+document.addEventListener("pjax:complete", reset);reset()})</script></body></html>
