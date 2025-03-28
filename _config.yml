@@ -104,4 +104,4 @@ theme: cactus
 deploy:
   type: 'git'
   repo: git@github.com:majianyu2007/majianyu2007.github.io.git
-  branch: main
+  branch: gh-pages
