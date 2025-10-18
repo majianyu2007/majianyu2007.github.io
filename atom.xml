@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>TranquilYu&#39;s Blog</title>
+  
+  
+  <link href="https://mjy.js.org/atom.xml" rel="self"/>
+  
+  <link href="https://mjy.js.org/"/>
+  <updated>2025-10-18T07:03:46.504Z</updated>
+  <id>https://mjy.js.org/</id>
+  
+  <author>
+    <name>MaJianyu</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MATLAB基础作业其一</title>
+    <link href="https://mjy.js.org/2025/10/18/MATLAB0001/"/>
+    <id>https://mjy.js.org/2025/10/18/MATLAB0001/</id>
+    <published>2025-10-18T00:00:00.000Z</published>
+    <updated>2025-10-18T07:03:46.504Z</updated>
+    
+    
+    <summary type="html">MATLAB基础作业</summary>
+    
+    
+    
+    <category term="作业" scheme="https://mjy.js.org/categories/%E4%BD%9C%E4%B8%9A/"/>
+    
+    
+    <category term="MATLAB" scheme="https://mjy.js.org/tags/MATLAB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【论文阅读 | TCSVT 2024 | MMI-Det：探索可见光与红外目标检测的多模态融合】</title>
+    <link href="https://mjy.js.org/2025/10/14/%E3%80%90%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%20%20TCSVT%202024%20%20MMI-Det%EF%BC%9A%E6%8E%A2%E7%B4%A2%E5%8F%AF%E8%A7%81%E5%85%89%E4%B8%8E%E7%BA%A2%E5%A4%96%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E7%9A%84%E5%A4%9A%E6%A8%A1%E6%80%81%E8%9E%8D%E5%90%88%E3%80%91/"/>
+    <id>https://mjy.js.org/2025/10/14/%E3%80%90%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%20%20TCSVT%202024%20%20MMI-Det%EF%BC%9A%E6%8E%A2%E7%B4%A2%E5%8F%AF%E8%A7%81%E5%85%89%E4%B8%8E%E7%BA%A2%E5%A4%96%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E7%9A%84%E5%A4%9A%E6%A8%A1%E6%80%81%E8%9E%8D%E5%90%88%E3%80%91/</id>
+    <published>2025-10-14T00:00:00.000Z</published>
+    <updated>2025-10-18T07:00:39.798Z</updated>
+    
+    
+    <summary type="html">MMI-Det：探索可见光与红外目标检测的多模态融合</summary>
+    
+    
+    
+    <category term="论文阅读" scheme="https://mjy.js.org/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/"/>
+    
+    
+    <category term="多光谱目标检测" scheme="https://mjy.js.org/tags/%E5%A4%9A%E5%85%89%E8%B0%B1%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/"/>
+    
+    <category term="多模态融合" scheme="https://mjy.js.org/tags/%E5%A4%9A%E6%A8%A1%E6%80%81%E8%9E%8D%E5%90%88/"/>
+    
+    <category term="图像融合" scheme="https://mjy.js.org/tags/%E5%9B%BE%E5%83%8F%E8%9E%8D%E5%90%88/"/>
+    
+    <category term="傅里叶变换" scheme="https://mjy.js.org/tags/%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python学习笔记其四</title>
+    <link href="https://mjy.js.org/2025/10/04/Python0004/"/>
+    <id>https://mjy.js.org/2025/10/04/Python0004/</id>
+    <published>2025-10-04T00:00:00.000Z</published>
+    <updated>2025-10-18T07:05:08.351Z</updated>
+    
+    
+    <summary type="html">Pytorch教程</summary>
+    
+    
+    
+    <category term="笔记" scheme="https://mjy.js.org/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="Python" scheme="https://mjy.js.org/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>将Windows中文用户主文件夹修改为英文</title>
+    <link href="https://mjy.js.org/2025/10/03/Change-the-Windows-Chinese-user-home-folder-to-English/"/>
+    <id>https://mjy.js.org/2025/10/03/Change-the-Windows-Chinese-user-home-folder-to-English/</id>
+    <published>2025-10-03T00:00:00.000Z</published>
+    <updated>2025-10-18T07:01:41.275Z</updated>
+    
+    
+    <summary type="html">一种无需重装系统解决用户主文件夹名为中文的方法</summary>
+    
+    
+    
+    <category term="教程" scheme="https://mjy.js.org/categories/%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="Windows" scheme="https://mjy.js.org/tags/Windows/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python学习笔记其三</title>
+    <link href="https://mjy.js.org/2025/10/03/Python0003/"/>
+    <id>https://mjy.js.org/2025/10/03/Python0003/</id>
+    <published>2025-10-03T00:00:00.000Z</published>
+    <updated>2025-10-18T07:04:55.265Z</updated>
+    
+    
+    <summary type="html">PyTorch教程</summary>
+    
+    
+    
+    <category term="笔记" scheme="https://mjy.js.org/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="Python" scheme="https://mjy.js.org/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python学习笔记其二</title>
+    <link href="https://mjy.js.org/2025/10/02/Python0002/"/>
+    <id>https://mjy.js.org/2025/10/02/Python0002/</id>
+    <published>2025-10-02T00:00:00.000Z</published>
+    <updated>2025-10-18T07:04:31.180Z</updated>
+    
+    
+    <summary type="html">Python相关语法</summary>
+    
+    
+    
+    <category term="笔记" scheme="https://mjy.js.org/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="Python" scheme="https://mjy.js.org/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Windows下的Python环境配置</title>
+    <link href="https://mjy.js.org/2025/10/01/Configuring-the-Python-Environment-on-Windows/"/>
+    <id>https://mjy.js.org/2025/10/01/Configuring-the-Python-Environment-on-Windows/</id>
+    <published>2025-10-01T00:00:00.000Z</published>
+    <updated>2025-10-18T07:02:39.964Z</updated>
+    
+    
+    <summary type="html">使用Anaconda来进行Python环境管理</summary>
+    
+    
+    
+    <category term="教程" scheme="https://mjy.js.org/categories/%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="Windows" scheme="https://mjy.js.org/tags/Windows/"/>
+    
+    <category term="Python" scheme="https://mjy.js.org/tags/Python/"/>
+    
+    <category term="PyCharm" scheme="https://mjy.js.org/tags/PyCharm/"/>
+    
+    <category term="Anaconda" scheme="https://mjy.js.org/tags/Anaconda/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python学习笔记其一</title>
+    <link href="https://mjy.js.org/2025/10/01/Python0001/"/>
+    <id>https://mjy.js.org/2025/10/01/Python0001/</id>
+    <published>2025-10-01T00:00:00.000Z</published>
+    <updated>2025-10-18T07:04:11.258Z</updated>
+    
+    
+    <summary type="html">for与while的实战</summary>
+    
+    
+    
+    <category term="笔记" scheme="https://mjy.js.org/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="Python" scheme="https://mjy.js.org/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>山东省综合素质评价填报指北</title>
+    <link href="https://mjy.js.org/2023/08/25/Shandong-Comprehensive-Quality-Evaluation-Filling-Guide/"/>
+    <id>https://mjy.js.org/2023/08/25/Shandong-Comprehensive-Quality-Evaluation-Filling-Guide/</id>
+    <published>2023-08-25T00:00:00.000Z</published>
+    <updated>2025-10-18T07:05:29.041Z</updated>
+    
+    
+    <summary type="html">使用AI完成综评填报</summary>
+    
+    
+    
+    <category term="教程" scheme="https://mjy.js.org/categories/%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="bing-ai" scheme="https://mjy.js.org/tags/bing-ai/"/>
+    
+    <category term="mbti" scheme="https://mjy.js.org/tags/mbti/"/>
+    
+    <category term="填报" scheme="https://mjy.js.org/tags/%E5%A1%AB%E6%8A%A5/"/>
+    
+    <category term="教程" scheme="https://mjy.js.org/tags/%E6%95%99%E7%A8%8B/"/>
+    
+    <category term="综合素质评价" scheme="https://mjy.js.org/tags/%E7%BB%BC%E5%90%88%E7%B4%A0%E8%B4%A8%E8%AF%84%E4%BB%B7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>对过去的一些回忆与思考</title>
+    <link href="https://mjy.js.org/2023/08/05/memory1/"/>
+    <id>https://mjy.js.org/2023/08/05/memory1/</id>
+    <published>2023-08-05T00:00:00.000Z</published>
+    <updated>2025-10-18T07:03:57.352Z</updated>
+    
+    
+    <summary type="html">初中往事</summary>
+    
+    
+    
+    <category term="情感经历" scheme="https://mjy.js.org/categories/%E6%83%85%E6%84%9F%E7%BB%8F%E5%8E%86/"/>
+    
+    
+    <category term="回忆" scheme="https://mjy.js.org/tags/%E5%9B%9E%E5%BF%86/"/>
+    
+    <category term="思考" scheme="https://mjy.js.org/tags/%E6%80%9D%E8%80%83/"/>
+    
+    <category term="情感经历" scheme="https://mjy.js.org/tags/%E6%83%85%E6%84%9F%E7%BB%8F%E5%8E%86/"/>
+    
+    <category term="朋友" scheme="https://mjy.js.org/tags/%E6%9C%8B%E5%8F%8B/"/>
+    
+    <category term="过去" scheme="https://mjy.js.org/tags/%E8%BF%87%E5%8E%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Markdown学习笔记</title>
+    <link href="https://mjy.js.org/2021/01/01/Markdown/"/>
+    <id>https://mjy.js.org/2021/01/01/Markdown/</id>
+    <published>2020-12-31T21:46:54.000Z</published>
+    <updated>2025-10-18T07:03:31.415Z</updated>
+    
+    
+    <summary type="html">Markdown学习笔记</summary>
+    
+    
+    
+    <category term="notes" scheme="https://mjy.js.org/categories/notes/"/>
+    
+    
+    <category term="markdown" scheme="https://mjy.js.org/tags/markdown/"/>
+    
+    <category term="Markdown" scheme="https://mjy.js.org/tags/Markdown/"/>
+    
+    <category term="笔记" scheme="https://mjy.js.org/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="notes" scheme="https://mjy.js.org/tags/notes/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>js.org free domain</title>
+    <link href="https://mjy.js.org/2020/11/28/js-org-free-domain/"/>
+    <id>https://mjy.js.org/2020/11/28/js-org-free-domain/</id>
+    <published>2020-11-28T02:12:19.000Z</published>
+    <updated>2025-10-18T07:03:17.052Z</updated>
+    
+    
+    <summary type="html">面向JavaScript开发者与开发项目的二级域名</summary>
+    
+    
+    
+    <category term="Domain" scheme="https://mjy.js.org/categories/Domain/"/>
+    
+    
+    <category term="free" scheme="https://mjy.js.org/tags/free/"/>
+    
+    <category term="domain" scheme="https://mjy.js.org/tags/domain/"/>
+    
+    <category term="免费" scheme="https://mjy.js.org/tags/%E5%85%8D%E8%B4%B9/"/>
+    
+    <category term="二级域名" scheme="https://mjy.js.org/tags/%E4%BA%8C%E7%BA%A7%E5%9F%9F%E5%90%8D/"/>
+    
+    <category term="域名" scheme="https://mjy.js.org/tags/%E5%9F%9F%E5%90%8D/"/>
+    
+    <category term="js.org" scheme="https://mjy.js.org/tags/js-org/"/>
+    
+    <category term="js" scheme="https://mjy.js.org/tags/js/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Usage of Structure Block in Minecraft PE</title>
+    <link href="https://mjy.js.org/2020/11/22/Usage-of-structure-block-in-Minecraft-PE/"/>
+    <id>https://mjy.js.org/2020/11/22/Usage-of-structure-block-in-Minecraft-PE/</id>
+    <published>2020-11-21T19:31:46.000Z</published>
+    <updated>2025-10-18T07:05:53.246Z</updated>
+    
+    
+    <summary type="html">Minecraft之结构方块</summary>
+    
+    
+    
+    <category term="Games" scheme="https://mjy.js.org/categories/Games/"/>
+    
+    
+    <category term="Minecarft" scheme="https://mjy.js.org/tags/Minecarft/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>UTM Virtual Machine</title>
+    <link href="https://mjy.js.org/2020/11/12/UTM-virtual-machine/"/>
+    <id>https://mjy.js.org/2020/11/12/UTM-virtual-machine/</id>
+    <published>2020-11-12T02:25:16.000Z</published>
+    <updated>2025-10-18T07:06:19.641Z</updated>
+    
+    
+    <summary type="html">UTM——ios上的虚拟机</summary>
+    
+    
+    
+    <category term="IOS" scheme="https://mjy.js.org/categories/IOS/"/>
+    
+    
+    <category term="ios" scheme="https://mjy.js.org/tags/ios/"/>
+    
+    <category term="UTM" scheme="https://mjy.js.org/tags/UTM/"/>
+    
+    <category term="VM" scheme="https://mjy.js.org/tags/VM/"/>
+    
+    <category term="iPhone" scheme="https://mjy.js.org/tags/iPhone/"/>
+    
+  </entry>
+  
+</feed>
