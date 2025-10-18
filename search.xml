@@ -84,118 +84,6 @@
       </tags>
   </entry>
   <entry>
-    <title>MATLAB基础作业其一</title>
-    <url>/2025/10/18/MATLAB0001/</url>
-    <content><![CDATA[<h1 id="MATLAB-基础第一次作业"><a href="#MATLAB-基础第一次作业" class="headerlink" title="MATLAB 基础第一次作业"></a>MATLAB 基础第一次作业</h1><h2 id="一、基础巩固题（每题8-分，共4-题，满分32-分）"><a href="#一、基础巩固题（每题8-分，共4-题，满分32-分）" class="headerlink" title="一、基础巩固题（每题8 分，共4 题，满分32 分）"></a>一、基础巩固题（每题8 分，共4 题，满分32 分）</h2><p><strong>目标：熟练掌握MATLAB 的基本运算规则、变量赋值及简单函数使用。</strong></p>
-<h3 id="1-温度转换计算"><a href="#1-温度转换计算" class="headerlink" title="1. 温度转换计算"></a>1. 温度转换计算</h3><p>  编写代码将25 摄氏度转换为华氏度，转换公式为F &#x3D; C × 9&#x2F;5 + 32。要求：定义变量C 存储摄氏度数值，计算后输出结果（保留1 位小数）。</p>
-<p>MATLAB代码：</p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% 定义摄氏度变量</span></span><br><span class="line">C = <span class="number">25</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">% 根据公式计算华氏度</span></span><br><span class="line">F = C * <span class="number">9</span>/<span class="number">5</span> + <span class="number">32</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">% 输出结果，保留1位小数</span></span><br><span class="line">fprintf(<span class="string">&#x27;25摄氏度转换为华氏度是: %.1f°F\n&#x27;</span>, F);</span><br></pre></td></tr></table></figure>
-
-<p>运行结果截图：</p>
-<p><img data-src="/./../images/image-20251018131426548.png" alt="image-20251018131426548"></p>
-<p>命令行输出：</p>
-<blockquote>
-<p>&gt;&gt; h1_1</p>
-<p>25摄氏度转换为华氏度是: 77.0°F</p>
-</blockquote>
-<h3 id="2-简单表达式求值"><a href="#2-简单表达式求值" class="headerlink" title="2. 简单表达式求值"></a>2. 简单表达式求值</h3><p>计算表达式$\frac{\sqrt{16} + \log_{10}(1000) - \sin(\frac{\pi}{2})}{2^3 - 5}$的值。要求：使用MATLAB 内置函数（sqrt、log10、sin、pi）计算，直接输出结果。</p>
-<p>MATLAB代码：</p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% 计算分子部分</span></span><br><span class="line">numerator = <span class="built_in">sqrt</span>(<span class="number">16</span>) + <span class="built_in">log10</span>(<span class="number">1000</span>) - <span class="built_in">sin</span>(<span class="built_in">pi</span>/<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 计算分母部分</span></span><br><span class="line">denominator = <span class="number">2</span>^<span class="number">3</span> - <span class="number">5</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">% 计算整个表达式的值</span></span><br><span class="line">result = numerator / denominator;</span><br><span class="line"></span><br><span class="line"><span class="comment">% 输出结果</span></span><br><span class="line"><span class="built_in">disp</span>(result);</span><br></pre></td></tr></table></figure>
-
-<p>运行结果截图：</p>
-<p><img data-src="/./../images/image-20251018131827586.png" alt="image-20251018131827586"></p>
-<p>命令行输出：</p>
-<blockquote>
-<p>&gt;&gt; h1_2</p>
-<p>​     2</p>
-</blockquote>
-<h3 id="3-矩阵创建与输出"><a href="#3-矩阵创建与输出" class="headerlink" title="3. 矩阵创建与输出"></a>3. 矩阵创建与输出</h3><p>创建一个3×3 的矩阵A，元素为1-9 的递增整数（第一行1-3，第二行4-6，第三行7-9），再创建一个3×1 的列向量B（元素为[2;4;6]），最后分别输出矩阵A 和向量B。</p>
-<p>MATLAB代码：</p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% 创建 3×3 矩阵 A</span></span><br><span class="line">A = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>; <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>; <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">% 创建 3×1 列向量 B</span></span><br><span class="line">B = [<span class="number">2</span>; <span class="number">4</span>; <span class="number">6</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">% 输出矩阵 A</span></span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;矩阵 A:&#x27;</span>);</span><br><span class="line"><span class="built_in">disp</span>(A);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 输出向量 B</span></span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;列向量 B:&#x27;</span>);</span><br><span class="line"><span class="built_in">disp</span>(B);</span><br></pre></td></tr></table></figure>
-
-<p>运行结果截图：</p>
-<p><img data-src="/./../images/image-20251018132020159.png" alt="image-20251018132020159"></p>
-<p>命令行输出：</p>
-<blockquote>
-<p>&gt;&gt; h1_3</p>
-<p>矩阵 A:<br>    1     2     3<br>    4     5     6<br>    7     8     9</p>
-<p>列向量 B:<br>    2<br>    4<br>    6</p>
-</blockquote>
-<h3 id="4-矩阵基本运算"><a href="#4-矩阵基本运算" class="headerlink" title="4. 矩阵基本运算"></a>4. 矩阵基本运算</h3><p>基于第3 题中的矩阵A 和向量B，计算以下结果并输出：（1）A 的转置矩阵；（2）A 与B 的乘法（A*B）；（3）A 中所有元素的平均值。</p>
-<p>MATLAB代码：</p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% 矩阵A和列向量B</span></span><br><span class="line">A = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>; <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>; <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>];</span><br><span class="line">B = [<span class="number">2</span>; <span class="number">4</span>; <span class="number">6</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">% 计算A的转置矩阵</span></span><br><span class="line">A_transpose = A&#x27;;</span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;A的转置矩阵:&#x27;</span>);</span><br><span class="line"><span class="built_in">disp</span>(A_transpose);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 计算A与B的乘法（A*B）</span></span><br><span class="line">AB_product = A * B;</span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;A与B的乘法结果:&#x27;</span>);</span><br><span class="line"><span class="built_in">disp</span>(AB_product);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 计算A中所有元素的平均值</span></span><br><span class="line">A_mean = <span class="built_in">mean</span>(A(:));</span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;A中所有元素的平均值:&#x27;</span>);</span><br><span class="line"><span class="built_in">disp</span>(A_mean);</span><br></pre></td></tr></table></figure>
-
-<p>运行结果截图：</p>
-<p><img data-src="/./../images/image-20251018132310167.png" alt="image-20251018132310167"></p>
-<p>命令行输出：</p>
-<blockquote>
-<p>&gt;&gt; h1_4</p>
-<p>A的转置矩阵:<br>    1     4     7<br>    2     5     8<br>    3     6     9</p>
-<p>A与B的乘法结果:<br>   28<br>   64<br>  100</p>
-<p>A中所有元素的平均值:<br>    5</p>
-</blockquote>
-<h2 id="二、能力提升题（每题17-分，共4-题，满分68-分）"><a href="#二、能力提升题（每题17-分，共4-题，满分68-分）" class="headerlink" title="二、能力提升题（每题17 分，共4 题，满分68 分）"></a>二、能力提升题（每题17 分，共4 题，满分68 分）</h2><p><strong>目标：结合多个知识点，实现复杂逻辑与数据处理。</strong></p>
-<h3 id="1-矩阵条件筛选"><a href="#1-矩阵条件筛选" class="headerlink" title="1. 矩阵条件筛选"></a>1. 矩阵条件筛选</h3><p>创建一个4×4 的随机矩阵（元素范围0-10，使用randi 函数），筛选出矩阵中大于5 的元素并输出这些元素的位置（行号和列号）及具体数值。</p>
-<p>MATLAB代码：</p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% 创建 4×4 的随机矩阵，元素范围 0 - 10</span></span><br><span class="line">A = randi([<span class="number">0</span>, <span class="number">10</span>], <span class="number">4</span>, <span class="number">4</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 输出原始矩阵</span></span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;原始矩阵 A:&#x27;</span>);</span><br><span class="line"><span class="built_in">disp</span>(A);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 筛选出大于 5 的元素的行和列索引</span></span><br><span class="line">[row, col] = <span class="built_in">find</span>(A &gt; <span class="number">5</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 筛选出大于 5 的元素值</span></span><br><span class="line">values = A(A &gt; <span class="number">5</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 输出大于 5 的元素的位置（行号和列号）及具体数值</span></span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;矩阵中大于 5 的元素：&#x27;</span>);</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>:<span class="built_in">length</span>(row)</span><br><span class="line">    fprintf(<span class="string">&#x27;行号：%d，列号：%d，数值：%d\n&#x27;</span>, row(<span class="built_in">i</span>), col(<span class="built_in">i</span>), values(<span class="built_in">i</span>));</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-
-<p>运行结果截图：</p>
-<p><img data-src="/./../images/image-20251018132717474.png" alt="image-20251018132717474"></p>
-<p>命令行输出：</p>
-<blockquote>
-<p>&gt;&gt; h2_1</p>
-<p>原始矩阵 A:<br>    8     6    10    10<br>    9     1    10     5<br>    1     3     1     8<br>   10     6    10     1</p>
-<p>矩阵中大于 5 的元素：<br>行号：1，列号：1，数值：8<br>行号：2，列号：1，数值：9<br>行号：4，列号：1，数值：10<br>行号：1，列号：2，数值：6<br>行号：4，列号：2，数值：6<br>行号：1，列号：3，数值：10<br>行号：2，列号：3，数值：10<br>行号：4，列号：3，数值：10<br>行号：1，列号：4，数值：10<br>行号：3，列号：4，数值：8</p>
-</blockquote>
-<h3 id="2-线性代数方程组求解"><a href="#2-线性代数方程组求解" class="headerlink" title="2. 线性代数方程组求解"></a>2. 线性代数方程组求解</h3><p>已知线性方程组：<br>$$<br>\begin{cases}<br>2x_1 + 3x_2 - x_3 &#x3D; 10 \<br>x_1 - 2x_2 + 4x_3 &#x3D; -5 \<br>3x_1 + x_2 - 2x_3 &#x3D; 12<br>\end{cases}<br>$$<br>将其表示为Ax &#x3D; b 的形式（其中A 为系数矩阵，b 为常数项向量），使用MATLAB 求解x，并验证A ∗ x 是否等于b。</p>
-<p>MATLAB代码：</p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% 定义系数矩阵 A</span></span><br><span class="line">A = [<span class="number">2</span>, <span class="number">3</span>, <span class="number">-1</span>; <span class="number">1</span>, <span class="number">-2</span>, <span class="number">4</span>; <span class="number">3</span>, <span class="number">1</span>, <span class="number">-2</span>];</span><br><span class="line"><span class="comment">% 定义常数项向量 b</span></span><br><span class="line">b = [<span class="number">10</span>; <span class="number">-5</span>; <span class="number">12</span>];</span><br><span class="line"><span class="comment">% 求解线性方程组 Ax = b</span></span><br><span class="line">x = A \ b;</span><br><span class="line"><span class="comment">% 验证 A*x 是否等于 b</span></span><br><span class="line">verify = A * x;</span><br><span class="line"></span><br><span class="line"><span class="comment">% 输出结果</span></span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;方程组的解 x:&#x27;</span>);</span><br><span class="line"><span class="built_in">disp</span>(x);</span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;验证 A*x 的结果:&#x27;</span>);</span><br><span class="line"><span class="built_in">disp</span>(verify);</span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;常数项向量 b:&#x27;</span>);</span><br><span class="line"><span class="built_in">disp</span>(b);</span><br></pre></td></tr></table></figure>
-
-<p>运行结果截图：</p>
-<p><img data-src="/./../images/image-20251018132958993.png" alt="image-20251018132958993"></p>
-<p>命令行输出：</p>
-<blockquote>
-<p>&gt;&gt; h2_2</p>
-<p>方程组的解 x:<br>   2.7143<br>   1.0571<br>  -1.4000</p>
-<p>验证 A*x 的结果:<br>   10<br>   -5<br>   12</p>
-<p>常数项向量 b:<br>   10<br>   -5<br>   12</p>
-</blockquote>
-<h3 id="3-描述性统计分析"><a href="#3-描述性统计分析" class="headerlink" title="3. 描述性统计分析"></a>3. 描述性统计分析</h3><p>生成一个包含50 个随机数的向量（服从均值为10、标准差为2 的正态分布，使用normrnd 函数），计算该向量的描述性统计量：均值、中位数、标准差、方差、极差（最大值减最小值），并将结果以表格形式输出。</p>
-<p>MATLAB代码：</p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% 生成服从均值为 10、标准差为 2 的正态分布的 50 个随机数向量</span></span><br><span class="line"></span><br><span class="line">x = normrnd(<span class="number">10</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">50</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 计算描述性统计量</span></span><br><span class="line">mean_val = <span class="built_in">mean</span>(x);          <span class="comment">% 均值</span></span><br><span class="line">median_val = median(x);      <span class="comment">% 中位数</span></span><br><span class="line">std_val = std(x);            <span class="comment">% 标准差</span></span><br><span class="line">var_val = var(x);            <span class="comment">% 方差</span></span><br><span class="line">range_val = range(x);        <span class="comment">% 极差（最大值减最小值）</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% 以表格形式输出结果</span></span><br><span class="line">stats_table = <span class="built_in">table</span>(mean_val, median_val, std_val, var_val, range_val, ...</span><br><span class="line">    <span class="string">&#x27;VariableNames&#x27;</span>, &#123;<span class="string">&#x27;均值&#x27;</span>, <span class="string">&#x27;中位数&#x27;</span>, <span class="string">&#x27;标准差&#x27;</span>, <span class="string">&#x27;方差&#x27;</span>, <span class="string">&#x27;极差&#x27;</span>&#125;);</span><br><span class="line"><span class="built_in">disp</span>(stats_table);</span><br></pre></td></tr></table></figure>
-
-<p>运行结果截图：</p>
-<p><img data-src="/./../images/image-20251018133420352.png" alt="image-20251018133420352"></p>
-<p>命令行输出：</p>
-<blockquote>
-<p>&gt;&gt; h2_3</p>
-<p>​     均值     中位数     标准差      方差      极差 </p>
-<hr>
-<p>​    10.568    10.644    2.5251    6.3759    13.045</p>
-</blockquote>
-<h3 id="4-线性规划问题求解"><a href="#4-线性规划问题求解" class="headerlink" title="4. 线性规划问题求解"></a>4. 线性规划问题求解</h3><p>使用 <code>linprog</code> 函数求解线性规划问题。目标函数：$\min f(x) &#x3D; 2x_1 + 3x_2$；约束条件：$x_1 + x_2 \geq 2$，$x_1 - 2x_2 \leq 1$，$x_1 \geq 0$，$x_2 \geq 0$。要求：正确设置目标函数系数 <code>f</code>、不等式约束矩阵 <code>A</code> 和向量 <code>b</code>、变量上下界 <code>lb</code>，输出最优解 <code>x</code> 及对应的目标函数最小值。（提示：<code>linprog</code> 默认求解 $\min$ 问题，不等式约束需转换为 $A\mathbf{x} \leq \mathbf{b}$ 形式）</p>
-<p>MATLAB代码：</p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% 目标函数系数（对应 min f(x) = 2x1 + 3x2）</span></span><br><span class="line">f = [<span class="number">2</span>; <span class="number">3</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">% 不等式约束转换为 A*x ≤ b 形式</span></span><br><span class="line"><span class="comment">% 原约束 x1 + x2 ≥ 2 转换为 -x1 - x2 ≤ -2</span></span><br><span class="line"><span class="comment">% 原约束 x1 - 2x2 ≤ 1 保持不变</span></span><br><span class="line">A = [<span class="number">-1</span>, <span class="number">-1</span>;</span><br><span class="line">      <span class="number">1</span>, <span class="number">-2</span>];</span><br><span class="line">b = [<span class="number">-2</span>;</span><br><span class="line">      <span class="number">1</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">% 变量下界（x1 ≥ 0, x2 ≥ 0）</span></span><br><span class="line">lb = [<span class="number">0</span>; <span class="number">0</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">% 调用 linprog 求解</span></span><br><span class="line">options = optimoptions(<span class="string">&#x27;linprog&#x27;</span>, <span class="string">&#x27;Display&#x27;</span>, <span class="string">&#x27;iter&#x27;</span>); <span class="comment">% 显示迭代过程</span></span><br><span class="line">[x, fval] = linprog(f, A, b, [], [], lb, [], options);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 输出结果</span></span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;最优解 x:&#x27;</span>);</span><br><span class="line"><span class="built_in">disp</span>(x);</span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;目标函数最小值 fval:&#x27;</span>);</span><br><span class="line"><span class="built_in">disp</span>(fval);</span><br></pre></td></tr></table></figure>
-
-<p>运行结果截图：</p>
-<p><img data-src="/./../images/image-20251018133842761.png" alt="image-20251018133842761"></p>
-<p>命令行输出：</p>
-<blockquote>
-<p>&gt;&gt; h2_4</p>
-<p>Running HiGHS 1.7.1: Copyright (c) 2024 HiGHS under MIT licence terms<br>Coefficient ranges:<br> Matrix [1e+00, 2e+00]<br> Cost   [2e+00, 3e+00]<br> Bound  [0e+00, 0e+00]<br> RHS    [1e+00, 2e+00]<br>Presolving model<br>2 rows, 2 cols, 4 nonzeros  0s<br>2 rows, 2 cols, 4 nonzeros  0s<br>Presolve : Reductions: rows 2(-0); columns 2(-0); elements 4(-0) - Not reduced<br>Problem not reduced by presolve: solving the LP<br>Using EKK dual simplex solver - serial<br> Iteration        Objective     Infeasibilities num(sum)<br>         0     0.0000000000e+00 Pr: 1(2) 0s<br>         2     4.3333333333e+00 Pr: 0(0) 0s<br>Model   status      : Optimal<br>Simplex   iterations: 2<br>Objective value     :  4.3333333333e+00<br>HiGHS run time      :          0.01</p>
-<p>找到最优解。</p>
-<p>最优解 x:<br>   1.6667<br>   0.3333</p>
-<p>目标函数最小值 fval:<br>   4.3333</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>作业</category>
-      </categories>
-      <tags>
-        <tag>MATLAB</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Windows下的Python环境配置</title>
     <url>/2025/10/01/Configuring-the-Python-Environment-on-Windows/</url>
     <content><![CDATA[<h2 id="在开始之前"><a href="#在开始之前" class="headerlink" title="在开始之前"></a>在开始之前</h2><ul>
@@ -457,41 +345,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Python学习笔记其一</title>
-    <url>/2025/10/01/Python0001/</url>
-    <content><![CDATA[<p>相关教程：</p>
-<p><a href="https://www.runoob.com/python3/python3-conditional-statements.html">Python3 条件控制 | 菜鸟教程</a></p>
-<p><a href="https://www.runoob.com/python3/python3-loop.html">Python3 循环语句 | 菜鸟教程</a></p>
-<p>使用for求1-100的和：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="built_in">sum</span> = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">101</span>):</span><br><span class="line">    <span class="built_in">sum</span> += i</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">sum</span>)</span><br></pre></td></tr></table></figure>
-
-<p>使用while求1-100的和：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="built_in">sum</span> = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> i &lt; <span class="number">101</span>:</span><br><span class="line">    <span class="built_in">sum</span> += i</span><br><span class="line">    i += <span class="number">1</span></span><br></pre></td></tr></table></figure>
-
-<p>排除1-100中含有“7”的数并求和：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="built_in">sum</span> = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">101</span>):</span><br><span class="line">    <span class="keyword">if</span> i // <span class="number">10</span> == <span class="number">7</span> <span class="keyword">or</span> i % <span class="number">10</span> == <span class="number">7</span>:</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">sum</span> += i</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">sum</span>)</span><br></pre></td></tr></table></figure>
-
-<p>亦可通过while实现：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="built_in">sum</span> = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> i &lt; <span class="number">101</span>:</span><br><span class="line">    <span class="keyword">if</span> i // <span class="number">10</span> == <span class="number">7</span> <span class="keyword">or</span> i % <span class="number">10</span> == <span class="number">7</span>:</span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">sum</span> += i</span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">sum</span>)</span><br></pre></td></tr></table></figure>
-
-<p>亦可通过将i转化为字符串排除实现：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="built_in">sum</span> = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">101</span>):</span><br><span class="line">    a = <span class="built_in">str</span>(i)</span><br><span class="line">    <span class="keyword">if</span> <span class="string">&quot;7&quot;</span> <span class="keyword">not</span> <span class="keyword">in</span> a:</span><br><span class="line">        <span class="built_in">sum</span> += i</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">sum</span>)</span><br></pre></td></tr></table></figure>
-
-<p>遇到的坑：</p>
-<ul>
-<li>for、if、elif、else、while语句要加:（冒号）</li>
-<li>在for或者while进行完if判断后需要对i进行自增，否则进入死循环</li>
-<li>continue为略过，break为中断，pass仅占位（debug用）</li>
-</ul>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Markdown学习笔记</title>
     <url>/2021/01/01/Markdown/</url>
     <content><![CDATA[<h2 id="后缀"><a href="#后缀" class="headerlink" title="后缀"></a>后缀</h2><p>.md</p>
@@ -593,6 +446,118 @@
       </tags>
   </entry>
   <entry>
+    <title>MATLAB基础作业其一</title>
+    <url>/2025/10/18/MATLAB0001/</url>
+    <content><![CDATA[<h1 id="MATLAB-基础第一次作业"><a href="#MATLAB-基础第一次作业" class="headerlink" title="MATLAB 基础第一次作业"></a>MATLAB 基础第一次作业</h1><h2 id="一、基础巩固题（每题8-分，共4-题，满分32-分）"><a href="#一、基础巩固题（每题8-分，共4-题，满分32-分）" class="headerlink" title="一、基础巩固题（每题8 分，共4 题，满分32 分）"></a>一、基础巩固题（每题8 分，共4 题，满分32 分）</h2><p><strong>目标：熟练掌握MATLAB 的基本运算规则、变量赋值及简单函数使用。</strong></p>
+<h3 id="1-温度转换计算"><a href="#1-温度转换计算" class="headerlink" title="1. 温度转换计算"></a>1. 温度转换计算</h3><p>  编写代码将25 摄氏度转换为华氏度，转换公式为F &#x3D; C × 9&#x2F;5 + 32。要求：定义变量C 存储摄氏度数值，计算后输出结果（保留1 位小数）。</p>
+<p>MATLAB代码：</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% 定义摄氏度变量</span></span><br><span class="line">C = <span class="number">25</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">% 根据公式计算华氏度</span></span><br><span class="line">F = C * <span class="number">9</span>/<span class="number">5</span> + <span class="number">32</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">% 输出结果，保留1位小数</span></span><br><span class="line">fprintf(<span class="string">&#x27;25摄氏度转换为华氏度是: %.1f°F\n&#x27;</span>, F);</span><br></pre></td></tr></table></figure>
+
+<p>运行结果截图：</p>
+<p><img data-src="/./../images/image-20251018131426548.png" alt="image-20251018131426548"></p>
+<p>命令行输出：</p>
+<blockquote>
+<p>&gt;&gt; h1_1</p>
+<p>25摄氏度转换为华氏度是: 77.0°F</p>
+</blockquote>
+<h3 id="2-简单表达式求值"><a href="#2-简单表达式求值" class="headerlink" title="2. 简单表达式求值"></a>2. 简单表达式求值</h3><p>计算表达式$\frac{\sqrt{16} + \log_{10}(1000) - \sin(\frac{\pi}{2})}{2^3 - 5}$的值。要求：使用MATLAB 内置函数（sqrt、log10、sin、pi）计算，直接输出结果。</p>
+<p>MATLAB代码：</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% 计算分子部分</span></span><br><span class="line">numerator = <span class="built_in">sqrt</span>(<span class="number">16</span>) + <span class="built_in">log10</span>(<span class="number">1000</span>) - <span class="built_in">sin</span>(<span class="built_in">pi</span>/<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 计算分母部分</span></span><br><span class="line">denominator = <span class="number">2</span>^<span class="number">3</span> - <span class="number">5</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">% 计算整个表达式的值</span></span><br><span class="line">result = numerator / denominator;</span><br><span class="line"></span><br><span class="line"><span class="comment">% 输出结果</span></span><br><span class="line"><span class="built_in">disp</span>(result);</span><br></pre></td></tr></table></figure>
+
+<p>运行结果截图：</p>
+<p><img data-src="/./../images/image-20251018131827586.png" alt="image-20251018131827586"></p>
+<p>命令行输出：</p>
+<blockquote>
+<p>&gt;&gt; h1_2</p>
+<p>​     2</p>
+</blockquote>
+<h3 id="3-矩阵创建与输出"><a href="#3-矩阵创建与输出" class="headerlink" title="3. 矩阵创建与输出"></a>3. 矩阵创建与输出</h3><p>创建一个3×3 的矩阵A，元素为1-9 的递增整数（第一行1-3，第二行4-6，第三行7-9），再创建一个3×1 的列向量B（元素为[2;4;6]），最后分别输出矩阵A 和向量B。</p>
+<p>MATLAB代码：</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% 创建 3×3 矩阵 A</span></span><br><span class="line">A = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>; <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>; <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">% 创建 3×1 列向量 B</span></span><br><span class="line">B = [<span class="number">2</span>; <span class="number">4</span>; <span class="number">6</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">% 输出矩阵 A</span></span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;矩阵 A:&#x27;</span>);</span><br><span class="line"><span class="built_in">disp</span>(A);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 输出向量 B</span></span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;列向量 B:&#x27;</span>);</span><br><span class="line"><span class="built_in">disp</span>(B);</span><br></pre></td></tr></table></figure>
+
+<p>运行结果截图：</p>
+<p><img data-src="/./../images/image-20251018132020159.png" alt="image-20251018132020159"></p>
+<p>命令行输出：</p>
+<blockquote>
+<p>&gt;&gt; h1_3</p>
+<p>矩阵 A:<br>    1     2     3<br>    4     5     6<br>    7     8     9</p>
+<p>列向量 B:<br>    2<br>    4<br>    6</p>
+</blockquote>
+<h3 id="4-矩阵基本运算"><a href="#4-矩阵基本运算" class="headerlink" title="4. 矩阵基本运算"></a>4. 矩阵基本运算</h3><p>基于第3 题中的矩阵A 和向量B，计算以下结果并输出：（1）A 的转置矩阵；（2）A 与B 的乘法（A*B）；（3）A 中所有元素的平均值。</p>
+<p>MATLAB代码：</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% 矩阵A和列向量B</span></span><br><span class="line">A = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>; <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>; <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>];</span><br><span class="line">B = [<span class="number">2</span>; <span class="number">4</span>; <span class="number">6</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">% 计算A的转置矩阵</span></span><br><span class="line">A_transpose = A&#x27;;</span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;A的转置矩阵:&#x27;</span>);</span><br><span class="line"><span class="built_in">disp</span>(A_transpose);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 计算A与B的乘法（A*B）</span></span><br><span class="line">AB_product = A * B;</span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;A与B的乘法结果:&#x27;</span>);</span><br><span class="line"><span class="built_in">disp</span>(AB_product);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 计算A中所有元素的平均值</span></span><br><span class="line">A_mean = <span class="built_in">mean</span>(A(:));</span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;A中所有元素的平均值:&#x27;</span>);</span><br><span class="line"><span class="built_in">disp</span>(A_mean);</span><br></pre></td></tr></table></figure>
+
+<p>运行结果截图：</p>
+<p><img data-src="/./../images/image-20251018132310167.png" alt="image-20251018132310167"></p>
+<p>命令行输出：</p>
+<blockquote>
+<p>&gt;&gt; h1_4</p>
+<p>A的转置矩阵:<br>    1     4     7<br>    2     5     8<br>    3     6     9</p>
+<p>A与B的乘法结果:<br>   28<br>   64<br>  100</p>
+<p>A中所有元素的平均值:<br>    5</p>
+</blockquote>
+<h2 id="二、能力提升题（每题17-分，共4-题，满分68-分）"><a href="#二、能力提升题（每题17-分，共4-题，满分68-分）" class="headerlink" title="二、能力提升题（每题17 分，共4 题，满分68 分）"></a>二、能力提升题（每题17 分，共4 题，满分68 分）</h2><p><strong>目标：结合多个知识点，实现复杂逻辑与数据处理。</strong></p>
+<h3 id="1-矩阵条件筛选"><a href="#1-矩阵条件筛选" class="headerlink" title="1. 矩阵条件筛选"></a>1. 矩阵条件筛选</h3><p>创建一个4×4 的随机矩阵（元素范围0-10，使用randi 函数），筛选出矩阵中大于5 的元素并输出这些元素的位置（行号和列号）及具体数值。</p>
+<p>MATLAB代码：</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% 创建 4×4 的随机矩阵，元素范围 0 - 10</span></span><br><span class="line">A = randi([<span class="number">0</span>, <span class="number">10</span>], <span class="number">4</span>, <span class="number">4</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 输出原始矩阵</span></span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;原始矩阵 A:&#x27;</span>);</span><br><span class="line"><span class="built_in">disp</span>(A);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 筛选出大于 5 的元素的行和列索引</span></span><br><span class="line">[row, col] = <span class="built_in">find</span>(A &gt; <span class="number">5</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 筛选出大于 5 的元素值</span></span><br><span class="line">values = A(A &gt; <span class="number">5</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 输出大于 5 的元素的位置（行号和列号）及具体数值</span></span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;矩阵中大于 5 的元素：&#x27;</span>);</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>:<span class="built_in">length</span>(row)</span><br><span class="line">    fprintf(<span class="string">&#x27;行号：%d，列号：%d，数值：%d\n&#x27;</span>, row(<span class="built_in">i</span>), col(<span class="built_in">i</span>), values(<span class="built_in">i</span>));</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<p>运行结果截图：</p>
+<p><img data-src="/./../images/image-20251018132717474.png" alt="image-20251018132717474"></p>
+<p>命令行输出：</p>
+<blockquote>
+<p>&gt;&gt; h2_1</p>
+<p>原始矩阵 A:<br>    8     6    10    10<br>    9     1    10     5<br>    1     3     1     8<br>   10     6    10     1</p>
+<p>矩阵中大于 5 的元素：<br>行号：1，列号：1，数值：8<br>行号：2，列号：1，数值：9<br>行号：4，列号：1，数值：10<br>行号：1，列号：2，数值：6<br>行号：4，列号：2，数值：6<br>行号：1，列号：3，数值：10<br>行号：2，列号：3，数值：10<br>行号：4，列号：3，数值：10<br>行号：1，列号：4，数值：10<br>行号：3，列号：4，数值：8</p>
+</blockquote>
+<h3 id="2-线性代数方程组求解"><a href="#2-线性代数方程组求解" class="headerlink" title="2. 线性代数方程组求解"></a>2. 线性代数方程组求解</h3><p>已知线性方程组：<br>$$<br>\begin{cases}<br>2x_1 + 3x_2 - x_3 &#x3D; 10 \<br>x_1 - 2x_2 + 4x_3 &#x3D; -5 \<br>3x_1 + x_2 - 2x_3 &#x3D; 12<br>\end{cases}<br>$$<br>将其表示为Ax &#x3D; b 的形式（其中A 为系数矩阵，b 为常数项向量），使用MATLAB 求解x，并验证A ∗ x 是否等于b。</p>
+<p>MATLAB代码：</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% 定义系数矩阵 A</span></span><br><span class="line">A = [<span class="number">2</span>, <span class="number">3</span>, <span class="number">-1</span>; <span class="number">1</span>, <span class="number">-2</span>, <span class="number">4</span>; <span class="number">3</span>, <span class="number">1</span>, <span class="number">-2</span>];</span><br><span class="line"><span class="comment">% 定义常数项向量 b</span></span><br><span class="line">b = [<span class="number">10</span>; <span class="number">-5</span>; <span class="number">12</span>];</span><br><span class="line"><span class="comment">% 求解线性方程组 Ax = b</span></span><br><span class="line">x = A \ b;</span><br><span class="line"><span class="comment">% 验证 A*x 是否等于 b</span></span><br><span class="line">verify = A * x;</span><br><span class="line"></span><br><span class="line"><span class="comment">% 输出结果</span></span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;方程组的解 x:&#x27;</span>);</span><br><span class="line"><span class="built_in">disp</span>(x);</span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;验证 A*x 的结果:&#x27;</span>);</span><br><span class="line"><span class="built_in">disp</span>(verify);</span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;常数项向量 b:&#x27;</span>);</span><br><span class="line"><span class="built_in">disp</span>(b);</span><br></pre></td></tr></table></figure>
+
+<p>运行结果截图：</p>
+<p><img data-src="/./../images/image-20251018132958993.png" alt="image-20251018132958993"></p>
+<p>命令行输出：</p>
+<blockquote>
+<p>&gt;&gt; h2_2</p>
+<p>方程组的解 x:<br>   2.7143<br>   1.0571<br>  -1.4000</p>
+<p>验证 A*x 的结果:<br>   10<br>   -5<br>   12</p>
+<p>常数项向量 b:<br>   10<br>   -5<br>   12</p>
+</blockquote>
+<h3 id="3-描述性统计分析"><a href="#3-描述性统计分析" class="headerlink" title="3. 描述性统计分析"></a>3. 描述性统计分析</h3><p>生成一个包含50 个随机数的向量（服从均值为10、标准差为2 的正态分布，使用normrnd 函数），计算该向量的描述性统计量：均值、中位数、标准差、方差、极差（最大值减最小值），并将结果以表格形式输出。</p>
+<p>MATLAB代码：</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% 生成服从均值为 10、标准差为 2 的正态分布的 50 个随机数向量</span></span><br><span class="line"></span><br><span class="line">x = normrnd(<span class="number">10</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">50</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 计算描述性统计量</span></span><br><span class="line">mean_val = <span class="built_in">mean</span>(x);          <span class="comment">% 均值</span></span><br><span class="line">median_val = median(x);      <span class="comment">% 中位数</span></span><br><span class="line">std_val = std(x);            <span class="comment">% 标准差</span></span><br><span class="line">var_val = var(x);            <span class="comment">% 方差</span></span><br><span class="line">range_val = range(x);        <span class="comment">% 极差（最大值减最小值）</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% 以表格形式输出结果</span></span><br><span class="line">stats_table = <span class="built_in">table</span>(mean_val, median_val, std_val, var_val, range_val, ...</span><br><span class="line">    <span class="string">&#x27;VariableNames&#x27;</span>, &#123;<span class="string">&#x27;均值&#x27;</span>, <span class="string">&#x27;中位数&#x27;</span>, <span class="string">&#x27;标准差&#x27;</span>, <span class="string">&#x27;方差&#x27;</span>, <span class="string">&#x27;极差&#x27;</span>&#125;);</span><br><span class="line"><span class="built_in">disp</span>(stats_table);</span><br></pre></td></tr></table></figure>
+
+<p>运行结果截图：</p>
+<p><img data-src="/./../images/image-20251018133420352.png" alt="image-20251018133420352"></p>
+<p>命令行输出：</p>
+<blockquote>
+<p>&gt;&gt; h2_3</p>
+<p>​     均值     中位数     标准差      方差      极差 </p>
+<hr>
+<p>​    10.568    10.644    2.5251    6.3759    13.045</p>
+</blockquote>
+<h3 id="4-线性规划问题求解"><a href="#4-线性规划问题求解" class="headerlink" title="4. 线性规划问题求解"></a>4. 线性规划问题求解</h3><p>使用 <code>linprog</code> 函数求解线性规划问题。目标函数：$\min f(x) &#x3D; 2x_1 + 3x_2$；约束条件：$x_1 + x_2 \geq 2$，$x_1 - 2x_2 \leq 1$，$x_1 \geq 0$，$x_2 \geq 0$。要求：正确设置目标函数系数 <code>f</code>、不等式约束矩阵 <code>A</code> 和向量 <code>b</code>、变量上下界 <code>lb</code>，输出最优解 <code>x</code> 及对应的目标函数最小值。（提示：<code>linprog</code> 默认求解 $\min$ 问题，不等式约束需转换为 $A\mathbf{x} \leq \mathbf{b}$ 形式）</p>
+<p>MATLAB代码：</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% 目标函数系数（对应 min f(x) = 2x1 + 3x2）</span></span><br><span class="line">f = [<span class="number">2</span>; <span class="number">3</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">% 不等式约束转换为 A*x ≤ b 形式</span></span><br><span class="line"><span class="comment">% 原约束 x1 + x2 ≥ 2 转换为 -x1 - x2 ≤ -2</span></span><br><span class="line"><span class="comment">% 原约束 x1 - 2x2 ≤ 1 保持不变</span></span><br><span class="line">A = [<span class="number">-1</span>, <span class="number">-1</span>;</span><br><span class="line">      <span class="number">1</span>, <span class="number">-2</span>];</span><br><span class="line">b = [<span class="number">-2</span>;</span><br><span class="line">      <span class="number">1</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">% 变量下界（x1 ≥ 0, x2 ≥ 0）</span></span><br><span class="line">lb = [<span class="number">0</span>; <span class="number">0</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">% 调用 linprog 求解</span></span><br><span class="line">options = optimoptions(<span class="string">&#x27;linprog&#x27;</span>, <span class="string">&#x27;Display&#x27;</span>, <span class="string">&#x27;iter&#x27;</span>); <span class="comment">% 显示迭代过程</span></span><br><span class="line">[x, fval] = linprog(f, A, b, [], [], lb, [], options);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 输出结果</span></span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;最优解 x:&#x27;</span>);</span><br><span class="line"><span class="built_in">disp</span>(x);</span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;目标函数最小值 fval:&#x27;</span>);</span><br><span class="line"><span class="built_in">disp</span>(fval);</span><br></pre></td></tr></table></figure>
+
+<p>运行结果截图：</p>
+<p><img data-src="/./../images/image-20251018133842761.png" alt="image-20251018133842761"></p>
+<p>命令行输出：</p>
+<blockquote>
+<p>&gt;&gt; h2_4</p>
+<p>Running HiGHS 1.7.1: Copyright (c) 2024 HiGHS under MIT licence terms<br>Coefficient ranges:<br> Matrix [1e+00, 2e+00]<br> Cost   [2e+00, 3e+00]<br> Bound  [0e+00, 0e+00]<br> RHS    [1e+00, 2e+00]<br>Presolving model<br>2 rows, 2 cols, 4 nonzeros  0s<br>2 rows, 2 cols, 4 nonzeros  0s<br>Presolve : Reductions: rows 2(-0); columns 2(-0); elements 4(-0) - Not reduced<br>Problem not reduced by presolve: solving the LP<br>Using EKK dual simplex solver - serial<br> Iteration        Objective     Infeasibilities num(sum)<br>         0     0.0000000000e+00 Pr: 1(2) 0s<br>         2     4.3333333333e+00 Pr: 0(0) 0s<br>Model   status      : Optimal<br>Simplex   iterations: 2<br>Objective value     :  4.3333333333e+00<br>HiGHS run time      :          0.01</p>
+<p>找到最优解。</p>
+<p>最优解 x:<br>   1.6667<br>   0.3333</p>
+<p>目标函数最小值 fval:<br>   4.3333</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>作业</category>
+      </categories>
+      <tags>
+        <tag>MATLAB</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Python学习笔记其三</title>
     <url>/2025/10/03/Python0003/</url>
     <content><![CDATA[<h1 id="PyTorch教程"><a href="#PyTorch教程" class="headerlink" title="PyTorch教程"></a>PyTorch教程</h1><p>在开始学习本教程之前，你应具备以下基础知识，以便更好地理解和应用 PyTorch</p>
@@ -685,6 +650,41 @@
 <p><img data-src="/./../images/image-20251003172940247.png" alt="image-20251003172940247"></p>
 <h2 id="数据集与数据加载"><a href="#数据集与数据加载" class="headerlink" title="数据集与数据加载"></a>数据集与数据加载</h2><p><img data-src="/./../images/image-20251003173012074.png" alt="image-20251003173012074"></p>
 <p><img data-src="/./../images/image-20251003173435990.png" alt="image-20251003173435990"></p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python学习笔记其一</title>
+    <url>/2025/10/01/Python0001/</url>
+    <content><![CDATA[<p>相关教程：</p>
+<p><a href="https://www.runoob.com/python3/python3-conditional-statements.html">Python3 条件控制 | 菜鸟教程</a></p>
+<p><a href="https://www.runoob.com/python3/python3-loop.html">Python3 循环语句 | 菜鸟教程</a></p>
+<p>使用for求1-100的和：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="built_in">sum</span> = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">101</span>):</span><br><span class="line">    <span class="built_in">sum</span> += i</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">sum</span>)</span><br></pre></td></tr></table></figure>
+
+<p>使用while求1-100的和：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="built_in">sum</span> = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> i &lt; <span class="number">101</span>:</span><br><span class="line">    <span class="built_in">sum</span> += i</span><br><span class="line">    i += <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<p>排除1-100中含有“7”的数并求和：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="built_in">sum</span> = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">101</span>):</span><br><span class="line">    <span class="keyword">if</span> i // <span class="number">10</span> == <span class="number">7</span> <span class="keyword">or</span> i % <span class="number">10</span> == <span class="number">7</span>:</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">sum</span> += i</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">sum</span>)</span><br></pre></td></tr></table></figure>
+
+<p>亦可通过while实现：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="built_in">sum</span> = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> i &lt; <span class="number">101</span>:</span><br><span class="line">    <span class="keyword">if</span> i // <span class="number">10</span> == <span class="number">7</span> <span class="keyword">or</span> i % <span class="number">10</span> == <span class="number">7</span>:</span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">sum</span> += i</span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">sum</span>)</span><br></pre></td></tr></table></figure>
+
+<p>亦可通过将i转化为字符串排除实现：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="built_in">sum</span> = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">101</span>):</span><br><span class="line">    a = <span class="built_in">str</span>(i)</span><br><span class="line">    <span class="keyword">if</span> <span class="string">&quot;7&quot;</span> <span class="keyword">not</span> <span class="keyword">in</span> a:</span><br><span class="line">        <span class="built_in">sum</span> += i</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">sum</span>)</span><br></pre></td></tr></table></figure>
+
+<p>遇到的坑：</p>
+<ul>
+<li>for、if、elif、else、while语句要加:（冒号）</li>
+<li>在for或者while进行完if判断后需要对i进行自增，否则进入死循环</li>
+<li>continue为略过，break为中断，pass仅占位（debug用）</li>
+</ul>
 ]]></content>
       <categories>
         <category>笔记</category>
@@ -1034,6 +1034,68 @@
       </tags>
   </entry>
   <entry>
+    <title>UTM Virtual Machine</title>
+    <url>/2020/11/12/UTM-virtual-machine/</url>
+    <content><![CDATA[<p>写在前面：手里有台iPhone7，不知干什么好，没有Android的可玩性，即使Android不root，也会有像termux的容器。9-11岁时，我还在玩limbo，bochs，lbochs，APQ。这些都是一些模拟器。bochs和lbochs是基于bochs的，而limbo和APQ是基于qemu的。要我给他们排序的话，bochs是最简单的，我记得我最早用过的镜像是andows.img，用起来简单，把sdl和镜像放在指定位置就行了。点击app启动，音量键控制左右键，滑动屏幕控制鼠标。点击左下角（还是右下角，我忘了）呼出键盘。就是在朋友同学面前装B用的。lbochs支持更多扩展，limbo有各种版本，对于X86的安卓兼容较好，一般在Android上我首选limbo。APQ比较稳定，但是前提是要Root，仅支持VNC，得自己去改配置。就这样。我接触到了qemu。</p>
+<p>在qemu的世界，我只做了XP的镜像，当年我家的电脑配置不高，仅仅有2G而已，一般开个虚拟机就要处在死机的边缘。但我还是经常用它来做镜像，传到手机上。那段时间，我只是从贴吧收藏大佬分享的镜像，大多都是XP和98，再高的就是7，8，10，不过开个机都要等几个小时。</p>
+<p>以前我有一台iPhone 4，完美越狱，用的盘古越狱工具。唯一能装B的，也就是一个叫Bochs的应用。在百度上，我勉勉强强找到了安装方法，但是打开就闪退，并且教程都是用的iPhone1或3，后来，我在威锋源上找到了一个writeful的源，但是后来威锋源关闭，新版的Bochs出来，但是仅仅支持iOS10以下，也就是32位系统，这时，我已经用着iPhone7了。</p>
+<p>对于iPhone7而言，可以用三种方式运行Windows。一种叫Idos2，在iOS10以前，是Idos，是用来运行dos游戏的，idos2用的dosbox，但是仅能在越狱后浏览其目录，放上教程里提供的镜像，输入“win95”启动，虽然麻烦，却异常稳定，只是显卡没有驱动。</p>
+<p>再后来，国外大神开发了iBox，基于Bochs，国外大神演示时用的iPhone7，跑起了Windows，但是却花屏。我把Windows3.11，Windows95，Windows98的镜像放在里面，却异常好用！其实就是能在64位设备上运行的Bochs而已。</p>
+<p>第三个，就是今天说的UTM虚拟机，基于qemu，能跑起Windows XP，貌似能跑起Windows7，10。也能跑起Android x86，Linux。以下是详细步骤。项目主页：<a href="https://getutm.app/">https://getutm.app/</a> GitHub：<a href="https://github.com/utmapp/UTM">https://github.com/utmapp/UTM</a></p>
+<p>1.建议越狱。</p>
+<p>为什么呢？说白了——便于续签。没错，便于续签！要不然你忍心7天装一次吗？iPhone X以下设备可以使用checkra1n越狱，可以的话我可以出一期教程。</p>
+<p>2.安装UTM</p>
+<p>如果你越狱了，直接从爱思助手拖放ipa文件即可，要没有越狱（像是iPhone11），可以用altstore。</p>
+<p>altstore教程：</p>
+<p>1.打开<a href="https://altstore.io/%E4%B8%8B%E8%BD%BD%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E3%80%82Windows%E7%89%88%E4%BB%85%E6%94%AF%E6%8C%81Windows10">https://altstore.io/下载应用程序。Windows版仅支持Windows10</a> 。</p>
+<p><img data-src="/./../images/T8IZQbfJkzdXLF3-1759458037861-31.png" alt="pic"><br>解压后点击AltInstaller.msi，进行安装，根据需求安装即可。</p>
+<p>在安装的目录下，像D:\Program Files (x86)\ 找到AltServer，打开，点击AltServer.exe，启动，在右下角图标左键。</p>
+<p><img data-src="/./../images/dhubM5rGjWx1tke-1759458037861-32.png" alt="pic"><br>选择“Install AltStore”选择你的设备。</p>
+<p><img data-src="/./../images/72XT5dHIsqPaYt3-1759458037861-33.png" alt="pic"><br>如实填写你的Apple ID和密码，要进行签名，不是盗号！注意，要下载官网的iTunes，不是Windows10自带的应用商店里的！要不然会报错！也不能不安装！</p>
+<p>安装完成后，添加源：<a href="https://alt.getutm.app/">https://alt.getutm.app</a></p>
+<p>然后搜索并下载即可。</p>
+<p>下载完成了，就该玩了。准备好一个镜像，ISO文件，Windows的可以从这里下载：<a href="http://msdn.itellyou.cn/">http://msdn.itellyou.cn/</a></p>
+<p>ed2k连接用迅雷下载即可。打开iTunes，找到左上角的小手机，点一下，如果是灰色，无法点击，那就等一会。点进去找到文件共享，在App找到“UTM”，这时里面是空的，添加你下载的镜像进去。接下来就是手机操作了（温馨提示：iPhone7建议用XP，iPhoneX以上最好不要用8.1或10，其他随意~）</p>
+<p>下载好的应用是这样子的</p>
+<p><img data-src="/./../images/e3TKP4DdCQ1lSWm-1759458037861-34.png" alt="pic"><br>加载很慢，截图截到3M<br>打开后。会出现一段提示，大概是不能强制关闭UTM，要点左上面的小X号</p>
+<p>打开后，是这样的</p>
+<p><img data-src="/./../images/jV8Lr3ZmGNOl9eo-1759458037861-35.png" alt="pic"><br>那两个是我提前创建好的。点击右上角的+，会这样：</p>
+<p><img data-src="/./../images/fwsHnUy79YTtA4J-1759458037861-36.png" alt="pic"><br>内存，iPhone7设置到768差不多，最高的应该是1015吧，点击加载镜像，如下</p>
+<p><img data-src="/./../images/oYZSMsv8i2T5dk6-1759458037861-37.png" alt="pic"><br>点击右上角的+，创建一个驱动器，如图</p>
+<p><img data-src="/./../images/8qfijOIHSLBuXEF-1759458037861-38.png" alt="pic"><br>镜像类型，硬盘就是disk，光驱就是cd&#x2F;dvd，如图</p>
+<p><img data-src="/./../images/3nhPlu6W1KtxTJV-1759458037861-39.png" alt="pic"><br>先选cd&#x2F;dvd，点击文件路径，点击右上角的+，如图</p>
+<p><img data-src="/./../images/vnLVM6Sblpe5AkB-1759458037861-40.png" alt="pic"><br>会这样</p>
+<p><img data-src="/./../images/1kNJEcW2Hf6LhUe-1759458037861-41.png" alt="pic"><br>如果选的cd&#x2F;dvd，选“导入”，会这样</p>
+<p><img data-src="/./../images/Wevqyri87jakPOQ-1759458037861-42.png" alt="pic"><br>这是我已经打开utm文件夹，具体可以点击“我的iPhone”找到“UTM”文件夹，选择你复制的镜像ISO文件，如图</p>
+<p><img data-src="/./../images/zYtWGIiEkJRs146-1759458037861-43.png" alt="pic"><br>再点一次镜像，加载，重复第（调整disk或cd&#x2F;dvd）步选择disk，不要选导入，如果你有现成的，那就选导入，一般是xxx.img，创建，一般填hda.img，第二行看系统大小来定，XP可以是10G，win7可以是20G，10G填10240，20G填20480，以此类推。</p>
+<p>创建完成后，点击播放建，开机，正常安装系统即可。来了电话回自动暂停，来了微信，就点击上面的暂停键，暂停。如图（会加载缓慢）</p>
+<p><img data-src="/./../images/Xl1ow2tg3qPU7xf-1759458037861-44.png" alt="pic"><br><img data-src="/./../images/Xl1ow2tg3qPU7xf-1759458037863-46.png" alt="pic"><br>继续运行点击中间即可。退出点击X，如果开着机，相当于强制关机。</p>
+<p><img data-src="/./../images/BDYJa1RFfnIX4Qt-1759458037861-45.png" alt="pic"></p>
+<hr>
+<p>Q&amp;A：</p>
+<p>Q：为什么安装AltStore会出现签名错误？</p>
+<p>A：13.3.1有此问题，建议越狱后使用，或用爱思助手安装。</p>
+<p>Q：为什么7天后提示我验证应用？</p>
+<p>A：普遍问题，建议越狱后安装续签插件。免费开发者账户需要7天一签，付费的一年一签。</p>
+<p>Q：越狱后如何在手机上直接安装UTM.ipa？</p>
+<p>A：下载Filza，在里面点选ipa文件安装。</p>
+<p>Q：为什么我在一些云上续签了，但是启动VM时会崩溃？</p>
+<p>A：许多“云”签名服务（包括AppCake）不能与UTM一起使用，因为它们使用了错误的签名证书。如果尝试启动VM时发生崩溃，则可能是您的签名证书无效。</p>
+<p>Q：有什么免费的续签方法吗？</p>
+<p>A：如果您运行的是普通iOS，则使用iOS App Signer 可以免费，轻松地重新签名IPA 。然后，您可以使用iTunes，音乐应用程序或Xcode安装它。</p>
+<p>注：图片加载于sm.ms图床，部分资料参考与UTM官网。</p>
+]]></content>
+      <categories>
+        <category>IOS</category>
+      </categories>
+      <tags>
+        <tag>ios</tag>
+        <tag>UTM</tag>
+        <tag>VM</tag>
+        <tag>iPhone</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>山东省综合素质评价填报指北</title>
     <url>/2023/08/25/Shandong-Comprehensive-Quality-Evaluation-Filling-Guide/</url>
     <content><![CDATA[<p>一学期一度的综合素质评价马上就要结束了（9月1日），而我的综合素质评价还一字未填，于是决定撰写一篇文章来介绍填报方式及注意事项。</p>
@@ -1264,65 +1326,24 @@
       </tags>
   </entry>
   <entry>
-    <title>UTM Virtual Machine</title>
-    <url>/2020/11/12/UTM-virtual-machine/</url>
-    <content><![CDATA[<p>写在前面：手里有台iPhone7，不知干什么好，没有Android的可玩性，即使Android不root，也会有像termux的容器。9-11岁时，我还在玩limbo，bochs，lbochs，APQ。这些都是一些模拟器。bochs和lbochs是基于bochs的，而limbo和APQ是基于qemu的。要我给他们排序的话，bochs是最简单的，我记得我最早用过的镜像是andows.img，用起来简单，把sdl和镜像放在指定位置就行了。点击app启动，音量键控制左右键，滑动屏幕控制鼠标。点击左下角（还是右下角，我忘了）呼出键盘。就是在朋友同学面前装B用的。lbochs支持更多扩展，limbo有各种版本，对于X86的安卓兼容较好，一般在Android上我首选limbo。APQ比较稳定，但是前提是要Root，仅支持VNC，得自己去改配置。就这样。我接触到了qemu。</p>
-<p>在qemu的世界，我只做了XP的镜像，当年我家的电脑配置不高，仅仅有2G而已，一般开个虚拟机就要处在死机的边缘。但我还是经常用它来做镜像，传到手机上。那段时间，我只是从贴吧收藏大佬分享的镜像，大多都是XP和98，再高的就是7，8，10，不过开个机都要等几个小时。</p>
-<p>以前我有一台iPhone 4，完美越狱，用的盘古越狱工具。唯一能装B的，也就是一个叫Bochs的应用。在百度上，我勉勉强强找到了安装方法，但是打开就闪退，并且教程都是用的iPhone1或3，后来，我在威锋源上找到了一个writeful的源，但是后来威锋源关闭，新版的Bochs出来，但是仅仅支持iOS10以下，也就是32位系统，这时，我已经用着iPhone7了。</p>
-<p>对于iPhone7而言，可以用三种方式运行Windows。一种叫Idos2，在iOS10以前，是Idos，是用来运行dos游戏的，idos2用的dosbox，但是仅能在越狱后浏览其目录，放上教程里提供的镜像，输入“win95”启动，虽然麻烦，却异常稳定，只是显卡没有驱动。</p>
-<p>再后来，国外大神开发了iBox，基于Bochs，国外大神演示时用的iPhone7，跑起了Windows，但是却花屏。我把Windows3.11，Windows95，Windows98的镜像放在里面，却异常好用！其实就是能在64位设备上运行的Bochs而已。</p>
-<p>第三个，就是今天说的UTM虚拟机，基于qemu，能跑起Windows XP，貌似能跑起Windows7，10。也能跑起Android x86，Linux。以下是详细步骤。项目主页：<a href="https://getutm.app/">https://getutm.app/</a> GitHub：<a href="https://github.com/utmapp/UTM">https://github.com/utmapp/UTM</a></p>
-<p>1.建议越狱。</p>
-<p>为什么呢？说白了——便于续签。没错，便于续签！要不然你忍心7天装一次吗？iPhone X以下设备可以使用checkra1n越狱，可以的话我可以出一期教程。</p>
-<p>2.安装UTM</p>
-<p>如果你越狱了，直接从爱思助手拖放ipa文件即可，要没有越狱（像是iPhone11），可以用altstore。</p>
-<p>altstore教程：</p>
-<p>1.打开<a href="https://altstore.io/%E4%B8%8B%E8%BD%BD%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E3%80%82Windows%E7%89%88%E4%BB%85%E6%94%AF%E6%8C%81Windows10">https://altstore.io/下载应用程序。Windows版仅支持Windows10</a> 。</p>
-<p><img data-src="/./../images/T8IZQbfJkzdXLF3-1759458037861-31.png" alt="pic"><br>解压后点击AltInstaller.msi，进行安装，根据需求安装即可。</p>
-<p>在安装的目录下，像D:\Program Files (x86)\ 找到AltServer，打开，点击AltServer.exe，启动，在右下角图标左键。</p>
-<p><img data-src="/./../images/dhubM5rGjWx1tke-1759458037861-32.png" alt="pic"><br>选择“Install AltStore”选择你的设备。</p>
-<p><img data-src="/./../images/72XT5dHIsqPaYt3-1759458037861-33.png" alt="pic"><br>如实填写你的Apple ID和密码，要进行签名，不是盗号！注意，要下载官网的iTunes，不是Windows10自带的应用商店里的！要不然会报错！也不能不安装！</p>
-<p>安装完成后，添加源：<a href="https://alt.getutm.app/">https://alt.getutm.app</a></p>
-<p>然后搜索并下载即可。</p>
-<p>下载完成了，就该玩了。准备好一个镜像，ISO文件，Windows的可以从这里下载：<a href="http://msdn.itellyou.cn/">http://msdn.itellyou.cn/</a></p>
-<p>ed2k连接用迅雷下载即可。打开iTunes，找到左上角的小手机，点一下，如果是灰色，无法点击，那就等一会。点进去找到文件共享，在App找到“UTM”，这时里面是空的，添加你下载的镜像进去。接下来就是手机操作了（温馨提示：iPhone7建议用XP，iPhoneX以上最好不要用8.1或10，其他随意~）</p>
-<p>下载好的应用是这样子的</p>
-<p><img data-src="/./../images/e3TKP4DdCQ1lSWm-1759458037861-34.png" alt="pic"><br>加载很慢，截图截到3M<br>打开后。会出现一段提示，大概是不能强制关闭UTM，要点左上面的小X号</p>
-<p>打开后，是这样的</p>
-<p><img data-src="/./../images/jV8Lr3ZmGNOl9eo-1759458037861-35.png" alt="pic"><br>那两个是我提前创建好的。点击右上角的+，会这样：</p>
-<p><img data-src="/./../images/fwsHnUy79YTtA4J-1759458037861-36.png" alt="pic"><br>内存，iPhone7设置到768差不多，最高的应该是1015吧，点击加载镜像，如下</p>
-<p><img data-src="/./../images/oYZSMsv8i2T5dk6-1759458037861-37.png" alt="pic"><br>点击右上角的+，创建一个驱动器，如图</p>
-<p><img data-src="/./../images/8qfijOIHSLBuXEF-1759458037861-38.png" alt="pic"><br>镜像类型，硬盘就是disk，光驱就是cd&#x2F;dvd，如图</p>
-<p><img data-src="/./../images/3nhPlu6W1KtxTJV-1759458037861-39.png" alt="pic"><br>先选cd&#x2F;dvd，点击文件路径，点击右上角的+，如图</p>
-<p><img data-src="/./../images/vnLVM6Sblpe5AkB-1759458037861-40.png" alt="pic"><br>会这样</p>
-<p><img data-src="/./../images/1kNJEcW2Hf6LhUe-1759458037861-41.png" alt="pic"><br>如果选的cd&#x2F;dvd，选“导入”，会这样</p>
-<p><img data-src="/./../images/Wevqyri87jakPOQ-1759458037861-42.png" alt="pic"><br>这是我已经打开utm文件夹，具体可以点击“我的iPhone”找到“UTM”文件夹，选择你复制的镜像ISO文件，如图</p>
-<p><img data-src="/./../images/zYtWGIiEkJRs146-1759458037861-43.png" alt="pic"><br>再点一次镜像，加载，重复第（调整disk或cd&#x2F;dvd）步选择disk，不要选导入，如果你有现成的，那就选导入，一般是xxx.img，创建，一般填hda.img，第二行看系统大小来定，XP可以是10G，win7可以是20G，10G填10240，20G填20480，以此类推。</p>
-<p>创建完成后，点击播放建，开机，正常安装系统即可。来了电话回自动暂停，来了微信，就点击上面的暂停键，暂停。如图（会加载缓慢）</p>
-<p><img data-src="/./../images/Xl1ow2tg3qPU7xf-1759458037861-44.png" alt="pic"><br><img data-src="/./../images/Xl1ow2tg3qPU7xf-1759458037863-46.png" alt="pic"><br>继续运行点击中间即可。退出点击X，如果开着机，相当于强制关机。</p>
-<p><img data-src="/./../images/BDYJa1RFfnIX4Qt-1759458037861-45.png" alt="pic"></p>
-<hr>
-<p>Q&amp;A：</p>
-<p>Q：为什么安装AltStore会出现签名错误？</p>
-<p>A：13.3.1有此问题，建议越狱后使用，或用爱思助手安装。</p>
-<p>Q：为什么7天后提示我验证应用？</p>
-<p>A：普遍问题，建议越狱后安装续签插件。免费开发者账户需要7天一签，付费的一年一签。</p>
-<p>Q：越狱后如何在手机上直接安装UTM.ipa？</p>
-<p>A：下载Filza，在里面点选ipa文件安装。</p>
-<p>Q：为什么我在一些云上续签了，但是启动VM时会崩溃？</p>
-<p>A：许多“云”签名服务（包括AppCake）不能与UTM一起使用，因为它们使用了错误的签名证书。如果尝试启动VM时发生崩溃，则可能是您的签名证书无效。</p>
-<p>Q：有什么免费的续签方法吗？</p>
-<p>A：如果您运行的是普通iOS，则使用iOS App Signer 可以免费，轻松地重新签名IPA 。然后，您可以使用iTunes，音乐应用程序或Xcode安装它。</p>
-<p>注：图片加载于sm.ms图床，部分资料参考与UTM官网。</p>
+    <title>Usage of Structure Block in Minecraft PE</title>
+    <url>/2020/11/22/Usage-of-structure-block-in-Minecraft-PE/</url>
+    <content><![CDATA[<p>写在前面：看到我写游戏，是不是感到非常惊讶？是否有很多问号？其实我从2013年接触我的世界，最早玩0.10.5版本，接触了多玩我的世界盒子和葫芦侠。最早玩我的世界还是用的三星的GT-I9050,安卓2.3，除了运行0.10.5,再大的版本就运行不了了。后来，我用我妈的红米玩0.12.2，地狱疣和药水炼制让我着迷。后来中间潜心学习了一段时间，终于在网易代理后又拾起了我的世界。现在手机版都有地狱更新了，我玩着新版本，没有感觉不熟悉，反而是满满的回忆。今天的我的世界,盒子类几乎没有，唯一好的盒子还是Toolbox，最近也要看广告才能解锁高级功能。<br>今天教大家如何在我的世界中使用结构方块，其实官方名字叫“建筑方块”。<br>首先，在创建世界时，打开“启用实验玩法”，确定开启了作弊和创造。建议下载Toolbox，我就用的toolbox。</p>
+<p><img data-src="/./../images/2020042717372011.jpg" alt="jpg"><br><img data-src="/./../images/2020042717372010.jpg" alt="jpg"><br><img data-src="/./../images/202004271737209.jpg" alt="jpg"><br><img data-src="/./../images/202004271737208.jpg" alt="jpg"></p>
+<p>接着，点击小稿头，找到世界-获取项目，不要点上面的四个，弹出键盘关闭即可。<br><img data-src="/./../images/202004271737207.jpg" alt="jpg"></p>
+<p>在最下面找到这个方块，点击“添加”<br>然后放在地下，你想复制的地方，可以不是一个维度，比如复制各种遗迹。<br>放下“建筑方块”会看到以下界面<br><img data-src="/./../images/202004271737206.jpg" alt="jpg"></p>
+<p>这就是要复制的范围，大小可以调，点击“建筑方块”<br><img data-src="/./../images/202004271737205.jpg" alt="jpg"></p>
+<p>会看到一个3D图像和右边的大小和偏移。可以自行调节，比对3D图像，X轴是红色，Y轴是绿色，Z轴是红色，偏移是复制结构偏移多少格，像这样<br><img data-src="/./../images/202004271737203.jpg" alt="jpg"></p>
+<p>X轴和Y轴最大64，Y轴未知（自己试试）<br><img data-src="/./../images/202004271737204.jpg" alt="jpg"><br>可以选择包含实体或移除方块。包含实体如果打开了，掉落物，各种动物，怪物，村民都可以保存下来。如果打开了移除方块，就会只保留实体。<br><img data-src="/./../images/202004271737202.jpg" alt="jpg"></p>
+<p>保存到磁盘中可以导出为3D图像，或复制到另一个世界。不过toolbox的世界与原版不互通，并且找不到toolbox的文档目录，我已经发邮件问作者，还没回。保存到内存的话，应该是退出世界就没有了。<br><img data-src="/./../images/202004271737201.jpg" alt="jpg"></p>
+<p>保存的话，写上一个名字，会自动为你补全mystructure:这是，找个你想复制的地方，放下“建筑方块”,模式选择“加载”，也是光输入你保存时写的的名字。我这里是test，如果存在，则字体变亮，如果不存在，会是灰色。输入正确后，会显示出你保存的大小，调整即可。最后点击“加载”会有点卡，一点一点加载，甚是舒服！最后就是这个样子<br><img data-src="/./../images/20200427173720.jpg" alt="jpg"></p>
+<p>突然出现的“山”是不是很有趣？也可以把末地船复制到大海上，稍加修缮，就成真正在海上的船了！<br>写在最后：近的物体，还是用clone命令吧。两者皆用，建筑我行！（这应该是全网第一篇教程，有不明白的可以点游戏中建筑方块里面的问号）</p>
 ]]></content>
       <categories>
-        <category>IOS</category>
+        <category>Games</category>
       </categories>
       <tags>
-        <tag>ios</tag>
-        <tag>UTM</tag>
-        <tag>VM</tag>
-        <tag>iPhone</tag>
+        <tag>Minecarft</tag>
       </tags>
   </entry>
   <entry>
@@ -1363,27 +1384,6 @@
         <tag>域名</tag>
         <tag>js.org</tag>
         <tag>js</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Usage of Structure Block in Minecraft PE</title>
-    <url>/2020/11/22/Usage-of-structure-block-in-Minecraft-PE/</url>
-    <content><![CDATA[<p>写在前面：看到我写游戏，是不是感到非常惊讶？是否有很多问号？其实我从2013年接触我的世界，最早玩0.10.5版本，接触了多玩我的世界盒子和葫芦侠。最早玩我的世界还是用的三星的GT-I9050,安卓2.3，除了运行0.10.5,再大的版本就运行不了了。后来，我用我妈的红米玩0.12.2，地狱疣和药水炼制让我着迷。后来中间潜心学习了一段时间，终于在网易代理后又拾起了我的世界。现在手机版都有地狱更新了，我玩着新版本，没有感觉不熟悉，反而是满满的回忆。今天的我的世界,盒子类几乎没有，唯一好的盒子还是Toolbox，最近也要看广告才能解锁高级功能。<br>今天教大家如何在我的世界中使用结构方块，其实官方名字叫“建筑方块”。<br>首先，在创建世界时，打开“启用实验玩法”，确定开启了作弊和创造。建议下载Toolbox，我就用的toolbox。</p>
-<p><img data-src="/./../images/2020042717372011.jpg" alt="jpg"><br><img data-src="/./../images/2020042717372010.jpg" alt="jpg"><br><img data-src="/./../images/202004271737209.jpg" alt="jpg"><br><img data-src="/./../images/202004271737208.jpg" alt="jpg"></p>
-<p>接着，点击小稿头，找到世界-获取项目，不要点上面的四个，弹出键盘关闭即可。<br><img data-src="/./../images/202004271737207.jpg" alt="jpg"></p>
-<p>在最下面找到这个方块，点击“添加”<br>然后放在地下，你想复制的地方，可以不是一个维度，比如复制各种遗迹。<br>放下“建筑方块”会看到以下界面<br><img data-src="/./../images/202004271737206.jpg" alt="jpg"></p>
-<p>这就是要复制的范围，大小可以调，点击“建筑方块”<br><img data-src="/./../images/202004271737205.jpg" alt="jpg"></p>
-<p>会看到一个3D图像和右边的大小和偏移。可以自行调节，比对3D图像，X轴是红色，Y轴是绿色，Z轴是红色，偏移是复制结构偏移多少格，像这样<br><img data-src="/./../images/202004271737203.jpg" alt="jpg"></p>
-<p>X轴和Y轴最大64，Y轴未知（自己试试）<br><img data-src="/./../images/202004271737204.jpg" alt="jpg"><br>可以选择包含实体或移除方块。包含实体如果打开了，掉落物，各种动物，怪物，村民都可以保存下来。如果打开了移除方块，就会只保留实体。<br><img data-src="/./../images/202004271737202.jpg" alt="jpg"></p>
-<p>保存到磁盘中可以导出为3D图像，或复制到另一个世界。不过toolbox的世界与原版不互通，并且找不到toolbox的文档目录，我已经发邮件问作者，还没回。保存到内存的话，应该是退出世界就没有了。<br><img data-src="/./../images/202004271737201.jpg" alt="jpg"></p>
-<p>保存的话，写上一个名字，会自动为你补全mystructure:这是，找个你想复制的地方，放下“建筑方块”,模式选择“加载”，也是光输入你保存时写的的名字。我这里是test，如果存在，则字体变亮，如果不存在，会是灰色。输入正确后，会显示出你保存的大小，调整即可。最后点击“加载”会有点卡，一点一点加载，甚是舒服！最后就是这个样子<br><img data-src="/./../images/20200427173720.jpg" alt="jpg"></p>
-<p>突然出现的“山”是不是很有趣？也可以把末地船复制到大海上，稍加修缮，就成真正在海上的船了！<br>写在最后：近的物体，还是用clone命令吧。两者皆用，建筑我行！（这应该是全网第一篇教程，有不明白的可以点游戏中建筑方块里面的问号）</p>
-]]></content>
-      <categories>
-        <category>Games</category>
-      </categories>
-      <tags>
-        <tag>Minecarft</tag>
       </tags>
   </entry>
   <entry>
