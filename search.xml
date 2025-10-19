@@ -593,96 +593,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Python学习笔记其二</title>
-    <url>/2025/10/02/Python0002/</url>
-    <content><![CDATA[<h2 id="写在最前"><a href="#写在最前" class="headerlink" title="写在最前"></a>写在最前</h2><p><strong>先看完教程链接，再看相关实例！</strong></p>
-<p>几个容易遇到的坑：</p>
-<ul>
-<li>编程语言中的符号一定不要打成中文符号！！！经常容易打错的有：括号()，逗号,，引号””</li>
-<li>中文乱码考虑一下有没有把编码形式改成utf-8</li>
-<li>注意观察参数需不需要加引号，如open函数的encoding&#x3D;”utf-8”就要加引号</li>
-<li>有问题把报错和源码复制给Ai进行询问</li>
-</ul>
-<h2 id="输入与输出"><a href="#输入与输出" class="headerlink" title="输入与输出"></a>输入与输出</h2><p><a href="https://www.runoob.com/python3/python3-inputoutput.html">Python3 输入和输出 | 菜鸟教程</a></p>
-<p>Python两种输出值的方式: 表达式语句和 print() 函数。</p>
-<p>第三种方式是使用文件对象的 write() 方法，标准输出文件可以用 sys.stdout 引用。</p>
-<p>如果你希望输出的形式更加多样，可以使用 str.format() 函数来格式化输出值。</p>
-<p>如果你希望将输出的值转成字符串，可以使用 repr() 或 str() 函数来实现。</p>
-<ul>
-<li><strong>str()：</strong> 函数返回一个用户易读的表达形式。</li>
-<li><strong>repr()：</strong> 产生一个解释器易读的表达形式。</li>
-</ul>
-<h3 id="str-format占位符"><a href="#str-format占位符" class="headerlink" title="str.format占位符"></a>str.format占位符</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">name = <span class="string">&quot;Bob&quot;</span></span><br><span class="line">age = <span class="number">20</span></span><br><span class="line">score = <span class="number">88.456</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;姓名：&#123;&#125;, 年龄：&#123;&#125;, 成绩：&#123;:.1f&#125;&quot;</span>.<span class="built_in">format</span>(name, age, score))</span><br><span class="line"><span class="comment"># 输出：姓名：Bob, 年龄：20, 成绩：88.5</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;姓名：&#123;0&#125;, 年龄：&#123;1&#125;, 成绩：&#123;2:.2f&#125;&quot;</span>.<span class="built_in">format</span>(name, age, score))</span><br><span class="line"><span class="comment"># 输出：姓名：Bob, 年龄：20, 成绩：88.46</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="print分开字符串与变量"><a href="#print分开字符串与变量" class="headerlink" title="print分开字符串与变量"></a>print分开字符串与变量</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;The value of test is: <span class="subst">&#123;test&#125;</span>&quot;</span>)	<span class="comment">##引号前加一“f”，在想要显示变量值的地方加一个大括号&#123;&#125;，其中写入变量名</span></span><br></pre></td></tr></table></figure>
-<p>% 占位符</p>
-<p>这是最早的字符串格式化方法。与C语言基本一致。常用的占位符包括：</p>
-<p>%s：字符串</p>
-<p>%d：整数</p>
-<p>%f：浮点数</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;姓名：%s, 年龄：%d, 成绩：%.2f&quot;</span> % (name, age, score))</span><br></pre></td></tr></table></figure>
-
-<h3 id="input输入"><a href="#input输入" class="headerlink" title="input输入"></a>input输入</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="built_in">input</span>(<span class="string">&quot;提示的文本&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-<p>一般直接赋给变量值</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">age = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&quot;年龄&quot;</span>))		<span class="comment">##由于年龄是个整型，这里使用int对其进行格式化</span></span><br></pre></td></tr></table></figure>
-
-<p>例子</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">name = <span class="built_in">input</span>(<span class="string">&quot;姓名：&quot;</span>)</span><br><span class="line">age = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&quot;年龄：&quot;</span>))</span><br><span class="line">love_programming_language = <span class="built_in">input</span>(<span class="string">&quot;喜欢的编程语言（以逗号分隔）：&quot;</span>)</span><br><span class="line">age_after_3years = <span class="built_in">int</span>(age + <span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;个人信息&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;姓名：<span class="subst">&#123;name&#125;</span>&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;年龄：%d&quot;</span>, age)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;喜欢的编程语言：<span class="subst">&#123;love_programming_language&#125;</span>&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;三年后年龄：<span class="subst">&#123;age_after_3years&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-<h2 id="open函数"><a href="#open函数" class="headerlink" title="open函数"></a>open函数</h2><p><a href="https://www.runoob.com/python3/python3-file-methods.html">Python3 File 方法 | 菜鸟教程</a></p>
-<h2 id="os模块"><a href="#os模块" class="headerlink" title="os模块"></a>os模块</h2><p><a href="https://www.runoob.com/python3/python3-os-file-methods.html">Python3 OS 文件&#x2F;目录方法 | 菜鸟教程</a></p>
-<blockquote>
-<p>问题2:文件处理<br>编写一个程序，使用 os 模块和文件方法完成以下操作:1.创建一个名为”test files”的目录(如果不存在)<br>2.在该目录下创建一个文本文件”notes.txt<br>3.向文件中写入 3 行内容已创建目录: test files已向文件 notes.txt 写入内容<br>文件内容如下:<br>第1行: 这是第一行内容</p>
-<p>第2行: Python文件操作练习</p>
-<p>第3行: 使用os模块和文件方法</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os	<span class="comment">##导入os模块</span></span><br><span class="line"></span><br><span class="line">status1 = os.listdir()	<span class="comment">##获取当前目录下文件，为下面看看有没有&quot;test_files&quot;做准备</span></span><br><span class="line"><span class="keyword">if</span> <span class="string">&quot;test_files&quot;</span> <span class="keyword">in</span> status1:	<span class="comment">##判断&quot;test_files&quot;在不在当前工作目录下</span></span><br><span class="line">    os.chdir(<span class="string">&quot;test_files&quot;</span>)	<span class="comment">##如果存在就切换工作目录到&quot;test_files&quot;中</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    os.mkdir(<span class="string">&quot;test_files&quot;</span>)	<span class="comment">##如果不存在就创建目录</span></span><br><span class="line">    os.chdir(<span class="string">&quot;test_files&quot;</span>)	<span class="comment">##并进入&quot;test_files&quot;</span></span><br><span class="line">status2 = os.listdir()	<span class="comment">##获取&quot;test_files&quot;目录下文件，为下面看看有没有做准备</span></span><br><span class="line"><span class="keyword">if</span> <span class="string">&quot;notes.txt&quot;</span> <span class="keyword">in</span> status2:	<span class="comment">##判断&quot;notes.txt&quot;在不在当前工作目录下</span></span><br><span class="line">    os.remove(<span class="string">&quot;notes.txt&quot;</span>)	<span class="comment">##如果在就删除</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;notes.txt&quot;</span>, mode=<span class="string">&#x27;x&#x27;</span>, encoding=<span class="string">&quot;utf-8&quot;</span>) <span class="keyword">as</span> f:	<span class="comment">##创建并打开notes.txt，以写入方式打开（mode=&#x27;x&#x27;），编解码方式为&quot;utf-8&quot;（使用utf-8以避免中文报错）</span></span><br><span class="line">	f.write(<span class="string">&quot;这是第一行内容\nPython文件操作练习\n使用os模块和文件方法&quot;</span>)	<span class="comment">##写入内容至notes.txt</span></span><br><span class="line">	f.flush()	<span class="comment">##刷新文件内部缓冲，直接把内部缓冲区的数据立刻写入文件, 而不是被动的等待输出缓冲区写入。</span></span><br><span class="line">	f.close()	<span class="comment">##关闭文件。关闭后文件不能再进行读写操作。</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;已向文件notes.txt中写入内容&quot;</span>)		<span class="comment">##进行提示</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><p><a href="https://www.runoob.com/python3/python3-function.html">Python3 函数 | 菜鸟教程</a></p>
-<h2 id="name"><a href="#name" class="headerlink" title="name"></a><strong>name</strong></h2><p><a href="https://www.runoob.com/python3/python3-name-main.html">Python <strong>name</strong> 与 <strong>main</strong> | 菜鸟教程</a></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    main() </span><br></pre></td></tr></table></figure>
-
-<p>命名为主函数。Python中，总是从主函数开始运行。</p>
-<p>例如：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">greet</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;来自 example 模块的问候！&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:	<span class="comment">##模块将从此处开始运行</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;该脚本正在直接运行。&quot;</span>)</span><br><span class="line">    greet()</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;该脚本作为模块被导入。&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>问题3:编写def函数</p>
-<p>编写一个名为sum_and_average的函数</p>
-<p>要求:函数接收一个包含数字的列表作为参数函数返回两个值:列表中所有数字的总和，以及这些数字的平均值</p>
-<p>如果传入的列表为空，总和返回 0，平均值返回 0.0</p>
-<p>编写代码测试这个函数，至少测试两种情况:包含数字的列表和空列表</p>
-</blockquote>
-<p>例如：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">sum_and_average</span>(<span class="params"><span class="built_in">list</span></span>):	<span class="comment">##定义sum_and_average(list)</span></span><br><span class="line">    total = <span class="built_in">sum</span>(<span class="built_in">list</span>)	<span class="comment">##求和</span></span><br><span class="line">    count = <span class="built_in">len</span>(<span class="built_in">list</span>)	<span class="comment">##统计传入列表中的值的数量</span></span><br><span class="line">    average = total / count <span class="keyword">if</span> count &gt; <span class="number">0</span> <span class="keyword">else</span> <span class="number">0</span>	<span class="comment">##判断，因为求平均要求分母不为零，有传入为空的要求，故进行判断，当传入为空时使average为0，传入不为空时用总和除以值的数量求平均</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;求和：%d&quot;</span> %total)	<span class="comment">##打印求和量，类型是整数</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;平均：%.1f&quot;</span> %average)	<span class="comment">##打印求平均量，类型是浮点型，保留小数点后一位</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">None</span>	<span class="comment">##返回None，此行代码可不写</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:	<span class="comment">##main</span></span><br><span class="line">    before_list = <span class="built_in">input</span>(<span class="string">&quot;输入一些数字，使用英文逗号间隔：&quot;</span>)	<span class="comment">##对传入数据在before_list变量中进行预存储，方便后续校验非空</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> before_list:	<span class="comment">##如果传入内容为空</span></span><br><span class="line">        <span class="built_in">list</span> = before_list	<span class="comment">##则让list列表为空</span></span><br><span class="line">    <span class="keyword">else</span>:	<span class="comment">##如果传入内容不为空</span></span><br><span class="line">        <span class="built_in">list</span> = [<span class="built_in">int</span>(x) <span class="keyword">for</span> x <span class="keyword">in</span> before_list.split(<span class="string">&#x27;,&#x27;</span>)]	<span class="comment">##将输入before_list中值传入list中，英文逗号为分隔符</span></span><br><span class="line">    sum_and_average(<span class="built_in">list</span>)	<span class="comment">##运行自定义函数</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="类"><a href="#类" class="headerlink" title="类"></a>类</h2><p><strong>高难度内容，Python最难的内容，最抽象的内容，最绕的内容</strong></p>
-<p><a href="https://www.runoob.com/python3/python3-class.html">Python3 面向对象 | 菜鸟教程</a></p>
-<h2 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h2><p><a href="https://www.runoob.com/python3/python3-module.html">Python3 模块 | 菜鸟教程</a></p>
-<p>例如：</p>
-<blockquote>
-<p>问题4:设计book类<br>设计一个Book类，要求如下<br>属性:书名(title)、作者(author)页数(pages)<br>方法:构造方法初始化所有属性<br>is_long()方法:如果页数超过 300 页，返回True，否则返回False</p>
-<p>get_info()方法:返回包含书名、作者和页数的字符串，格式如”《Python 编程》- 张三 (280 页)”</p>
-<p>最后创建 1个Book对象，分别调用上述方法并打印结果。</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Book</span>:		<span class="comment">##定义一个Book类</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self,title,author,pages</span>):  	<span class="comment">##详情请见教程__init__类，必须要有self，否则无法传入主函数输入的变量值</span></span><br><span class="line">        <span class="variable language_">self</span>.title = title</span><br><span class="line">        <span class="variable language_">self</span>.author = author</span><br><span class="line">        <span class="variable language_">self</span>.pages = pages</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">is_long</span>(<span class="params">self</span>):		<span class="comment">##定义一个is_long函数</span></span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>.pages &gt; <span class="number">300</span>:		<span class="comment">##判断页数是否大于300</span></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span>		<span class="comment">##如果大于300返回True</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span>		<span class="comment">##如果小于300返回False</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">get_info</span>(<span class="params">self</span>):		<span class="comment">##定义一个get_info函数</span></span><br><span class="line">        info = <span class="string">f&quot;<span class="subst">&#123;self.title&#125;</span> - <span class="subst">&#123;self.author&#125;</span> (<span class="subst">&#123;self.pages&#125;</span> 页)&quot;</span>		<span class="comment">##配置一个info函数，方便后续显示</span></span><br><span class="line">        <span class="keyword">return</span> info		<span class="comment">##返回info变量，方便后续调用</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:		<span class="comment">##主函数</span></span><br><span class="line">    title = <span class="built_in">str</span>(<span class="built_in">input</span>(<span class="string">&quot;请输入书名（带书名号）：&quot;</span>))		<span class="comment">##获取书名</span></span><br><span class="line">    author = <span class="built_in">str</span>(<span class="built_in">input</span>(<span class="string">&quot;请输入作者名：&quot;</span>))		<span class="comment">##获取作者名</span></span><br><span class="line">    pages = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&quot;请输入页数：&quot;</span>))		<span class="comment">##获取书页数</span></span><br><span class="line">    x = Book(title,author,pages)		<span class="comment">##将获取到的三个变量传入Book类对应的变量中</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;是长书吗：<span class="subst">&#123;x.is_long()&#125;</span>&quot;</span>)		<span class="comment">##打印判断结果</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;本书信息：<span class="subst">&#123;x.get_info()&#125;</span>&quot;</span>)		<span class="comment">##打印本书信息</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="推导式"><a href="#推导式" class="headerlink" title="推导式"></a>推导式</h2><p><a href="https://www.runoob.com/python3/python-comprehensions.html">Python 推导式 | 菜鸟教程</a></p>
-<h2 id="迭代器与生成器"><a href="#迭代器与生成器" class="headerlink" title="迭代器与生成器"></a>迭代器与生成器</h2><p><a href="https://www.runoob.com/python3/python3-iterator-generator.html">Python3 迭代器与生成器 | 菜鸟教程</a></p>
-<h2 id="with-关键字"><a href="#with-关键字" class="headerlink" title="with 关键字"></a>with 关键字</h2><p><a href="https://www.runoob.com/python3/python3-with-keyword.html">Python with 关键字 | 菜鸟教程</a></p>
-<h2 id="错误和异常"><a href="#错误和异常" class="headerlink" title="错误和异常"></a>错误和异常</h2><p><a href="https://www.runoob.com/python3/python3-errors-execptions.html">Python3 错误和异常 | 菜鸟教程</a></p>
-<h2 id="标准库概览"><a href="#标准库概览" class="headerlink" title="标准库概览"></a>标准库概览</h2><p><a href="https://www.runoob.com/python3/python3-stdlib.html">Python3 标准库概览 | 菜鸟教程</a></p>
-<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><p><a href="https://www.runoob.com/python3/python3-examples.html">Python3 实例 | 菜鸟教程</a></p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Python学习笔记其三</title>
     <url>/2025/10/03/Python0003/</url>
     <content><![CDATA[<h1 id="PyTorch教程"><a href="#PyTorch教程" class="headerlink" title="PyTorch教程"></a>PyTorch教程</h1><p>在开始学习本教程之前，你应具备以下基础知识，以便更好地理解和应用 PyTorch</p>
@@ -784,247 +694,87 @@
       </tags>
   </entry>
   <entry>
-    <title>Python学习笔记其四</title>
-    <url>/2025/10/04/Python0004/</url>
-    <content><![CDATA[<h1 id="Pytorch教程"><a href="#Pytorch教程" class="headerlink" title="Pytorch教程"></a>Pytorch教程</h1><h2 id="搭建一个神经网络"><a href="#搭建一个神经网络" class="headerlink" title="搭建一个神经网络"></a>搭建一个神经网络</h2><p><img data-src="/./../images/image-20251004141830767-1759558936645-3-1759559443801-13-1759559811461-26-1759559952609-43.png" alt="image-20251004141830767"></p>
-<p><img data-src="/./../images/image-20251004141950553-1759558936645-4-1759559443802-14-1759559811461-27-1759559952609-44.png" alt="image-20251004141950553"></p>
-<h1 id="PyTorch-常用层讲解与示例"><a href="#PyTorch-常用层讲解与示例" class="headerlink" title="PyTorch 常用层讲解与示例"></a>PyTorch 常用层讲解与示例</h1><p>本教程介绍 PyTorch 中一些核心神经网络层：Linear、Conv2d、LSTM，包括它们的数学公式和对应实现代码。</p>
-<hr>
-<h2 id="1-Linear-层-全连接层"><a href="#1-Linear-层-全连接层" class="headerlink" title="1. Linear 层 (全连接层)"></a>1. Linear 层 (全连接层)</h2><img width="1920" height="1080" alt="image" data-src="./../images/b82a10c4-b278-4c9e-ad83-5556b675c1d9-1759559443802-15-1759559811462-28-1759559952609-45.png" />
-
-
-<p><strong>数学公式</strong>：</p>
-<p>输入向量 $x \in \mathbb{R}^{d_{in}}$，输出向量 $y \in \mathbb{R}^{d_{out}}$：</p>
-<p>$$<br>y &#x3D; x W^\top + b, \quad W \in \mathbb{R}^{d_{out} \times d_{in}}, \quad b \in \mathbb{R}^{d_{out}}<br>$$</p>
-<p><strong>解释</strong>：</p>
+    <title>Python学习笔记其二</title>
+    <url>/2025/10/02/Python0002/</url>
+    <content><![CDATA[<h2 id="写在最前"><a href="#写在最前" class="headerlink" title="写在最前"></a>写在最前</h2><p><strong>先看完教程链接，再看相关实例！</strong></p>
+<p>几个容易遇到的坑：</p>
 <ul>
-<li>每个输出节点是输入节点的加权和加上偏置  </li>
-<li>常用于全连接网络、MLP 等</li>
+<li>编程语言中的符号一定不要打成中文符号！！！经常容易打错的有：括号()，逗号,，引号””</li>
+<li>中文乱码考虑一下有没有把编码形式改成utf-8</li>
+<li>注意观察参数需不需要加引号，如open函数的encoding&#x3D;”utf-8”就要加引号</li>
+<li>有问题把报错和源码复制给Ai进行询问</li>
 </ul>
-<p><strong>示例代码</strong>：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">LinearExample</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, d_in, d_out</span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line">        <span class="variable language_">self</span>.linear = nn.Linear(d_in, d_out)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">self</span>.linear(x)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 示例</span></span><br><span class="line">x = torch.randn(<span class="number">4</span>, <span class="number">10</span>)</span><br><span class="line">model_linear = LinearExample(<span class="number">10</span>, <span class="number">5</span>)</span><br><span class="line">y = model_linear(x)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Linear 输出形状:&quot;</span>, y.shape)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h2 id="2-Conv2d-层-二维卷积层"><a href="#2-Conv2d-层-二维卷积层" class="headerlink" title="2. Conv2d 层 (二维卷积层)"></a>2. Conv2d 层 (二维卷积层)</h2><img width="543" height="544" alt="image" data-src="./../images/d41bbdbc-216a-4374-bbf2-dfe1437e01df-1759559443802-16-1759559811462-31-1759559952609-47.png" />
-
-
-<p><strong>数学公式</strong>：</p>
-<p>输入张量 $X \in \mathbb{R}^{C_{in} \times H \times W}$，卷积核 $K \in \mathbb{R}^{C_{out} \times C_{in} \times k_h \times k_w}$：</p>
-<p>$$<br>Y_{o,i,j} &#x3D; \sum_{c&#x3D;0}^{C_{in}-1} \sum_{m&#x3D;0}^{k_h-1} \sum_{n&#x3D;0}^{k_w-1} K_{o,c,m,n} \cdot X_{c,i+m,j+n} + b_o<br>$$</p>
-<p><strong>解释</strong>：</p>
+<h2 id="输入与输出"><a href="#输入与输出" class="headerlink" title="输入与输出"></a>输入与输出</h2><p><a href="https://www.runoob.com/python3/python3-inputoutput.html">Python3 输入和输出 | 菜鸟教程</a></p>
+<p>Python两种输出值的方式: 表达式语句和 print() 函数。</p>
+<p>第三种方式是使用文件对象的 write() 方法，标准输出文件可以用 sys.stdout 引用。</p>
+<p>如果你希望输出的形式更加多样，可以使用 str.format() 函数来格式化输出值。</p>
+<p>如果你希望将输出的值转成字符串，可以使用 repr() 或 str() 函数来实现。</p>
 <ul>
-<li>对每个输出通道，卷积核在输入各通道上进行加权求和，并加偏置  </li>
-<li>常用于图像特征提取、卷积神经网络</li>
+<li><strong>str()：</strong> 函数返回一个用户易读的表达形式。</li>
+<li><strong>repr()：</strong> 产生一个解释器易读的表达形式。</li>
 </ul>
-<p><strong>示例代码</strong>：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Conv2dExample</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, in_channels, out_channels, kernel_size</span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line">        <span class="variable language_">self</span>.conv = nn.Conv2d(in_channels, out_channels, kernel_size)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">self</span>.conv(x)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 示例</span></span><br><span class="line">x_img = torch.randn(<span class="number">2</span>, <span class="number">3</span>, <span class="number">32</span>, <span class="number">32</span>)  <span class="comment"># batch_size=2, 3通道, 32x32图像</span></span><br><span class="line">model_conv = Conv2dExample(<span class="number">3</span>, <span class="number">6</span>, <span class="number">5</span>)  <span class="comment"># 输出6个通道, kernel 5x5</span></span><br><span class="line">y_img = model_conv(x_img)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Conv2d 输出形状:&quot;</span>, y_img.shape)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h1 id="PyTorch-激活函数详解"><a href="#PyTorch-激活函数详解" class="headerlink" title="PyTorch 激活函数详解"></a>PyTorch 激活函数详解</h1><p>本教程介绍常用激活函数。</p>
-<hr>
-<h2 id="1-ReLU"><a href="#1-ReLU" class="headerlink" title="1. ReLU"></a>1. ReLU</h2><img width="473" height="382" alt="image" data-src="./../images/79bf9f4a-fcce-4a9c-bc84-d69f787c2eee-1759559811462-30-1759559952609-46.png" />
+<h3 id="str-format占位符"><a href="#str-format占位符" class="headerlink" title="str.format占位符"></a>str.format占位符</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">name = <span class="string">&quot;Bob&quot;</span></span><br><span class="line">age = <span class="number">20</span></span><br><span class="line">score = <span class="number">88.456</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;姓名：&#123;&#125;, 年龄：&#123;&#125;, 成绩：&#123;:.1f&#125;&quot;</span>.<span class="built_in">format</span>(name, age, score))</span><br><span class="line"><span class="comment"># 输出：姓名：Bob, 年龄：20, 成绩：88.5</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;姓名：&#123;0&#125;, 年龄：&#123;1&#125;, 成绩：&#123;2:.2f&#125;&quot;</span>.<span class="built_in">format</span>(name, age, score))</span><br><span class="line"><span class="comment"># 输出：姓名：Bob, 年龄：20, 成绩：88.46</span></span><br></pre></td></tr></table></figure>
 
-<p>数学公式：</p>
-<p>$$<br>f(x) &#x3D; \max(0, x)<br>$$</p>
-<p>解释：</p>
-<ul>
-<li>将小于0的输入置0，大于0保持不变  </li>
-<li>计算简单，常用于卷积层或全连接层后</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"></span><br><span class="line">relu = nn.ReLU()</span><br><span class="line">x = torch.tensor([[-<span class="number">1.0</span>, <span class="number">0.0</span>, <span class="number">2.0</span>]])</span><br><span class="line">y = relu(x)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;ReLU 输出:\n&quot;</span>, y)</span><br></pre></td></tr></table></figure>
+<h3 id="print分开字符串与变量"><a href="#print分开字符串与变量" class="headerlink" title="print分开字符串与变量"></a>print分开字符串与变量</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;The value of test is: <span class="subst">&#123;test&#125;</span>&quot;</span>)	<span class="comment">##引号前加一“f”，在想要显示变量值的地方加一个大括号&#123;&#125;，其中写入变量名</span></span><br></pre></td></tr></table></figure>
+<p>% 占位符</p>
+<p>这是最早的字符串格式化方法。与C语言基本一致。常用的占位符包括：</p>
+<p>%s：字符串</p>
+<p>%d：整数</p>
+<p>%f：浮点数</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;姓名：%s, 年龄：%d, 成绩：%.2f&quot;</span> % (name, age, score))</span><br></pre></td></tr></table></figure>
 
-<h2 id="2-Sigmoid"><a href="#2-Sigmoid" class="headerlink" title="2. Sigmoid"></a>2. Sigmoid</h2><img width="1920" height="1080" alt="image" data-src="./../images/606014d0-e40a-4c21-a18f-8824ac3a86ea-1759559811462-29-1759559952609-48.png" />
+<h3 id="input输入"><a href="#input输入" class="headerlink" title="input输入"></a>input输入</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="built_in">input</span>(<span class="string">&quot;提示的文本&quot;</span>)</span><br></pre></td></tr></table></figure>
 
-<p>数学公式：</p>
-<p>$$<br>\sigma(x) &#x3D; \frac{1}{1 + e^{-x}}<br>$$</p>
-<p>解释：</p>
-<ul>
-<li>将输入映射到 (0,1)  </li>
-<li>常用于二分类输出层</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"></span><br><span class="line">sigmoid = nn.Sigmoid()</span><br><span class="line">x = torch.tensor([[-<span class="number">1.0</span>, <span class="number">0.0</span>, <span class="number">2.0</span>]])</span><br><span class="line">y = sigmoid(x)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Sigmoid 输出:\n&quot;</span>, y)</span><br></pre></td></tr></table></figure>
-<h2 id="3-Tanh"><a href="#3-Tanh" class="headerlink" title="3. Tanh"></a>3. Tanh</h2><img width="425" height="234" alt="image" data-src="./../images/0a34c0d6-9627-4a65-a04e-82690727ee00-1759559811462-33-1759559952610-49.png" />
+<p>一般直接赋给变量值</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">age = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&quot;年龄&quot;</span>))		<span class="comment">##由于年龄是个整型，这里使用int对其进行格式化</span></span><br></pre></td></tr></table></figure>
 
-<p>数学公式：</p>
-<p>$$<br>\tanh(x) &#x3D; \frac{e^x - e^{-x}}{e^x + e^{-x}}<br>$$</p>
-<p>解释：</p>
-<ul>
-<li>将输入映射到 (-1, 1)  </li>
-<li>均值为 0，有助于训练收敛  </li>
-<li>常用于序列模型或隐藏层激活函数</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"></span><br><span class="line">tanh = nn.Tanh()</span><br><span class="line">x = torch.tensor([[-<span class="number">1.0</span>, <span class="number">0.0</span>, <span class="number">2.0</span>]])</span><br><span class="line">y = tanh(x)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Tanh 输出:\n&quot;</span>, y)</span><br></pre></td></tr></table></figure>
-<h2 id="4-LeakyReLU"><a href="#4-LeakyReLU" class="headerlink" title="4. LeakyReLU"></a>4. LeakyReLU</h2><img width="683" height="559" alt="image" data-src="./../images/1c91f705-c38d-4025-9cbd-d6ebf25da8a0-1759559811462-32-1759559952610-50.png" />
+<p>例子</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">name = <span class="built_in">input</span>(<span class="string">&quot;姓名：&quot;</span>)</span><br><span class="line">age = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&quot;年龄：&quot;</span>))</span><br><span class="line">love_programming_language = <span class="built_in">input</span>(<span class="string">&quot;喜欢的编程语言（以逗号分隔）：&quot;</span>)</span><br><span class="line">age_after_3years = <span class="built_in">int</span>(age + <span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;个人信息&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;姓名：<span class="subst">&#123;name&#125;</span>&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;年龄：%d&quot;</span>, age)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;喜欢的编程语言：<span class="subst">&#123;love_programming_language&#125;</span>&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;三年后年龄：<span class="subst">&#123;age_after_3years&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
 
-<p>数学公式：</p>
-<p>$$<br>f(x) &#x3D;<br>\begin{cases}<br>x, &amp; x &gt; 0 \<br>\alpha x, &amp; x \le 0<br>\end{cases}, \quad \alpha &#x3D; 0.01<br>$$</p>
-<p>解释：</p>
-<ul>
-<li>避免 ReLU 的“死亡神经元”问题  </li>
-<li>对负值仍保留小梯度，不完全置零  </li>
-<li>常用于卷积层或全连接层激活函数</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"></span><br><span class="line">leaky_relu = nn.LeakyReLU(negative_slope=<span class="number">0.01</span>)</span><br><span class="line">x = torch.tensor([[-<span class="number">1.0</span>, <span class="number">0.0</span>, <span class="number">2.0</span>]])</span><br><span class="line">y = leaky_relu(x)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;LeakyReLU 输出:\n&quot;</span>, y)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="open函数"><a href="#open函数" class="headerlink" title="open函数"></a>open函数</h2><p><a href="https://www.runoob.com/python3/python3-file-methods.html">Python3 File 方法 | 菜鸟教程</a></p>
+<h2 id="os模块"><a href="#os模块" class="headerlink" title="os模块"></a>os模块</h2><p><a href="https://www.runoob.com/python3/python3-os-file-methods.html">Python3 OS 文件&#x2F;目录方法 | 菜鸟教程</a></p>
+<blockquote>
+<p>问题2:文件处理<br>编写一个程序，使用 os 模块和文件方法完成以下操作:1.创建一个名为”test files”的目录(如果不存在)<br>2.在该目录下创建一个文本文件”notes.txt<br>3.向文件中写入 3 行内容已创建目录: test files已向文件 notes.txt 写入内容<br>文件内容如下:<br>第1行: 这是第一行内容</p>
+<p>第2行: Python文件操作练习</p>
+<p>第3行: 使用os模块和文件方法</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os	<span class="comment">##导入os模块</span></span><br><span class="line"></span><br><span class="line">status1 = os.listdir()	<span class="comment">##获取当前目录下文件，为下面看看有没有&quot;test_files&quot;做准备</span></span><br><span class="line"><span class="keyword">if</span> <span class="string">&quot;test_files&quot;</span> <span class="keyword">in</span> status1:	<span class="comment">##判断&quot;test_files&quot;在不在当前工作目录下</span></span><br><span class="line">    os.chdir(<span class="string">&quot;test_files&quot;</span>)	<span class="comment">##如果存在就切换工作目录到&quot;test_files&quot;中</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    os.mkdir(<span class="string">&quot;test_files&quot;</span>)	<span class="comment">##如果不存在就创建目录</span></span><br><span class="line">    os.chdir(<span class="string">&quot;test_files&quot;</span>)	<span class="comment">##并进入&quot;test_files&quot;</span></span><br><span class="line">status2 = os.listdir()	<span class="comment">##获取&quot;test_files&quot;目录下文件，为下面看看有没有做准备</span></span><br><span class="line"><span class="keyword">if</span> <span class="string">&quot;notes.txt&quot;</span> <span class="keyword">in</span> status2:	<span class="comment">##判断&quot;notes.txt&quot;在不在当前工作目录下</span></span><br><span class="line">    os.remove(<span class="string">&quot;notes.txt&quot;</span>)	<span class="comment">##如果在就删除</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;notes.txt&quot;</span>, mode=<span class="string">&#x27;x&#x27;</span>, encoding=<span class="string">&quot;utf-8&quot;</span>) <span class="keyword">as</span> f:	<span class="comment">##创建并打开notes.txt，以写入方式打开（mode=&#x27;x&#x27;），编解码方式为&quot;utf-8&quot;（使用utf-8以避免中文报错）</span></span><br><span class="line">	f.write(<span class="string">&quot;这是第一行内容\nPython文件操作练习\n使用os模块和文件方法&quot;</span>)	<span class="comment">##写入内容至notes.txt</span></span><br><span class="line">	f.flush()	<span class="comment">##刷新文件内部缓冲，直接把内部缓冲区的数据立刻写入文件, 而不是被动的等待输出缓冲区写入。</span></span><br><span class="line">	f.close()	<span class="comment">##关闭文件。关闭后文件不能再进行读写操作。</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;已向文件notes.txt中写入内容&quot;</span>)		<span class="comment">##进行提示</span></span><br></pre></td></tr></table></figure>
 
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><p><a href="https://www.runoob.com/python3/python3-function.html">Python3 函数 | 菜鸟教程</a></p>
+<h2 id="name"><a href="#name" class="headerlink" title="name"></a><strong>name</strong></h2><p><a href="https://www.runoob.com/python3/python3-name-main.html">Python <strong>name</strong> 与 <strong>main</strong> | 菜鸟教程</a></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    main() </span><br></pre></td></tr></table></figure>
 
-<h1 id="PyTorch-常见损失函数详解"><a href="#PyTorch-常见损失函数详解" class="headerlink" title="PyTorch 常见损失函数详解"></a>PyTorch 常见损失函数详解</h1><p>本教程介绍 PyTorch 中常用的损失函数，包括均方误差损失、交叉熵损失和 KL 散度损失，包含数学公式、原理解释和示例代码。</p>
-<hr>
-<h2 id="1-MSELoss（均方误差损失）"><a href="#1-MSELoss（均方误差损失）" class="headerlink" title="1. MSELoss（均方误差损失）"></a>1. MSELoss（均方误差损失）</h2><p>数学公式：</p>
-<p>$$<br>\text{MSELoss} &#x3D; \frac{1}{N} \sum_{i&#x3D;1}^{N} (y_i - \hat{y}_i)^2<br>$$</p>
-<p>解释：</p>
-<ul>
-<li>用于回归任务  </li>
-<li>衡量预测值 $\hat{y}$ 与真实值 $y$ 的平方差  </li>
-<li>对异常值较敏感</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"></span><br><span class="line">mse_loss = nn.MSELoss()</span><br><span class="line">y_pred = torch.tensor([<span class="number">0.5</span>, <span class="number">0.8</span>, <span class="number">1.2</span>])</span><br><span class="line">y_true = torch.tensor([<span class="number">0.0</span>, <span class="number">1.0</span>, <span class="number">1.0</span>])</span><br><span class="line">loss = mse_loss(y_pred, y_true)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;MSELoss:&quot;</span>, loss.item())</span><br></pre></td></tr></table></figure>
+<p>命名为主函数。Python中，总是从主函数开始运行。</p>
+<p>例如：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">greet</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;来自 example 模块的问候！&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:	<span class="comment">##模块将从此处开始运行</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;该脚本正在直接运行。&quot;</span>)</span><br><span class="line">    greet()</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;该脚本作为模块被导入。&quot;</span>)</span><br></pre></td></tr></table></figure>
 
-<h2 id="2-CrossEntropyLoss（交叉熵损失）"><a href="#2-CrossEntropyLoss（交叉熵损失）" class="headerlink" title="2. CrossEntropyLoss（交叉熵损失）"></a>2. CrossEntropyLoss（交叉熵损失）</h2><p><strong>数学公式（多分类）</strong>：</p>
-<p>$$<br>\text{CrossEntropyLoss} &#x3D; - \frac{1}{N} \sum_{i&#x3D;1}^{N} \sum_{c&#x3D;1}^{C} y_{i,c} \log \hat{y}_{i,c}<br>$$</p>
-<p><strong>解释</strong>：</p>
-<ul>
-<li>用于分类任务  </li>
-<li>$y_{i,c}$ 是真实类别的 one-hot 编码，<img width="33" height="33" alt="image" data-src="https://github.com/user-attachments/assets/05cb538b-2b11-4dde-8e29-efa19f27f0fc" /><br> 是预测概率</li>
-<li>PyTorch 的 <code>CrossEntropyLoss</code> 内部包含 <code>Softmax</code>，不需要手动计算概率</li>
-</ul>
-<p><strong>示例代码</strong>：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"></span><br><span class="line">cross_entropy = nn.CrossEntropyLoss()</span><br><span class="line">y_pred = torch.tensor([[<span class="number">2.0</span>, <span class="number">1.0</span>, <span class="number">0.1</span>]])  <span class="comment"># logits</span></span><br><span class="line">y_true = torch.tensor([<span class="number">0</span>])                <span class="comment"># 类别索引</span></span><br><span class="line">loss = cross_entropy(y_pred, y_true)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;CrossEntropyLoss:&quot;</span>, loss.item())</span><br></pre></td></tr></table></figure>
-<h2 id="3-KLDivLoss（KL-散度损失）"><a href="#3-KLDivLoss（KL-散度损失）" class="headerlink" title="3. KLDivLoss（KL 散度损失）"></a>3. KLDivLoss（KL 散度损失）</h2><p><strong>数学公式</strong>：</p>
-<p>$$<br>\text{KLDivLoss}(P \parallel Q) &#x3D; \sum_i P(i) \log \frac{P(i)}{Q(i)}<br>$$</p>
-<p><strong>解释</strong>：</p>
-<ul>
-<li>用于衡量两个概率分布 $P$ 和 $Q$ 的差异  </li>
-<li>常用于知识蒸馏或概率分布拟合  </li>
-<li>PyTorch 要求输入为 <strong>log 概率</strong>（<code>log_target=False</code> 时输入为 log 概率）</li>
-</ul>
-<p><strong>示例代码</strong>：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">import</span> torch.nn.functional <span class="keyword">as</span> F</span><br><span class="line"></span><br><span class="line">kl_div = nn.KLDivLoss(reduction=<span class="string">&#x27;batchmean&#x27;</span>)</span><br><span class="line">p = F.log_softmax(torch.tensor([[<span class="number">0.2</span>, <span class="number">0.5</span>, <span class="number">0.3</span>]]), dim=<span class="number">1</span>)</span><br><span class="line">q = torch.tensor([[<span class="number">0.1</span>, <span class="number">0.6</span>, <span class="number">0.3</span>]])</span><br><span class="line">loss = kl_div(p, q)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;KLDivLoss:&quot;</span>, loss.item())</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>问题3:编写def函数</p>
+<p>编写一个名为sum_and_average的函数</p>
+<p>要求:函数接收一个包含数字的列表作为参数函数返回两个值:列表中所有数字的总和，以及这些数字的平均值</p>
+<p>如果传入的列表为空，总和返回 0，平均值返回 0.0</p>
+<p>编写代码测试这个函数，至少测试两种情况:包含数字的列表和空列表</p>
+</blockquote>
+<p>例如：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">sum_and_average</span>(<span class="params"><span class="built_in">list</span></span>):	<span class="comment">##定义sum_and_average(list)</span></span><br><span class="line">    total = <span class="built_in">sum</span>(<span class="built_in">list</span>)	<span class="comment">##求和</span></span><br><span class="line">    count = <span class="built_in">len</span>(<span class="built_in">list</span>)	<span class="comment">##统计传入列表中的值的数量</span></span><br><span class="line">    average = total / count <span class="keyword">if</span> count &gt; <span class="number">0</span> <span class="keyword">else</span> <span class="number">0</span>	<span class="comment">##判断，因为求平均要求分母不为零，有传入为空的要求，故进行判断，当传入为空时使average为0，传入不为空时用总和除以值的数量求平均</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;求和：%d&quot;</span> %total)	<span class="comment">##打印求和量，类型是整数</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;平均：%.1f&quot;</span> %average)	<span class="comment">##打印求平均量，类型是浮点型，保留小数点后一位</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">None</span>	<span class="comment">##返回None，此行代码可不写</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:	<span class="comment">##main</span></span><br><span class="line">    before_list = <span class="built_in">input</span>(<span class="string">&quot;输入一些数字，使用英文逗号间隔：&quot;</span>)	<span class="comment">##对传入数据在before_list变量中进行预存储，方便后续校验非空</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> before_list:	<span class="comment">##如果传入内容为空</span></span><br><span class="line">        <span class="built_in">list</span> = before_list	<span class="comment">##则让list列表为空</span></span><br><span class="line">    <span class="keyword">else</span>:	<span class="comment">##如果传入内容不为空</span></span><br><span class="line">        <span class="built_in">list</span> = [<span class="built_in">int</span>(x) <span class="keyword">for</span> x <span class="keyword">in</span> before_list.split(<span class="string">&#x27;,&#x27;</span>)]	<span class="comment">##将输入before_list中值传入list中，英文逗号为分隔符</span></span><br><span class="line">    sum_and_average(<span class="built_in">list</span>)	<span class="comment">##运行自定义函数</span></span><br></pre></td></tr></table></figure>
 
-<h1 id="PyTorch-容器（Container）详解"><a href="#PyTorch-容器（Container）详解" class="headerlink" title="PyTorch 容器（Container）详解"></a>PyTorch 容器（Container）详解</h1><p>PyTorch 提供了一些容器类，用于组织和管理多个子模块，常用的有 <code>Sequential</code>、<code>ModuleList</code>、<code>ModuleDict</code>。</p>
-<hr>
-<p><strong>1. nn.Sequential</strong></p>
-<ul>
-<li>功能：将多个子模块按顺序组合成一个整体，前一个模块的输出作为下一个模块的输入</li>
-<li>使用场景：简单的前向顺序网络，如 MLP 或简单 CNN</li>
-</ul>
-<p><strong>示例代码</strong>：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"></span><br><span class="line">model_seq = nn.Sequential(</span><br><span class="line">    nn.Linear(<span class="number">10</span>, <span class="number">20</span>),</span><br><span class="line">    nn.ReLU(),</span><br><span class="line">    nn.Linear(<span class="number">20</span>, <span class="number">5</span>)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">x = torch.randn(<span class="number">2</span>, <span class="number">10</span>)</span><br><span class="line">y = model_seq(x)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Sequential 输出形状:&quot;</span>, y.shape)</span><br></pre></td></tr></table></figure>
-<p><strong>2. nn.ModuleList</strong></p>
-<ul>
-<li><strong>功能</strong>：保存任意数量的子模块的列表，但不会定义前向计算的顺序，需要在 <code>forward</code> 中手动调用</li>
-<li><strong>使用场景</strong>：动态网络结构、多分支网络</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"></span><br><span class="line">layers = nn.ModuleList([nn.Linear(<span class="number">10</span>, <span class="number">10</span>) <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>)])</span><br><span class="line">x = torch.randn(<span class="number">2</span>, <span class="number">10</span>)</span><br><span class="line"><span class="keyword">for</span> layer <span class="keyword">in</span> layers:</span><br><span class="line">    x = layer(x)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;ModuleList 输出形状:&quot;</span>, x.shape)</span><br></pre></td></tr></table></figure>
-<p><strong>3. nn.ModuleDict</strong></p>
-<ul>
-<li><strong>功能</strong>：以字典形式保存子模块，便于按名字访问</li>
-<li><strong>使用场景</strong>：多分支或命名网络结构</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"></span><br><span class="line">layer_dict = nn.ModuleDict(&#123;</span><br><span class="line">    <span class="string">&#x27;fc1&#x27;</span>: nn.Linear(<span class="number">10</span>, <span class="number">20</span>),</span><br><span class="line">    <span class="string">&#x27;relu&#x27;</span>: nn.ReLU(),</span><br><span class="line">    <span class="string">&#x27;fc2&#x27;</span>: nn.Linear(<span class="number">20</span>, <span class="number">5</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">x = torch.randn(<span class="number">2</span>, <span class="number">10</span>)</span><br><span class="line">x = layer_dict[<span class="string">&#x27;fc1&#x27;</span>](x)</span><br><span class="line">x = layer_dict[<span class="string">&#x27;relu&#x27;</span>](x)</span><br><span class="line">y = layer_dict[<span class="string">&#x27;fc2&#x27;</span>](x)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;ModuleDict 输出形状:&quot;</span>, y.shape)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="类"><a href="#类" class="headerlink" title="类"></a>类</h2><p><strong>高难度内容，Python最难的内容，最抽象的内容，最绕的内容</strong></p>
+<p><a href="https://www.runoob.com/python3/python3-class.html">Python3 面向对象 | 菜鸟教程</a></p>
+<h2 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h2><p><a href="https://www.runoob.com/python3/python3-module.html">Python3 模块 | 菜鸟教程</a></p>
+<p>例如：</p>
+<blockquote>
+<p>问题4:设计book类<br>设计一个Book类，要求如下<br>属性:书名(title)、作者(author)页数(pages)<br>方法:构造方法初始化所有属性<br>is_long()方法:如果页数超过 300 页，返回True，否则返回False</p>
+<p>get_info()方法:返回包含书名、作者和页数的字符串，格式如”《Python 编程》- 张三 (280 页)”</p>
+<p>最后创建 1个Book对象，分别调用上述方法并打印结果。</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Book</span>:		<span class="comment">##定义一个Book类</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self,title,author,pages</span>):  	<span class="comment">##详情请见教程__init__类，必须要有self，否则无法传入主函数输入的变量值</span></span><br><span class="line">        <span class="variable language_">self</span>.title = title</span><br><span class="line">        <span class="variable language_">self</span>.author = author</span><br><span class="line">        <span class="variable language_">self</span>.pages = pages</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">is_long</span>(<span class="params">self</span>):		<span class="comment">##定义一个is_long函数</span></span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>.pages &gt; <span class="number">300</span>:		<span class="comment">##判断页数是否大于300</span></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span>		<span class="comment">##如果大于300返回True</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span>		<span class="comment">##如果小于300返回False</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">get_info</span>(<span class="params">self</span>):		<span class="comment">##定义一个get_info函数</span></span><br><span class="line">        info = <span class="string">f&quot;<span class="subst">&#123;self.title&#125;</span> - <span class="subst">&#123;self.author&#125;</span> (<span class="subst">&#123;self.pages&#125;</span> 页)&quot;</span>		<span class="comment">##配置一个info函数，方便后续显示</span></span><br><span class="line">        <span class="keyword">return</span> info		<span class="comment">##返回info变量，方便后续调用</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:		<span class="comment">##主函数</span></span><br><span class="line">    title = <span class="built_in">str</span>(<span class="built_in">input</span>(<span class="string">&quot;请输入书名（带书名号）：&quot;</span>))		<span class="comment">##获取书名</span></span><br><span class="line">    author = <span class="built_in">str</span>(<span class="built_in">input</span>(<span class="string">&quot;请输入作者名：&quot;</span>))		<span class="comment">##获取作者名</span></span><br><span class="line">    pages = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&quot;请输入页数：&quot;</span>))		<span class="comment">##获取书页数</span></span><br><span class="line">    x = Book(title,author,pages)		<span class="comment">##将获取到的三个变量传入Book类对应的变量中</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;是长书吗：<span class="subst">&#123;x.is_long()&#125;</span>&quot;</span>)		<span class="comment">##打印判断结果</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;本书信息：<span class="subst">&#123;x.get_info()&#125;</span>&quot;</span>)		<span class="comment">##打印本书信息</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h1 id="优化器模块"><a href="#优化器模块" class="headerlink" title="优化器模块"></a>优化器模块</h1><p><img data-src="/./../images/image-20251004144606392.png" alt="image-20251004144606392"></p>
-<p><img data-src="/./../images/image-20251004144635260.png" alt="image-20251004144635260"></p>
-<p><img data-src="/./../images/image-20251004144712104.png" alt="image-20251004144712104"></p>
-<p><img data-src="/./../images/image-20251004144802053.png" alt="image-20251004144802053"></p>
-<p><img data-src="/./../images/image-20251004144848041.png" alt="image-20251004144848041"></p>
-<p><img data-src="/./../images/image-20251004145110419.png" alt="image-20251004145110419"></p>
-<p><img data-src="/./../images/image-20251004145315803.png" alt="image-20251004145315803"></p>
-<p><img data-src="/./../images/image-20251004145511592.png" alt="image-20251004145511592"></p>
-<p><img data-src="/./../images/image-20251004145527681.png" alt="image-20251004145527681"></p>
-<p><img data-src="/./../images/image-20251004145626056.png" alt="image-20251004145626056"></p>
-<h1 id="PyTorch-神经网络基础：-init-与-forward-方法详解"><a href="#PyTorch-神经网络基础：-init-与-forward-方法详解" class="headerlink" title="PyTorch 神经网络基础：__init__ 与 forward 方法详解"></a>PyTorch 神经网络基础：<code>__init__</code> 与 <code>forward</code> 方法详解</h1><p>在 PyTorch 中，自定义神经网络类通常继承自 <code>nn.Module</code>，核心方法是 <code>__init__</code> 和 <code>forward</code>。下面以一个简单的全连接网络为例进行讲解。</p>
-<hr>
-<h2 id="1-模型代码示例"><a href="#1-模型代码示例" class="headerlink" title="1. 模型代码示例"></a>1. 模型代码示例</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SimpleNN</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>(SimpleNN, <span class="variable language_">self</span>).__init__()</span><br><span class="line">        <span class="comment"># 定义网络结构</span></span><br><span class="line">        <span class="variable language_">self</span>.fc1 = nn.Linear(<span class="number">28</span>*<span class="number">28</span>, <span class="number">128</span>)  <span class="comment"># 全连接层1</span></span><br><span class="line">        <span class="variable language_">self</span>.relu = nn.ReLU()             <span class="comment"># 激活函数</span></span><br><span class="line">        <span class="variable language_">self</span>.fc2 = nn.Linear(<span class="number">128</span>, <span class="number">10</span>)    <span class="comment"># 全连接层2</span></span><br><span class="line">        <span class="variable language_">self</span>.softmax = nn.Softmax(dim=<span class="number">1</span>) <span class="comment"># 输出概率归一化</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        <span class="comment"># 前向计算流程</span></span><br><span class="line">        x = x.view(-<span class="number">1</span>, <span class="number">28</span>*<span class="number">28</span>)  <span class="comment"># 展平输入为 (batch_size, 784)</span></span><br><span class="line">        x = <span class="variable language_">self</span>.fc1(x)        <span class="comment"># 第一个全连接层</span></span><br><span class="line">        x = <span class="variable language_">self</span>.relu(x)       <span class="comment"># ReLU 激活</span></span><br><span class="line">        x = <span class="variable language_">self</span>.fc2(x)        <span class="comment"># 第二个全连接层</span></span><br><span class="line">        x = <span class="variable language_">self</span>.softmax(x)    <span class="comment"># Softmax 转为概率分布</span></span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建模型实例</span></span><br><span class="line">model = SimpleNN()</span><br></pre></td></tr></table></figure>
-<h2 id="2-方法详解"><a href="#2-方法详解" class="headerlink" title="2. 方法详解"></a>2. 方法详解</h2><h3 id="2-1-init-方法"><a href="#2-1-init-方法" class="headerlink" title="2.1 __init__ 方法"></a>2.1 <code>__init__</code> 方法</h3><p><strong>作用</strong>：定义网络的各层，包括线性层、卷积层、激活函数等。</p>
-<p><strong>特点</strong>：</p>
-<ul>
-<li>仅声明网络结构，不进行前向计算。</li>
-<li>注册子模块，便于 PyTorch 自动管理参数。</li>
-</ul>
-<hr>
-<h3 id="2-2-forward-方法"><a href="#2-2-forward-方法" class="headerlink" title="2.2 forward 方法"></a>2.2 <code>forward</code> 方法</h3><p><strong>作用</strong>：定义数据的前向传播流程。</p>
-<p><strong>特点</strong>：</p>
-<ul>
-<li>输入 $x$ 会依次经过各个层，输出最终结果。</li>
-<li>PyTorch 自动重载 <code>__call__</code> 方法，调用模型实例时会触发 <code>forward</code>。</li>
-</ul>
-<p><strong>示例</strong>：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">output = model(input_tensor)</span><br></pre></td></tr></table></figure>
-<ul>
-<li>相当于执行：</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">model.forward(input_tensor)</span><br></pre></td></tr></table></figure>
-<ul>
-<li>无需手动调用 forward 方法。</li>
-</ul>
-<h2 id="3-数据流说明"><a href="#3-数据流说明" class="headerlink" title="3. 数据流说明"></a>3. 数据流说明</h2><ol>
-<li>输入图像张量 $x$ 展平成 $(\text{batch size}, 784)$。</li>
-<li>经过第一个全连接层 <code>fc1</code>，输出 $(\text{batch size}, 128)$。</li>
-<li>通过 ReLU 激活函数，增加非线性。</li>
-<li>经过第二个全连接层 <code>fc2</code>，输出 $(\text{batch size}, 10)$。</li>
-<li>通过 Softmax 将输出转为概率分布，适合分类任务。</li>
-</ol>
-<p>这种结构是典型的全连接神经网络（MLP）分类模型。</p>
-<p>这种结构是典型的全连接神经网络（MLP）分类模型。</p>
-<h2 id="4-补充说明"><a href="#4-补充说明" class="headerlink" title="4. 补充说明"></a>4. 补充说明</h2><ul>
-<li><code>nn.Linear(in_features, out_features)</code>：创建全连接层，将输入特征维度 $in_features$ 映射到输出维度 $out_features$。</li>
-<li><code>nn.ReLU()</code>：激活函数，增加网络非线性能力。</li>
-<li><code>nn.Softmax(dim=1)</code>：对指定维度做归一化，使输出值可以看作概率分布。</li>
-<li><code>x.view(-1, 28*28)</code>：将输入张量展平成二维，<code>-1</code> 表示自动计算 batch size。</li>
-<li>在 PyTorch 中，所有 <code>nn.Module</code> 的子模块都会自动注册为模型参数，无需手动管理。</li>
-</ul>
-<h1 id="PyTorch-手写体图像识别教学"><a href="#PyTorch-手写体图像识别教学" class="headerlink" title="PyTorch 手写体图像识别教学"></a>PyTorch 手写体图像识别教学</h1><hr>
-<h2 id="1-导入必要库"><a href="#1-导入必要库" class="headerlink" title="1. 导入必要库"></a>1. 导入必要库</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 本教程演示如何使用 PyTorch 实现 MNIST 手写数字识别任务</span></span><br><span class="line"><span class="comment"># 包含数据加载、模型定义、训练和测试</span></span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">import</span> torch.optim <span class="keyword">as</span> optim</span><br><span class="line"><span class="keyword">from</span> torchvision <span class="keyword">import</span> datasets, transforms</span><br><span class="line"><span class="keyword">from</span> torch.utils.data <span class="keyword">import</span> DataLoader</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>#@ 2. 数据预处理与加载<br>MNIST 图片为 28x28 灰度图<br>需要将图片转换为张量并归一化到 [-1, 1]<br>DataLoader 按批次加载数据，并支持 shuffle 功能</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">transform = transforms.Compose([</span><br><span class="line">    transforms.ToTensor(),</span><br><span class="line">    transforms.Normalize((<span class="number">0.5</span>,), (<span class="number">0.5</span>,))</span><br><span class="line">])</span><br><span class="line"></span><br><span class="line">train_dataset = datasets.MNIST(root=<span class="string">&#x27;./data&#x27;</span>, train=<span class="literal">True</span>, download=<span class="literal">True</span>, transform=transform)</span><br><span class="line">test_dataset = datasets.MNIST(root=<span class="string">&#x27;./data&#x27;</span>, train=<span class="literal">False</span>, download=<span class="literal">True</span>, transform=transform)</span><br><span class="line"></span><br><span class="line">train_loader = DataLoader(train_dataset, batch_size=<span class="number">64</span>, shuffle=<span class="literal">True</span>)</span><br><span class="line">test_loader = DataLoader(test_dataset, batch_size=<span class="number">64</span>, shuffle=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-定义前馈神经网络"><a href="#3-定义前馈神经网络" class="headerlink" title="3. 定义前馈神经网络"></a>3. 定义前馈神经网络</h2><p>网络结构：<br>输入层: 28*28 &#x3D; 784 个神经元<br>隐藏层: 128 个神经元, ReLU 激活<br>输出层: 10 个神经元, Softmax 输出概率</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">SimpleNN</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>(SimpleNN, <span class="variable language_">self</span>).__init__()</span><br><span class="line">        <span class="variable language_">self</span>.fc1 = nn.Linear(<span class="number">28</span>*<span class="number">28</span>, <span class="number">128</span>)</span><br><span class="line">        <span class="variable language_">self</span>.relu = nn.ReLU()</span><br><span class="line">        <span class="variable language_">self</span>.fc2 = nn.Linear(<span class="number">128</span>, <span class="number">10</span>)</span><br><span class="line">        <span class="variable language_">self</span>.softmax = nn.Softmax(dim=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        <span class="comment"># 前向传播</span></span><br><span class="line">        x = x.view(-<span class="number">1</span>, <span class="number">28</span>*<span class="number">28</span>)  <span class="comment"># 展平</span></span><br><span class="line">        x = <span class="variable language_">self</span>.fc1(x)</span><br><span class="line">        x = <span class="variable language_">self</span>.relu(x)</span><br><span class="line">        x = <span class="variable language_">self</span>.fc2(x)</span><br><span class="line">        x = <span class="variable language_">self</span>.softmax(x)</span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line"></span><br><span class="line">model = SimpleNN()</span><br></pre></td></tr></table></figure>
-
-<h2 id="4-定义损失函数和优化器"><a href="#4-定义损失函数和优化器" class="headerlink" title="4. 定义损失函数和优化器"></a>4. 定义损失函数和优化器</h2><p>多分类交叉熵损失<br>优化器: 随机梯度下降 (SGD)</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">criterion = nn.CrossEntropyLoss()</span><br><span class="line">optimizer = optim.SGD(model.parameters(), lr=<span class="number">0.01</span>)</span><br></pre></td></tr></table></figure>
-
-<h2 id="5-模型训练"><a href="#5-模型训练" class="headerlink" title="5. 模型训练"></a>5. 模型训练</h2><h3 id="训练流程"><a href="#训练流程" class="headerlink" title="训练流程:"></a>训练流程:</h3><h4 id="1-前向传播-计算预测输出"><a href="#1-前向传播-计算预测输出" class="headerlink" title="1. 前向传播: 计算预测输出"></a>1. 前向传播: 计算预测输出</h4><h4 id="2-计算损失"><a href="#2-计算损失" class="headerlink" title="2. 计算损失"></a>2. 计算损失</h4><h4 id="3-反向传播"><a href="#3-反向传播" class="headerlink" title="3. 反向传播"></a>3. 反向传播</h4><h4 id="4-参数更新"><a href="#4-参数更新" class="headerlink" title="4. 参数更新"></a>4. 参数更新</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">num_epochs = <span class="number">5</span></span><br><span class="line"><span class="keyword">for</span> epoch <span class="keyword">in</span> <span class="built_in">range</span>(num_epochs):</span><br><span class="line">    running_loss = <span class="number">0.0</span></span><br><span class="line">    <span class="keyword">for</span> images, labels <span class="keyword">in</span> train_loader:</span><br><span class="line">        outputs = model(images)</span><br><span class="line">        loss = criterion(outputs, labels)</span><br><span class="line"></span><br><span class="line">        optimizer.zero_grad()</span><br><span class="line">        loss.backward()</span><br><span class="line">        optimizer.step()</span><br><span class="line"></span><br><span class="line">        running_loss += loss.item()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;Epoch [<span class="subst">&#123;epoch+<span class="number">1</span>&#125;</span>/<span class="subst">&#123;num_epochs&#125;</span>], Loss: <span class="subst">&#123;running_loss/<span class="built_in">len</span>(train_loader):<span class="number">.4</span>f&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-<h2 id="6-测试模型准确率"><a href="#6-测试模型准确率" class="headerlink" title="6. 测试模型准确率"></a>6. 测试模型准确率</h2><p>在测试集上评估模型性能</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">correct = <span class="number">0</span></span><br><span class="line">total = <span class="number">0</span></span><br><span class="line"><span class="keyword">with</span> torch.no_grad():</span><br><span class="line">    <span class="keyword">for</span> images, labels <span class="keyword">in</span> test_loader:</span><br><span class="line">        outputs = model(images)</span><br><span class="line">        _, predicted = torch.<span class="built_in">max</span>(outputs.data, <span class="number">1</span>)</span><br><span class="line">        total += labels.size(<span class="number">0</span>)</span><br><span class="line">        correct += (predicted == labels).<span class="built_in">sum</span>().item()</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;Test Accuracy: <span class="subst">&#123;<span class="number">100</span> * correct / total:<span class="number">.2</span>f&#125;</span>%&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<h1 id="模型保存和加载"><a href="#模型保存和加载" class="headerlink" title="模型保存和加载"></a>模型保存和加载</h1><p><img data-src="/./../images/image-20251004151238326.png" alt="image-20251004151238326"></p>
-<p><img data-src="/./../images/image-20251004151314736.png" alt="image-20251004151314736"></p>
-<p>优点：保存了模型的完整结构</p>
-<p>缺点：模型文件体积大</p>
-<p><img data-src="/./../images/image-20251004151411703.png" alt="image-20251004151411703"></p>
-<p><img data-src="/./../images/image-20251004151513660.png" alt="image-20251004151513660"></p>
-<p><img data-src="/./../images/image-20251004151718462.png" alt="image-20251004151718462"></p>
-<p><img data-src="/./../images/image-20251004151824370.png" alt="image-20251004151824370"></p>
-<h1 id="计算机视觉模块"><a href="#计算机视觉模块" class="headerlink" title="计算机视觉模块"></a>计算机视觉模块</h1><p><img data-src="/./../images/image-20251004155143064.png" alt="image-20251004155143064"></p>
-<p><a href="https://docs.pytorch.ac.cn/vision/stable/index.html">torchvision — Torchvision 0.23 文档 - PyTorch 文档</a></p>
-<p><img data-src="/./../images/image-20251004155245827.png" alt="image-20251004155245827"></p>
-<p><img data-src="/./../images/image-20251004155334340.png" alt="image-20251004155334340"></p>
-<p><img data-src="/./../images/image-20251004155405152.png" alt="image-20251004155405152"></p>
-<p><img data-src="/./../images/image-20251004155502079.png" alt="image-20251004155502079"></p>
-<p><img data-src="/./../images/image-20251004155518151.png" alt="image-20251004155518151"></p>
-<p><a href="https://docs.pytorch.ac.cn/vision/stable/transforms.html">转换图像、视频、边界框等 — Torchvision 0.23 文档 - PyTorch 文档</a></p>
-<p><img data-src="/./../images/image-20251004155619357.png" alt="image-20251004155619357"></p>
-<p><img data-src="/./../images/image-20251004155741508.png" alt="image-20251004155741508"></p>
-<p><img data-src="/./../images/image-20251004155918237.png" alt="image-20251004155918237"></p>
-<p><img data-src="/./../images/image-20251004160011322.png" alt="image-20251004160011322"></p>
-<p><img data-src="/./../images/image-20251004160030493.png" alt="image-20251004160030493"></p>
-<p><img data-src="/./../images/image-20251004160137783.png" alt="image-20251004160137783"></p>
-<p><img data-src="/./../images/image-20251004160152624.png" alt="image-20251004160152624"></p>
-<p><img data-src="/./../images/image-20251004160456282.png" alt="image-20251004160456282"></p>
-<p><img data-src="/./../images/image-20251004160647088.png" alt="image-20251004160647088"></p>
-<p><img data-src="/./../images/image-20251004160659944.png" alt="image-20251004160659944"></p>
-<p><img data-src="/./../images/image-20251004160819065.png" alt="image-20251004160819065"></p>
-<p><img data-src="/./../images/image-20251004160832338.png" alt="image-20251004160832338"></p>
-<h1 id="模型部署"><a href="#模型部署" class="headerlink" title="模型部署"></a>模型部署</h1><p><img data-src="/./../images/image-20251004161036193.png" alt="image-20251004161036193"></p>
-<p><img data-src="/./../images/image-20251004161115819.png" alt="image-20251004161115819"></p>
-<p><img data-src="/./../images/image-20251004161131582.png" alt="image-20251004161131582"></p>
-<p><img data-src="/./../images/image-20251004161250282.png" alt="image-20251004161250282"></p>
-<p><img data-src="/./../images/image-20251004161406034.png" alt="image-20251004161406034"></p>
-<p><img data-src="/./../images/image-20251004161425662.png" alt="image-20251004161425662"></p>
-<p><img data-src="/./../images/image-20251004161556149.png" alt="image-20251004161556149"></p>
-<p><img data-src="/./../images/image-20251004161609676.png" alt="image-20251004161609676"></p>
-<p><img data-src="/./../images/image-20251004161850169.png" alt="image-20251004161850169"></p>
-<h1 id="图像分类略讲"><a href="#图像分类略讲" class="headerlink" title="图像分类略讲"></a>图像分类略讲</h1><p><img data-src="/./../images/image-20251004161924416.png" alt="image-20251004161924416"></p>
-<p><img data-src="/./../images/image-20251004162126318.png" alt="image-20251004162126318"></p>
+<h2 id="推导式"><a href="#推导式" class="headerlink" title="推导式"></a>推导式</h2><p><a href="https://www.runoob.com/python3/python-comprehensions.html">Python 推导式 | 菜鸟教程</a></p>
+<h2 id="迭代器与生成器"><a href="#迭代器与生成器" class="headerlink" title="迭代器与生成器"></a>迭代器与生成器</h2><p><a href="https://www.runoob.com/python3/python3-iterator-generator.html">Python3 迭代器与生成器 | 菜鸟教程</a></p>
+<h2 id="with-关键字"><a href="#with-关键字" class="headerlink" title="with 关键字"></a>with 关键字</h2><p><a href="https://www.runoob.com/python3/python3-with-keyword.html">Python with 关键字 | 菜鸟教程</a></p>
+<h2 id="错误和异常"><a href="#错误和异常" class="headerlink" title="错误和异常"></a>错误和异常</h2><p><a href="https://www.runoob.com/python3/python3-errors-execptions.html">Python3 错误和异常 | 菜鸟教程</a></p>
+<h2 id="标准库概览"><a href="#标准库概览" class="headerlink" title="标准库概览"></a>标准库概览</h2><p><a href="https://www.runoob.com/python3/python3-stdlib.html">Python3 标准库概览 | 菜鸟教程</a></p>
+<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><p><a href="https://www.runoob.com/python3/python3-examples.html">Python3 实例 | 菜鸟教程</a></p>
 ]]></content>
       <categories>
         <category>笔记</category>
@@ -1326,6 +1076,256 @@
       </tags>
   </entry>
   <entry>
+    <title>Python学习笔记其四</title>
+    <url>/2025/10/04/Python0004/</url>
+    <content><![CDATA[<h1 id="Pytorch教程"><a href="#Pytorch教程" class="headerlink" title="Pytorch教程"></a>Pytorch教程</h1><h2 id="搭建一个神经网络"><a href="#搭建一个神经网络" class="headerlink" title="搭建一个神经网络"></a>搭建一个神经网络</h2><p><img data-src="/./../images/image-20251004141830767-1759558936645-3-1759559443801-13-1759559811461-26-1759559952609-43.png" alt="image-20251004141830767"></p>
+<p><img data-src="/./../images/image-20251004141950553-1759558936645-4-1759559443802-14-1759559811461-27-1759559952609-44.png" alt="image-20251004141950553"></p>
+<h1 id="PyTorch-常用层讲解与示例"><a href="#PyTorch-常用层讲解与示例" class="headerlink" title="PyTorch 常用层讲解与示例"></a>PyTorch 常用层讲解与示例</h1><p>本教程介绍 PyTorch 中一些核心神经网络层：Linear、Conv2d、LSTM，包括它们的数学公式和对应实现代码。</p>
+<hr>
+<h2 id="1-Linear-层-全连接层"><a href="#1-Linear-层-全连接层" class="headerlink" title="1. Linear 层 (全连接层)"></a>1. Linear 层 (全连接层)</h2><img width="1920" height="1080" alt="image" data-src="./../images/b82a10c4-b278-4c9e-ad83-5556b675c1d9-1759559443802-15-1759559811462-28-1759559952609-45.png" />
+
+
+<p><strong>数学公式</strong>：</p>
+<p>输入向量 $x \in \mathbb{R}^{d_{in}}$，输出向量 $y \in \mathbb{R}^{d_{out}}$：</p>
+<p>$$<br>y &#x3D; x W^\top + b, \quad W \in \mathbb{R}^{d_{out} \times d_{in}}, \quad b \in \mathbb{R}^{d_{out}}<br>$$</p>
+<p><strong>解释</strong>：</p>
+<ul>
+<li>每个输出节点是输入节点的加权和加上偏置  </li>
+<li>常用于全连接网络、MLP 等</li>
+</ul>
+<p><strong>示例代码</strong>：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">LinearExample</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, d_in, d_out</span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line">        <span class="variable language_">self</span>.linear = nn.Linear(d_in, d_out)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">self</span>.linear(x)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 示例</span></span><br><span class="line">x = torch.randn(<span class="number">4</span>, <span class="number">10</span>)</span><br><span class="line">model_linear = LinearExample(<span class="number">10</span>, <span class="number">5</span>)</span><br><span class="line">y = model_linear(x)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Linear 输出形状:&quot;</span>, y.shape)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="2-Conv2d-层-二维卷积层"><a href="#2-Conv2d-层-二维卷积层" class="headerlink" title="2. Conv2d 层 (二维卷积层)"></a>2. Conv2d 层 (二维卷积层)</h2><img width="543" height="544" alt="image" data-src="./../images/d41bbdbc-216a-4374-bbf2-dfe1437e01df-1759559443802-16-1759559811462-31-1759559952609-47.png" />
+
+
+<p><strong>数学公式</strong>：</p>
+<p>输入张量 $X \in \mathbb{R}^{C_{in} \times H \times W}$，卷积核 $K \in \mathbb{R}^{C_{out} \times C_{in} \times k_h \times k_w}$：</p>
+<p>$$<br>Y_{o,i,j} &#x3D; \sum_{c&#x3D;0}^{C_{in}-1} \sum_{m&#x3D;0}^{k_h-1} \sum_{n&#x3D;0}^{k_w-1} K_{o,c,m,n} \cdot X_{c,i+m,j+n} + b_o<br>$$</p>
+<p><strong>解释</strong>：</p>
+<ul>
+<li>对每个输出通道，卷积核在输入各通道上进行加权求和，并加偏置  </li>
+<li>常用于图像特征提取、卷积神经网络</li>
+</ul>
+<p><strong>示例代码</strong>：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Conv2dExample</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, in_channels, out_channels, kernel_size</span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line">        <span class="variable language_">self</span>.conv = nn.Conv2d(in_channels, out_channels, kernel_size)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">self</span>.conv(x)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 示例</span></span><br><span class="line">x_img = torch.randn(<span class="number">2</span>, <span class="number">3</span>, <span class="number">32</span>, <span class="number">32</span>)  <span class="comment"># batch_size=2, 3通道, 32x32图像</span></span><br><span class="line">model_conv = Conv2dExample(<span class="number">3</span>, <span class="number">6</span>, <span class="number">5</span>)  <span class="comment"># 输出6个通道, kernel 5x5</span></span><br><span class="line">y_img = model_conv(x_img)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Conv2d 输出形状:&quot;</span>, y_img.shape)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="PyTorch-激活函数详解"><a href="#PyTorch-激活函数详解" class="headerlink" title="PyTorch 激活函数详解"></a>PyTorch 激活函数详解</h1><p>本教程介绍常用激活函数。</p>
+<hr>
+<h2 id="1-ReLU"><a href="#1-ReLU" class="headerlink" title="1. ReLU"></a>1. ReLU</h2><img width="473" height="382" alt="image" data-src="./../images/79bf9f4a-fcce-4a9c-bc84-d69f787c2eee-1759559811462-30-1759559952609-46.png" />
+
+<p>数学公式：</p>
+<p>$$<br>f(x) &#x3D; \max(0, x)<br>$$</p>
+<p>解释：</p>
+<ul>
+<li>将小于0的输入置0，大于0保持不变  </li>
+<li>计算简单，常用于卷积层或全连接层后</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"></span><br><span class="line">relu = nn.ReLU()</span><br><span class="line">x = torch.tensor([[-<span class="number">1.0</span>, <span class="number">0.0</span>, <span class="number">2.0</span>]])</span><br><span class="line">y = relu(x)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;ReLU 输出:\n&quot;</span>, y)</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-Sigmoid"><a href="#2-Sigmoid" class="headerlink" title="2. Sigmoid"></a>2. Sigmoid</h2><img width="1920" height="1080" alt="image" data-src="./../images/606014d0-e40a-4c21-a18f-8824ac3a86ea-1759559811462-29-1759559952609-48.png" />
+
+<p>数学公式：</p>
+<p>$$<br>\sigma(x) &#x3D; \frac{1}{1 + e^{-x}}<br>$$</p>
+<p>解释：</p>
+<ul>
+<li>将输入映射到 (0,1)  </li>
+<li>常用于二分类输出层</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"></span><br><span class="line">sigmoid = nn.Sigmoid()</span><br><span class="line">x = torch.tensor([[-<span class="number">1.0</span>, <span class="number">0.0</span>, <span class="number">2.0</span>]])</span><br><span class="line">y = sigmoid(x)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Sigmoid 输出:\n&quot;</span>, y)</span><br></pre></td></tr></table></figure>
+<h2 id="3-Tanh"><a href="#3-Tanh" class="headerlink" title="3. Tanh"></a>3. Tanh</h2><img width="425" height="234" alt="image" data-src="./../images/0a34c0d6-9627-4a65-a04e-82690727ee00-1759559811462-33-1759559952610-49.png" />
+
+<p>数学公式：</p>
+<p>$$<br>\tanh(x) &#x3D; \frac{e^x - e^{-x}}{e^x + e^{-x}}<br>$$</p>
+<p>解释：</p>
+<ul>
+<li>将输入映射到 (-1, 1)  </li>
+<li>均值为 0，有助于训练收敛  </li>
+<li>常用于序列模型或隐藏层激活函数</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"></span><br><span class="line">tanh = nn.Tanh()</span><br><span class="line">x = torch.tensor([[-<span class="number">1.0</span>, <span class="number">0.0</span>, <span class="number">2.0</span>]])</span><br><span class="line">y = tanh(x)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Tanh 输出:\n&quot;</span>, y)</span><br></pre></td></tr></table></figure>
+<h2 id="4-LeakyReLU"><a href="#4-LeakyReLU" class="headerlink" title="4. LeakyReLU"></a>4. LeakyReLU</h2><img width="683" height="559" alt="image" data-src="./../images/1c91f705-c38d-4025-9cbd-d6ebf25da8a0-1759559811462-32-1759559952610-50.png" />
+
+<p>数学公式：</p>
+<p>$$<br>f(x) &#x3D;<br>\begin{cases}<br>x, &amp; x &gt; 0 \<br>\alpha x, &amp; x \le 0<br>\end{cases}, \quad \alpha &#x3D; 0.01<br>$$</p>
+<p>解释：</p>
+<ul>
+<li>避免 ReLU 的“死亡神经元”问题  </li>
+<li>对负值仍保留小梯度，不完全置零  </li>
+<li>常用于卷积层或全连接层激活函数</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"></span><br><span class="line">leaky_relu = nn.LeakyReLU(negative_slope=<span class="number">0.01</span>)</span><br><span class="line">x = torch.tensor([[-<span class="number">1.0</span>, <span class="number">0.0</span>, <span class="number">2.0</span>]])</span><br><span class="line">y = leaky_relu(x)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;LeakyReLU 输出:\n&quot;</span>, y)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h1 id="PyTorch-常见损失函数详解"><a href="#PyTorch-常见损失函数详解" class="headerlink" title="PyTorch 常见损失函数详解"></a>PyTorch 常见损失函数详解</h1><p>本教程介绍 PyTorch 中常用的损失函数，包括均方误差损失、交叉熵损失和 KL 散度损失，包含数学公式、原理解释和示例代码。</p>
+<hr>
+<h2 id="1-MSELoss（均方误差损失）"><a href="#1-MSELoss（均方误差损失）" class="headerlink" title="1. MSELoss（均方误差损失）"></a>1. MSELoss（均方误差损失）</h2><p>数学公式：</p>
+<p>$$<br>\text{MSELoss} &#x3D; \frac{1}{N} \sum_{i&#x3D;1}^{N} (y_i - \hat{y}_i)^2<br>$$</p>
+<p>解释：</p>
+<ul>
+<li>用于回归任务  </li>
+<li>衡量预测值 $\hat{y}$ 与真实值 $y$ 的平方差  </li>
+<li>对异常值较敏感</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"></span><br><span class="line">mse_loss = nn.MSELoss()</span><br><span class="line">y_pred = torch.tensor([<span class="number">0.5</span>, <span class="number">0.8</span>, <span class="number">1.2</span>])</span><br><span class="line">y_true = torch.tensor([<span class="number">0.0</span>, <span class="number">1.0</span>, <span class="number">1.0</span>])</span><br><span class="line">loss = mse_loss(y_pred, y_true)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;MSELoss:&quot;</span>, loss.item())</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-CrossEntropyLoss（交叉熵损失）"><a href="#2-CrossEntropyLoss（交叉熵损失）" class="headerlink" title="2. CrossEntropyLoss（交叉熵损失）"></a>2. CrossEntropyLoss（交叉熵损失）</h2><p><strong>数学公式（多分类）</strong>：</p>
+<p>$$<br>\text{CrossEntropyLoss} &#x3D; - \frac{1}{N} \sum_{i&#x3D;1}^{N} \sum_{c&#x3D;1}^{C} y_{i,c} \log \hat{y}_{i,c}<br>$$</p>
+<p><strong>解释</strong>：</p>
+<ul>
+<li>用于分类任务  </li>
+<li>$y_{i,c}$ 是真实类别的 one-hot 编码，<img width="33" height="33" alt="image" data-src="https://github.com/user-attachments/assets/05cb538b-2b11-4dde-8e29-efa19f27f0fc" /><br> 是预测概率</li>
+<li>PyTorch 的 <code>CrossEntropyLoss</code> 内部包含 <code>Softmax</code>，不需要手动计算概率</li>
+</ul>
+<p><strong>示例代码</strong>：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"></span><br><span class="line">cross_entropy = nn.CrossEntropyLoss()</span><br><span class="line">y_pred = torch.tensor([[<span class="number">2.0</span>, <span class="number">1.0</span>, <span class="number">0.1</span>]])  <span class="comment"># logits</span></span><br><span class="line">y_true = torch.tensor([<span class="number">0</span>])                <span class="comment"># 类别索引</span></span><br><span class="line">loss = cross_entropy(y_pred, y_true)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;CrossEntropyLoss:&quot;</span>, loss.item())</span><br></pre></td></tr></table></figure>
+<h2 id="3-KLDivLoss（KL-散度损失）"><a href="#3-KLDivLoss（KL-散度损失）" class="headerlink" title="3. KLDivLoss（KL 散度损失）"></a>3. KLDivLoss（KL 散度损失）</h2><p><strong>数学公式</strong>：</p>
+<p>$$<br>\text{KLDivLoss}(P \parallel Q) &#x3D; \sum_i P(i) \log \frac{P(i)}{Q(i)}<br>$$</p>
+<p><strong>解释</strong>：</p>
+<ul>
+<li>用于衡量两个概率分布 $P$ 和 $Q$ 的差异  </li>
+<li>常用于知识蒸馏或概率分布拟合  </li>
+<li>PyTorch 要求输入为 <strong>log 概率</strong>（<code>log_target=False</code> 时输入为 log 概率）</li>
+</ul>
+<p><strong>示例代码</strong>：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">import</span> torch.nn.functional <span class="keyword">as</span> F</span><br><span class="line"></span><br><span class="line">kl_div = nn.KLDivLoss(reduction=<span class="string">&#x27;batchmean&#x27;</span>)</span><br><span class="line">p = F.log_softmax(torch.tensor([[<span class="number">0.2</span>, <span class="number">0.5</span>, <span class="number">0.3</span>]]), dim=<span class="number">1</span>)</span><br><span class="line">q = torch.tensor([[<span class="number">0.1</span>, <span class="number">0.6</span>, <span class="number">0.3</span>]])</span><br><span class="line">loss = kl_div(p, q)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;KLDivLoss:&quot;</span>, loss.item())</span><br></pre></td></tr></table></figure>
+
+<h1 id="PyTorch-容器（Container）详解"><a href="#PyTorch-容器（Container）详解" class="headerlink" title="PyTorch 容器（Container）详解"></a>PyTorch 容器（Container）详解</h1><p>PyTorch 提供了一些容器类，用于组织和管理多个子模块，常用的有 <code>Sequential</code>、<code>ModuleList</code>、<code>ModuleDict</code>。</p>
+<hr>
+<p><strong>1. nn.Sequential</strong></p>
+<ul>
+<li>功能：将多个子模块按顺序组合成一个整体，前一个模块的输出作为下一个模块的输入</li>
+<li>使用场景：简单的前向顺序网络，如 MLP 或简单 CNN</li>
+</ul>
+<p><strong>示例代码</strong>：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"></span><br><span class="line">model_seq = nn.Sequential(</span><br><span class="line">    nn.Linear(<span class="number">10</span>, <span class="number">20</span>),</span><br><span class="line">    nn.ReLU(),</span><br><span class="line">    nn.Linear(<span class="number">20</span>, <span class="number">5</span>)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">x = torch.randn(<span class="number">2</span>, <span class="number">10</span>)</span><br><span class="line">y = model_seq(x)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Sequential 输出形状:&quot;</span>, y.shape)</span><br></pre></td></tr></table></figure>
+<p><strong>2. nn.ModuleList</strong></p>
+<ul>
+<li><strong>功能</strong>：保存任意数量的子模块的列表，但不会定义前向计算的顺序，需要在 <code>forward</code> 中手动调用</li>
+<li><strong>使用场景</strong>：动态网络结构、多分支网络</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"></span><br><span class="line">layers = nn.ModuleList([nn.Linear(<span class="number">10</span>, <span class="number">10</span>) <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>)])</span><br><span class="line">x = torch.randn(<span class="number">2</span>, <span class="number">10</span>)</span><br><span class="line"><span class="keyword">for</span> layer <span class="keyword">in</span> layers:</span><br><span class="line">    x = layer(x)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;ModuleList 输出形状:&quot;</span>, x.shape)</span><br></pre></td></tr></table></figure>
+<p><strong>3. nn.ModuleDict</strong></p>
+<ul>
+<li><strong>功能</strong>：以字典形式保存子模块，便于按名字访问</li>
+<li><strong>使用场景</strong>：多分支或命名网络结构</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"></span><br><span class="line">layer_dict = nn.ModuleDict(&#123;</span><br><span class="line">    <span class="string">&#x27;fc1&#x27;</span>: nn.Linear(<span class="number">10</span>, <span class="number">20</span>),</span><br><span class="line">    <span class="string">&#x27;relu&#x27;</span>: nn.ReLU(),</span><br><span class="line">    <span class="string">&#x27;fc2&#x27;</span>: nn.Linear(<span class="number">20</span>, <span class="number">5</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">x = torch.randn(<span class="number">2</span>, <span class="number">10</span>)</span><br><span class="line">x = layer_dict[<span class="string">&#x27;fc1&#x27;</span>](x)</span><br><span class="line">x = layer_dict[<span class="string">&#x27;relu&#x27;</span>](x)</span><br><span class="line">y = layer_dict[<span class="string">&#x27;fc2&#x27;</span>](x)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;ModuleDict 输出形状:&quot;</span>, y.shape)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="优化器模块"><a href="#优化器模块" class="headerlink" title="优化器模块"></a>优化器模块</h1><p><img data-src="/./../images/image-20251004144606392.png" alt="image-20251004144606392"></p>
+<p><img data-src="/./../images/image-20251004144635260.png" alt="image-20251004144635260"></p>
+<p><img data-src="/./../images/image-20251004144712104.png" alt="image-20251004144712104"></p>
+<p><img data-src="/./../images/image-20251004144802053.png" alt="image-20251004144802053"></p>
+<p><img data-src="/./../images/image-20251004144848041.png" alt="image-20251004144848041"></p>
+<p><img data-src="/./../images/image-20251004145110419.png" alt="image-20251004145110419"></p>
+<p><img data-src="/./../images/image-20251004145315803.png" alt="image-20251004145315803"></p>
+<p><img data-src="/./../images/image-20251004145511592.png" alt="image-20251004145511592"></p>
+<p><img data-src="/./../images/image-20251004145527681.png" alt="image-20251004145527681"></p>
+<p><img data-src="/./../images/image-20251004145626056.png" alt="image-20251004145626056"></p>
+<h1 id="PyTorch-神经网络基础：-init-与-forward-方法详解"><a href="#PyTorch-神经网络基础：-init-与-forward-方法详解" class="headerlink" title="PyTorch 神经网络基础：__init__ 与 forward 方法详解"></a>PyTorch 神经网络基础：<code>__init__</code> 与 <code>forward</code> 方法详解</h1><p>在 PyTorch 中，自定义神经网络类通常继承自 <code>nn.Module</code>，核心方法是 <code>__init__</code> 和 <code>forward</code>。下面以一个简单的全连接网络为例进行讲解。</p>
+<hr>
+<h2 id="1-模型代码示例"><a href="#1-模型代码示例" class="headerlink" title="1. 模型代码示例"></a>1. 模型代码示例</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SimpleNN</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>(SimpleNN, <span class="variable language_">self</span>).__init__()</span><br><span class="line">        <span class="comment"># 定义网络结构</span></span><br><span class="line">        <span class="variable language_">self</span>.fc1 = nn.Linear(<span class="number">28</span>*<span class="number">28</span>, <span class="number">128</span>)  <span class="comment"># 全连接层1</span></span><br><span class="line">        <span class="variable language_">self</span>.relu = nn.ReLU()             <span class="comment"># 激活函数</span></span><br><span class="line">        <span class="variable language_">self</span>.fc2 = nn.Linear(<span class="number">128</span>, <span class="number">10</span>)    <span class="comment"># 全连接层2</span></span><br><span class="line">        <span class="variable language_">self</span>.softmax = nn.Softmax(dim=<span class="number">1</span>) <span class="comment"># 输出概率归一化</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        <span class="comment"># 前向计算流程</span></span><br><span class="line">        x = x.view(-<span class="number">1</span>, <span class="number">28</span>*<span class="number">28</span>)  <span class="comment"># 展平输入为 (batch_size, 784)</span></span><br><span class="line">        x = <span class="variable language_">self</span>.fc1(x)        <span class="comment"># 第一个全连接层</span></span><br><span class="line">        x = <span class="variable language_">self</span>.relu(x)       <span class="comment"># ReLU 激活</span></span><br><span class="line">        x = <span class="variable language_">self</span>.fc2(x)        <span class="comment"># 第二个全连接层</span></span><br><span class="line">        x = <span class="variable language_">self</span>.softmax(x)    <span class="comment"># Softmax 转为概率分布</span></span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建模型实例</span></span><br><span class="line">model = SimpleNN()</span><br></pre></td></tr></table></figure>
+<h2 id="2-方法详解"><a href="#2-方法详解" class="headerlink" title="2. 方法详解"></a>2. 方法详解</h2><h3 id="2-1-init-方法"><a href="#2-1-init-方法" class="headerlink" title="2.1 __init__ 方法"></a>2.1 <code>__init__</code> 方法</h3><p><strong>作用</strong>：定义网络的各层，包括线性层、卷积层、激活函数等。</p>
+<p><strong>特点</strong>：</p>
+<ul>
+<li>仅声明网络结构，不进行前向计算。</li>
+<li>注册子模块，便于 PyTorch 自动管理参数。</li>
+</ul>
+<hr>
+<h3 id="2-2-forward-方法"><a href="#2-2-forward-方法" class="headerlink" title="2.2 forward 方法"></a>2.2 <code>forward</code> 方法</h3><p><strong>作用</strong>：定义数据的前向传播流程。</p>
+<p><strong>特点</strong>：</p>
+<ul>
+<li>输入 $x$ 会依次经过各个层，输出最终结果。</li>
+<li>PyTorch 自动重载 <code>__call__</code> 方法，调用模型实例时会触发 <code>forward</code>。</li>
+</ul>
+<p><strong>示例</strong>：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">output = model(input_tensor)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>相当于执行：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">model.forward(input_tensor)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>无需手动调用 forward 方法。</li>
+</ul>
+<h2 id="3-数据流说明"><a href="#3-数据流说明" class="headerlink" title="3. 数据流说明"></a>3. 数据流说明</h2><ol>
+<li>输入图像张量 $x$ 展平成 $(\text{batch size}, 784)$。</li>
+<li>经过第一个全连接层 <code>fc1</code>，输出 $(\text{batch size}, 128)$。</li>
+<li>通过 ReLU 激活函数，增加非线性。</li>
+<li>经过第二个全连接层 <code>fc2</code>，输出 $(\text{batch size}, 10)$。</li>
+<li>通过 Softmax 将输出转为概率分布，适合分类任务。</li>
+</ol>
+<p>这种结构是典型的全连接神经网络（MLP）分类模型。</p>
+<p>这种结构是典型的全连接神经网络（MLP）分类模型。</p>
+<h2 id="4-补充说明"><a href="#4-补充说明" class="headerlink" title="4. 补充说明"></a>4. 补充说明</h2><ul>
+<li><code>nn.Linear(in_features, out_features)</code>：创建全连接层，将输入特征维度 $in_features$ 映射到输出维度 $out_features$。</li>
+<li><code>nn.ReLU()</code>：激活函数，增加网络非线性能力。</li>
+<li><code>nn.Softmax(dim=1)</code>：对指定维度做归一化，使输出值可以看作概率分布。</li>
+<li><code>x.view(-1, 28*28)</code>：将输入张量展平成二维，<code>-1</code> 表示自动计算 batch size。</li>
+<li>在 PyTorch 中，所有 <code>nn.Module</code> 的子模块都会自动注册为模型参数，无需手动管理。</li>
+</ul>
+<h1 id="PyTorch-手写体图像识别教学"><a href="#PyTorch-手写体图像识别教学" class="headerlink" title="PyTorch 手写体图像识别教学"></a>PyTorch 手写体图像识别教学</h1><hr>
+<h2 id="1-导入必要库"><a href="#1-导入必要库" class="headerlink" title="1. 导入必要库"></a>1. 导入必要库</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 本教程演示如何使用 PyTorch 实现 MNIST 手写数字识别任务</span></span><br><span class="line"><span class="comment"># 包含数据加载、模型定义、训练和测试</span></span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">import</span> torch.optim <span class="keyword">as</span> optim</span><br><span class="line"><span class="keyword">from</span> torchvision <span class="keyword">import</span> datasets, transforms</span><br><span class="line"><span class="keyword">from</span> torch.utils.data <span class="keyword">import</span> DataLoader</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>#@ 2. 数据预处理与加载<br>MNIST 图片为 28x28 灰度图<br>需要将图片转换为张量并归一化到 [-1, 1]<br>DataLoader 按批次加载数据，并支持 shuffle 功能</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">transform = transforms.Compose([</span><br><span class="line">    transforms.ToTensor(),</span><br><span class="line">    transforms.Normalize((<span class="number">0.5</span>,), (<span class="number">0.5</span>,))</span><br><span class="line">])</span><br><span class="line"></span><br><span class="line">train_dataset = datasets.MNIST(root=<span class="string">&#x27;./data&#x27;</span>, train=<span class="literal">True</span>, download=<span class="literal">True</span>, transform=transform)</span><br><span class="line">test_dataset = datasets.MNIST(root=<span class="string">&#x27;./data&#x27;</span>, train=<span class="literal">False</span>, download=<span class="literal">True</span>, transform=transform)</span><br><span class="line"></span><br><span class="line">train_loader = DataLoader(train_dataset, batch_size=<span class="number">64</span>, shuffle=<span class="literal">True</span>)</span><br><span class="line">test_loader = DataLoader(test_dataset, batch_size=<span class="number">64</span>, shuffle=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-定义前馈神经网络"><a href="#3-定义前馈神经网络" class="headerlink" title="3. 定义前馈神经网络"></a>3. 定义前馈神经网络</h2><p>网络结构：<br>输入层: 28*28 &#x3D; 784 个神经元<br>隐藏层: 128 个神经元, ReLU 激活<br>输出层: 10 个神经元, Softmax 输出概率</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">SimpleNN</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>(SimpleNN, <span class="variable language_">self</span>).__init__()</span><br><span class="line">        <span class="variable language_">self</span>.fc1 = nn.Linear(<span class="number">28</span>*<span class="number">28</span>, <span class="number">128</span>)</span><br><span class="line">        <span class="variable language_">self</span>.relu = nn.ReLU()</span><br><span class="line">        <span class="variable language_">self</span>.fc2 = nn.Linear(<span class="number">128</span>, <span class="number">10</span>)</span><br><span class="line">        <span class="variable language_">self</span>.softmax = nn.Softmax(dim=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        <span class="comment"># 前向传播</span></span><br><span class="line">        x = x.view(-<span class="number">1</span>, <span class="number">28</span>*<span class="number">28</span>)  <span class="comment"># 展平</span></span><br><span class="line">        x = <span class="variable language_">self</span>.fc1(x)</span><br><span class="line">        x = <span class="variable language_">self</span>.relu(x)</span><br><span class="line">        x = <span class="variable language_">self</span>.fc2(x)</span><br><span class="line">        x = <span class="variable language_">self</span>.softmax(x)</span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line"></span><br><span class="line">model = SimpleNN()</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-定义损失函数和优化器"><a href="#4-定义损失函数和优化器" class="headerlink" title="4. 定义损失函数和优化器"></a>4. 定义损失函数和优化器</h2><p>多分类交叉熵损失<br>优化器: 随机梯度下降 (SGD)</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">criterion = nn.CrossEntropyLoss()</span><br><span class="line">optimizer = optim.SGD(model.parameters(), lr=<span class="number">0.01</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-模型训练"><a href="#5-模型训练" class="headerlink" title="5. 模型训练"></a>5. 模型训练</h2><h3 id="训练流程"><a href="#训练流程" class="headerlink" title="训练流程:"></a>训练流程:</h3><h4 id="1-前向传播-计算预测输出"><a href="#1-前向传播-计算预测输出" class="headerlink" title="1. 前向传播: 计算预测输出"></a>1. 前向传播: 计算预测输出</h4><h4 id="2-计算损失"><a href="#2-计算损失" class="headerlink" title="2. 计算损失"></a>2. 计算损失</h4><h4 id="3-反向传播"><a href="#3-反向传播" class="headerlink" title="3. 反向传播"></a>3. 反向传播</h4><h4 id="4-参数更新"><a href="#4-参数更新" class="headerlink" title="4. 参数更新"></a>4. 参数更新</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">num_epochs = <span class="number">5</span></span><br><span class="line"><span class="keyword">for</span> epoch <span class="keyword">in</span> <span class="built_in">range</span>(num_epochs):</span><br><span class="line">    running_loss = <span class="number">0.0</span></span><br><span class="line">    <span class="keyword">for</span> images, labels <span class="keyword">in</span> train_loader:</span><br><span class="line">        outputs = model(images)</span><br><span class="line">        loss = criterion(outputs, labels)</span><br><span class="line"></span><br><span class="line">        optimizer.zero_grad()</span><br><span class="line">        loss.backward()</span><br><span class="line">        optimizer.step()</span><br><span class="line"></span><br><span class="line">        running_loss += loss.item()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;Epoch [<span class="subst">&#123;epoch+<span class="number">1</span>&#125;</span>/<span class="subst">&#123;num_epochs&#125;</span>], Loss: <span class="subst">&#123;running_loss/<span class="built_in">len</span>(train_loader):<span class="number">.4</span>f&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="6-测试模型准确率"><a href="#6-测试模型准确率" class="headerlink" title="6. 测试模型准确率"></a>6. 测试模型准确率</h2><p>在测试集上评估模型性能</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">correct = <span class="number">0</span></span><br><span class="line">total = <span class="number">0</span></span><br><span class="line"><span class="keyword">with</span> torch.no_grad():</span><br><span class="line">    <span class="keyword">for</span> images, labels <span class="keyword">in</span> test_loader:</span><br><span class="line">        outputs = model(images)</span><br><span class="line">        _, predicted = torch.<span class="built_in">max</span>(outputs.data, <span class="number">1</span>)</span><br><span class="line">        total += labels.size(<span class="number">0</span>)</span><br><span class="line">        correct += (predicted == labels).<span class="built_in">sum</span>().item()</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;Test Accuracy: <span class="subst">&#123;<span class="number">100</span> * correct / total:<span class="number">.2</span>f&#125;</span>%&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h1 id="模型保存和加载"><a href="#模型保存和加载" class="headerlink" title="模型保存和加载"></a>模型保存和加载</h1><p><img data-src="/./../images/image-20251004151238326.png" alt="image-20251004151238326"></p>
+<p><img data-src="/./../images/image-20251004151314736.png" alt="image-20251004151314736"></p>
+<p>优点：保存了模型的完整结构</p>
+<p>缺点：模型文件体积大</p>
+<p><img data-src="/./../images/image-20251004151411703.png" alt="image-20251004151411703"></p>
+<p><img data-src="/./../images/image-20251004151513660.png" alt="image-20251004151513660"></p>
+<p><img data-src="/./../images/image-20251004151718462.png" alt="image-20251004151718462"></p>
+<p><img data-src="/./../images/image-20251004151824370.png" alt="image-20251004151824370"></p>
+<h1 id="计算机视觉模块"><a href="#计算机视觉模块" class="headerlink" title="计算机视觉模块"></a>计算机视觉模块</h1><p><img data-src="/./../images/image-20251004155143064.png" alt="image-20251004155143064"></p>
+<p><a href="https://docs.pytorch.ac.cn/vision/stable/index.html">torchvision — Torchvision 0.23 文档 - PyTorch 文档</a></p>
+<p><img data-src="/./../images/image-20251004155245827.png" alt="image-20251004155245827"></p>
+<p><img data-src="/./../images/image-20251004155334340.png" alt="image-20251004155334340"></p>
+<p><img data-src="/./../images/image-20251004155405152.png" alt="image-20251004155405152"></p>
+<p><img data-src="/./../images/image-20251004155502079.png" alt="image-20251004155502079"></p>
+<p><img data-src="/./../images/image-20251004155518151.png" alt="image-20251004155518151"></p>
+<p><a href="https://docs.pytorch.ac.cn/vision/stable/transforms.html">转换图像、视频、边界框等 — Torchvision 0.23 文档 - PyTorch 文档</a></p>
+<p><img data-src="/./../images/image-20251004155619357.png" alt="image-20251004155619357"></p>
+<p><img data-src="/./../images/image-20251004155741508.png" alt="image-20251004155741508"></p>
+<p><img data-src="/./../images/image-20251004155918237.png" alt="image-20251004155918237"></p>
+<p><img data-src="/./../images/image-20251004160011322.png" alt="image-20251004160011322"></p>
+<p><img data-src="/./../images/image-20251004160030493.png" alt="image-20251004160030493"></p>
+<p><img data-src="/./../images/image-20251004160137783.png" alt="image-20251004160137783"></p>
+<p><img data-src="/./../images/image-20251004160152624.png" alt="image-20251004160152624"></p>
+<p><img data-src="/./../images/image-20251004160456282.png" alt="image-20251004160456282"></p>
+<p><img data-src="/./../images/image-20251004160647088.png" alt="image-20251004160647088"></p>
+<p><img data-src="/./../images/image-20251004160659944.png" alt="image-20251004160659944"></p>
+<p><img data-src="/./../images/image-20251004160819065.png" alt="image-20251004160819065"></p>
+<p><img data-src="/./../images/image-20251004160832338.png" alt="image-20251004160832338"></p>
+<h1 id="模型部署"><a href="#模型部署" class="headerlink" title="模型部署"></a>模型部署</h1><p><img data-src="/./../images/image-20251004161036193.png" alt="image-20251004161036193"></p>
+<p><img data-src="/./../images/image-20251004161115819.png" alt="image-20251004161115819"></p>
+<p><img data-src="/./../images/image-20251004161131582.png" alt="image-20251004161131582"></p>
+<p><img data-src="/./../images/image-20251004161250282.png" alt="image-20251004161250282"></p>
+<p><img data-src="/./../images/image-20251004161406034.png" alt="image-20251004161406034"></p>
+<p><img data-src="/./../images/image-20251004161425662.png" alt="image-20251004161425662"></p>
+<p><img data-src="/./../images/image-20251004161556149.png" alt="image-20251004161556149"></p>
+<p><img data-src="/./../images/image-20251004161609676.png" alt="image-20251004161609676"></p>
+<p><img data-src="/./../images/image-20251004161850169.png" alt="image-20251004161850169"></p>
+<h1 id="图像分类略讲"><a href="#图像分类略讲" class="headerlink" title="图像分类略讲"></a>图像分类略讲</h1><p><img data-src="/./../images/image-20251004161924416.png" alt="image-20251004161924416"></p>
+<p><img data-src="/./../images/image-20251004162126318.png" alt="image-20251004162126318"></p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>js.org free domain</title>
     <url>/2020/11/28/js-org-free-domain/</url>
     <content><![CDATA[<h2 id="了解"><a href="#了解" class="headerlink" title="了解"></a>了解</h2><p><a href="js.org">官方链接</a></p>
@@ -1366,27 +1366,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Usage of Structure Block in Minecraft PE</title>
-    <url>/2020/11/22/Usage-of-structure-block-in-Minecraft-PE/</url>
-    <content><![CDATA[<p>写在前面：看到我写游戏，是不是感到非常惊讶？是否有很多问号？其实我从2013年接触我的世界，最早玩0.10.5版本，接触了多玩我的世界盒子和葫芦侠。最早玩我的世界还是用的三星的GT-I9050,安卓2.3，除了运行0.10.5,再大的版本就运行不了了。后来，我用我妈的红米玩0.12.2，地狱疣和药水炼制让我着迷。后来中间潜心学习了一段时间，终于在网易代理后又拾起了我的世界。现在手机版都有地狱更新了，我玩着新版本，没有感觉不熟悉，反而是满满的回忆。今天的我的世界,盒子类几乎没有，唯一好的盒子还是Toolbox，最近也要看广告才能解锁高级功能。<br>今天教大家如何在我的世界中使用结构方块，其实官方名字叫“建筑方块”。<br>首先，在创建世界时，打开“启用实验玩法”，确定开启了作弊和创造。建议下载Toolbox，我就用的toolbox。</p>
-<p><img data-src="/./../images/2020042717372011.jpg" alt="jpg"><br><img data-src="/./../images/2020042717372010.jpg" alt="jpg"><br><img data-src="/./../images/202004271737209.jpg" alt="jpg"><br><img data-src="/./../images/202004271737208.jpg" alt="jpg"></p>
-<p>接着，点击小稿头，找到世界-获取项目，不要点上面的四个，弹出键盘关闭即可。<br><img data-src="/./../images/202004271737207.jpg" alt="jpg"></p>
-<p>在最下面找到这个方块，点击“添加”<br>然后放在地下，你想复制的地方，可以不是一个维度，比如复制各种遗迹。<br>放下“建筑方块”会看到以下界面<br><img data-src="/./../images/202004271737206.jpg" alt="jpg"></p>
-<p>这就是要复制的范围，大小可以调，点击“建筑方块”<br><img data-src="/./../images/202004271737205.jpg" alt="jpg"></p>
-<p>会看到一个3D图像和右边的大小和偏移。可以自行调节，比对3D图像，X轴是红色，Y轴是绿色，Z轴是红色，偏移是复制结构偏移多少格，像这样<br><img data-src="/./../images/202004271737203.jpg" alt="jpg"></p>
-<p>X轴和Y轴最大64，Y轴未知（自己试试）<br><img data-src="/./../images/202004271737204.jpg" alt="jpg"><br>可以选择包含实体或移除方块。包含实体如果打开了，掉落物，各种动物，怪物，村民都可以保存下来。如果打开了移除方块，就会只保留实体。<br><img data-src="/./../images/202004271737202.jpg" alt="jpg"></p>
-<p>保存到磁盘中可以导出为3D图像，或复制到另一个世界。不过toolbox的世界与原版不互通，并且找不到toolbox的文档目录，我已经发邮件问作者，还没回。保存到内存的话，应该是退出世界就没有了。<br><img data-src="/./../images/202004271737201.jpg" alt="jpg"></p>
-<p>保存的话，写上一个名字，会自动为你补全mystructure:这是，找个你想复制的地方，放下“建筑方块”,模式选择“加载”，也是光输入你保存时写的的名字。我这里是test，如果存在，则字体变亮，如果不存在，会是灰色。输入正确后，会显示出你保存的大小，调整即可。最后点击“加载”会有点卡，一点一点加载，甚是舒服！最后就是这个样子<br><img data-src="/./../images/20200427173720.jpg" alt="jpg"></p>
-<p>突然出现的“山”是不是很有趣？也可以把末地船复制到大海上，稍加修缮，就成真正在海上的船了！<br>写在最后：近的物体，还是用clone命令吧。两者皆用，建筑我行！（这应该是全网第一篇教程，有不明白的可以点游戏中建筑方块里面的问号）</p>
-]]></content>
-      <categories>
-        <category>Games</category>
-      </categories>
-      <tags>
-        <tag>Minecarft</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>对过去的一些回忆与思考</title>
     <url>/2023/08/05/memory1/</url>
     <content><![CDATA[<p><img data-src="/./../images/1691270729-644e6321b37f3df28c6d147fd03a111-466x1024.jpg"></p>
@@ -1422,9 +1401,31 @@
       </tags>
   </entry>
   <entry>
+    <title>Usage of Structure Block in Minecraft PE</title>
+    <url>/2020/11/22/Usage-of-structure-block-in-Minecraft-PE/</url>
+    <content><![CDATA[<p>写在前面：看到我写游戏，是不是感到非常惊讶？是否有很多问号？其实我从2013年接触我的世界，最早玩0.10.5版本，接触了多玩我的世界盒子和葫芦侠。最早玩我的世界还是用的三星的GT-I9050,安卓2.3，除了运行0.10.5,再大的版本就运行不了了。后来，我用我妈的红米玩0.12.2，地狱疣和药水炼制让我着迷。后来中间潜心学习了一段时间，终于在网易代理后又拾起了我的世界。现在手机版都有地狱更新了，我玩着新版本，没有感觉不熟悉，反而是满满的回忆。今天的我的世界,盒子类几乎没有，唯一好的盒子还是Toolbox，最近也要看广告才能解锁高级功能。<br>今天教大家如何在我的世界中使用结构方块，其实官方名字叫“建筑方块”。<br>首先，在创建世界时，打开“启用实验玩法”，确定开启了作弊和创造。建议下载Toolbox，我就用的toolbox。</p>
+<p><img data-src="/./../images/2020042717372011.jpg" alt="jpg"><br><img data-src="/./../images/2020042717372010.jpg" alt="jpg"><br><img data-src="/./../images/202004271737209.jpg" alt="jpg"><br><img data-src="/./../images/202004271737208.jpg" alt="jpg"></p>
+<p>接着，点击小稿头，找到世界-获取项目，不要点上面的四个，弹出键盘关闭即可。<br><img data-src="/./../images/202004271737207.jpg" alt="jpg"></p>
+<p>在最下面找到这个方块，点击“添加”<br>然后放在地下，你想复制的地方，可以不是一个维度，比如复制各种遗迹。<br>放下“建筑方块”会看到以下界面<br><img data-src="/./../images/202004271737206.jpg" alt="jpg"></p>
+<p>这就是要复制的范围，大小可以调，点击“建筑方块”<br><img data-src="/./../images/202004271737205.jpg" alt="jpg"></p>
+<p>会看到一个3D图像和右边的大小和偏移。可以自行调节，比对3D图像，X轴是红色，Y轴是绿色，Z轴是红色，偏移是复制结构偏移多少格，像这样<br><img data-src="/./../images/202004271737203.jpg" alt="jpg"></p>
+<p>X轴和Y轴最大64，Y轴未知（自己试试）<br><img data-src="/./../images/202004271737204.jpg" alt="jpg"><br>可以选择包含实体或移除方块。包含实体如果打开了，掉落物，各种动物，怪物，村民都可以保存下来。如果打开了移除方块，就会只保留实体。<br><img data-src="/./../images/202004271737202.jpg" alt="jpg"></p>
+<p>保存到磁盘中可以导出为3D图像，或复制到另一个世界。不过toolbox的世界与原版不互通，并且找不到toolbox的文档目录，我已经发邮件问作者，还没回。保存到内存的话，应该是退出世界就没有了。<br><img data-src="/./../images/202004271737201.jpg" alt="jpg"></p>
+<p>保存的话，写上一个名字，会自动为你补全mystructure:这是，找个你想复制的地方，放下“建筑方块”,模式选择“加载”，也是光输入你保存时写的的名字。我这里是test，如果存在，则字体变亮，如果不存在，会是灰色。输入正确后，会显示出你保存的大小，调整即可。最后点击“加载”会有点卡，一点一点加载，甚是舒服！最后就是这个样子<br><img data-src="/./../images/20200427173720.jpg" alt="jpg"></p>
+<p>突然出现的“山”是不是很有趣？也可以把末地船复制到大海上，稍加修缮，就成真正在海上的船了！<br>写在最后：近的物体，还是用clone命令吧。两者皆用，建筑我行！（这应该是全网第一篇教程，有不明白的可以点游戏中建筑方块里面的问号）</p>
+]]></content>
+      <categories>
+        <category>Games</category>
+      </categories>
+      <tags>
+        <tag>Minecarft</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【论文阅读 | TCSVT 2024 | MMI-Det：探索可见光与红外目标检测的多模态融合】</title>
     <url>/2025/10/14/%E3%80%90%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%20%20TCSVT%202024%20%20MMI-Det%EF%BC%9A%E6%8E%A2%E7%B4%A2%E5%8F%AF%E8%A7%81%E5%85%89%E4%B8%8E%E7%BA%A2%E5%A4%96%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E7%9A%84%E5%A4%9A%E6%A8%A1%E6%80%81%E8%9E%8D%E5%90%88%E3%80%91/</url>
-    <content><![CDATA[<p><img data-src="/./../images/image-20251014174923042-1760435411753-1.png" alt="image-20251014174923042"></p>
+    <content><![CDATA[<p>[TOC]</p>
+<p><img data-src="/./../images/image-20251014174923042-1760435411753-1.png" alt="image-20251014174923042"></p>
 <p>题目：MMI-Det: Exploring Multi-Modal Integration for<br>Visible and Infrared Object Detection</p>
 <p>期刊：TCSVT(IEEE Transactions on Circuits and Systems for Video Technology)</p>
 <p>论文链接：<a href="https://ieeexplore.ieee.org/document/10570450">Link</a></p>
@@ -1486,7 +1487,11 @@
 <li>基于双流YOLOv5框架</li>
 </ul>
 <p>对于输入图像，我们令V和I分别表示可见光图像和红外图像。则可见光图像的输入可表示为<br>$$<br>X_V &#x3D; {x_V | x_V \in \mathbb{R}^{C \times H \times W}}<br>$$<br>红外图像的输入可表示为<br>$$<br>X_I &#x3D; {x_I | x_I \in \mathbb{R}^{C \times H \times W}}<br>$$<br>其中C、H和W分别对应图像的通道、高度和宽度。</p>
-<p>在一个批次的训练过程中，共有B幅图像，其中$x_i^V$和$x_i^I$的数量相同，$i \in {1, 2, \ldots, B&#x2F;2}$。输入的可见光-红外图像将首先通过轮廓增强模块(Contour Enhancement Module)，如下式所示：<br>$$<br>\begin{split}<br>F_{\text{V}}^{CEM} &amp;&#x3D; CEM(X_{\text{V}}), \<br>F_{\text{I}}^{CEM} &amp;&#x3D; CEM(X_{\text{I}}).<br>\end{split}<br>$$<br>在此，$F_{\text{V}}^{CEM}$和$F_{\text{I}}^{CEM}$表示经过CEM处理后的可见光-红外特征。接下来，为了使特征在不丢失过多信息的前提下能够在计算上进行降维，我们引入了FOC，该方法使用切片操作，将高分辨率特征图分割为多个低分辨率特征图。FOC的这种策略性分割以紧凑形式保留了关键空间信息，在促进更快处理的同时，保持了准确目标检测所需的特征完整性。这些FOC模块的输出特征被输入至Conv和C3模块。C3采用多尺度特征融合方法和跨通道信息传递机制来提升特征表示能力。通过将FOC与C3有效结合，网络同时受益于降维和特征丰富性，从而提升了检测性能。需要注意的是，FOC和C3均已在YOLOv5中可用。该过程如下所示：<br>$$<br>\begin{split}<br>F_{\text{V}}^{C3} &amp;&#x3D; C3(\text{Conv}(\text{FOC}(F_{\text{V}}^{CEM}))), \<br>F_{\text{I}}^{C3} &amp;&#x3D; C3(\text{Conv}(\text{FOC}(F_{\text{I}}^{CEM}))).<br>\end{split}<br>$$<br>公式2中的Conv模块和C3模块能够提升模型的特征提取能力。为了引导模型进行有效的训练优化，我们借鉴对比学习的思想设计了对比桥接模块(Contrastive Bridge Module, CBM)，并设计了损失函数$\mathcal{L}<em>{CB}$：<br>$$<br>\mathcal{L}</em>{CB} &#x3D; CBM(F_{\text{V}}^{C3}, F_{\text{I}}^{C3}).<br>$$<br>在此，$\mathcal{L}<em>{CB}$可用作损失函数以引导模型学习模态不变信息。经过上述模块后，可见光特征$F</em>{\text{V}}^{C3}$与红外特征$F_{\text{I}}^{C3}$被输入至融合聚焦模块(Fusion Focus Module, FFM)。MMI-Det设计了多个FFM用于不同深度的特征融合。具体而言，FFM的结构如下式所示：</p>
+<p>在一个批次的训练过程中，共有B幅图像，其中$x_i^V$和$x_i^I$的数量相同，$i \in {1, 2, \ldots, B&#x2F;2}$。输入的可见光-红外图像将首先通过轮廓增强模块(Contour Enhancement Module)，如下式所示：<br>$$<br>\begin{split}<br>F_{\text{V}}^{CEM} &amp;&#x3D; CEM(X_{\text{V}}), \<br>F_{\text{I}}^{CEM} &amp;&#x3D; CEM(X_{\text{I}}).<br>\end{split}<br>$$<br>在此，$F_{\text{V}}^{CEM}$和$F_{\text{I}}^{CEM}$表示经过CEM处理后的可见光-红外特征。接下来，为了使特征在不丢失过多信息的前提下能够在计算上进行降维，我们引入了FOC，该方法使用切片操作，将高分辨率特征图分割为多个低分辨率特征图。FOC的这种策略性分割以紧凑形式保留了关键空间信息，在促进更快处理的同时，保持了准确目标检测所需的特征完整性。这些FOC模块的输出特征被输入至Conv和C3模块。C3采用多尺度特征融合方法和跨通道信息传递机制来提升特征表示能力。通过将FOC与C3有效结合，网络同时受益于降维和特征丰富性，从而提升了检测性能。需要注意的是，FOC和C3均已在YOLOv5中可用。该过程如下所示：</p>
+<p>$$<br>\begin{split}<br>F_{\text{V}}^{C3} &amp;&#x3D; C3(\text{Conv}(\text{FOC}(F_{\text{V}}^{CEM}))), \<br>F_{\text{I}}^{C3} &amp;&#x3D; C3(\text{Conv}(\text{FOC}(F_{\text{I}}^{CEM}))).<br>\end{split}<br>$$</p>
+<p>公式2中的Conv模块和C3模块能够提升模型的特征提取能力。为了引导模型进行有效的训练优化，我们借鉴对比学习的思想设计了对比桥接模块(Contrastive Bridge Module, CBM)，并设计了损失函数$\mathcal{L}_{CB}$ ：</p>
+<p>$$<br>\mathcal{L}<em>{CB} &#x3D; CBM(F</em>{\text{V}}^{C3}, F_{\text{I}}^{C3}).<br>$$</p>
+<p>在此，$\mathcal{L}<em>{CB}$可用作损失函数以引导模型学习模态不变信息。经过上述模块后，可见光特征$F</em>{\text{V}}^{C3}$与红外特征$F_{\text{I}}^{C3}$被输入至融合聚焦模块(Fusion Focus Module, FFM)。MMI-Det设计了多个FFM用于不同深度的特征融合。具体而言，FFM的结构如下式所示：</p>
 <p>$$<br>F_{\text{V}}^{FFM}, F_{\text{I}}^{FFM} &#x3D; FFM(F_{\text{V}}^{C3}, F_{\text{I}}^{C3}).<br>$$</p>
 <p>FFM 充分融合两种模态特征，并将融合后的特征反馈至两个分支。它们与在各自的分支上的特征相加，并一同被发送至下一个特征提取-融合阶段：</p>
 <p>$$<br>\begin{align*}<br>F_{\text{V}}^{add} &amp;&#x3D; F_{\text{V}}^{FFM} + F_{\text{V}}^{C3}, \<br>F_{\text{I}}^{add} &amp;&#x3D; F_{\text{I}}^{FFM} + F_{\text{I}}^{C3}, \<br>F_{\text{V-I}}^{add_1} &amp;&#x3D; F_{\text{V}}^{add} + F_{\text{I}}^{add}.<br>\end{align*}<br>$$</p>
