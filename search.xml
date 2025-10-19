@@ -5,68 +5,61 @@
     <url>/2025/10/03/Change-the-Windows-Chinese-user-home-folder-to-English/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在Windows下，部分软件对于中文目录的适配性并不完整，导致程序无法正常运行或是出现一堆奇奇怪怪的报错。大部分软件会要求你选择一个非中文目录，但是由于部分软件的用户配置数据存储在了用户文件夹下，而用户文件夹的名字一般由Windows自动配置，若我们在OOBE阶段设置了中文名，则用户主文件夹也将是中文名，不利于后续操作。因此本教程将向您介绍在不重装系统、不创建新用户的情况下修改用户主文件夹名。</p>
 <h2 id="判断"><a href="#判断" class="headerlink" title="判断"></a>判断</h2><p>如何判断自己的用户主文件夹名是否为中文？<br>若您在Windows的OOBE阶段（激活）使用了Microsoft账户登录，那么您的用户主文件夹应该为邮箱前缀。您无需继续浏览本教程。<br>若您在Windows的OOBE阶段（激活）使用了<strong>oobe\bypassnro</strong>跳过联网而创建本地用户，并为账户起了中文名，那么您将会拥有一个中文用户主文件夹，正如下图所示：</p>
-<p><img data-src="/./../images/image-20251003084919376.png" alt="image-20251003084919376"></p>
+<p><img data-src="./../images/image-20251003084919376.png" alt="image-20251003084919376"></p>
 <p>如果您已经忘记了自己如何激活的Windows，那么您可以转到<strong>C:\Users</strong>文件夹下进行判断。在文件资源管理器中，<strong>User</strong>文件夹一般显示为中文<strong>用户</strong>。如下图所示：</p>
-<p><img data-src="/./../images/image-20251003085747561.png" alt="image-20251003085747561"></p>
+<p><img data-src="./../images/image-20251003085747561.png" alt="image-20251003085747561"></p>
 <p>图示“姓名”不合规的中文主文件夹，现在我们将对其进行修改，使之变为英文文件夹</p>
 <p><strong>注意！以下操作存在极大风险！可能导致部分软件无法使用需要重装！</strong></p>
 <h2 id="创建还原点"><a href="#创建还原点" class="headerlink" title="创建还原点"></a>创建还原点</h2><p>对系统做这么大手术，当然需要创建一个还原点了，方便恢复修改前状态。在Windows开始菜单搜索框中搜索<strong>还原点</strong></p>
-<p><img data-src="/./../images/image-20251003090032036.png" alt="image-20251003090032036"></p>
+<p><img data-src="./../images/image-20251003090032036.png" alt="image-20251003090032036"></p>
 <p>即可找到创建还原点选项。</p>
 <p>首先先点击<strong>配置</strong>启用系统保护（若已启用则忽略）</p>
-<p><img data-src="/./../images/image-20251003090225081.png" alt="image-20251003090225081"></p>
+<p><img data-src="./../images/image-20251003090225081.png" alt="image-20251003090225081"></p>
 <p>然后点击<strong>创建</strong>，名字随意，创建一个还原点。</p>
-<p><img data-src="/./../images/image-20251003090322343.png" alt="image-20251003090322343"></p>
+<p><img data-src="./../images/image-20251003090322343.png" alt="image-20251003090322343"></p>
 <p>耐心等待还原点创建完成，然后点击<strong>确定</strong>关闭所有窗口。</p>
 <h2 id="启用Administrator账户"><a href="#启用Administrator账户" class="headerlink" title="启用Administrator账户"></a>启用Administrator账户</h2><p>右键开始菜单的微软徽标，点击<strong>终端管理员</strong></p>
-<p><img data-src="/./../images/image-20251003090715686.png" alt="image-20251003090715686"></p>
+<p><img data-src="./../images/image-20251003090715686.png" alt="image-20251003090715686"></p>
 <p>在出现的终端中输入命令并回车</p>
  <figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="built_in">net</span> user administrator /active:yes</span><br></pre></td></tr></table></figure>
-
 <p>执行后，屏幕会提示“命令成功完成”，说明Administrator账号已启用。如下图所示：</p>
-<p><img data-src="/./../images/image-20251003090912298.png" alt="image-20251003090912298"></p>
-<h2 id="切换Administrator账户并注销原账户"><a href="#切换Administrator账户并注销原账户" class="headerlink" title="切换Administrator账户并注销原账户"></a>切换Administrator账户并注销原账户</h2><p><img data-src="/./../images/202510030001.gif" alt="202510030001"></p>
+<p><img data-src="./../images/image-20251003090912298.png" alt="image-20251003090912298"></p>
+<h2 id="切换Administrator账户并注销原账户"><a href="#切换Administrator账户并注销原账户" class="headerlink" title="切换Administrator账户并注销原账户"></a>切换Administrator账户并注销原账户</h2><p><img data-src="./../images/202510030001.gif" alt="202510030001"></p>
 <p>将所有选项取消勾选</p>
-<p><img data-src="/./../images/image-20251003091504362.png" alt="image-20251003091504362"></p>
+<p><img data-src="./../images/image-20251003091504362.png" alt="image-20251003091504362"></p>
 <p>进入桌面后，切回原用户，注销后再登录Administrator账户。</p>
-<p><img data-src="/./../images/202510030002.gif" alt="202510030002"></p>
+<p><img data-src="./../images/202510030002.gif" alt="202510030002"></p>
 <h2 id="重命名用户主文件夹"><a href="#重命名用户主文件夹" class="headerlink" title="重命名用户主文件夹"></a>重命名用户主文件夹</h2><p>现在转到<strong>C:\Users</strong>，修改原来的中文用户主文件夹文件名为英文，可能会提示“操作无法完成，因为文件或文件夹已在其他程序中打开”。</p>
 <h2 id="处理文件夹占用"><a href="#处理文件夹占用" class="headerlink" title="处理文件夹占用"></a>处理文件夹占用</h2><p>Win + R打开cmd，执行以下命令（替换“用户名”为你实际的用户名）</p>
 <figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> /f &quot;skip=<span class="number">1</span> tokens=<span class="number">3</span>&quot; %s <span class="keyword">in</span> (&#x27;query user 用户名&#x27;) <span class="keyword">do</span> <span class="built_in">taskkill</span> /f /fi &quot;sessionname eq %s&quot;</span><br></pre></td></tr></table></figure>
-
 <p>杀死进程后再次修改。</p>
 <h2 id="修改注册表"><a href="#修改注册表" class="headerlink" title="修改注册表"></a>修改注册表</h2><p>按Win + R输入regedit并回车打开注册表编辑器</p>
 <p>在上方输入框中输入</p>
 <figure class="highlight text"><table><tr><td class="code"><pre><span class="line">HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\ProfileList</span><br></pre></td></tr></table></figure>
-
 <p>在此路径下还有很多以S开头的目录，挨个排查，直到找到右边的<strong>ProfileImagePath</strong>为中文的目录，如下图</p>
-<p><img data-src="/./../images/image-20251003093307131.png" alt="image-20251003093307131"></p>
+<p><img data-src="./../images/image-20251003093307131.png" alt="image-20251003093307131"></p>
 <p>双击<strong>ProfileImagePath</strong>条目修改，将中文替换为您刚修改的英文文件夹名称。</p>
 <p>在上方输入框中输入</p>
 <figure class="highlight text"><table><tr><td class="code"><pre><span class="line">HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\UserManager\Users</span><br></pre></td></tr></table></figure>
-
 <p>找到包含中文用户名的数字项(<strong>UserPicture</strong>)，双击对应的键值，将中文用户名改为英文全拼，点击“确定”</p>
 <h2 id="关闭Administrator账户"><a href="#关闭Administrator账户" class="headerlink" title="关闭Administrator账户"></a>关闭Administrator账户</h2><p>按Win + R打开终端，输入命令并回车，关闭Administrator账户</p>
 <figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="built_in">net</span> user administrator /active:no</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="/./../images/image-20251003093749028.png" alt="image-20251003093749028"></p>
+<p><img data-src="./../images/image-20251003093749028.png" alt="image-20251003093749028"></p>
 <p>提示“命令成功完成”后，注销Administrator账号，回到登录页面。</p>
 <h2 id="更新环境变量"><a href="#更新环境变量" class="headerlink" title="更新环境变量"></a><strong>更新环境变量</strong></h2><p>登录回原用户后，搜索<strong>环境变量</strong>，编辑<strong>用户</strong>环境变量</p>
-<p><img data-src="/./../images/image-20251003093857619.png" alt="image-20251003093857619"></p>
+<p><img data-src="./../images/image-20251003093857619.png" alt="image-20251003093857619"></p>
 <p>接下来要对<strong>用户变量</strong>进行操作，首先把OneDrive的变量进行修改，将原来的中文文件夹名改为你原来的英文文件夹名。</p>
 <p>然后单击<strong>Path</strong>条目，点击<strong>编辑</strong>，检查所有包含中文用户名的路径，将条目中原来的中文文件夹名改为你原来的英文文件夹名。</p>
 <p>连续点击三个<strong>确定</strong>，完成环境变量编辑。</p>
 <h2 id="更新用户账户信息（可选）"><a href="#更新用户账户信息（可选）" class="headerlink" title="更新用户账户信息（可选）"></a>更新用户账户信息（可选）</h2><p>如果你想一并把显示的用户信息进行修改，请完成以下操作。</p>
 <p>按Win + R，输入</p>
 <figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">control userpasswords2</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="/./../images/image-20251003094407027.png" alt="image-20251003094407027"></p>
+<p><img data-src="./../images/image-20251003094407027.png" alt="image-20251003094407027"></p>
 <p>对其进行修改，点两次<strong>确定</strong>退出即可。</p>
 <h2 id="创建符号链接"><a href="#创建符号链接" class="headerlink" title="创建符号链接"></a>创建符号链接</h2><p>部分软件可能认死理，这时我们要照顾这些软件的情绪，想办法让它们读到文件。</p>
 <p>右键开始菜单的微软徽标，点击<strong>终端管理员</strong></p>
 <p>对下方命令按照实际情况进行修改后，在出现的终端中输入命令并回车</p>
 <figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cmd</span></span><br><span class="line"></span><br><span class="line">mklink /d &quot;C:\Users\用户&quot; &quot;C:\Users\User&quot;</span><br></pre></td></tr></table></figure>
-
 <p>这会将旧用户名路径链接到新路径，解决软件路径报错问题。</p>
 <h2 id="重启"><a href="#重启" class="headerlink" title="重启"></a>重启</h2><p>确保全部操作完成后重启计算机，如果正常进入桌面，那么基本没有什么问题了</p>
 <h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><ul>
@@ -84,11 +77,213 @@
       </tags>
   </entry>
   <entry>
+    <title>MATLAB基础作业其一</title>
+    <url>/2025/10/18/MATLAB0001/</url>
+    <content><![CDATA[<h1 id="MATLAB-基础第一次作业"><a href="#MATLAB-基础第一次作业" class="headerlink" title="MATLAB 基础第一次作业"></a>MATLAB 基础第一次作业</h1><h2 id="一、基础巩固题（每题8-分，共4-题，满分32-分）"><a href="#一、基础巩固题（每题8-分，共4-题，满分32-分）" class="headerlink" title="一、基础巩固题（每题8 分，共4 题，满分32 分）"></a>一、基础巩固题（每题8 分，共4 题，满分32 分）</h2><p><strong>目标：熟练掌握MATLAB 的基本运算规则、变量赋值及简单函数使用。</strong></p>
+<h3 id="1-温度转换计算"><a href="#1-温度转换计算" class="headerlink" title="1. 温度转换计算"></a>1. 温度转换计算</h3><p>  编写代码将25 摄氏度转换为华氏度，转换公式为F = C × 9/5 + 32。要求：定义变量C 存储摄氏度数值，计算后输出结果（保留1 位小数）。</p>
+<p>MATLAB代码：</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% 定义摄氏度变量</span></span><br><span class="line">C = <span class="number">25</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">% 根据公式计算华氏度</span></span><br><span class="line">F = C * <span class="number">9</span>/<span class="number">5</span> + <span class="number">32</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">% 输出结果，保留1位小数</span></span><br><span class="line">fprintf(<span class="string">&#x27;25摄氏度转换为华氏度是: %.1f°F\n&#x27;</span>, F);</span><br></pre></td></tr></table></figure>
+<p>运行结果截图：</p>
+<p><img data-src="./../images/image-20251018131426548.png" alt="image-20251018131426548"></p>
+<p>命令行输出：</p>
+<blockquote>
+<p>>&gt; h1_1</p>
+<p>25摄氏度转换为华氏度是: 77.0°F</p>
+</blockquote>
+<h3 id="2-简单表达式求值"><a href="#2-简单表达式求值" class="headerlink" title="2. 简单表达式求值"></a>2. 简单表达式求值</h3><p>计算表达式$\frac{\sqrt{16} + \log_{10}(1000) - \sin(\frac{\pi}{2})}{2^3 - 5}$的值。要求：使用MATLAB 内置函数（sqrt、log10、sin、pi）计算，直接输出结果。</p>
+<p>MATLAB代码：</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% 计算分子部分</span></span><br><span class="line">numerator = <span class="built_in">sqrt</span>(<span class="number">16</span>) + <span class="built_in">log10</span>(<span class="number">1000</span>) - <span class="built_in">sin</span>(<span class="built_in">pi</span>/<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 计算分母部分</span></span><br><span class="line">denominator = <span class="number">2</span>^<span class="number">3</span> - <span class="number">5</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">% 计算整个表达式的值</span></span><br><span class="line">result = numerator / denominator;</span><br><span class="line"></span><br><span class="line"><span class="comment">% 输出结果</span></span><br><span class="line"><span class="built_in">disp</span>(result);</span><br></pre></td></tr></table></figure>
+<p>运行结果截图：</p>
+<p><img data-src="./../images/image-20251018131827586.png" alt="image-20251018131827586"></p>
+<p>命令行输出：</p>
+<blockquote>
+<p>>&gt; h1_2</p>
+<p>​     2</p>
+</blockquote>
+<h3 id="3-矩阵创建与输出"><a href="#3-矩阵创建与输出" class="headerlink" title="3. 矩阵创建与输出"></a>3. 矩阵创建与输出</h3><p>创建一个3×3 的矩阵A，元素为1-9 的递增整数（第一行1-3，第二行4-6，第三行7-9），再创建一个3×1 的列向量B（元素为[2;4;6]），最后分别输出矩阵A 和向量B。</p>
+<p>MATLAB代码：</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% 创建 3×3 矩阵 A</span></span><br><span class="line">A = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>; <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>; <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">% 创建 3×1 列向量 B</span></span><br><span class="line">B = [<span class="number">2</span>; <span class="number">4</span>; <span class="number">6</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">% 输出矩阵 A</span></span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;矩阵 A:&#x27;</span>);</span><br><span class="line"><span class="built_in">disp</span>(A);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 输出向量 B</span></span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;列向量 B:&#x27;</span>);</span><br><span class="line"><span class="built_in">disp</span>(B);</span><br></pre></td></tr></table></figure>
+<p>运行结果截图：</p>
+<p><img data-src="./../images/image-20251018132020159.png" alt="image-20251018132020159"></p>
+<p>命令行输出：</p>
+<blockquote>
+<p>>&gt; h1_3</p>
+<p>矩阵 A:<br>    1     2     3<br>    4     5     6<br>    7     8     9</p>
+<p>列向量 B:<br>    2<br>    4<br>    6</p>
+</blockquote>
+<h3 id="4-矩阵基本运算"><a href="#4-矩阵基本运算" class="headerlink" title="4. 矩阵基本运算"></a>4. 矩阵基本运算</h3><p>基于第3 题中的矩阵A 和向量B，计算以下结果并输出：（1）A 的转置矩阵；（2）A 与B 的乘法（A*B）；（3）A 中所有元素的平均值。</p>
+<p>MATLAB代码：</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% 矩阵A和列向量B</span></span><br><span class="line">A = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>; <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>; <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>];</span><br><span class="line">B = [<span class="number">2</span>; <span class="number">4</span>; <span class="number">6</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">% 计算A的转置矩阵</span></span><br><span class="line">A_transpose = A&#x27;;</span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;A的转置矩阵:&#x27;</span>);</span><br><span class="line"><span class="built_in">disp</span>(A_transpose);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 计算A与B的乘法（A*B）</span></span><br><span class="line">AB_product = A * B;</span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;A与B的乘法结果:&#x27;</span>);</span><br><span class="line"><span class="built_in">disp</span>(AB_product);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 计算A中所有元素的平均值</span></span><br><span class="line">A_mean = <span class="built_in">mean</span>(A(:));</span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;A中所有元素的平均值:&#x27;</span>);</span><br><span class="line"><span class="built_in">disp</span>(A_mean);</span><br></pre></td></tr></table></figure>
+<p>运行结果截图：</p>
+<p><img data-src="./../images/image-20251018132310167.png" alt="image-20251018132310167"></p>
+<p>命令行输出：</p>
+<blockquote>
+<p>>&gt; h1_4</p>
+<p>A的转置矩阵:<br>    1     4     7<br>    2     5     8<br>    3     6     9</p>
+<p>A与B的乘法结果:<br>   28<br>   64<br>  100</p>
+<p>A中所有元素的平均值:<br>    5</p>
+</blockquote>
+<h2 id="二、能力提升题（每题17-分，共4-题，满分68-分）"><a href="#二、能力提升题（每题17-分，共4-题，满分68-分）" class="headerlink" title="二、能力提升题（每题17 分，共4 题，满分68 分）"></a>二、能力提升题（每题17 分，共4 题，满分68 分）</h2><p><strong>目标：结合多个知识点，实现复杂逻辑与数据处理。</strong></p>
+<h3 id="1-矩阵条件筛选"><a href="#1-矩阵条件筛选" class="headerlink" title="1. 矩阵条件筛选"></a>1. 矩阵条件筛选</h3><p>创建一个4×4 的随机矩阵（元素范围0-10，使用randi 函数），筛选出矩阵中大于5 的元素并输出这些元素的位置（行号和列号）及具体数值。</p>
+<p>MATLAB代码：</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% 创建 4×4 的随机矩阵，元素范围 0 - 10</span></span><br><span class="line">A = randi([<span class="number">0</span>, <span class="number">10</span>], <span class="number">4</span>, <span class="number">4</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 输出原始矩阵</span></span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;原始矩阵 A:&#x27;</span>);</span><br><span class="line"><span class="built_in">disp</span>(A);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 筛选出大于 5 的元素的行和列索引</span></span><br><span class="line">[row, col] = <span class="built_in">find</span>(A &gt; <span class="number">5</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 筛选出大于 5 的元素值</span></span><br><span class="line">values = A(A &gt; <span class="number">5</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 输出大于 5 的元素的位置（行号和列号）及具体数值</span></span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;矩阵中大于 5 的元素：&#x27;</span>);</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>:<span class="built_in">length</span>(row)</span><br><span class="line">    fprintf(<span class="string">&#x27;行号：%d，列号：%d，数值：%d\n&#x27;</span>, row(<span class="built_in">i</span>), col(<span class="built_in">i</span>), values(<span class="built_in">i</span>));</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<p>运行结果截图：</p>
+<p><img data-src="./../images/image-20251018132717474.png" alt="image-20251018132717474"></p>
+<p>命令行输出：</p>
+<blockquote>
+<p>>&gt; h2_1</p>
+<p>原始矩阵 A:<br>    8     6    10    10<br>    9     1    10     5<br>    1     3     1     8<br>   10     6    10     1</p>
+<p>矩阵中大于 5 的元素：<br>行号：1，列号：1，数值：8<br>行号：2，列号：1，数值：9<br>行号：4，列号：1，数值：10<br>行号：1，列号：2，数值：6<br>行号：4，列号：2，数值：6<br>行号：1，列号：3，数值：10<br>行号：2，列号：3，数值：10<br>行号：4，列号：3，数值：10<br>行号：1，列号：4，数值：10<br>行号：3，列号：4，数值：8</p>
+</blockquote>
+<h3 id="2-线性代数方程组求解"><a href="#2-线性代数方程组求解" class="headerlink" title="2. 线性代数方程组求解"></a>2. 线性代数方程组求解</h3><p>已知线性方程组：</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+2x_1 + 3x_2 - x_3 = 10 \\
+x_1 - 2x_2 + 4x_3 = -5 \\
+3x_1 + x_2 - 2x_3 = 12
+\end{cases}</script><p>将其表示为Ax = b 的形式（其中A 为系数矩阵，b 为常数项向量），使用MATLAB 求解x，并验证A ∗ x 是否等于b。</p>
+<p>MATLAB代码：</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% 定义系数矩阵 A</span></span><br><span class="line">A = [<span class="number">2</span>, <span class="number">3</span>, <span class="number">-1</span>; <span class="number">1</span>, <span class="number">-2</span>, <span class="number">4</span>; <span class="number">3</span>, <span class="number">1</span>, <span class="number">-2</span>];</span><br><span class="line"><span class="comment">% 定义常数项向量 b</span></span><br><span class="line">b = [<span class="number">10</span>; <span class="number">-5</span>; <span class="number">12</span>];</span><br><span class="line"><span class="comment">% 求解线性方程组 Ax = b</span></span><br><span class="line">x = A \ b;</span><br><span class="line"><span class="comment">% 验证 A*x 是否等于 b</span></span><br><span class="line">verify = A * x;</span><br><span class="line"></span><br><span class="line"><span class="comment">% 输出结果</span></span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;方程组的解 x:&#x27;</span>);</span><br><span class="line"><span class="built_in">disp</span>(x);</span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;验证 A*x 的结果:&#x27;</span>);</span><br><span class="line"><span class="built_in">disp</span>(verify);</span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;常数项向量 b:&#x27;</span>);</span><br><span class="line"><span class="built_in">disp</span>(b);</span><br></pre></td></tr></table></figure>
+<p>运行结果截图：</p>
+<p><img data-src="./../images/image-20251018132958993.png" alt="image-20251018132958993"></p>
+<p>命令行输出：</p>
+<blockquote>
+<p>>&gt; h2_2</p>
+<p>方程组的解 x:<br>   2.7143<br>   1.0571<br>  -1.4000</p>
+<p>验证 A*x 的结果:<br>   10<br>   -5<br>   12</p>
+<p>常数项向量 b:<br>   10<br>   -5<br>   12</p>
+</blockquote>
+<h3 id="3-描述性统计分析"><a href="#3-描述性统计分析" class="headerlink" title="3. 描述性统计分析"></a>3. 描述性统计分析</h3><p>生成一个包含50 个随机数的向量（服从均值为10、标准差为2 的正态分布，使用normrnd 函数），计算该向量的描述性统计量：均值、中位数、标准差、方差、极差（最大值减最小值），并将结果以表格形式输出。</p>
+<p>MATLAB代码：</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% 生成服从均值为 10、标准差为 2 的正态分布的 50 个随机数向量</span></span><br><span class="line"></span><br><span class="line">x = normrnd(<span class="number">10</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">50</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 计算描述性统计量</span></span><br><span class="line">mean_val = <span class="built_in">mean</span>(x);          <span class="comment">% 均值</span></span><br><span class="line">median_val = median(x);      <span class="comment">% 中位数</span></span><br><span class="line">std_val = std(x);            <span class="comment">% 标准差</span></span><br><span class="line">var_val = var(x);            <span class="comment">% 方差</span></span><br><span class="line">range_val = range(x);        <span class="comment">% 极差（最大值减最小值）</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% 以表格形式输出结果</span></span><br><span class="line">stats_table = <span class="built_in">table</span>(mean_val, median_val, std_val, var_val, range_val, ...</span><br><span class="line">    <span class="string">&#x27;VariableNames&#x27;</span>, &#123;<span class="string">&#x27;均值&#x27;</span>, <span class="string">&#x27;中位数&#x27;</span>, <span class="string">&#x27;标准差&#x27;</span>, <span class="string">&#x27;方差&#x27;</span>, <span class="string">&#x27;极差&#x27;</span>&#125;);</span><br><span class="line"><span class="built_in">disp</span>(stats_table);</span><br></pre></td></tr></table></figure>
+<p>运行结果截图：</p>
+<p><img data-src="./../images/image-20251018133420352.png" alt="image-20251018133420352"></p>
+<p>命令行输出：</p>
+<blockquote>
+<p>>&gt; h2_3</p>
+<p>​     均值     中位数     标准差      方差      极差 </p>
+<hr>
+<p>​    10.568    10.644    2.5251    6.3759    13.045</p>
+</blockquote>
+<h3 id="4-线性规划问题求解"><a href="#4-线性规划问题求解" class="headerlink" title="4. 线性规划问题求解"></a>4. 线性规划问题求解</h3><p>使用 <code>linprog</code> 函数求解线性规划问题。目标函数：$\min f(x) = 2x_1 + 3x_2$；约束条件：$x_1 + x_2 \geq 2$，$x_1 - 2x_2 \leq 1$，$x_1 \geq 0$，$x_2 \geq 0$。要求：正确设置目标函数系数 <code>f</code>、不等式约束矩阵 <code>A</code> 和向量 <code>b</code>、变量上下界 <code>lb</code>，输出最优解 <code>x</code> 及对应的目标函数最小值。（提示：<code>linprog</code> 默认求解 $\min$ 问题，不等式约束需转换为 $A\mathbf{x} \leq \mathbf{b}$ 形式）</p>
+<p>MATLAB代码：</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% 目标函数系数（对应 min f(x) = 2x1 + 3x2）</span></span><br><span class="line">f = [<span class="number">2</span>; <span class="number">3</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">% 不等式约束转换为 A*x ≤ b 形式</span></span><br><span class="line"><span class="comment">% 原约束 x1 + x2 ≥ 2 转换为 -x1 - x2 ≤ -2</span></span><br><span class="line"><span class="comment">% 原约束 x1 - 2x2 ≤ 1 保持不变</span></span><br><span class="line">A = [<span class="number">-1</span>, <span class="number">-1</span>;</span><br><span class="line">      <span class="number">1</span>, <span class="number">-2</span>];</span><br><span class="line">b = [<span class="number">-2</span>;</span><br><span class="line">      <span class="number">1</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">% 变量下界（x1 ≥ 0, x2 ≥ 0）</span></span><br><span class="line">lb = [<span class="number">0</span>; <span class="number">0</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">% 调用 linprog 求解</span></span><br><span class="line">options = optimoptions(<span class="string">&#x27;linprog&#x27;</span>, <span class="string">&#x27;Display&#x27;</span>, <span class="string">&#x27;iter&#x27;</span>); <span class="comment">% 显示迭代过程</span></span><br><span class="line">[x, fval] = linprog(f, A, b, [], [], lb, [], options);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 输出结果</span></span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;最优解 x:&#x27;</span>);</span><br><span class="line"><span class="built_in">disp</span>(x);</span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;目标函数最小值 fval:&#x27;</span>);</span><br><span class="line"><span class="built_in">disp</span>(fval);</span><br></pre></td></tr></table></figure>
+<p>运行结果截图：</p>
+<p><img data-src="./../images/image-20251018133842761.png" alt="image-20251018133842761"></p>
+<p>命令行输出：</p>
+<blockquote>
+<p>>&gt; h2_4</p>
+<p>Running HiGHS 1.7.1: Copyright (c) 2024 HiGHS under MIT licence terms<br>Coefficient ranges:<br> Matrix [1e+00, 2e+00]<br> Cost   [2e+00, 3e+00]<br> Bound  [0e+00, 0e+00]<br> RHS    [1e+00, 2e+00]<br>Presolving model<br>2 rows, 2 cols, 4 nonzeros  0s<br>2 rows, 2 cols, 4 nonzeros  0s<br>Presolve : Reductions: rows 2(-0); columns 2(-0); elements 4(-0) - Not reduced<br>Problem not reduced by presolve: solving the LP<br>Using EKK dual simplex solver - serial<br> Iteration        Objective     Infeasibilities num(sum)<br>         0     0.0000000000e+00 Pr: 1(2) 0s<br>         2     4.3333333333e+00 Pr: 0(0) 0s<br>Model   status      : Optimal<br>Simplex   iterations: 2<br>Objective value     :  4.3333333333e+00<br>HiGHS run time      :          0.01</p>
+<p>找到最优解。</p>
+<p>最优解 x:<br>   1.6667<br>   0.3333</p>
+<p>目标函数最小值 fval:<br>   4.3333</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>作业</category>
+      </categories>
+      <tags>
+        <tag>MATLAB</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Markdown学习笔记</title>
+    <url>/2021/01/01/Markdown/</url>
+    <content><![CDATA[<h2 id="后缀"><a href="#后缀" class="headerlink" title="后缀"></a>后缀</h2><p>.md</p>
+<p>.markdown</p>
+<p>.MD</p>
+<p>.MARKDOWN</p>
+<h2 id="标头"><a href="#标头" class="headerlink" title="标头"></a>标头</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section"># h1标头</span></span><br><span class="line"><span class="section">## h2标头</span></span><br><span class="line"><span class="section">### h3标头</span></span><br><span class="line">......</span><br><span class="line"><span class="section">###### h6标头</span></span><br></pre></td></tr></table></figure>
+<h1 id="h1标头"><a href="#h1标头" class="headerlink" title="h1标头"></a>h1标头</h1><h2 id="h2标头"><a href="#h2标头" class="headerlink" title="h2标头"></a>h2标头</h2><h3 id="h3标头"><a href="#h3标头" class="headerlink" title="h3标头"></a>h3标头</h3><p>……</p>
+<h6 id="h6标头"><a href="#h6标头" class="headerlink" title="h6标头"></a>h6标头</h6><p>H后数越大，字体越小</p>
+<h2 id="重点"><a href="#重点" class="headerlink" title="重点"></a>重点</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="emphasis">*要斜体的文字*</span></span><br><span class="line"></span><br><span class="line"><span class="strong">**要加黑的文字**</span></span><br><span class="line"></span><br><span class="line"><span class="emphasis">_要斜体的文字_</span></span><br><span class="line"></span><br><span class="line"><span class="strong">__要加黑的文字__</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><em>要斜体的文字</em></p>
+<p><strong>要加黑的文字</strong></p>
+<p>_要斜体的文字_</p>
+<p><strong>要加黑的文字</strong></p>
+<h2 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h2><h3 id="无序"><a href="#无序" class="headerlink" title="无序"></a>无序</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet">*</span> 1</span><br><span class="line"><span class="bullet">*</span> 2</span><br><span class="line"><span class="bullet">*</span> 3</span><br><span class="line"><span class="bullet">*</span> 4</span><br><span class="line"><span class="bullet">*</span> 5</span><br><span class="line"><span class="bullet"> *</span> 1</span><br><span class="line"><span class="bullet"> *</span> 2</span><br><span class="line"><span class="bullet"> *</span> 3</span><br><span class="line"><span class="bullet"> *</span> 4</span><br><span class="line"><span class="bullet"> *</span> 5</span><br></pre></td></tr></table></figure>
+<ul>
+<li>1</li>
+<li>2</li>
+<li>3</li>
+<li>4</li>
+<li>5<ul>
+<li>1</li>
+<li>2</li>
+<li>3</li>
+<li>4</li>
+<li>5</li>
+</ul>
+</li>
+</ul>
+<p>在此博客上空格加“*”是同样的效果。</p>
+<h3 id="有序"><a href="#有序" class="headerlink" title="有序"></a>有序</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet">1.</span> 1</span><br><span class="line"><span class="bullet">2.</span> 2</span><br><span class="line"><span class="bullet">3.</span> 3</span><br><span class="line"><span class="bullet">4.</span> 4</span><br><span class="line"><span class="bullet">5.</span> 5</span><br></pre></td></tr></table></figure>
+<ol>
+<li>1</li>
+<li>2</li>
+<li>3</li>
+<li>4</li>
+<li>5</li>
+</ol>
+<p>使用一个回车后会自动补充</p>
+<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><h3 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">![<span class="string">图片描述</span>](<span class="link">图片位置</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">[<span class="string">链接描述</span>](<span class="link">链接</span>)</span><br></pre></td></tr></table></figure>
+<p><a href="https://mjy.js.org">Blog</a></p>
+<h3 id="块引用"><a href="#块引用" class="headerlink" title="块引用"></a>块引用</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">As Kanye West said:</span><br><span class="line"></span><br><span class="line"><span class="quote">&gt; We&#x27;re living the future so</span></span><br><span class="line"><span class="quote">&gt; the present is our past.</span></span><br></pre></td></tr></table></figure>
+<p>As Kanye West said:</p>
+<blockquote>
+<p>We’re living the future so<br>the present is our past.</p>
+</blockquote>
+<h3 id="内联代码"><a href="#内联代码" class="headerlink" title="内联代码"></a>内联代码</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">I think you should use an</span><br><span class="line"><span class="code">`&lt;addr&gt;`</span> element here instead.</span><br></pre></td></tr></table></figure>
+<p>I think you should use an<br><code>&lt;addr&gt;</code> element here instead.</p>
+<h2 id="语法高亮"><a href="#语法高亮" class="headerlink" title="语法高亮"></a>语法高亮</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="code">` `</span> `语言类型</span><br><span class="line">code</span><br><span class="line"><span class="code">` `</span> `</span><br><span class="line">// 中间无空格</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> <span class="keyword">echo</span> <span class="string">&quot;Hello world&quot;</span>;<span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>将代码前加上四个空格有同样的效果<br><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="code">    &lt;?php echo &quot;Hello world&quot;;?&gt;</span></span><br><span class="line"><span class="code">四个空格+code</span></span><br></pre></td></tr></table></figure><br>    &lt;?php echo “Hello world”;?&gt;<br>    &lt;?php echo “1”;?&gt;<br>    &lt;?php echo “2”;?&gt;<br>    &lt;?php echo “3”;?&gt;</p>
+<h2 id="任务清单"><a href="#任务清单" class="headerlink" title="任务清单"></a>任务清单</h2><ul>
+<li>[ ] 未完成</li>
+<li>[x] 已完成</li>
+</ul>
+<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">A | B</span><br><span class="line">-- | --</span><br><span class="line">1 | 2</span><br><span class="line">2 | 3</span><br></pre></td></tr></table></figure>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>A</th>
+<th>B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr>
+<td>2</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">del</span>&gt;</span></span>Del<span class="language-xml"><span class="tag">&lt;/<span class="name">del</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p><del>Del</del></p>
+<h2 id="表情"><a href="#表情" class="headerlink" title="表情"></a>表情</h2><p><a href="https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md">URL</a></p>
+]]></content>
+      <categories>
+        <category>notes</category>
+      </categories>
+      <tags>
+        <tag>markdown</tag>
+        <tag>Markdown</tag>
+        <tag>笔记</tag>
+        <tag>notes</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Windows下的Python环境配置</title>
     <url>/2025/10/01/Configuring-the-Python-Environment-on-Windows/</url>
     <content><![CDATA[<h2 id="在开始之前"><a href="#在开始之前" class="headerlink" title="在开始之前"></a>在开始之前</h2><ul>
-<li><p>保证你的用户文件夹不要存在中文，且在任何情况下不要把项目文件&#x2F;文件夹放在中文目录下。</p>
-<p>例如<img data-src="/./../images/image-20251001200303183.png" alt="image-20251001200303183"></p>
+<li><p>保证你的用户文件夹不要存在中文，且在任何情况下不要把项目文件/文件夹放在中文目录下。</p>
+<p>例如<img data-src="./../images/image-20251001200303183.png" alt="image-20251001200303183"></p>
 </li>
 </ul>
 <p>你的用户主文件夹不能为中文，否则在后续操作中会出现许多未知错误，导致安装或运行程序无法继续进行。图中用户主文件夹名为“TranquilYu”，符合要求。若采用邮箱登录，其用户主文件夹一般为邮箱的开头5位数字，同样是符合要求的。如果发现自己用户主文件夹为中文，请创建一个新本地用户（权限应为管理员权限，账户名字应不包含中文），然后继续按照教程操作。</p>
@@ -100,10 +295,11 @@
 </ul>
 <h2 id="Anaconda的安装"><a href="#Anaconda的安装" class="headerlink" title="Anaconda的安装"></a>Anaconda的安装</h2><p>很多刚接触Python环境管理的人都会混淆Anaconda和conda。简单说，<strong>Anaconda是一个集成的Python数据科学平台，而conda是平台内置的包与环境管理工具</strong>，二者是“平台”与“工具”的包含关系。也就是说，conda是Python的一个库，Anaconda是一个整合包，整合了包含conda在内的其他Python库。</p>
 <h3 id="1-核心定义与定位"><a href="#1-核心定义与定位" class="headerlink" title="1. 核心定义与定位"></a>1. 核心定义与定位</h3><ul>
-<li><strong>Anaconda</strong>：全称Anaconda Individual Edition，是一个免费开源的Python&#x2F;R数据科学发行版。它不仅包含Python解释器，还预装了NumPy、Pandas、Matplotlib等数百个常用数据科学包，同时内置了conda工具，旨在让用户“开箱即用”，无需手动配置复杂环境。</li>
+<li><strong>Anaconda</strong>：全称Anaconda Individual Edition，是一个免费开源的Python/R数据科学发行版。它不仅包含Python解释器，还预装了NumPy、Pandas、Matplotlib等数百个常用数据科学包，同时内置了conda工具，旨在让用户“开箱即用”，无需手动配置复杂环境。</li>
 <li><strong>conda</strong>：是一个跨平台的包管理器和环境管理器，核心功能是安装、卸载、更新软件包，以及创建隔离的Python环境（避免不同项目依赖冲突）。它不依赖Python，甚至可以管理非Python语言的包（如R语言包）。</li>
 </ul>
-<h3 id="2-关键区别对比"><a href="#2-关键区别对比" class="headerlink" title="2. 关键区别对比"></a>2. 关键区别对比</h3><table>
+<h3 id="2-关键区别对比"><a href="#2-关键区别对比" class="headerlink" title="2. 关键区别对比"></a>2. 关键区别对比</h3><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>对比维度</th>
@@ -111,7 +307,8 @@
 <th>conda</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td><strong>本质</strong></td>
 <td>集成平台（含Python、工具、预装包）</td>
 <td>包与环境管理工具</td>
@@ -124,14 +321,16 @@
 <tr>
 <td><strong>核心功能</strong></td>
 <td>提供完整的数据科学开发环境（一键启动）</td>
-<td>管理包（安装&#x2F;卸载）、管理环境（创建&#x2F;切换）</td>
+<td>管理包（安装/卸载）、管理环境（创建/切换）</td>
 </tr>
 <tr>
 <td><strong>独立使用</strong></td>
 <td>无法拆分，是完整的安装包</td>
 <td>可单独安装（如Miniconda，仅含conda和Python）</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h3 id="3-那Python的“库”又是什么呢"><a href="#3-那Python的“库”又是什么呢" class="headerlink" title="3.那Python的“库”又是什么呢"></a>3.那Python的“库”又是什么呢</h3><p>在Python中，“库”（Library）是一系列预先编写好的代码集合，包含了函数、类、变量等，用于实现特定功能，方便开发者直接调用，无需重复编写基础代码。</p>
 <p>简单说，库就像一个“工具包”：</p>
 <ul>
@@ -143,7 +342,7 @@
 <p>库可以理解为Python生态的“积木”，开发者通过组合不同库，快速搭建复杂应用，而不必从零开始编写每一行代码。</p>
 <p>这也就是为什么Python越来越火，因为使用Python实现一个功能不要求你从0开始编写代码，你只需要在互联网上找到你想调用的库，简要学习一下如何调用，便可整合到你的程序中去。</p>
 <p>安装Anaconda有两个下载途径</p>
-<h3 id="1-官网下载（不推荐）"><a href="#1-官网下载（不推荐）" class="headerlink" title="1.官网下载（不推荐）"></a>1.官网下载（不推荐）</h3><p><img data-src="/./../images/image-20251001201513671.png" alt="image-20251001201513671"></p>
+<h3 id="1-官网下载（不推荐）"><a href="#1-官网下载（不推荐）" class="headerlink" title="1.官网下载（不推荐）"></a>1.官网下载（不推荐）</h3><p><img data-src="./../images/image-20251001201513671.png" alt="image-20251001201513671"></p>
 <p>官方下载链接为<a href="https://www.anaconda.com/download">Download Anaconda Distribution | Anaconda</a></p>
 <p>理论上点击Get Started便可以开始下载，但是事实并非如此。在点击Get Started之后，你需要注册账户，且下载源来自国外，在国内下载速度不稳定，因为相对繁琐，所以不推荐此方法。</p>
 <h3 id="2-从清华大学开源软件镜像站下载"><a href="#2-从清华大学开源软件镜像站下载" class="headerlink" title="2.从清华大学开源软件镜像站下载"></a>2.从清华大学开源软件镜像站下载</h3><p>首先先解答一个问题：何为镜像站？</p>
@@ -159,26 +358,26 @@
 <p>点击下面链接即可访问镜像站：</p>
 <p><a href="https://mirrors.tuna.tsinghua.edu.cn/">清华大学开源软件镜像站 | Tsinghua Open Source Mirror</a></p>
 <p>在镜像站首页，可以看到有很多仓库，这里我们需要找到并点击anaconda，进入achieve目录，按日期排序，找到符合我们系统（Windows）和架构（x86_64）的最新版本，点击就可以进行下载了。下面是个简单的动图，展示了如何找到我们所需的发行版安装包：</p>
-<p><img data-src="/./../images/0001.gif" alt="0001"></p>
+<p><img data-src="./../images/0001.gif" alt="0001"></p>
 <p>在本文编辑完成之前，对于Windows系统而言，最新版本的软件包是“Anaconda3-2025.06-1-Windows-x86_64.exe”，如果您是通过电脑阅读本文，也可点击下面链接下载安装程序：<a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/Anaconda3-2025.06-1-Windows-x86_64.exe">https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/Anaconda3-2025.06-1-Windows-x86_64.exe</a></p>
 <p>下载完成，自然是要进行安装。不过，安装并不是无脑地点击Next和Agree，有些选项也是需要进行选择的。</p>
 <p>运行安装程序（双击Anaconda3-2025.06-1-Windows-x86_64.exe），等待安装程序加载完成后，您会看到下面画面：</p>
-<p><img data-src="/./../images/image-20251001203216213.png" alt="image-20251001203216213"></p>
+<p><img data-src="./../images/image-20251001203216213.png" alt="image-20251001203216213"></p>
 <p>这里点击“Next &gt;”，进行下一步</p>
-<p><img data-src="/./../images/image-20251001203243953.png" alt="image-20251001203243953"></p>
+<p><img data-src="./../images/image-20251001203243953.png" alt="image-20251001203243953"></p>
 <p>“I Agree”</p>
-<p><img data-src="/./../images/image-20251001203311320.png" alt="image-20251001203311320"></p>
+<p><img data-src="./../images/image-20251001203311320.png" alt="image-20251001203311320"></p>
 <p>这里默认是“Just Me”，不过我们要把它改成“All Users”，然后点击“Next &gt;”，这里也许会弹出UAC弹窗，选择“是”即可。</p>
-<p><img data-src="/./../images/image-20251001203428718.png" alt="image-20251001203428718"></p>
+<p><img data-src="./../images/image-20251001203428718.png" alt="image-20251001203428718"></p>
 <p>这一步让我们选择安装目录。我们可以看到，安装Anaconda需要5.2GB的空间，图示电脑C盘还剩余106.1GB，这里我们可以按照默认安装位置安装，如果你的C盘空间紧张或是对于存储空间有所规划，可以选择安装到其他盘。如果要安装到其他盘，建议目标文件夹是<code>D:\anaconda3</code>。不允许安装到含有中文的目录中，例如<code>D:\软件\anaconda3</code>，大多数程序对于中文路径的处理并不完善，极易出现bug甚至程序崩溃。本文中安装文件夹将以<code>C:\ProgramData\anaconda3</code>为例。需要注意的是，<strong>你需要记住这个安装目录</strong>，后续操作会用到此安装目录。选择好安装目录后点击“Next &gt;”继续。</p>
-<p><img data-src="/./../images/image-20251001204116315.png" alt="image-20251001204116315"></p>
+<p><img data-src="./../images/image-20251001204116315.png" alt="image-20251001204116315"></p>
 <p>此处默认只有第一个复选框被选中，我们要把三个都勾选上，然后点击“Install”</p>
 <p>由于释放文件较多，安装时间略长，耐心等待即可……</p>
-<p><img data-src="/./../images/image-20251001204611527.png" alt="image-20251001204611527"></p>
+<p><img data-src="./../images/image-20251001204611527.png" alt="image-20251001204611527"></p>
 <p>出现Completed代表安装结束，此时点击“Next &gt;”</p>
-<p><img data-src="/./../images/image-20251001204656068.png" alt="image-20251001204656068"></p>
+<p><img data-src="./../images/image-20251001204656068.png" alt="image-20251001204656068"></p>
 <p>会出现以下界面，点击“Next &gt;”进行下一步。</p>
-<p><img data-src="/./../images/image-20251001204731723.png" alt="image-20251001204731723"></p>
+<p><img data-src="./../images/image-20251001204731723.png" alt="image-20251001204731723"></p>
 <p>到了最后一步，将这两个默认勾选的复选框取消勾选（用不到），然后点击退出。</p>
 <p> 至此我们Anaconda的安装告一段落了，但是接下来我们还要对其进行配置，否则我们无法正常使用。</p>
 <h2 id="Anaconda的配置"><a href="#Anaconda的配置" class="headerlink" title="Anaconda的配置"></a>Anaconda的配置</h2><h3 id="修改系统变量"><a href="#修改系统变量" class="headerlink" title="修改系统变量"></a>修改系统变量</h3><p>此时安装完成的Anaconda并没有加入系统的环境变量中，这将导致我们没法在终端（命令提示符即cmd）直接调用，于是我们需要对其进行配置。</p>
@@ -189,12 +388,10 @@
 </li>
 </ul>
 <figure class="highlight moonscript"><table><tr><td class="code"><pre><span class="line"><span class="name">C</span>:\ProgramData\anaconda3</span><br><span class="line"><span class="name">C</span>:\ProgramData\anaconda3\Scripts</span><br><span class="line"><span class="name">C</span>:\ProgramData\anaconda3\Library\bin</span><br><span class="line"><span class="name">C</span>:\ProgramData\anaconda3\Library\mingw-w64\bin</span><br></pre></td></tr></table></figure>
-
 <p>当然，如果你安装在了D:\anaconda3，那么路径应该是这样的</p>
 <figure class="highlight avrasm"><table><tr><td class="code"><pre><span class="line"><span class="symbol">D:</span>\anaconda3</span><br><span class="line"><span class="symbol">D:</span>\anaconda3\Scripts</span><br><span class="line"><span class="symbol">D:</span>\anaconda3\Library\bin</span><br><span class="line"><span class="symbol">D:</span>\anaconda3\Library\mingw-w64\bin</span><br></pre></td></tr></table></figure>
-
 <p>关于如何添加，下面有个动图进行演示：</p>
-<p><img data-src="/./../images/0002.gif" alt="0002"></p>
+<p><img data-src="./../images/0002.gif" alt="0002"></p>
 <p>需要注意的关键点：</p>
 <ul>
 <li><p>编辑的是“系统变量”而非“用户变量”</p>
@@ -203,33 +400,29 @@
 </li>
 </ul>
 <p>如何确定自己已经正确配置了环境变量？</p>
-<p><img data-src="/./../images/0003.gif" alt="0003"></p>
+<p><img data-src="./../images/0003.gif" alt="0003"></p>
 <p>按Win + R键（或者右键开始菜单图标点击“运行”），在弹出的“运行”对话框中输入cmd并回车，在弹出的命令提示符中输入（V要大写）</p>
 <figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">conda -V</span></span><br></pre></td></tr></table></figure>
-
 <p>若如下图所示输出则环境变量配置成功。</p>
-<p><img data-src="/./../images/image-20251001210033489.png" alt="image-20251001210033489"></p>
+<p><img data-src="./../images/image-20251001210033489.png" alt="image-20251001210033489"></p>
 <p>如图，conda输出了它的版本号：25.5.1</p>
 <p>这代表Anaconda已经安装完成，恭喜！</p>
 <h3 id="换源"><a href="#换源" class="headerlink" title="换源"></a>换源</h3><p>没错，还是更换镜像源，具体优点与好处上文已经提及，不再赘述。</p>
 <p>将以下代码复制到上一步骤所示命令提示符中执行，便可更换镜像源为清华源</p>
 <figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">conda config --add channels https:<span class="regexp">//mi</span>rrors.tuna.tsinghua.edu.cn<span class="regexp">/anaconda/</span>pkgs<span class="regexp">/free/</span></span><br><span class="line">conda config --add channels https:<span class="regexp">//mi</span>rrors.tuna.tsinghua.edu.cn<span class="regexp">/anaconda/</span>pkgs<span class="regexp">/main/</span></span><br><span class="line">conda config --add channels https:<span class="regexp">//mi</span>rrors.tuna.tsinghua.edu.cn<span class="regexp">/anaconda/</span>cloud<span class="regexp">/pytorch/</span></span><br><span class="line">conda config --add channels https:<span class="regexp">//mi</span>rrors.tuna.tsinghua.edu.cn<span class="regexp">/anaconda/</span>cloud<span class="regexp">/pytorch/</span>linux-<span class="number">64</span>/</span><br><span class="line">conda config --set show_channel_urls yes</span><br></pre></td></tr></table></figure>
-
 <p>如下图所示：</p>
-<p><img data-src="/./../images/0004.gif" alt="0004"></p>
+<p><img data-src="./../images/0004.gif" alt="0004"></p>
 <p>验证配置是否成功，可以使用命令</p>
 <figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">conda</span> <span class="literal">info</span></span><br></pre></td></tr></table></figure>
-
 <p>查看。在channel URLs一项中出现了很多清华源，则配置成功！</p>
-<p><img data-src="/./../images/image-20251001210512992.png" alt="image-20251001210512992"></p>
+<p><img data-src="./../images/image-20251001210512992.png" alt="image-20251001210512992"></p>
 <p>至此，Anaconda配置结束。</p>
 <h2 id="Conda命令介绍"><a href="#Conda命令介绍" class="headerlink" title="Conda命令介绍"></a>Conda命令介绍</h2><p>在实际使用conda之前，我们首先要进入<strong>Anaconda Prompt</strong>环境。注意这个程序不会直接在你的桌面上创建快捷方式，你需要在开始菜单——A字母开头——Anaconda3文件夹中找到它。你也可以在开始菜单的搜索框中直接搜索<strong>Anaconda Prompt</strong>打开它。打开它应该是这样的：</p>
-<p><img data-src="/./../images/image-20251001212237025.png" alt="image-20251001212237025"></p>
+<p><img data-src="./../images/image-20251001212237025.png" alt="image-20251001212237025"></p>
 <p>注意到与平常使用的命令提示符存在不同——最前面有个（base）！这个其实是在提醒你当前是在默认的环境中。接下来我们便需要创建一个新的环境。在控制台中执行：</p>
 <figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">conda</span> create -n name python=<span class="number">3</span>.<span class="number">13</span></span><br></pre></td></tr></table></figure>
-
 <p>create便是”创建“，意味着我们要创建一个环境了。</p>
-<p><strong>-n</strong>其实是**–name**的缩写，使用哪个都可以，但要在其后加上参数即环境名称。这条指令便可创建一个Python环境。</p>
+<p><strong>-n</strong>其实是<strong>—name</strong>的缩写，使用哪个都可以，但要在其后加上参数即环境名称。这条指令便可创建一个Python环境。</p>
 <p>这时你可能要问了：为什么我要创建一个Python环境呢？</p>
 <p>用conda创建Python环境，核心是为了解决不同项目间的<strong>依赖冲突</strong>，让每个项目都能在独立、干净的环境中运行。</p>
 <p>这个问题提得很实用，很多Python初学者都会因为环境问题踩坑。conda创建环境的必要性，主要体现在以下3点：</p>
@@ -251,44 +444,38 @@
 <li>他人只需通过该文件，就能一键复现完全相同的环境，避免“我这能跑，你那报错”的问题。</li>
 </ul>
 <p>简而言之，创建不同的Python本质上就是为了“隔离”，你可能有很多个Python项目要跑，而这些项目对于库与依赖的要求各不相同，甚至会起冲突，于是你便需要创建不同的环境把它们隔离开咯~</p>
-<p>话说回来，起什么名字还是需要自己依照实际需求起。这里为了演示方便，我便起名“test”了。后面的<strong>python&#x3D;3.13</strong>是为了指定这个环境所使用的Python版本。输入完成后，敲击回车便开始创建环境了。</p>
+<p>话说回来，起什么名字还是需要自己依照实际需求起。这里为了演示方便，我便起名“test”了。后面的<strong>python=3.13</strong>是为了指定这个环境所使用的Python版本。输入完成后，敲击回车便开始创建环境了。</p>
 <p>（tips：如果你的用户主文件夹是中文的话在这一步会创建不了环境哦（回收开头））</p>
-<p><img data-src="/./../images/image-20251001211623674.png" alt="image-20251001211623674"></p>
+<p><img data-src="./../images/image-20251001211623674.png" alt="image-20251001211623674"></p>
 <p>出现此提示，输入<strong>y</strong>之后回车或者直接回车确认安装这些软件包。</p>
-<p><img data-src="/./../images/image-20251001212512068.png" alt="image-20251001212512068"></p>
+<p><img data-src="./../images/image-20251001212512068.png" alt="image-20251001212512068"></p>
 <p>创建完成！左上角提示<strong>done</strong>便是最好的证明。conda也贴心地为我们贴出来了两条指令。我们便接着这两条指令说下去：</p>
 <p>首先是</p>
 <figure class="highlight applescript"><table><tr><td class="code"><pre><span class="line">conda <span class="built_in">activate</span> &lt;你的环境名&gt;</span><br></pre></td></tr></table></figure>
-
 <p>activate不必多说，激活嘛。我们输入这行命令并回车，便出现了以下变化：</p>
-<p><img data-src="/./../images/image-20251001212747620.png" alt="image-20251001212747620"></p>
+<p><img data-src="./../images/image-20251001212747620.png" alt="image-20251001212747620"></p>
 <p>注意到前面的标志换了！这表明我们已经切换到test环境下了！</p>
 <p>要想从test环境回到默认的base环境，只需输入</p>
 <figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">conda deactivate</span></span><br></pre></td></tr></table></figure>
-
 <p>并回车即可回到base环境。</p>
-<p><img data-src="/./../images/image-20251001212935407.png" alt="image-20251001212935407"></p>
+<p><img data-src="./../images/image-20251001212935407.png" alt="image-20251001212935407"></p>
 <p>使用</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">conda <span class="built_in">env</span> list</span><br></pre></td></tr></table></figure>
-
 <p>便可列出当前存在的所有环境。</p>
 <p>使用</p>
 <figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">conda env <span class="built_in">remove</span> -n &lt;你的环境名&gt;</span><br></pre></td></tr></table></figure>
-
-<p>便可移除你创建的环境。-n也可写作–name</p>
+<p>便可移除你创建的环境。-n也可写作—name</p>
 <p>在你想使用的环境中（例如刚创建的test环境），使用</p>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">conda install <span class="tag">&lt;<span class="name">库名</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
 <p>来安装你想要安装的库，例如安装numpy库，见下图：</p>
-<p><img data-src="/./../images/0005.gif" alt="0005"></p>
+<p><img data-src="./../images/0005.gif" alt="0005"></p>
 <p>同样的，程序会询问你是否安装，输入y并回车或者直接回车就可以安装。</p>
 <p>以上仅说明了基本的conda命令，如果想了解更多命令，请访问：</p>
 <p><a href="https://www.runoob.com/python-qt/anaconda-tutorial.html">Anaconda 教程 | 菜鸟教程</a></p>
 <h2 id="pip换源"><a href="#pip换源" class="headerlink" title="pip换源"></a>pip换源</h2><p>pip同样也是一个Python包管理器。为了加速下载速度，我们同样可以换源来加速下载。</p>
 <p>按Win + R打开cmd（命令提示符），右键输入下面代码并回车即可完成换源。</p>
-<p><img data-src="/./../images/0006.gif" alt="0006"></p>
+<p><img data-src="./../images/0006.gif" alt="0006"></p>
 <figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line">mkdir %APPDATA%\pip &amp;&amp; (echo [<span class="keyword">global</span>] &amp; echo <span class="keyword">index</span>-url = https://pypi.tuna.tsinghua.edu.cn/simple/ &amp; echo <span class="keyword">trusted</span>-host = pypi.tuna.tsinghua.edu.cn) &gt; %APPDATA%\pip\pip.ini</span><br></pre></td></tr></table></figure>
-
 <h2 id="PyCharm的安装"><a href="#PyCharm的安装" class="headerlink" title="PyCharm的安装"></a>PyCharm的安装</h2><p>PyCharm 是 JetBrains 公司开发的一款专业 Python 集成开发环境（IDE），主要特点如下：</p>
 <ol>
 <li><p><strong>功能全面</strong>：集成代码编辑、调试、测试、版本控制（Git 等）、数据库工具等，一站式满足 Python 开发需求。</p>
@@ -304,19 +491,19 @@
 </ol>
 <p>适合从入门到专业的各类 Python 开发场景，是目前最流行的 Python IDE 之一。</p>
 <p>在这里，我们使用PyCharm的社区版而非专业版。</p>
-<p>在下载页面<a href="https://www.jetbrains.com/zh-cn/pycharm/download/other.html">其他版本 - PyCharm</a>中找到<strong>PyCharm Community Edition</strong>一栏，找到**<a href="https://download.jetbrains.com/python/pycharm-community-2025.2.2.exe">2025.2.2 - Windows (exe)</a>**一项并点击下载。如果您使用电脑阅读本文，可直接点击链接下载。本文编辑完成前，PyCharm版本为2025.2.2。</p>
+<p>在下载页面<a href="https://www.jetbrains.com/zh-cn/pycharm/download/other.html">其他版本 - PyCharm</a>中找到<strong>PyCharm Community Edition</strong>一栏，找到<strong><a href="https://download.jetbrains.com/python/pycharm-community-2025.2.2.exe">2025.2.2 - Windows (exe)</a></strong>一项并点击下载。如果您使用电脑阅读本文，可直接点击链接下载。本文编辑完成前，PyCharm版本为2025.2.2。</p>
 <p>等待其下载完成后，双击安装程序进行安装。等待安装程序加载完成后，应该向您询问UAC权限，选”是“即可。</p>
-<p><img data-src="/./../images/image-20251001215019891.png" alt="image-20251001215019891"></p>
+<p><img data-src="./../images/image-20251001215019891.png" alt="image-20251001215019891"></p>
 <p>”下一步“</p>
-<p><img data-src="/./../images/image-20251001215036969.png" alt="image-20251001215036969"></p>
+<p><img data-src="./../images/image-20251001215036969.png" alt="image-20251001215036969"></p>
 <p>可以选择更改一个你喜欢的位置，这里我仍然选择不做修改，如果你要修改，切记不要装在有中文的目录下，最保险的做法就是把这串安装路径的“C:\”改为“D:\”。</p>
-<p><img data-src="/./../images/image-20251001215229683.png" alt="image-20251001215229683"></p>
+<p><img data-src="./../images/image-20251001215229683.png" alt="image-20251001215229683"></p>
 <p>这一页默认所有复选框都没被勾选，按图示勾选这三个即可。点击两次下一步后即可开始安装。安装完成后启动PyCharm。</p>
-<p><img data-src="/./../images/image-20251001215632715.png" alt="image-20251001215632715"></p>
+<p><img data-src="./../images/image-20251001215632715.png" alt="image-20251001215632715"></p>
 <p>中文就非常不错，直接下一个！</p>
-<p><img data-src="/./../images/image-20251001215659091.png" alt="image-20251001215659091"></p>
+<p><img data-src="./../images/image-20251001215659091.png" alt="image-20251001215659091"></p>
 <p>同意条款后继续</p>
-<p><img data-src="/./../images/image-20251001215716667.png" alt="image-20251001215716667"></p>
+<p><img data-src="./../images/image-20251001215716667.png" alt="image-20251001215716667"></p>
 <p>不发送</p>
 <p>如果你之前安装过其他编辑器，会询问你是否导入，选择不导入即可。</p>
 <h2 id="PyCharm的界面说明及使用方法"><a href="#PyCharm的界面说明及使用方法" class="headerlink" title="PyCharm的界面说明及使用方法"></a>PyCharm的界面说明及使用方法</h2><p>此内容实在复杂，请移步菜鸟教程查看（doge），但在查看之前，请先配置好Python解释器（下一节内容）</p>
@@ -325,8 +512,8 @@
 <p><a href="https://www.runoob.com/pycharm/pycharm-start-intro.html">PyCharm 界面说明 | 菜鸟教程</a></p>
 <p><a href="https://www.runoob.com/pycharm/pycharm-run-debug.html">PyCharm 运行与调试 | 菜鸟教程</a></p>
 <h2 id="PyCharm的Python解释器配置"><a href="#PyCharm的Python解释器配置" class="headerlink" title="PyCharm的Python解释器配置"></a>PyCharm的Python解释器配置</h2><p>点击PyCharm主界面左下角的小齿轮图标，在弹出的二级菜单中点击设置，找到页面最上方的<strong>Python</strong>（注：不需要点”&gt;”使之展开，在右边的页面中点击“解释器”</p>
-<p><img data-src="/./../images/image-20251001220009405.png" alt="image-20251001220009405"></p>
-<p><img data-src="/./../images/image-20251001220049389.png" alt="image-20251001220049389"></p>
+<p><img data-src="./../images/image-20251001220009405.png" alt="image-20251001220009405"></p>
+<p><img data-src="./../images/image-20251001220049389.png" alt="image-20251001220049389"></p>
 <p>点击<strong>添加解释器</strong>——<strong>添加本地解释器</strong></p>
 <p>环境——<strong>选择现有</strong></p>
 <p>类型——选<strong>Conda</strong></p>
@@ -345,107 +532,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Markdown学习笔记</title>
-    <url>/2021/01/01/Markdown/</url>
-    <content><![CDATA[<h2 id="后缀"><a href="#后缀" class="headerlink" title="后缀"></a>后缀</h2><p>.md</p>
-<p>.markdown</p>
-<p>.MD</p>
-<p>.MARKDOWN</p>
-<h2 id="标头"><a href="#标头" class="headerlink" title="标头"></a>标头</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section"># h1标头</span></span><br><span class="line"><span class="section">## h2标头</span></span><br><span class="line"><span class="section">### h3标头</span></span><br><span class="line">......</span><br><span class="line"><span class="section">###### h6标头</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="h1标头"><a href="#h1标头" class="headerlink" title="h1标头"></a>h1标头</h1><h2 id="h2标头"><a href="#h2标头" class="headerlink" title="h2标头"></a>h2标头</h2><h3 id="h3标头"><a href="#h3标头" class="headerlink" title="h3标头"></a>h3标头</h3><p>……</p>
-<h6 id="h6标头"><a href="#h6标头" class="headerlink" title="h6标头"></a>h6标头</h6><p>H后数越大，字体越小</p>
-<h2 id="重点"><a href="#重点" class="headerlink" title="重点"></a>重点</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="emphasis">*要斜体的文字*</span></span><br><span class="line"></span><br><span class="line"><span class="strong">**要加黑的文字**</span></span><br><span class="line"></span><br><span class="line"><span class="emphasis">_要斜体的文字_</span></span><br><span class="line"></span><br><span class="line"><span class="strong">__要加黑的文字__</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><em>要斜体的文字</em></p>
-<p><strong>要加黑的文字</strong></p>
-<p><em>要斜体的文字</em></p>
-<p><strong>要加黑的文字</strong></p>
-<h2 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h2><h3 id="无序"><a href="#无序" class="headerlink" title="无序"></a>无序</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet">*</span> 1</span><br><span class="line"><span class="bullet">*</span> 2</span><br><span class="line"><span class="bullet">*</span> 3</span><br><span class="line"><span class="bullet">*</span> 4</span><br><span class="line"><span class="bullet">*</span> 5</span><br><span class="line"><span class="bullet"> *</span> 1</span><br><span class="line"><span class="bullet"> *</span> 2</span><br><span class="line"><span class="bullet"> *</span> 3</span><br><span class="line"><span class="bullet"> *</span> 4</span><br><span class="line"><span class="bullet"> *</span> 5</span><br></pre></td></tr></table></figure>
-
-
-<ul>
-<li>1</li>
-<li>2</li>
-<li>3</li>
-<li>4</li>
-<li>5</li>
-<li>1</li>
-<li>2</li>
-<li>3</li>
-<li>4</li>
-<li>5</li>
-</ul>
-<p>在此博客上空格加“*”是同样的效果。</p>
-<h3 id="有序"><a href="#有序" class="headerlink" title="有序"></a>有序</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet">1.</span> 1</span><br><span class="line"><span class="bullet">2.</span> 2</span><br><span class="line"><span class="bullet">3.</span> 3</span><br><span class="line"><span class="bullet">4.</span> 4</span><br><span class="line"><span class="bullet">5.</span> 5</span><br></pre></td></tr></table></figure>
-<ol>
-<li>1</li>
-<li>2</li>
-<li>3</li>
-<li>4</li>
-<li>5</li>
-</ol>
-<p>使用一个回车后会自动补充</p>
-<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p>###图片</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">![<span class="string">图片描述</span>](<span class="link">图片位置</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">[<span class="string">链接描述</span>](<span class="link">链接</span>)</span><br></pre></td></tr></table></figure>
-
-<p><a href="https://mjy.js.org/">Blog</a></p>
-<h3 id="块引用"><a href="#块引用" class="headerlink" title="块引用"></a>块引用</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">As Kanye West said:</span><br><span class="line"></span><br><span class="line"><span class="quote">&gt; We&#x27;re living the future so</span></span><br><span class="line"><span class="quote">&gt; the present is our past.</span></span><br></pre></td></tr></table></figure>
-
-<p>As Kanye West said:</p>
-<blockquote>
-<p>We’re living the future so<br>the present is our past.</p>
-</blockquote>
-<h3 id="内联代码"><a href="#内联代码" class="headerlink" title="内联代码"></a>内联代码</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">I think you should use an</span><br><span class="line"><span class="code">`&lt;addr&gt;`</span> element here instead.</span><br></pre></td></tr></table></figure>
-<p>I think you should use an<br><code>&lt;addr&gt;</code> element here instead.</p>
-<h2 id="语法高亮"><a href="#语法高亮" class="headerlink" title="语法高亮"></a>语法高亮</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="code">` `</span> `语言类型</span><br><span class="line">code</span><br><span class="line"><span class="code">` `</span> `</span><br><span class="line">// 中间无空格</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> <span class="keyword">echo</span> <span class="string">&quot;Hello world&quot;</span>;<span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<p>将代码前加上四个空格有同样的效果</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="code">    &lt;?php echo &quot;Hello world&quot;;?&gt;</span></span><br><span class="line"><span class="code">四个空格+code</span></span><br></pre></td></tr></table></figure>
-<pre><code>&lt;?php echo &quot;Hello world&quot;;?&gt;
-&lt;?php echo &quot;1&quot;;?&gt;
-&lt;?php echo &quot;2&quot;;?&gt;
-&lt;?php echo &quot;3&quot;;?&gt;
-</code></pre>
-<h2 id="任务清单"><a href="#任务清单" class="headerlink" title="任务清单"></a>任务清单</h2><ul>
-<li><input disabled="" type="checkbox"> 未完成</li>
-<li><input checked="" disabled="" type="checkbox"> 已完成</li>
-</ul>
-<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">A | B</span><br><span class="line">-- | --</span><br><span class="line">1 | 2</span><br><span class="line">2 | 3</span><br></pre></td></tr></table></figure>
-<table>
-<thead>
-<tr>
-<th>A</th>
-<th>B</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1</td>
-<td>2</td>
-</tr>
-<tr>
-<td>2</td>
-<td>3</td>
-</tr>
-</tbody></table>
-<h2 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">del</span>&gt;</span></span>Del<span class="language-xml"><span class="tag">&lt;/<span class="name">del</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-
-<p><del>Del</del></p>
-<h2 id="表情"><a href="#表情" class="headerlink" title="表情"></a>表情</h2><p><a href="https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md">URL</a></p>
-]]></content>
-      <categories>
-        <category>notes</category>
-      </categories>
-      <tags>
-        <tag>markdown</tag>
-        <tag>Markdown</tag>
-        <tag>笔记</tag>
-        <tag>notes</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Python学习笔记其一</title>
     <url>/2025/10/01/Python0001/</url>
     <content><![CDATA[<p>相关教程：</p>
@@ -453,19 +539,14 @@
 <p><a href="https://www.runoob.com/python3/python3-loop.html">Python3 循环语句 | 菜鸟教程</a></p>
 <p>使用for求1-100的和：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="built_in">sum</span> = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">101</span>):</span><br><span class="line">    <span class="built_in">sum</span> += i</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">sum</span>)</span><br></pre></td></tr></table></figure>
-
 <p>使用while求1-100的和：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="built_in">sum</span> = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> i &lt; <span class="number">101</span>:</span><br><span class="line">    <span class="built_in">sum</span> += i</span><br><span class="line">    i += <span class="number">1</span></span><br></pre></td></tr></table></figure>
-
 <p>排除1-100中含有“7”的数并求和：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="built_in">sum</span> = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">101</span>):</span><br><span class="line">    <span class="keyword">if</span> i // <span class="number">10</span> == <span class="number">7</span> <span class="keyword">or</span> i % <span class="number">10</span> == <span class="number">7</span>:</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">sum</span> += i</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">sum</span>)</span><br></pre></td></tr></table></figure>
-
 <p>亦可通过while实现：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="built_in">sum</span> = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> i &lt; <span class="number">101</span>:</span><br><span class="line">    <span class="keyword">if</span> i // <span class="number">10</span> == <span class="number">7</span> <span class="keyword">or</span> i % <span class="number">10</span> == <span class="number">7</span>:</span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">sum</span> += i</span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">sum</span>)</span><br></pre></td></tr></table></figure>
-
 <p>亦可通过将i转化为字符串排除实现：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="built_in">sum</span> = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">101</span>):</span><br><span class="line">    a = <span class="built_in">str</span>(i)</span><br><span class="line">    <span class="keyword">if</span> <span class="string">&quot;7&quot;</span> <span class="keyword">not</span> <span class="keyword">in</span> a:</span><br><span class="line">        <span class="built_in">sum</span> += i</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">sum</span>)</span><br></pre></td></tr></table></figure>
-
 <p>遇到的坑：</p>
 <ul>
 <li>for、if、elif、else、while语句要加:（冒号）</li>
@@ -481,118 +562,6 @@
       </tags>
   </entry>
   <entry>
-    <title>MATLAB基础作业其一</title>
-    <url>/2025/10/18/MATLAB0001/</url>
-    <content><![CDATA[<h1 id="MATLAB-基础第一次作业"><a href="#MATLAB-基础第一次作业" class="headerlink" title="MATLAB 基础第一次作业"></a>MATLAB 基础第一次作业</h1><h2 id="一、基础巩固题（每题8-分，共4-题，满分32-分）"><a href="#一、基础巩固题（每题8-分，共4-题，满分32-分）" class="headerlink" title="一、基础巩固题（每题8 分，共4 题，满分32 分）"></a>一、基础巩固题（每题8 分，共4 题，满分32 分）</h2><p><strong>目标：熟练掌握MATLAB 的基本运算规则、变量赋值及简单函数使用。</strong></p>
-<h3 id="1-温度转换计算"><a href="#1-温度转换计算" class="headerlink" title="1. 温度转换计算"></a>1. 温度转换计算</h3><p>  编写代码将25 摄氏度转换为华氏度，转换公式为F &#x3D; C × 9&#x2F;5 + 32。要求：定义变量C 存储摄氏度数值，计算后输出结果（保留1 位小数）。</p>
-<p>MATLAB代码：</p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% 定义摄氏度变量</span></span><br><span class="line">C = <span class="number">25</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">% 根据公式计算华氏度</span></span><br><span class="line">F = C * <span class="number">9</span>/<span class="number">5</span> + <span class="number">32</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">% 输出结果，保留1位小数</span></span><br><span class="line">fprintf(<span class="string">&#x27;25摄氏度转换为华氏度是: %.1f°F\n&#x27;</span>, F);</span><br></pre></td></tr></table></figure>
-
-<p>运行结果截图：</p>
-<p><img data-src="/./../images/image-20251018131426548.png" alt="image-20251018131426548"></p>
-<p>命令行输出：</p>
-<blockquote>
-<p>&gt;&gt; h1_1</p>
-<p>25摄氏度转换为华氏度是: 77.0°F</p>
-</blockquote>
-<h3 id="2-简单表达式求值"><a href="#2-简单表达式求值" class="headerlink" title="2. 简单表达式求值"></a>2. 简单表达式求值</h3><p>计算表达式$\frac{\sqrt{16} + \log_{10}(1000) - \sin(\frac{\pi}{2})}{2^3 - 5}$的值。要求：使用MATLAB 内置函数（sqrt、log10、sin、pi）计算，直接输出结果。</p>
-<p>MATLAB代码：</p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% 计算分子部分</span></span><br><span class="line">numerator = <span class="built_in">sqrt</span>(<span class="number">16</span>) + <span class="built_in">log10</span>(<span class="number">1000</span>) - <span class="built_in">sin</span>(<span class="built_in">pi</span>/<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 计算分母部分</span></span><br><span class="line">denominator = <span class="number">2</span>^<span class="number">3</span> - <span class="number">5</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">% 计算整个表达式的值</span></span><br><span class="line">result = numerator / denominator;</span><br><span class="line"></span><br><span class="line"><span class="comment">% 输出结果</span></span><br><span class="line"><span class="built_in">disp</span>(result);</span><br></pre></td></tr></table></figure>
-
-<p>运行结果截图：</p>
-<p><img data-src="/./../images/image-20251018131827586.png" alt="image-20251018131827586"></p>
-<p>命令行输出：</p>
-<blockquote>
-<p>&gt;&gt; h1_2</p>
-<p>​     2</p>
-</blockquote>
-<h3 id="3-矩阵创建与输出"><a href="#3-矩阵创建与输出" class="headerlink" title="3. 矩阵创建与输出"></a>3. 矩阵创建与输出</h3><p>创建一个3×3 的矩阵A，元素为1-9 的递增整数（第一行1-3，第二行4-6，第三行7-9），再创建一个3×1 的列向量B（元素为[2;4;6]），最后分别输出矩阵A 和向量B。</p>
-<p>MATLAB代码：</p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% 创建 3×3 矩阵 A</span></span><br><span class="line">A = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>; <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>; <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">% 创建 3×1 列向量 B</span></span><br><span class="line">B = [<span class="number">2</span>; <span class="number">4</span>; <span class="number">6</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">% 输出矩阵 A</span></span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;矩阵 A:&#x27;</span>);</span><br><span class="line"><span class="built_in">disp</span>(A);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 输出向量 B</span></span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;列向量 B:&#x27;</span>);</span><br><span class="line"><span class="built_in">disp</span>(B);</span><br></pre></td></tr></table></figure>
-
-<p>运行结果截图：</p>
-<p><img data-src="/./../images/image-20251018132020159.png" alt="image-20251018132020159"></p>
-<p>命令行输出：</p>
-<blockquote>
-<p>&gt;&gt; h1_3</p>
-<p>矩阵 A:<br>    1     2     3<br>    4     5     6<br>    7     8     9</p>
-<p>列向量 B:<br>    2<br>    4<br>    6</p>
-</blockquote>
-<h3 id="4-矩阵基本运算"><a href="#4-矩阵基本运算" class="headerlink" title="4. 矩阵基本运算"></a>4. 矩阵基本运算</h3><p>基于第3 题中的矩阵A 和向量B，计算以下结果并输出：（1）A 的转置矩阵；（2）A 与B 的乘法（A*B）；（3）A 中所有元素的平均值。</p>
-<p>MATLAB代码：</p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% 矩阵A和列向量B</span></span><br><span class="line">A = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>; <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>; <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>];</span><br><span class="line">B = [<span class="number">2</span>; <span class="number">4</span>; <span class="number">6</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">% 计算A的转置矩阵</span></span><br><span class="line">A_transpose = A&#x27;;</span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;A的转置矩阵:&#x27;</span>);</span><br><span class="line"><span class="built_in">disp</span>(A_transpose);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 计算A与B的乘法（A*B）</span></span><br><span class="line">AB_product = A * B;</span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;A与B的乘法结果:&#x27;</span>);</span><br><span class="line"><span class="built_in">disp</span>(AB_product);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 计算A中所有元素的平均值</span></span><br><span class="line">A_mean = <span class="built_in">mean</span>(A(:));</span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;A中所有元素的平均值:&#x27;</span>);</span><br><span class="line"><span class="built_in">disp</span>(A_mean);</span><br></pre></td></tr></table></figure>
-
-<p>运行结果截图：</p>
-<p><img data-src="/./../images/image-20251018132310167.png" alt="image-20251018132310167"></p>
-<p>命令行输出：</p>
-<blockquote>
-<p>&gt;&gt; h1_4</p>
-<p>A的转置矩阵:<br>    1     4     7<br>    2     5     8<br>    3     6     9</p>
-<p>A与B的乘法结果:<br>   28<br>   64<br>  100</p>
-<p>A中所有元素的平均值:<br>    5</p>
-</blockquote>
-<h2 id="二、能力提升题（每题17-分，共4-题，满分68-分）"><a href="#二、能力提升题（每题17-分，共4-题，满分68-分）" class="headerlink" title="二、能力提升题（每题17 分，共4 题，满分68 分）"></a>二、能力提升题（每题17 分，共4 题，满分68 分）</h2><p><strong>目标：结合多个知识点，实现复杂逻辑与数据处理。</strong></p>
-<h3 id="1-矩阵条件筛选"><a href="#1-矩阵条件筛选" class="headerlink" title="1. 矩阵条件筛选"></a>1. 矩阵条件筛选</h3><p>创建一个4×4 的随机矩阵（元素范围0-10，使用randi 函数），筛选出矩阵中大于5 的元素并输出这些元素的位置（行号和列号）及具体数值。</p>
-<p>MATLAB代码：</p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% 创建 4×4 的随机矩阵，元素范围 0 - 10</span></span><br><span class="line">A = randi([<span class="number">0</span>, <span class="number">10</span>], <span class="number">4</span>, <span class="number">4</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 输出原始矩阵</span></span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;原始矩阵 A:&#x27;</span>);</span><br><span class="line"><span class="built_in">disp</span>(A);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 筛选出大于 5 的元素的行和列索引</span></span><br><span class="line">[row, col] = <span class="built_in">find</span>(A &gt; <span class="number">5</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 筛选出大于 5 的元素值</span></span><br><span class="line">values = A(A &gt; <span class="number">5</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 输出大于 5 的元素的位置（行号和列号）及具体数值</span></span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;矩阵中大于 5 的元素：&#x27;</span>);</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>:<span class="built_in">length</span>(row)</span><br><span class="line">    fprintf(<span class="string">&#x27;行号：%d，列号：%d，数值：%d\n&#x27;</span>, row(<span class="built_in">i</span>), col(<span class="built_in">i</span>), values(<span class="built_in">i</span>));</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-
-<p>运行结果截图：</p>
-<p><img data-src="/./../images/image-20251018132717474.png" alt="image-20251018132717474"></p>
-<p>命令行输出：</p>
-<blockquote>
-<p>&gt;&gt; h2_1</p>
-<p>原始矩阵 A:<br>    8     6    10    10<br>    9     1    10     5<br>    1     3     1     8<br>   10     6    10     1</p>
-<p>矩阵中大于 5 的元素：<br>行号：1，列号：1，数值：8<br>行号：2，列号：1，数值：9<br>行号：4，列号：1，数值：10<br>行号：1，列号：2，数值：6<br>行号：4，列号：2，数值：6<br>行号：1，列号：3，数值：10<br>行号：2，列号：3，数值：10<br>行号：4，列号：3，数值：10<br>行号：1，列号：4，数值：10<br>行号：3，列号：4，数值：8</p>
-</blockquote>
-<h3 id="2-线性代数方程组求解"><a href="#2-线性代数方程组求解" class="headerlink" title="2. 线性代数方程组求解"></a>2. 线性代数方程组求解</h3><p>已知线性方程组：<br>$$<br>\begin{cases}<br>2x_1 + 3x_2 - x_3 &#x3D; 10 \<br>x_1 - 2x_2 + 4x_3 &#x3D; -5 \<br>3x_1 + x_2 - 2x_3 &#x3D; 12<br>\end{cases}<br>$$<br>将其表示为Ax &#x3D; b 的形式（其中A 为系数矩阵，b 为常数项向量），使用MATLAB 求解x，并验证A ∗ x 是否等于b。</p>
-<p>MATLAB代码：</p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% 定义系数矩阵 A</span></span><br><span class="line">A = [<span class="number">2</span>, <span class="number">3</span>, <span class="number">-1</span>; <span class="number">1</span>, <span class="number">-2</span>, <span class="number">4</span>; <span class="number">3</span>, <span class="number">1</span>, <span class="number">-2</span>];</span><br><span class="line"><span class="comment">% 定义常数项向量 b</span></span><br><span class="line">b = [<span class="number">10</span>; <span class="number">-5</span>; <span class="number">12</span>];</span><br><span class="line"><span class="comment">% 求解线性方程组 Ax = b</span></span><br><span class="line">x = A \ b;</span><br><span class="line"><span class="comment">% 验证 A*x 是否等于 b</span></span><br><span class="line">verify = A * x;</span><br><span class="line"></span><br><span class="line"><span class="comment">% 输出结果</span></span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;方程组的解 x:&#x27;</span>);</span><br><span class="line"><span class="built_in">disp</span>(x);</span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;验证 A*x 的结果:&#x27;</span>);</span><br><span class="line"><span class="built_in">disp</span>(verify);</span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;常数项向量 b:&#x27;</span>);</span><br><span class="line"><span class="built_in">disp</span>(b);</span><br></pre></td></tr></table></figure>
-
-<p>运行结果截图：</p>
-<p><img data-src="/./../images/image-20251018132958993.png" alt="image-20251018132958993"></p>
-<p>命令行输出：</p>
-<blockquote>
-<p>&gt;&gt; h2_2</p>
-<p>方程组的解 x:<br>   2.7143<br>   1.0571<br>  -1.4000</p>
-<p>验证 A*x 的结果:<br>   10<br>   -5<br>   12</p>
-<p>常数项向量 b:<br>   10<br>   -5<br>   12</p>
-</blockquote>
-<h3 id="3-描述性统计分析"><a href="#3-描述性统计分析" class="headerlink" title="3. 描述性统计分析"></a>3. 描述性统计分析</h3><p>生成一个包含50 个随机数的向量（服从均值为10、标准差为2 的正态分布，使用normrnd 函数），计算该向量的描述性统计量：均值、中位数、标准差、方差、极差（最大值减最小值），并将结果以表格形式输出。</p>
-<p>MATLAB代码：</p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% 生成服从均值为 10、标准差为 2 的正态分布的 50 个随机数向量</span></span><br><span class="line"></span><br><span class="line">x = normrnd(<span class="number">10</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">50</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 计算描述性统计量</span></span><br><span class="line">mean_val = <span class="built_in">mean</span>(x);          <span class="comment">% 均值</span></span><br><span class="line">median_val = median(x);      <span class="comment">% 中位数</span></span><br><span class="line">std_val = std(x);            <span class="comment">% 标准差</span></span><br><span class="line">var_val = var(x);            <span class="comment">% 方差</span></span><br><span class="line">range_val = range(x);        <span class="comment">% 极差（最大值减最小值）</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% 以表格形式输出结果</span></span><br><span class="line">stats_table = <span class="built_in">table</span>(mean_val, median_val, std_val, var_val, range_val, ...</span><br><span class="line">    <span class="string">&#x27;VariableNames&#x27;</span>, &#123;<span class="string">&#x27;均值&#x27;</span>, <span class="string">&#x27;中位数&#x27;</span>, <span class="string">&#x27;标准差&#x27;</span>, <span class="string">&#x27;方差&#x27;</span>, <span class="string">&#x27;极差&#x27;</span>&#125;);</span><br><span class="line"><span class="built_in">disp</span>(stats_table);</span><br></pre></td></tr></table></figure>
-
-<p>运行结果截图：</p>
-<p><img data-src="/./../images/image-20251018133420352.png" alt="image-20251018133420352"></p>
-<p>命令行输出：</p>
-<blockquote>
-<p>&gt;&gt; h2_3</p>
-<p>​     均值     中位数     标准差      方差      极差 </p>
-<hr>
-<p>​    10.568    10.644    2.5251    6.3759    13.045</p>
-</blockquote>
-<h3 id="4-线性规划问题求解"><a href="#4-线性规划问题求解" class="headerlink" title="4. 线性规划问题求解"></a>4. 线性规划问题求解</h3><p>使用 <code>linprog</code> 函数求解线性规划问题。目标函数：$\min f(x) &#x3D; 2x_1 + 3x_2$；约束条件：$x_1 + x_2 \geq 2$，$x_1 - 2x_2 \leq 1$，$x_1 \geq 0$，$x_2 \geq 0$。要求：正确设置目标函数系数 <code>f</code>、不等式约束矩阵 <code>A</code> 和向量 <code>b</code>、变量上下界 <code>lb</code>，输出最优解 <code>x</code> 及对应的目标函数最小值。（提示：<code>linprog</code> 默认求解 $\min$ 问题，不等式约束需转换为 $A\mathbf{x} \leq \mathbf{b}$ 形式）</p>
-<p>MATLAB代码：</p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% 目标函数系数（对应 min f(x) = 2x1 + 3x2）</span></span><br><span class="line">f = [<span class="number">2</span>; <span class="number">3</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">% 不等式约束转换为 A*x ≤ b 形式</span></span><br><span class="line"><span class="comment">% 原约束 x1 + x2 ≥ 2 转换为 -x1 - x2 ≤ -2</span></span><br><span class="line"><span class="comment">% 原约束 x1 - 2x2 ≤ 1 保持不变</span></span><br><span class="line">A = [<span class="number">-1</span>, <span class="number">-1</span>;</span><br><span class="line">      <span class="number">1</span>, <span class="number">-2</span>];</span><br><span class="line">b = [<span class="number">-2</span>;</span><br><span class="line">      <span class="number">1</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">% 变量下界（x1 ≥ 0, x2 ≥ 0）</span></span><br><span class="line">lb = [<span class="number">0</span>; <span class="number">0</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">% 调用 linprog 求解</span></span><br><span class="line">options = optimoptions(<span class="string">&#x27;linprog&#x27;</span>, <span class="string">&#x27;Display&#x27;</span>, <span class="string">&#x27;iter&#x27;</span>); <span class="comment">% 显示迭代过程</span></span><br><span class="line">[x, fval] = linprog(f, A, b, [], [], lb, [], options);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 输出结果</span></span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;最优解 x:&#x27;</span>);</span><br><span class="line"><span class="built_in">disp</span>(x);</span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;目标函数最小值 fval:&#x27;</span>);</span><br><span class="line"><span class="built_in">disp</span>(fval);</span><br></pre></td></tr></table></figure>
-
-<p>运行结果截图：</p>
-<p><img data-src="/./../images/image-20251018133842761.png" alt="image-20251018133842761"></p>
-<p>命令行输出：</p>
-<blockquote>
-<p>&gt;&gt; h2_4</p>
-<p>Running HiGHS 1.7.1: Copyright (c) 2024 HiGHS under MIT licence terms<br>Coefficient ranges:<br> Matrix [1e+00, 2e+00]<br> Cost   [2e+00, 3e+00]<br> Bound  [0e+00, 0e+00]<br> RHS    [1e+00, 2e+00]<br>Presolving model<br>2 rows, 2 cols, 4 nonzeros  0s<br>2 rows, 2 cols, 4 nonzeros  0s<br>Presolve : Reductions: rows 2(-0); columns 2(-0); elements 4(-0) - Not reduced<br>Problem not reduced by presolve: solving the LP<br>Using EKK dual simplex solver - serial<br> Iteration        Objective     Infeasibilities num(sum)<br>         0     0.0000000000e+00 Pr: 1(2) 0s<br>         2     4.3333333333e+00 Pr: 0(0) 0s<br>Model   status      : Optimal<br>Simplex   iterations: 2<br>Objective value     :  4.3333333333e+00<br>HiGHS run time      :          0.01</p>
-<p>找到最优解。</p>
-<p>最优解 x:<br>   1.6667<br>   0.3333</p>
-<p>目标函数最小值 fval:<br>   4.3333</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>作业</category>
-      </categories>
-      <tags>
-        <tag>MATLAB</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Python学习笔记其二</title>
     <url>/2025/10/02/Python0002/</url>
     <content><![CDATA[<h2 id="写在最前"><a href="#写在最前" class="headerlink" title="写在最前"></a>写在最前</h2><p><strong>先看完教程链接，再看相关实例！</strong></p>
@@ -600,7 +569,7 @@
 <ul>
 <li>编程语言中的符号一定不要打成中文符号！！！经常容易打错的有：括号()，逗号,，引号””</li>
 <li>中文乱码考虑一下有没有把编码形式改成utf-8</li>
-<li>注意观察参数需不需要加引号，如open函数的encoding&#x3D;”utf-8”就要加引号</li>
+<li>注意观察参数需不需要加引号，如open函数的encoding=”utf-8”就要加引号</li>
 <li>有问题把报错和源码复制给Ai进行询问</li>
 </ul>
 <h2 id="输入与输出"><a href="#输入与输出" class="headerlink" title="输入与输出"></a>输入与输出</h2><p><a href="https://www.runoob.com/python3/python3-inputoutput.html">Python3 输入和输出 | 菜鸟教程</a></p>
@@ -613,40 +582,31 @@
 <li><strong>repr()：</strong> 产生一个解释器易读的表达形式。</li>
 </ul>
 <h3 id="str-format占位符"><a href="#str-format占位符" class="headerlink" title="str.format占位符"></a>str.format占位符</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">name = <span class="string">&quot;Bob&quot;</span></span><br><span class="line">age = <span class="number">20</span></span><br><span class="line">score = <span class="number">88.456</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;姓名：&#123;&#125;, 年龄：&#123;&#125;, 成绩：&#123;:.1f&#125;&quot;</span>.<span class="built_in">format</span>(name, age, score))</span><br><span class="line"><span class="comment"># 输出：姓名：Bob, 年龄：20, 成绩：88.5</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;姓名：&#123;0&#125;, 年龄：&#123;1&#125;, 成绩：&#123;2:.2f&#125;&quot;</span>.<span class="built_in">format</span>(name, age, score))</span><br><span class="line"><span class="comment"># 输出：姓名：Bob, 年龄：20, 成绩：88.46</span></span><br></pre></td></tr></table></figure>
-
 <h3 id="print分开字符串与变量"><a href="#print分开字符串与变量" class="headerlink" title="print分开字符串与变量"></a>print分开字符串与变量</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;The value of test is: <span class="subst">&#123;test&#125;</span>&quot;</span>)	<span class="comment">##引号前加一“f”，在想要显示变量值的地方加一个大括号&#123;&#125;，其中写入变量名</span></span><br></pre></td></tr></table></figure>
 <p>% 占位符</p>
 <p>这是最早的字符串格式化方法。与C语言基本一致。常用的占位符包括：</p>
 <p>%s：字符串</p>
 <p>%d：整数</p>
-<p>%f：浮点数</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;姓名：%s, 年龄：%d, 成绩：%.2f&quot;</span> % (name, age, score))</span><br></pre></td></tr></table></figure>
-
+<p>%f：浮点数<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;姓名：%s, 年龄：%d, 成绩：%.2f&quot;</span> % (name, age, score))</span><br></pre></td></tr></table></figure></p>
 <h3 id="input输入"><a href="#input输入" class="headerlink" title="input输入"></a>input输入</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="built_in">input</span>(<span class="string">&quot;提示的文本&quot;</span>)</span><br></pre></td></tr></table></figure>
-
 <p>一般直接赋给变量值</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">age = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&quot;年龄&quot;</span>))		<span class="comment">##由于年龄是个整型，这里使用int对其进行格式化</span></span><br></pre></td></tr></table></figure>
-
 <p>例子</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">name = <span class="built_in">input</span>(<span class="string">&quot;姓名：&quot;</span>)</span><br><span class="line">age = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&quot;年龄：&quot;</span>))</span><br><span class="line">love_programming_language = <span class="built_in">input</span>(<span class="string">&quot;喜欢的编程语言（以逗号分隔）：&quot;</span>)</span><br><span class="line">age_after_3years = <span class="built_in">int</span>(age + <span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;个人信息&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;姓名：<span class="subst">&#123;name&#125;</span>&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;年龄：%d&quot;</span>, age)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;喜欢的编程语言：<span class="subst">&#123;love_programming_language&#125;</span>&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;三年后年龄：<span class="subst">&#123;age_after_3years&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
-
 <h2 id="open函数"><a href="#open函数" class="headerlink" title="open函数"></a>open函数</h2><p><a href="https://www.runoob.com/python3/python3-file-methods.html">Python3 File 方法 | 菜鸟教程</a></p>
-<h2 id="os模块"><a href="#os模块" class="headerlink" title="os模块"></a>os模块</h2><p><a href="https://www.runoob.com/python3/python3-os-file-methods.html">Python3 OS 文件&#x2F;目录方法 | 菜鸟教程</a></p>
+<h2 id="os模块"><a href="#os模块" class="headerlink" title="os模块"></a>os模块</h2><p><a href="https://www.runoob.com/python3/python3-os-file-methods.html">Python3 OS 文件/目录方法 | 菜鸟教程</a></p>
 <blockquote>
 <p>问题2:文件处理<br>编写一个程序，使用 os 模块和文件方法完成以下操作:1.创建一个名为”test files”的目录(如果不存在)<br>2.在该目录下创建一个文本文件”notes.txt<br>3.向文件中写入 3 行内容已创建目录: test files已向文件 notes.txt 写入内容<br>文件内容如下:<br>第1行: 这是第一行内容</p>
 <p>第2行: Python文件操作练习</p>
 <p>第3行: 使用os模块和文件方法</p>
 </blockquote>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os	<span class="comment">##导入os模块</span></span><br><span class="line"></span><br><span class="line">status1 = os.listdir()	<span class="comment">##获取当前目录下文件，为下面看看有没有&quot;test_files&quot;做准备</span></span><br><span class="line"><span class="keyword">if</span> <span class="string">&quot;test_files&quot;</span> <span class="keyword">in</span> status1:	<span class="comment">##判断&quot;test_files&quot;在不在当前工作目录下</span></span><br><span class="line">    os.chdir(<span class="string">&quot;test_files&quot;</span>)	<span class="comment">##如果存在就切换工作目录到&quot;test_files&quot;中</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    os.mkdir(<span class="string">&quot;test_files&quot;</span>)	<span class="comment">##如果不存在就创建目录</span></span><br><span class="line">    os.chdir(<span class="string">&quot;test_files&quot;</span>)	<span class="comment">##并进入&quot;test_files&quot;</span></span><br><span class="line">status2 = os.listdir()	<span class="comment">##获取&quot;test_files&quot;目录下文件，为下面看看有没有做准备</span></span><br><span class="line"><span class="keyword">if</span> <span class="string">&quot;notes.txt&quot;</span> <span class="keyword">in</span> status2:	<span class="comment">##判断&quot;notes.txt&quot;在不在当前工作目录下</span></span><br><span class="line">    os.remove(<span class="string">&quot;notes.txt&quot;</span>)	<span class="comment">##如果在就删除</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;notes.txt&quot;</span>, mode=<span class="string">&#x27;x&#x27;</span>, encoding=<span class="string">&quot;utf-8&quot;</span>) <span class="keyword">as</span> f:	<span class="comment">##创建并打开notes.txt，以写入方式打开（mode=&#x27;x&#x27;），编解码方式为&quot;utf-8&quot;（使用utf-8以避免中文报错）</span></span><br><span class="line">	f.write(<span class="string">&quot;这是第一行内容\nPython文件操作练习\n使用os模块和文件方法&quot;</span>)	<span class="comment">##写入内容至notes.txt</span></span><br><span class="line">	f.flush()	<span class="comment">##刷新文件内部缓冲，直接把内部缓冲区的数据立刻写入文件, 而不是被动的等待输出缓冲区写入。</span></span><br><span class="line">	f.close()	<span class="comment">##关闭文件。关闭后文件不能再进行读写操作。</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;已向文件notes.txt中写入内容&quot;</span>)		<span class="comment">##进行提示</span></span><br></pre></td></tr></table></figure>
-
 <h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><p><a href="https://www.runoob.com/python3/python3-function.html">Python3 函数 | 菜鸟教程</a></p>
 <h2 id="name"><a href="#name" class="headerlink" title="name"></a><strong>name</strong></h2><p><a href="https://www.runoob.com/python3/python3-name-main.html">Python <strong>name</strong> 与 <strong>main</strong> | 菜鸟教程</a></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    main() </span><br></pre></td></tr></table></figure>
-
 <p>命名为主函数。Python中，总是从主函数开始运行。</p>
 <p>例如：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">greet</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;来自 example 模块的问候！&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:	<span class="comment">##模块将从此处开始运行</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;该脚本正在直接运行。&quot;</span>)</span><br><span class="line">    greet()</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;该脚本作为模块被导入。&quot;</span>)</span><br></pre></td></tr></table></figure>
-
 <blockquote>
 <p>问题3:编写def函数</p>
 <p>编写一个名为sum_and_average的函数</p>
@@ -656,7 +616,6 @@
 </blockquote>
 <p>例如：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">sum_and_average</span>(<span class="params"><span class="built_in">list</span></span>):	<span class="comment">##定义sum_and_average(list)</span></span><br><span class="line">    total = <span class="built_in">sum</span>(<span class="built_in">list</span>)	<span class="comment">##求和</span></span><br><span class="line">    count = <span class="built_in">len</span>(<span class="built_in">list</span>)	<span class="comment">##统计传入列表中的值的数量</span></span><br><span class="line">    average = total / count <span class="keyword">if</span> count &gt; <span class="number">0</span> <span class="keyword">else</span> <span class="number">0</span>	<span class="comment">##判断，因为求平均要求分母不为零，有传入为空的要求，故进行判断，当传入为空时使average为0，传入不为空时用总和除以值的数量求平均</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;求和：%d&quot;</span> %total)	<span class="comment">##打印求和量，类型是整数</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;平均：%.1f&quot;</span> %average)	<span class="comment">##打印求平均量，类型是浮点型，保留小数点后一位</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">None</span>	<span class="comment">##返回None，此行代码可不写</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:	<span class="comment">##main</span></span><br><span class="line">    before_list = <span class="built_in">input</span>(<span class="string">&quot;输入一些数字，使用英文逗号间隔：&quot;</span>)	<span class="comment">##对传入数据在before_list变量中进行预存储，方便后续校验非空</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> before_list:	<span class="comment">##如果传入内容为空</span></span><br><span class="line">        <span class="built_in">list</span> = before_list	<span class="comment">##则让list列表为空</span></span><br><span class="line">    <span class="keyword">else</span>:	<span class="comment">##如果传入内容不为空</span></span><br><span class="line">        <span class="built_in">list</span> = [<span class="built_in">int</span>(x) <span class="keyword">for</span> x <span class="keyword">in</span> before_list.split(<span class="string">&#x27;,&#x27;</span>)]	<span class="comment">##将输入before_list中值传入list中，英文逗号为分隔符</span></span><br><span class="line">    sum_and_average(<span class="built_in">list</span>)	<span class="comment">##运行自定义函数</span></span><br></pre></td></tr></table></figure>
-
 <h2 id="类"><a href="#类" class="headerlink" title="类"></a>类</h2><p><strong>高难度内容，Python最难的内容，最抽象的内容，最绕的内容</strong></p>
 <p><a href="https://www.runoob.com/python3/python3-class.html">Python3 面向对象 | 菜鸟教程</a></p>
 <h2 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h2><p><a href="https://www.runoob.com/python3/python3-module.html">Python3 模块 | 菜鸟教程</a></p>
@@ -667,7 +626,6 @@
 <p>最后创建 1个Book对象，分别调用上述方法并打印结果。</p>
 </blockquote>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Book</span>:		<span class="comment">##定义一个Book类</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self,title,author,pages</span>):  	<span class="comment">##详情请见教程__init__类，必须要有self，否则无法传入主函数输入的变量值</span></span><br><span class="line">        <span class="variable language_">self</span>.title = title</span><br><span class="line">        <span class="variable language_">self</span>.author = author</span><br><span class="line">        <span class="variable language_">self</span>.pages = pages</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">is_long</span>(<span class="params">self</span>):		<span class="comment">##定义一个is_long函数</span></span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>.pages &gt; <span class="number">300</span>:		<span class="comment">##判断页数是否大于300</span></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span>		<span class="comment">##如果大于300返回True</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span>		<span class="comment">##如果小于300返回False</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">get_info</span>(<span class="params">self</span>):		<span class="comment">##定义一个get_info函数</span></span><br><span class="line">        info = <span class="string">f&quot;<span class="subst">&#123;self.title&#125;</span> - <span class="subst">&#123;self.author&#125;</span> (<span class="subst">&#123;self.pages&#125;</span> 页)&quot;</span>		<span class="comment">##配置一个info函数，方便后续显示</span></span><br><span class="line">        <span class="keyword">return</span> info		<span class="comment">##返回info变量，方便后续调用</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:		<span class="comment">##主函数</span></span><br><span class="line">    title = <span class="built_in">str</span>(<span class="built_in">input</span>(<span class="string">&quot;请输入书名（带书名号）：&quot;</span>))		<span class="comment">##获取书名</span></span><br><span class="line">    author = <span class="built_in">str</span>(<span class="built_in">input</span>(<span class="string">&quot;请输入作者名：&quot;</span>))		<span class="comment">##获取作者名</span></span><br><span class="line">    pages = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&quot;请输入页数：&quot;</span>))		<span class="comment">##获取书页数</span></span><br><span class="line">    x = Book(title,author,pages)		<span class="comment">##将获取到的三个变量传入Book类对应的变量中</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;是长书吗：<span class="subst">&#123;x.is_long()&#125;</span>&quot;</span>)		<span class="comment">##打印判断结果</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;本书信息：<span class="subst">&#123;x.get_info()&#125;</span>&quot;</span>)		<span class="comment">##打印本书信息</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
 <h2 id="推导式"><a href="#推导式" class="headerlink" title="推导式"></a>推导式</h2><p><a href="https://www.runoob.com/python3/python-comprehensions.html">Python 推导式 | 菜鸟教程</a></p>
 <h2 id="迭代器与生成器"><a href="#迭代器与生成器" class="headerlink" title="迭代器与生成器"></a>迭代器与生成器</h2><p><a href="https://www.runoob.com/python3/python3-iterator-generator.html">Python3 迭代器与生成器 | 菜鸟教程</a></p>
 <h2 id="with-关键字"><a href="#with-关键字" class="headerlink" title="with 关键字"></a>with 关键字</h2><p><a href="https://www.runoob.com/python3/python3-with-keyword.html">Python with 关键字 | 菜鸟教程</a></p>
@@ -693,7 +651,7 @@
 <li>深度学习基础:熟悉神经网络的基本结构和原理，如前馈神经网络、CNN、RNN、LSTM 等</li>
 <li>领域知识:若计划将 PyTorch 应用于计算机视觉或自然语言处理，了解相关领<br>域的基础知识将大有裨益。</li>
 </ul>
-<p><img data-src="/./../images/image-20251003140242783.png" alt="image-20251003140242783"></p>
+<p><img data-src="./../images/image-20251003140242783.png" alt="image-20251003140242783"></p>
 <p>有关pytorch，请见<a href="https://docs.pytorch.ac.cn/docs/stable/index.html">PyTorch 文档 — PyTorch 2.8 文档 - PyTorch 文档</a></p>
 <h2 id="PyTorch简介"><a href="#PyTorch简介" class="headerlink" title="PyTorch简介"></a>PyTorch简介</h2><p>PyTorch 是一个开源的 Python 机器学习库,基于 Torch 库，底层由 C++实现，应用于人工智能领域，如计算机视觉和自然语言处理。</p>
 <p>PyTorch 最初由 Meta Platforms 的人工智能研究团队开发，现在属于Linux 基金会的一部分。</p>
@@ -722,59 +680,55 @@
 <li><p>方便调试和修改，能够直接查看中间结果·更接近 Python 编程的风格，易于上手。</p>
 </li>
 </ul>
-<p><img data-src="/./../images/image-20251003140819157.png" alt="image-20251003140819157"></p>
+<p><img data-src="./../images/image-20251003140819157.png" alt="image-20251003140819157"></p>
 <blockquote>
 <p>(+)位置可以看到张量</p>
 </blockquote>
-<p><img data-src="/./../images/image-20251003140914863.png" alt="image-20251003140914863"></p>
-<p><img data-src="/./../images/image-20251003140925476.png" alt="image-20251003140925476"></p>
-<p><img data-src="/./../images/image-20251003140959558.png" alt="image-20251003140959558"></p>
-<h2 id="PyTorch安装"><a href="#PyTorch安装" class="headerlink" title="PyTorch安装"></a>PyTorch安装</h2><p><img data-src="/./../images/image-20251003141107206.png" alt="image-20251003141107206"></p>
-<p><img data-src="/./../images/image-20251003141216897.png" alt="image-20251003141216897"></p>
+<p><img data-src="./../images/image-20251003140914863.png" alt="image-20251003140914863"></p>
+<p><img data-src="./../images/image-20251003140925476.png" alt="image-20251003140925476"></p>
+<p><img data-src="./../images/image-20251003140959558.png" alt="image-20251003140959558"></p>
+<h2 id="PyTorch安装"><a href="#PyTorch安装" class="headerlink" title="PyTorch安装"></a>PyTorch安装</h2><p><img data-src="./../images/image-20251003141107206.png" alt="image-20251003141107206"></p>
+<p><img data-src="./../images/image-20251003141216897.png" alt="image-20251003141216897"></p>
 <blockquote>
 <p>建议使用Python3.9</p>
 </blockquote>
-<p><img data-src="/./../images/image-20251003141302556.png" alt="image-20251003141302556"></p>
-<p><img data-src="/./../images/image-20251003141332954.png" alt="image-20251003141332954"></p>
-<p><img data-src="/./../images/image-20251003141356803.png" alt="image-20251003141356803"></p>
+<p><img data-src="./../images/image-20251003141302556.png" alt="image-20251003141302556"></p>
+<p><img data-src="./../images/image-20251003141332954.png" alt="image-20251003141332954"></p>
+<p><img data-src="./../images/image-20251003141356803.png" alt="image-20251003141356803"></p>
 <p><a href="https://pytorch.org/">PyTorch</a></p>
-<p><img data-src="/./../images/image-20251003142043338.png" alt="image-20251003142043338"></p>
-<p><img data-src="/./../images/image-20251003142405066.png" alt="image-20251003142405066"></p>
-<p><img data-src="/./../images/image-20251003144017338.png" alt="image-20251003144017338"></p>
+<p><img data-src="./../images/image-20251003142043338.png" alt="image-20251003142043338"></p>
+<p><img data-src="./../images/image-20251003142405066.png" alt="image-20251003142405066"></p>
+<p><img data-src="./../images/image-20251003144017338.png" alt="image-20251003144017338"></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"></span><br><span class="line"><span class="comment"># 当前安装的 PyTorch 库的版本</span></span><br><span class="line"><span class="built_in">print</span>(torch.__version__)</span><br><span class="line"><span class="comment"># 检查 CUDA 是否可用，即你的系统有 NVIDIA 的 GPU</span></span><br><span class="line"><span class="built_in">print</span>(torch.cuda.is_available())</span><br></pre></td></tr></table></figure>
-
-
-
 <p><a href="https://www.runoob.com/pytorch/pytorch-install.html#:~:text=torch%20torchvision%20torchaudio-,%E9%AA%8C%E8%AF%81%E5%AE%89%E8%A3%85,-%E4%B8%BA%E4%BA%86%E7%A1%AE%E4%BF%9D%20PyTorch">PyTorch 安装 | 菜鸟教程</a></p>
-<p><img data-src="/./../images/image-20251003144552271.png" alt="image-20251003144552271"></p>
+<p><img data-src="./../images/image-20251003144552271.png" alt="image-20251003144552271"></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line">x = torch.rand(<span class="number">5</span>, <span class="number">3</span>)</span><br><span class="line"><span class="built_in">print</span>(x)</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="/./../images/image-20251003145225620.png" alt="image-20251003145225620"></p>
+<p><img data-src="./../images/image-20251003145225620.png" alt="image-20251003145225620"></p>
 <p><a href="https://www.runoob.com/pytorch/pytorch-basic.html">PyTorch 基础 | 菜鸟教程</a></p>
 <p><a href="https://www.runoob.com/pytorch/pytorch-tensor.html">PyTorch 张量（Tensor） | 菜鸟教程</a></p>
-<h1 id="神经网络"><a href="#神经网络" class="headerlink" title="神经网络"></a>神经网络</h1><h2 id="神经网络介绍"><a href="#神经网络介绍" class="headerlink" title="神经网络介绍"></a>神经网络介绍</h2><p><img data-src="/./../images/image-20251003170121375.png" alt="image-20251003170121375"></p>
-<p><img data-src="/./../images/image-20251003170146520.png" alt="image-20251003170146520"></p>
-<p><img data-src="/./../images/image-20251003170308804.png" alt="image-20251003170308804"></p>
-<p><img data-src="/./../images/image-20251003170316205.png" alt="image-20251003170316205"></p>
-<p><img data-src="/./../images/image-20251003170531497.png" alt="image-20251003170531497"></p>
-<p><img data-src="/./../images/image-20251003170715586.png" alt="image-20251003170715586"></p>
-<p><img data-src="/./../images/image-20251003170752551.png" alt="image-20251003170752551"></p>
-<p><img data-src="/./../images/image-20251003170933461.png" alt="image-20251003170933461"></p>
-<p><img data-src="/./../images/image-20251003171319618.png" alt="image-20251003171319618"></p>
-<p><img data-src="/./../images/image-20251003171547160.png" alt="image-20251003171547160"></p>
-<p><img data-src="/./../images/image-20251003172010239.png" alt="image-20251003172010239"></p>
-<p><img data-src="/./../images/image-20251003172058968.png" alt="image-20251003172058968"></p>
-<p><img data-src="/./../images/image-20251003172219754.png" alt="image-20251003172219754"></p>
-<p><img data-src="/./../images/image-20251003172329671.png" alt="image-20251003172329671"></p>
-<p><img data-src="/./../images/image-20251003172344771.png" alt="image-20251003172344771"></p>
-<p><img data-src="/./../images/image-20251003172445140.png" alt="image-20251003172445140"></p>
-<p><img data-src="/./../images/image-20251003172546077.png" alt="image-20251003172546077"></p>
-<p><img data-src="/./../images/image-20251003172656866.png" alt="image-20251003172656866"></p>
-<p><img data-src="/./../images/image-20251003172809240.png" alt="image-20251003172809240"></p>
-<p><img data-src="/./../images/image-20251003172927799.png" alt="image-20251003172927799"></p>
-<p><img data-src="/./../images/image-20251003172940247.png" alt="image-20251003172940247"></p>
-<h2 id="数据集与数据加载"><a href="#数据集与数据加载" class="headerlink" title="数据集与数据加载"></a>数据集与数据加载</h2><p><img data-src="/./../images/image-20251003173012074.png" alt="image-20251003173012074"></p>
-<p><img data-src="/./../images/image-20251003173435990.png" alt="image-20251003173435990"></p>
+<h1 id="神经网络"><a href="#神经网络" class="headerlink" title="神经网络"></a>神经网络</h1><h2 id="神经网络介绍"><a href="#神经网络介绍" class="headerlink" title="神经网络介绍"></a>神经网络介绍</h2><p><img data-src="./../images/image-20251003170121375.png" alt="image-20251003170121375"></p>
+<p><img data-src="./../images/image-20251003170146520.png" alt="image-20251003170146520"></p>
+<p><img data-src="./../images/image-20251003170308804.png" alt="image-20251003170308804"></p>
+<p><img data-src="./../images/image-20251003170316205.png" alt="image-20251003170316205"></p>
+<p><img data-src="./../images/image-20251003170531497.png" alt="image-20251003170531497"></p>
+<p><img data-src="./../images/image-20251003170715586.png" alt="image-20251003170715586"></p>
+<p><img data-src="./../images/image-20251003170752551.png" alt="image-20251003170752551"></p>
+<p><img data-src="./../images/image-20251003170933461.png" alt="image-20251003170933461"></p>
+<p><img data-src="./../images/image-20251003171319618.png" alt="image-20251003171319618"></p>
+<p><img data-src="./../images/image-20251003171547160.png" alt="image-20251003171547160"></p>
+<p><img data-src="./../images/image-20251003172010239.png" alt="image-20251003172010239"></p>
+<p><img data-src="./../images/image-20251003172058968.png" alt="image-20251003172058968"></p>
+<p><img data-src="./../images/image-20251003172219754.png" alt="image-20251003172219754"></p>
+<p><img data-src="./../images/image-20251003172329671.png" alt="image-20251003172329671"></p>
+<p><img data-src="./../images/image-20251003172344771.png" alt="image-20251003172344771"></p>
+<p><img data-src="./../images/image-20251003172445140.png" alt="image-20251003172445140"></p>
+<p><img data-src="./../images/image-20251003172546077.png" alt="image-20251003172546077"></p>
+<p><img data-src="./../images/image-20251003172656866.png" alt="image-20251003172656866"></p>
+<p><img data-src="./../images/image-20251003172809240.png" alt="image-20251003172809240"></p>
+<p><img data-src="./../images/image-20251003172927799.png" alt="image-20251003172927799"></p>
+<p><img data-src="./../images/image-20251003172940247.png" alt="image-20251003172940247"></p>
+<h2 id="数据集与数据加载"><a href="#数据集与数据加载" class="headerlink" title="数据集与数据加载"></a>数据集与数据加载</h2><p><img data-src="./../images/image-20251003173012074.png" alt="image-20251003173012074"></p>
+<p><img data-src="./../images/image-20251003173435990.png" alt="image-20251003173435990"></p>
 ]]></content>
       <categories>
         <category>笔记</category>
@@ -786,30 +740,26 @@
   <entry>
     <title>Python学习笔记其四</title>
     <url>/2025/10/04/Python0004/</url>
-    <content><![CDATA[<h1 id="Pytorch教程"><a href="#Pytorch教程" class="headerlink" title="Pytorch教程"></a>Pytorch教程</h1><h2 id="搭建一个神经网络"><a href="#搭建一个神经网络" class="headerlink" title="搭建一个神经网络"></a>搭建一个神经网络</h2><p><img data-src="/./../images/image-20251004141830767-1759558936645-3-1759559443801-13-1759559811461-26-1759559952609-43.png" alt="image-20251004141830767"></p>
-<p><img data-src="/./../images/image-20251004141950553-1759558936645-4-1759559443802-14-1759559811461-27-1759559952609-44.png" alt="image-20251004141950553"></p>
+    <content><![CDATA[<h1 id="Pytorch教程"><a href="#Pytorch教程" class="headerlink" title="Pytorch教程"></a>Pytorch教程</h1><h2 id="搭建一个神经网络"><a href="#搭建一个神经网络" class="headerlink" title="搭建一个神经网络"></a>搭建一个神经网络</h2><p><img data-src="./../images/image-20251004141830767-1759558936645-3-1759559443801-13-1759559811461-26-1759559952609-43.png" alt="image-20251004141830767"></p>
+<p><img data-src="./../images/image-20251004141950553-1759558936645-4-1759559443802-14-1759559811461-27-1759559952609-44.png" alt="image-20251004141950553"></p>
 <h1 id="PyTorch-常用层讲解与示例"><a href="#PyTorch-常用层讲解与示例" class="headerlink" title="PyTorch 常用层讲解与示例"></a>PyTorch 常用层讲解与示例</h1><p>本教程介绍 PyTorch 中一些核心神经网络层：Linear、Conv2d、LSTM，包括它们的数学公式和对应实现代码。</p>
 <hr>
-<h2 id="1-Linear-层-全连接层"><a href="#1-Linear-层-全连接层" class="headerlink" title="1. Linear 层 (全连接层)"></a>1. Linear 层 (全连接层)</h2><img width="1920" height="1080" alt="image" data-src="./../images/b82a10c4-b278-4c9e-ad83-5556b675c1d9-1759559443802-15-1759559811462-28-1759559952609-45.png" />
-
-
+<h2 id="1-Linear-层-全连接层"><a href="#1-Linear-层-全连接层" class="headerlink" title="1. Linear 层 (全连接层)"></a>1. Linear 层 (全连接层)</h2><p><img width="1920" height="1080" alt="image" data-src="./../images/b82a10c4-b278-4c9e-ad83-5556b675c1d9-1759559443802-15-1759559811462-28-1759559952609-45.png" /></p>
 <p><strong>数学公式</strong>：</p>
 <p>输入向量 $x \in \mathbb{R}^{d_{in}}$，输出向量 $y \in \mathbb{R}^{d_{out}}$：</p>
-<p>$$<br>y &#x3D; x W^\top + b, \quad W \in \mathbb{R}^{d_{out} \times d_{in}}, \quad b \in \mathbb{R}^{d_{out}}<br>$$</p>
-<p><strong>解释</strong>：</p>
+<script type="math/tex; mode=display">
+y = x W^\top + b, \quad W \in \mathbb{R}^{d_{out} \times d_{in}}, \quad b \in \mathbb{R}^{d_{out}}</script><p><strong>解释</strong>：</p>
 <ul>
 <li>每个输出节点是输入节点的加权和加上偏置  </li>
 <li>常用于全连接网络、MLP 等</li>
 </ul>
 <p><strong>示例代码</strong>：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">LinearExample</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, d_in, d_out</span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line">        <span class="variable language_">self</span>.linear = nn.Linear(d_in, d_out)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">self</span>.linear(x)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 示例</span></span><br><span class="line">x = torch.randn(<span class="number">4</span>, <span class="number">10</span>)</span><br><span class="line">model_linear = LinearExample(<span class="number">10</span>, <span class="number">5</span>)</span><br><span class="line">y = model_linear(x)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Linear 输出形状:&quot;</span>, y.shape)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h2 id="2-Conv2d-层-二维卷积层"><a href="#2-Conv2d-层-二维卷积层" class="headerlink" title="2. Conv2d 层 (二维卷积层)"></a>2. Conv2d 层 (二维卷积层)</h2><img width="543" height="544" alt="image" data-src="./../images/d41bbdbc-216a-4374-bbf2-dfe1437e01df-1759559443802-16-1759559811462-31-1759559952609-47.png" />
-
-
+<h2 id="2-Conv2d-层-二维卷积层"><a href="#2-Conv2d-层-二维卷积层" class="headerlink" title="2. Conv2d 层 (二维卷积层)"></a>2. Conv2d 层 (二维卷积层)</h2><p><img width="543" height="544" alt="image" data-src="./../images/d41bbdbc-216a-4374-bbf2-dfe1437e01df-1759559443802-16-1759559811462-31-1759559952609-47.png" /></p>
 <p><strong>数学公式</strong>：</p>
 <p>输入张量 $X \in \mathbb{R}^{C_{in} \times H \times W}$，卷积核 $K \in \mathbb{R}^{C_{out} \times C_{in} \times k_h \times k_w}$：</p>
-<p>$$<br>Y_{o,i,j} &#x3D; \sum_{c&#x3D;0}^{C_{in}-1} \sum_{m&#x3D;0}^{k_h-1} \sum_{n&#x3D;0}^{k_w-1} K_{o,c,m,n} \cdot X_{c,i+m,j+n} + b_o<br>$$</p>
-<p><strong>解释</strong>：</p>
+<script type="math/tex; mode=display">
+Y_{o,i,j} = \sum_{c=0}^{C_{in}-1} \sum_{m=0}^{k_h-1} \sum_{n=0}^{k_w-1} K_{o,c,m,n} \cdot X_{c,i+m,j+n} + b_o</script><p><strong>解释</strong>：</p>
 <ul>
 <li>对每个输出通道，卷积核在输入各通道上进行加权求和，并加偏置  </li>
 <li>常用于图像特征提取、卷积神经网络</li>
@@ -818,76 +768,72 @@
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Conv2dExample</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, in_channels, out_channels, kernel_size</span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line">        <span class="variable language_">self</span>.conv = nn.Conv2d(in_channels, out_channels, kernel_size)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">self</span>.conv(x)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 示例</span></span><br><span class="line">x_img = torch.randn(<span class="number">2</span>, <span class="number">3</span>, <span class="number">32</span>, <span class="number">32</span>)  <span class="comment"># batch_size=2, 3通道, 32x32图像</span></span><br><span class="line">model_conv = Conv2dExample(<span class="number">3</span>, <span class="number">6</span>, <span class="number">5</span>)  <span class="comment"># 输出6个通道, kernel 5x5</span></span><br><span class="line">y_img = model_conv(x_img)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Conv2d 输出形状:&quot;</span>, y_img.shape)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <h1 id="PyTorch-激活函数详解"><a href="#PyTorch-激活函数详解" class="headerlink" title="PyTorch 激活函数详解"></a>PyTorch 激活函数详解</h1><p>本教程介绍常用激活函数。</p>
 <hr>
-<h2 id="1-ReLU"><a href="#1-ReLU" class="headerlink" title="1. ReLU"></a>1. ReLU</h2><img width="473" height="382" alt="image" data-src="./../images/79bf9f4a-fcce-4a9c-bc84-d69f787c2eee-1759559811462-30-1759559952609-46.png" />
-
+<h2 id="1-ReLU"><a href="#1-ReLU" class="headerlink" title="1. ReLU"></a>1. ReLU</h2><p><img width="473" height="382" alt="image" data-src="./../images/79bf9f4a-fcce-4a9c-bc84-d69f787c2eee-1759559811462-30-1759559952609-46.png" /></p>
 <p>数学公式：</p>
-<p>$$<br>f(x) &#x3D; \max(0, x)<br>$$</p>
-<p>解释：</p>
+<script type="math/tex; mode=display">
+f(x) = \max(0, x)</script><p>解释：</p>
 <ul>
 <li>将小于0的输入置0，大于0保持不变  </li>
 <li>计算简单，常用于卷积层或全连接层后</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"></span><br><span class="line">relu = nn.ReLU()</span><br><span class="line">x = torch.tensor([[-<span class="number">1.0</span>, <span class="number">0.0</span>, <span class="number">2.0</span>]])</span><br><span class="line">y = relu(x)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;ReLU 输出:\n&quot;</span>, y)</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-Sigmoid"><a href="#2-Sigmoid" class="headerlink" title="2. Sigmoid"></a>2. Sigmoid</h2><img width="1920" height="1080" alt="image" data-src="./../images/606014d0-e40a-4c21-a18f-8824ac3a86ea-1759559811462-29-1759559952609-48.png" />
-
+<h2 id="2-Sigmoid"><a href="#2-Sigmoid" class="headerlink" title="2. Sigmoid"></a>2. Sigmoid</h2><p><img width="1920" height="1080" alt="image" data-src="./../images/606014d0-e40a-4c21-a18f-8824ac3a86ea-1759559811462-29-1759559952609-48.png" /></p>
 <p>数学公式：</p>
-<p>$$<br>\sigma(x) &#x3D; \frac{1}{1 + e^{-x}}<br>$$</p>
-<p>解释：</p>
+<script type="math/tex; mode=display">
+\sigma(x) = \frac{1}{1 + e^{-x}}</script><p>解释：</p>
 <ul>
 <li>将输入映射到 (0,1)  </li>
 <li>常用于二分类输出层</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"></span><br><span class="line">sigmoid = nn.Sigmoid()</span><br><span class="line">x = torch.tensor([[-<span class="number">1.0</span>, <span class="number">0.0</span>, <span class="number">2.0</span>]])</span><br><span class="line">y = sigmoid(x)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Sigmoid 输出:\n&quot;</span>, y)</span><br></pre></td></tr></table></figure>
-<h2 id="3-Tanh"><a href="#3-Tanh" class="headerlink" title="3. Tanh"></a>3. Tanh</h2><img width="425" height="234" alt="image" data-src="./../images/0a34c0d6-9627-4a65-a04e-82690727ee00-1759559811462-33-1759559952610-49.png" />
-
+<h2 id="3-Tanh"><a href="#3-Tanh" class="headerlink" title="3. Tanh"></a>3. Tanh</h2><p><img width="425" height="234" alt="image" data-src="./../images/0a34c0d6-9627-4a65-a04e-82690727ee00-1759559811462-33-1759559952610-49.png" /></p>
 <p>数学公式：</p>
-<p>$$<br>\tanh(x) &#x3D; \frac{e^x - e^{-x}}{e^x + e^{-x}}<br>$$</p>
-<p>解释：</p>
+<script type="math/tex; mode=display">
+\tanh(x) = \frac{e^x - e^{-x}}{e^x + e^{-x}}</script><p>解释：</p>
 <ul>
 <li>将输入映射到 (-1, 1)  </li>
 <li>均值为 0，有助于训练收敛  </li>
 <li>常用于序列模型或隐藏层激活函数</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"></span><br><span class="line">tanh = nn.Tanh()</span><br><span class="line">x = torch.tensor([[-<span class="number">1.0</span>, <span class="number">0.0</span>, <span class="number">2.0</span>]])</span><br><span class="line">y = tanh(x)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Tanh 输出:\n&quot;</span>, y)</span><br></pre></td></tr></table></figure>
-<h2 id="4-LeakyReLU"><a href="#4-LeakyReLU" class="headerlink" title="4. LeakyReLU"></a>4. LeakyReLU</h2><img width="683" height="559" alt="image" data-src="./../images/1c91f705-c38d-4025-9cbd-d6ebf25da8a0-1759559811462-32-1759559952610-50.png" />
-
+<h2 id="4-LeakyReLU"><a href="#4-LeakyReLU" class="headerlink" title="4. LeakyReLU"></a>4. LeakyReLU</h2><p><img width="683" height="559" alt="image" data-src="./../images/1c91f705-c38d-4025-9cbd-d6ebf25da8a0-1759559811462-32-1759559952610-50.png" /></p>
 <p>数学公式：</p>
-<p>$$<br>f(x) &#x3D;<br>\begin{cases}<br>x, &amp; x &gt; 0 \<br>\alpha x, &amp; x \le 0<br>\end{cases}, \quad \alpha &#x3D; 0.01<br>$$</p>
-<p>解释：</p>
+<script type="math/tex; mode=display">
+f(x) = 
+\begin{cases} 
+x, & x > 0 \\
+\alpha x, & x \le 0
+\end{cases}, \quad \alpha = 0.01</script><p>解释：</p>
 <ul>
 <li>避免 ReLU 的“死亡神经元”问题  </li>
 <li>对负值仍保留小梯度，不完全置零  </li>
 <li>常用于卷积层或全连接层激活函数</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"></span><br><span class="line">leaky_relu = nn.LeakyReLU(negative_slope=<span class="number">0.01</span>)</span><br><span class="line">x = torch.tensor([[-<span class="number">1.0</span>, <span class="number">0.0</span>, <span class="number">2.0</span>]])</span><br><span class="line">y = leaky_relu(x)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;LeakyReLU 输出:\n&quot;</span>, y)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
 <h1 id="PyTorch-常见损失函数详解"><a href="#PyTorch-常见损失函数详解" class="headerlink" title="PyTorch 常见损失函数详解"></a>PyTorch 常见损失函数详解</h1><p>本教程介绍 PyTorch 中常用的损失函数，包括均方误差损失、交叉熵损失和 KL 散度损失，包含数学公式、原理解释和示例代码。</p>
 <hr>
 <h2 id="1-MSELoss（均方误差损失）"><a href="#1-MSELoss（均方误差损失）" class="headerlink" title="1. MSELoss（均方误差损失）"></a>1. MSELoss（均方误差损失）</h2><p>数学公式：</p>
-<p>$$<br>\text{MSELoss} &#x3D; \frac{1}{N} \sum_{i&#x3D;1}^{N} (y_i - \hat{y}_i)^2<br>$$</p>
-<p>解释：</p>
+<script type="math/tex; mode=display">
+\text{MSELoss} = \frac{1}{N} \sum_{i=1}^{N} (y_i - \hat{y}_i)^2</script><p>解释：</p>
 <ul>
 <li>用于回归任务  </li>
 <li>衡量预测值 $\hat{y}$ 与真实值 $y$ 的平方差  </li>
 <li>对异常值较敏感</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"></span><br><span class="line">mse_loss = nn.MSELoss()</span><br><span class="line">y_pred = torch.tensor([<span class="number">0.5</span>, <span class="number">0.8</span>, <span class="number">1.2</span>])</span><br><span class="line">y_true = torch.tensor([<span class="number">0.0</span>, <span class="number">1.0</span>, <span class="number">1.0</span>])</span><br><span class="line">loss = mse_loss(y_pred, y_true)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;MSELoss:&quot;</span>, loss.item())</span><br></pre></td></tr></table></figure>
-
 <h2 id="2-CrossEntropyLoss（交叉熵损失）"><a href="#2-CrossEntropyLoss（交叉熵损失）" class="headerlink" title="2. CrossEntropyLoss（交叉熵损失）"></a>2. CrossEntropyLoss（交叉熵损失）</h2><p><strong>数学公式（多分类）</strong>：</p>
-<p>$$<br>\text{CrossEntropyLoss} &#x3D; - \frac{1}{N} \sum_{i&#x3D;1}^{N} \sum_{c&#x3D;1}^{C} y_{i,c} \log \hat{y}_{i,c}<br>$$</p>
-<p><strong>解释</strong>：</p>
+<script type="math/tex; mode=display">
+\text{CrossEntropyLoss} = - \frac{1}{N} \sum_{i=1}^{N} \sum_{c=1}^{C} y_{i,c} \log \hat{y}_{i,c}</script><p><strong>解释</strong>：</p>
 <ul>
 <li>用于分类任务  </li>
-<li>$y_{i,c}$ 是真实类别的 one-hot 编码，<img width="33" height="33" alt="image" data-src="https://github.com/user-attachments/assets/05cb538b-2b11-4dde-8e29-efa19f27f0fc" /><br> 是预测概率</li>
+<li>$y_{i,c}$ 是真实类别的 one-hot 编码，<img width="33" height="33" alt="image" data-src="https://github.com/user-attachments/assets/05cb538b-2b11-4dde-8e29-efa19f27f0fc" /><br>是预测概率</li>
 <li>PyTorch 的 <code>CrossEntropyLoss</code> 内部包含 <code>Softmax</code>，不需要手动计算概率</li>
 </ul>
 <p><strong>示例代码</strong>：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"></span><br><span class="line">cross_entropy = nn.CrossEntropyLoss()</span><br><span class="line">y_pred = torch.tensor([[<span class="number">2.0</span>, <span class="number">1.0</span>, <span class="number">0.1</span>]])  <span class="comment"># logits</span></span><br><span class="line">y_true = torch.tensor([<span class="number">0</span>])                <span class="comment"># 类别索引</span></span><br><span class="line">loss = cross_entropy(y_pred, y_true)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;CrossEntropyLoss:&quot;</span>, loss.item())</span><br></pre></td></tr></table></figure>
 <h2 id="3-KLDivLoss（KL-散度损失）"><a href="#3-KLDivLoss（KL-散度损失）" class="headerlink" title="3. KLDivLoss（KL 散度损失）"></a>3. KLDivLoss（KL 散度损失）</h2><p><strong>数学公式</strong>：</p>
-<p>$$<br>\text{KLDivLoss}(P \parallel Q) &#x3D; \sum_i P(i) \log \frac{P(i)}{Q(i)}<br>$$</p>
-<p><strong>解释</strong>：</p>
+<script type="math/tex; mode=display">
+\text{KLDivLoss}(P \parallel Q) = \sum_i P(i) \log \frac{P(i)}{Q(i)}</script><p><strong>解释</strong>：</p>
 <ul>
 <li>用于衡量两个概率分布 $P$ 和 $Q$ 的差异  </li>
 <li>常用于知识蒸馏或概率分布拟合  </li>
@@ -895,7 +841,6 @@
 </ul>
 <p><strong>示例代码</strong>：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">import</span> torch.nn.functional <span class="keyword">as</span> F</span><br><span class="line"></span><br><span class="line">kl_div = nn.KLDivLoss(reduction=<span class="string">&#x27;batchmean&#x27;</span>)</span><br><span class="line">p = F.log_softmax(torch.tensor([[<span class="number">0.2</span>, <span class="number">0.5</span>, <span class="number">0.3</span>]]), dim=<span class="number">1</span>)</span><br><span class="line">q = torch.tensor([[<span class="number">0.1</span>, <span class="number">0.6</span>, <span class="number">0.3</span>]])</span><br><span class="line">loss = kl_div(p, q)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;KLDivLoss:&quot;</span>, loss.item())</span><br></pre></td></tr></table></figure>
-
 <h1 id="PyTorch-容器（Container）详解"><a href="#PyTorch-容器（Container）详解" class="headerlink" title="PyTorch 容器（Container）详解"></a>PyTorch 容器（Container）详解</h1><p>PyTorch 提供了一些容器类，用于组织和管理多个子模块，常用的有 <code>Sequential</code>、<code>ModuleList</code>、<code>ModuleDict</code>。</p>
 <hr>
 <p><strong>1. nn.Sequential</strong></p>
@@ -917,17 +862,16 @@
 <li><strong>使用场景</strong>：多分支或命名网络结构</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"></span><br><span class="line">layer_dict = nn.ModuleDict(&#123;</span><br><span class="line">    <span class="string">&#x27;fc1&#x27;</span>: nn.Linear(<span class="number">10</span>, <span class="number">20</span>),</span><br><span class="line">    <span class="string">&#x27;relu&#x27;</span>: nn.ReLU(),</span><br><span class="line">    <span class="string">&#x27;fc2&#x27;</span>: nn.Linear(<span class="number">20</span>, <span class="number">5</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">x = torch.randn(<span class="number">2</span>, <span class="number">10</span>)</span><br><span class="line">x = layer_dict[<span class="string">&#x27;fc1&#x27;</span>](x)</span><br><span class="line">x = layer_dict[<span class="string">&#x27;relu&#x27;</span>](x)</span><br><span class="line">y = layer_dict[<span class="string">&#x27;fc2&#x27;</span>](x)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;ModuleDict 输出形状:&quot;</span>, y.shape)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h1 id="优化器模块"><a href="#优化器模块" class="headerlink" title="优化器模块"></a>优化器模块</h1><p><img data-src="/./../images/image-20251004144606392.png" alt="image-20251004144606392"></p>
-<p><img data-src="/./../images/image-20251004144635260.png" alt="image-20251004144635260"></p>
-<p><img data-src="/./../images/image-20251004144712104.png" alt="image-20251004144712104"></p>
-<p><img data-src="/./../images/image-20251004144802053.png" alt="image-20251004144802053"></p>
-<p><img data-src="/./../images/image-20251004144848041.png" alt="image-20251004144848041"></p>
-<p><img data-src="/./../images/image-20251004145110419.png" alt="image-20251004145110419"></p>
-<p><img data-src="/./../images/image-20251004145315803.png" alt="image-20251004145315803"></p>
-<p><img data-src="/./../images/image-20251004145511592.png" alt="image-20251004145511592"></p>
-<p><img data-src="/./../images/image-20251004145527681.png" alt="image-20251004145527681"></p>
-<p><img data-src="/./../images/image-20251004145626056.png" alt="image-20251004145626056"></p>
+<h1 id="优化器模块"><a href="#优化器模块" class="headerlink" title="优化器模块"></a>优化器模块</h1><p><img data-src="./../images/image-20251004144606392.png" alt="image-20251004144606392"></p>
+<p><img data-src="./../images/image-20251004144635260.png" alt="image-20251004144635260"></p>
+<p><img data-src="./../images/image-20251004144712104.png" alt="image-20251004144712104"></p>
+<p><img data-src="./../images/image-20251004144802053.png" alt="image-20251004144802053"></p>
+<p><img data-src="./../images/image-20251004144848041.png" alt="image-20251004144848041"></p>
+<p><img data-src="./../images/image-20251004145110419.png" alt="image-20251004145110419"></p>
+<p><img data-src="./../images/image-20251004145315803.png" alt="image-20251004145315803"></p>
+<p><img data-src="./../images/image-20251004145511592.png" alt="image-20251004145511592"></p>
+<p><img data-src="./../images/image-20251004145527681.png" alt="image-20251004145527681"></p>
+<p><img data-src="./../images/image-20251004145626056.png" alt="image-20251004145626056"></p>
 <h1 id="PyTorch-神经网络基础：-init-与-forward-方法详解"><a href="#PyTorch-神经网络基础：-init-与-forward-方法详解" class="headerlink" title="PyTorch 神经网络基础：__init__ 与 forward 方法详解"></a>PyTorch 神经网络基础：<code>__init__</code> 与 <code>forward</code> 方法详解</h1><p>在 PyTorch 中，自定义神经网络类通常继承自 <code>nn.Module</code>，核心方法是 <code>__init__</code> 和 <code>forward</code>。下面以一个简单的全连接网络为例进行讲解。</p>
 <hr>
 <h2 id="1-模型代码示例"><a href="#1-模型代码示例" class="headerlink" title="1. 模型代码示例"></a>1. 模型代码示例</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SimpleNN</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>(SimpleNN, <span class="variable language_">self</span>).__init__()</span><br><span class="line">        <span class="comment"># 定义网络结构</span></span><br><span class="line">        <span class="variable language_">self</span>.fc1 = nn.Linear(<span class="number">28</span>*<span class="number">28</span>, <span class="number">128</span>)  <span class="comment"># 全连接层1</span></span><br><span class="line">        <span class="variable language_">self</span>.relu = nn.ReLU()             <span class="comment"># 激活函数</span></span><br><span class="line">        <span class="variable language_">self</span>.fc2 = nn.Linear(<span class="number">128</span>, <span class="number">10</span>)    <span class="comment"># 全连接层2</span></span><br><span class="line">        <span class="variable language_">self</span>.softmax = nn.Softmax(dim=<span class="number">1</span>) <span class="comment"># 输出概率归一化</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        <span class="comment"># 前向计算流程</span></span><br><span class="line">        x = x.view(-<span class="number">1</span>, <span class="number">28</span>*<span class="number">28</span>)  <span class="comment"># 展平输入为 (batch_size, 784)</span></span><br><span class="line">        x = <span class="variable language_">self</span>.fc1(x)        <span class="comment"># 第一个全连接层</span></span><br><span class="line">        x = <span class="variable language_">self</span>.relu(x)       <span class="comment"># ReLU 激活</span></span><br><span class="line">        x = <span class="variable language_">self</span>.fc2(x)        <span class="comment"># 第二个全连接层</span></span><br><span class="line">        x = <span class="variable language_">self</span>.softmax(x)    <span class="comment"># Softmax 转为概率分布</span></span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建模型实例</span></span><br><span class="line">model = SimpleNN()</span><br></pre></td></tr></table></figure>
@@ -951,9 +895,9 @@
 </ul>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">model.forward(input_tensor)</span><br></pre></td></tr></table></figure>
 <ul>
-<li>无需手动调用 forward 方法。</li>
+<li>无需手动调用 forward 方法。<h2 id="3-数据流说明"><a href="#3-数据流说明" class="headerlink" title="3. 数据流说明"></a>3. 数据流说明</h2></li>
 </ul>
-<h2 id="3-数据流说明"><a href="#3-数据流说明" class="headerlink" title="3. 数据流说明"></a>3. 数据流说明</h2><ol>
+<ol>
 <li>输入图像张量 $x$ 展平成 $(\text{batch size}, 784)$。</li>
 <li>经过第一个全连接层 <code>fc1</code>，输出 $(\text{batch size}, 128)$。</li>
 <li>通过 ReLU 激活函数，增加非线性。</li>
@@ -971,60 +915,50 @@
 </ul>
 <h1 id="PyTorch-手写体图像识别教学"><a href="#PyTorch-手写体图像识别教学" class="headerlink" title="PyTorch 手写体图像识别教学"></a>PyTorch 手写体图像识别教学</h1><hr>
 <h2 id="1-导入必要库"><a href="#1-导入必要库" class="headerlink" title="1. 导入必要库"></a>1. 导入必要库</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 本教程演示如何使用 PyTorch 实现 MNIST 手写数字识别任务</span></span><br><span class="line"><span class="comment"># 包含数据加载、模型定义、训练和测试</span></span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">import</span> torch.optim <span class="keyword">as</span> optim</span><br><span class="line"><span class="keyword">from</span> torchvision <span class="keyword">import</span> datasets, transforms</span><br><span class="line"><span class="keyword">from</span> torch.utils.data <span class="keyword">import</span> DataLoader</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>#@ 2. 数据预处理与加载<br>MNIST 图片为 28x28 灰度图<br>需要将图片转换为张量并归一化到 [-1, 1]<br>DataLoader 按批次加载数据，并支持 shuffle 功能</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">transform = transforms.Compose([</span><br><span class="line">    transforms.ToTensor(),</span><br><span class="line">    transforms.Normalize((<span class="number">0.5</span>,), (<span class="number">0.5</span>,))</span><br><span class="line">])</span><br><span class="line"></span><br><span class="line">train_dataset = datasets.MNIST(root=<span class="string">&#x27;./data&#x27;</span>, train=<span class="literal">True</span>, download=<span class="literal">True</span>, transform=transform)</span><br><span class="line">test_dataset = datasets.MNIST(root=<span class="string">&#x27;./data&#x27;</span>, train=<span class="literal">False</span>, download=<span class="literal">True</span>, transform=transform)</span><br><span class="line"></span><br><span class="line">train_loader = DataLoader(train_dataset, batch_size=<span class="number">64</span>, shuffle=<span class="literal">True</span>)</span><br><span class="line">test_loader = DataLoader(test_dataset, batch_size=<span class="number">64</span>, shuffle=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-定义前馈神经网络"><a href="#3-定义前馈神经网络" class="headerlink" title="3. 定义前馈神经网络"></a>3. 定义前馈神经网络</h2><p>网络结构：<br>输入层: 28*28 &#x3D; 784 个神经元<br>隐藏层: 128 个神经元, ReLU 激活<br>输出层: 10 个神经元, Softmax 输出概率</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">SimpleNN</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>(SimpleNN, <span class="variable language_">self</span>).__init__()</span><br><span class="line">        <span class="variable language_">self</span>.fc1 = nn.Linear(<span class="number">28</span>*<span class="number">28</span>, <span class="number">128</span>)</span><br><span class="line">        <span class="variable language_">self</span>.relu = nn.ReLU()</span><br><span class="line">        <span class="variable language_">self</span>.fc2 = nn.Linear(<span class="number">128</span>, <span class="number">10</span>)</span><br><span class="line">        <span class="variable language_">self</span>.softmax = nn.Softmax(dim=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        <span class="comment"># 前向传播</span></span><br><span class="line">        x = x.view(-<span class="number">1</span>, <span class="number">28</span>*<span class="number">28</span>)  <span class="comment"># 展平</span></span><br><span class="line">        x = <span class="variable language_">self</span>.fc1(x)</span><br><span class="line">        x = <span class="variable language_">self</span>.relu(x)</span><br><span class="line">        x = <span class="variable language_">self</span>.fc2(x)</span><br><span class="line">        x = <span class="variable language_">self</span>.softmax(x)</span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line"></span><br><span class="line">model = SimpleNN()</span><br></pre></td></tr></table></figure>
-
-<h2 id="4-定义损失函数和优化器"><a href="#4-定义损失函数和优化器" class="headerlink" title="4. 定义损失函数和优化器"></a>4. 定义损失函数和优化器</h2><p>多分类交叉熵损失<br>优化器: 随机梯度下降 (SGD)</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">criterion = nn.CrossEntropyLoss()</span><br><span class="line">optimizer = optim.SGD(model.parameters(), lr=<span class="number">0.01</span>)</span><br></pre></td></tr></table></figure>
-
+<h1 id="2-数据预处理与加载"><a href="#2-数据预处理与加载" class="headerlink" title="@ 2. 数据预处理与加载"></a>@ 2. 数据预处理与加载</h1><p>MNIST 图片为 28x28 灰度图<br>需要将图片转换为张量并归一化到 [-1, 1]<br>DataLoader 按批次加载数据，并支持 shuffle 功能<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">transform = transforms.Compose([</span><br><span class="line">    transforms.ToTensor(),</span><br><span class="line">    transforms.Normalize((<span class="number">0.5</span>,), (<span class="number">0.5</span>,))</span><br><span class="line">])</span><br><span class="line"></span><br><span class="line">train_dataset = datasets.MNIST(root=<span class="string">&#x27;./data&#x27;</span>, train=<span class="literal">True</span>, download=<span class="literal">True</span>, transform=transform)</span><br><span class="line">test_dataset = datasets.MNIST(root=<span class="string">&#x27;./data&#x27;</span>, train=<span class="literal">False</span>, download=<span class="literal">True</span>, transform=transform)</span><br><span class="line"></span><br><span class="line">train_loader = DataLoader(train_dataset, batch_size=<span class="number">64</span>, shuffle=<span class="literal">True</span>)</span><br><span class="line">test_loader = DataLoader(test_dataset, batch_size=<span class="number">64</span>, shuffle=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure></p>
+<h2 id="3-定义前馈神经网络"><a href="#3-定义前馈神经网络" class="headerlink" title="3. 定义前馈神经网络"></a>3. 定义前馈神经网络</h2><p>网络结构：<br>输入层: 28*28 = 784 个神经元<br>隐藏层: 128 个神经元, ReLU 激活<br>输出层: 10 个神经元, Softmax 输出概率<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">SimpleNN</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>(SimpleNN, <span class="variable language_">self</span>).__init__()</span><br><span class="line">        <span class="variable language_">self</span>.fc1 = nn.Linear(<span class="number">28</span>*<span class="number">28</span>, <span class="number">128</span>)</span><br><span class="line">        <span class="variable language_">self</span>.relu = nn.ReLU()</span><br><span class="line">        <span class="variable language_">self</span>.fc2 = nn.Linear(<span class="number">128</span>, <span class="number">10</span>)</span><br><span class="line">        <span class="variable language_">self</span>.softmax = nn.Softmax(dim=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        <span class="comment"># 前向传播</span></span><br><span class="line">        x = x.view(-<span class="number">1</span>, <span class="number">28</span>*<span class="number">28</span>)  <span class="comment"># 展平</span></span><br><span class="line">        x = <span class="variable language_">self</span>.fc1(x)</span><br><span class="line">        x = <span class="variable language_">self</span>.relu(x)</span><br><span class="line">        x = <span class="variable language_">self</span>.fc2(x)</span><br><span class="line">        x = <span class="variable language_">self</span>.softmax(x)</span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line"></span><br><span class="line">model = SimpleNN()</span><br></pre></td></tr></table></figure></p>
+<h2 id="4-定义损失函数和优化器"><a href="#4-定义损失函数和优化器" class="headerlink" title="4. 定义损失函数和优化器"></a>4. 定义损失函数和优化器</h2><p>多分类交叉熵损失<br>优化器: 随机梯度下降 (SGD)<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">criterion = nn.CrossEntropyLoss()</span><br><span class="line">optimizer = optim.SGD(model.parameters(), lr=<span class="number">0.01</span>)</span><br></pre></td></tr></table></figure></p>
 <h2 id="5-模型训练"><a href="#5-模型训练" class="headerlink" title="5. 模型训练"></a>5. 模型训练</h2><h3 id="训练流程"><a href="#训练流程" class="headerlink" title="训练流程:"></a>训练流程:</h3><h4 id="1-前向传播-计算预测输出"><a href="#1-前向传播-计算预测输出" class="headerlink" title="1. 前向传播: 计算预测输出"></a>1. 前向传播: 计算预测输出</h4><h4 id="2-计算损失"><a href="#2-计算损失" class="headerlink" title="2. 计算损失"></a>2. 计算损失</h4><h4 id="3-反向传播"><a href="#3-反向传播" class="headerlink" title="3. 反向传播"></a>3. 反向传播</h4><h4 id="4-参数更新"><a href="#4-参数更新" class="headerlink" title="4. 参数更新"></a>4. 参数更新</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">num_epochs = <span class="number">5</span></span><br><span class="line"><span class="keyword">for</span> epoch <span class="keyword">in</span> <span class="built_in">range</span>(num_epochs):</span><br><span class="line">    running_loss = <span class="number">0.0</span></span><br><span class="line">    <span class="keyword">for</span> images, labels <span class="keyword">in</span> train_loader:</span><br><span class="line">        outputs = model(images)</span><br><span class="line">        loss = criterion(outputs, labels)</span><br><span class="line"></span><br><span class="line">        optimizer.zero_grad()</span><br><span class="line">        loss.backward()</span><br><span class="line">        optimizer.step()</span><br><span class="line"></span><br><span class="line">        running_loss += loss.item()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;Epoch [<span class="subst">&#123;epoch+<span class="number">1</span>&#125;</span>/<span class="subst">&#123;num_epochs&#125;</span>], Loss: <span class="subst">&#123;running_loss/<span class="built_in">len</span>(train_loader):<span class="number">.4</span>f&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-<h2 id="6-测试模型准确率"><a href="#6-测试模型准确率" class="headerlink" title="6. 测试模型准确率"></a>6. 测试模型准确率</h2><p>在测试集上评估模型性能</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">correct = <span class="number">0</span></span><br><span class="line">total = <span class="number">0</span></span><br><span class="line"><span class="keyword">with</span> torch.no_grad():</span><br><span class="line">    <span class="keyword">for</span> images, labels <span class="keyword">in</span> test_loader:</span><br><span class="line">        outputs = model(images)</span><br><span class="line">        _, predicted = torch.<span class="built_in">max</span>(outputs.data, <span class="number">1</span>)</span><br><span class="line">        total += labels.size(<span class="number">0</span>)</span><br><span class="line">        correct += (predicted == labels).<span class="built_in">sum</span>().item()</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;Test Accuracy: <span class="subst">&#123;<span class="number">100</span> * correct / total:<span class="number">.2</span>f&#125;</span>%&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<h1 id="模型保存和加载"><a href="#模型保存和加载" class="headerlink" title="模型保存和加载"></a>模型保存和加载</h1><p><img data-src="/./../images/image-20251004151238326.png" alt="image-20251004151238326"></p>
-<p><img data-src="/./../images/image-20251004151314736.png" alt="image-20251004151314736"></p>
+<h2 id="6-测试模型准确率"><a href="#6-测试模型准确率" class="headerlink" title="6. 测试模型准确率"></a>6. 测试模型准确率</h2><p>在测试集上评估模型性能<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">correct = <span class="number">0</span></span><br><span class="line">total = <span class="number">0</span></span><br><span class="line"><span class="keyword">with</span> torch.no_grad():</span><br><span class="line">    <span class="keyword">for</span> images, labels <span class="keyword">in</span> test_loader:</span><br><span class="line">        outputs = model(images)</span><br><span class="line">        _, predicted = torch.<span class="built_in">max</span>(outputs.data, <span class="number">1</span>)</span><br><span class="line">        total += labels.size(<span class="number">0</span>)</span><br><span class="line">        correct += (predicted == labels).<span class="built_in">sum</span>().item()</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;Test Accuracy: <span class="subst">&#123;<span class="number">100</span> * correct / total:<span class="number">.2</span>f&#125;</span>%&#x27;</span>)</span><br></pre></td></tr></table></figure></p>
+<h1 id="模型保存和加载"><a href="#模型保存和加载" class="headerlink" title="模型保存和加载"></a>模型保存和加载</h1><p><img data-src="./../images/image-20251004151238326.png" alt="image-20251004151238326"></p>
+<p><img data-src="./../images/image-20251004151314736.png" alt="image-20251004151314736"></p>
 <p>优点：保存了模型的完整结构</p>
 <p>缺点：模型文件体积大</p>
-<p><img data-src="/./../images/image-20251004151411703.png" alt="image-20251004151411703"></p>
-<p><img data-src="/./../images/image-20251004151513660.png" alt="image-20251004151513660"></p>
-<p><img data-src="/./../images/image-20251004151718462.png" alt="image-20251004151718462"></p>
-<p><img data-src="/./../images/image-20251004151824370.png" alt="image-20251004151824370"></p>
-<h1 id="计算机视觉模块"><a href="#计算机视觉模块" class="headerlink" title="计算机视觉模块"></a>计算机视觉模块</h1><p><img data-src="/./../images/image-20251004155143064.png" alt="image-20251004155143064"></p>
+<p><img data-src="./../images/image-20251004151411703.png" alt="image-20251004151411703"></p>
+<p><img data-src="./../images/image-20251004151513660.png" alt="image-20251004151513660"></p>
+<p><img data-src="./../images/image-20251004151718462.png" alt="image-20251004151718462"></p>
+<p><img data-src="./../images/image-20251004151824370.png" alt="image-20251004151824370"></p>
+<h1 id="计算机视觉模块"><a href="#计算机视觉模块" class="headerlink" title="计算机视觉模块"></a>计算机视觉模块</h1><p><img data-src="./../images/image-20251004155143064.png" alt="image-20251004155143064"></p>
 <p><a href="https://docs.pytorch.ac.cn/vision/stable/index.html">torchvision — Torchvision 0.23 文档 - PyTorch 文档</a></p>
-<p><img data-src="/./../images/image-20251004155245827.png" alt="image-20251004155245827"></p>
-<p><img data-src="/./../images/image-20251004155334340.png" alt="image-20251004155334340"></p>
-<p><img data-src="/./../images/image-20251004155405152.png" alt="image-20251004155405152"></p>
-<p><img data-src="/./../images/image-20251004155502079.png" alt="image-20251004155502079"></p>
-<p><img data-src="/./../images/image-20251004155518151.png" alt="image-20251004155518151"></p>
+<p><img data-src="./../images/image-20251004155245827.png" alt="image-20251004155245827"></p>
+<p><img data-src="./../images/image-20251004155334340.png" alt="image-20251004155334340"></p>
+<p><img data-src="./../images/image-20251004155405152.png" alt="image-20251004155405152"></p>
+<p><img data-src="./../images/image-20251004155502079.png" alt="image-20251004155502079"></p>
+<p><img data-src="./../images/image-20251004155518151.png" alt="image-20251004155518151"></p>
 <p><a href="https://docs.pytorch.ac.cn/vision/stable/transforms.html">转换图像、视频、边界框等 — Torchvision 0.23 文档 - PyTorch 文档</a></p>
-<p><img data-src="/./../images/image-20251004155619357.png" alt="image-20251004155619357"></p>
-<p><img data-src="/./../images/image-20251004155741508.png" alt="image-20251004155741508"></p>
-<p><img data-src="/./../images/image-20251004155918237.png" alt="image-20251004155918237"></p>
-<p><img data-src="/./../images/image-20251004160011322.png" alt="image-20251004160011322"></p>
-<p><img data-src="/./../images/image-20251004160030493.png" alt="image-20251004160030493"></p>
-<p><img data-src="/./../images/image-20251004160137783.png" alt="image-20251004160137783"></p>
-<p><img data-src="/./../images/image-20251004160152624.png" alt="image-20251004160152624"></p>
-<p><img data-src="/./../images/image-20251004160456282.png" alt="image-20251004160456282"></p>
-<p><img data-src="/./../images/image-20251004160647088.png" alt="image-20251004160647088"></p>
-<p><img data-src="/./../images/image-20251004160659944.png" alt="image-20251004160659944"></p>
-<p><img data-src="/./../images/image-20251004160819065.png" alt="image-20251004160819065"></p>
-<p><img data-src="/./../images/image-20251004160832338.png" alt="image-20251004160832338"></p>
-<h1 id="模型部署"><a href="#模型部署" class="headerlink" title="模型部署"></a>模型部署</h1><p><img data-src="/./../images/image-20251004161036193.png" alt="image-20251004161036193"></p>
-<p><img data-src="/./../images/image-20251004161115819.png" alt="image-20251004161115819"></p>
-<p><img data-src="/./../images/image-20251004161131582.png" alt="image-20251004161131582"></p>
-<p><img data-src="/./../images/image-20251004161250282.png" alt="image-20251004161250282"></p>
-<p><img data-src="/./../images/image-20251004161406034.png" alt="image-20251004161406034"></p>
-<p><img data-src="/./../images/image-20251004161425662.png" alt="image-20251004161425662"></p>
-<p><img data-src="/./../images/image-20251004161556149.png" alt="image-20251004161556149"></p>
-<p><img data-src="/./../images/image-20251004161609676.png" alt="image-20251004161609676"></p>
-<p><img data-src="/./../images/image-20251004161850169.png" alt="image-20251004161850169"></p>
-<h1 id="图像分类略讲"><a href="#图像分类略讲" class="headerlink" title="图像分类略讲"></a>图像分类略讲</h1><p><img data-src="/./../images/image-20251004161924416.png" alt="image-20251004161924416"></p>
-<p><img data-src="/./../images/image-20251004162126318.png" alt="image-20251004162126318"></p>
+<p><img data-src="./../images/image-20251004155619357.png" alt="image-20251004155619357"></p>
+<p><img data-src="./../images/image-20251004155741508.png" alt="image-20251004155741508"></p>
+<p><img data-src="./../images/image-20251004155918237.png" alt="image-20251004155918237"></p>
+<p><img data-src="./../images/image-20251004160011322.png" alt="image-20251004160011322"></p>
+<p><img data-src="./../images/image-20251004160030493.png" alt="image-20251004160030493"></p>
+<p><img data-src="./../images/image-20251004160137783.png" alt="image-20251004160137783"></p>
+<p><img data-src="./../images/image-20251004160152624.png" alt="image-20251004160152624"></p>
+<p><img data-src="./../images/image-20251004160456282.png" alt="image-20251004160456282"></p>
+<p><img data-src="./../images/image-20251004160647088.png" alt="image-20251004160647088"></p>
+<p><img data-src="./../images/image-20251004160659944.png" alt="image-20251004160659944"></p>
+<p><img data-src="./../images/image-20251004160819065.png" alt="image-20251004160819065"></p>
+<p><img data-src="./../images/image-20251004160832338.png" alt="image-20251004160832338"></p>
+<h1 id="模型部署"><a href="#模型部署" class="headerlink" title="模型部署"></a>模型部署</h1><p><img data-src="./../images/image-20251004161036193.png" alt="image-20251004161036193"></p>
+<p><img data-src="./../images/image-20251004161115819.png" alt="image-20251004161115819"></p>
+<p><img data-src="./../images/image-20251004161131582.png" alt="image-20251004161131582"></p>
+<p><img data-src="./../images/image-20251004161250282.png" alt="image-20251004161250282"></p>
+<p><img data-src="./../images/image-20251004161406034.png" alt="image-20251004161406034"></p>
+<p><img data-src="./../images/image-20251004161425662.png" alt="image-20251004161425662"></p>
+<p><img data-src="./../images/image-20251004161556149.png" alt="image-20251004161556149"></p>
+<p><img data-src="./../images/image-20251004161609676.png" alt="image-20251004161609676"></p>
+<p><img data-src="./../images/image-20251004161850169.png" alt="image-20251004161850169"></p>
+<h1 id="图像分类略讲"><a href="#图像分类略讲" class="headerlink" title="图像分类略讲"></a>图像分类略讲</h1><p><img data-src="./../images/image-20251004161924416.png" alt="image-20251004161924416"></p>
+<p><img data-src="./../images/image-20251004162126318.png" alt="image-20251004162126318"></p>
 ]]></content>
       <categories>
         <category>笔记</category>
@@ -1039,9 +973,9 @@
     <content><![CDATA[<p>一学期一度的综合素质评价马上就要结束了（9月1日），而我的综合素质评价还一字未填，于是决定撰写一篇文章来介绍填报方式及注意事项。</p>
 <p>关于填报，相关的三方群聊其实不少，有人会联系你然后给你提供相应资料，有偿但是价格合适，本篇文章不采取这种方式，而是介绍利用Bing AI进行辅助填写。</p>
 <p>首先打开<a href="https://www.sdei.edu.cn/home/html/shouye.html">https://www.sdei.edu.cn/home/html/shouye.html</a>（山东省教育公共服务平台），点击高中综评专用入口（或者直接点击<a href="https://szpj.sdei.edu.cn/zhszpj/">https://szpj.sdei.edu.cn/zhszpj/</a>）</p>
-<p><img data-src="/images/1692965477-image-1024x576.png"></p>
+<p><img data-src="images/1692965477-image-1024x576.png" alt=""></p>
 <p>进入网页后，按照学校提供信息进行登录。</p>
-<p><img data-src="/images/1692965609-image-1024x517.png"></p>
+<p><img data-src="images/1692965609-image-1024x517.png" alt=""></p>
 <p>用户名一般为学生身份证号，当然如果你绑定了手机号也可以使用手机号登录。</p>
 <p>登录后点击左侧的“点滴记录”，开始填报综合素质评价。</p>
 <h4 id="任职情况"><a href="#任职情况" class="headerlink" title="任职情况"></a><strong>任职情况</strong></h4><p>这里如实填写即可，什么都可以往上填，例如xx委员，xx课代表，卫生x组组员（除非实在没的填，否则尽量不要填这个）。</p>
@@ -1052,8 +986,8 @@
 <p>课代表：协助XX老师完成课堂任务，维持课堂秩序，下发课程所需讲义，课下询问作业，课前联系老师。</p>
 <p>安全委员：协助老师保障校园生活中同学们的安全，认真负责好班级里安全隐患排查。</p>
 </blockquote>
-<p><img data-src="/images/1692968917-image.png"></p>
-<p><img data-src="/images/1692968938-image.png"></p>
+<p><img data-src="images/1692968917-image.png" alt=""></p>
+<p><img data-src="images/1692968938-image.png" alt=""></p>
 <p>填写完毕确认无误后保存即可。</p>
 <h4 id="奖惩情况"><a href="#奖惩情况" class="headerlink" title="奖惩情况"></a><strong>奖惩情况</strong></h4><p>这边也是如实填写，仔细回顾这一学期你获得过什么荣誉，如果实在没有就选择”无“。</p>
 <p>如果你有荣誉，请看下面。</p>
@@ -1062,7 +996,7 @@
 <p>奖励部门填写右下角盖章单位即可，如果有多个，选最具权威性的那个。我这里就填写“xx市教育和体育局”</p>
 <p>奖励名称填写证书中“获xxx奖”中“xxx”部分即可，如有更好的名称，请自行填写。</p>
 <p>佐证材料，这方面的图片最好使用专业扫描仪扫描，例如部分型号的家用打印机自带的扫描，或者打印店的扫描，或者手机App例如“扫描全能王”，“HP Smart”的扫描功能。这里我选用HP Laser Jet Pro MFP M30w自带的扫描功能。扫描完毕可能图片显示方向不正确，请自行调整图片方向（Windows电脑鼠标右击图片可出现旋转选项）。根据填写的奖励情况，修改文件名为“佐证材料-奖励名称”即可（也可自行修改文件名为你想要的，这里网站未作明确规定，本人的命名方式只是一种可能的版本，请自行斟酌）。</p>
-<p><img data-src="/images/1692968982-image.png"></p>
+<p><img data-src="images/1692968982-image.png" alt=""></p>
 <h4 id="典型事例"><a href="#典型事例" class="headerlink" title="典型事例"></a><strong>典型事例</strong></h4><p>这个地方主要用来填写本学期做过（参与过）的大事件，这里有必要与社会实践进行区分，我自己认为典型事例适合填写在学校中完成的事情，或者说与学校有关的事件。这个地方不建议填写“无”，尽量填写。如果实在没有，建议找志愿活动填上（不建议与后面的“社会实践”重复）。</p>
 <p>如果你有典型事例，请看下面。</p>
 <p>活动主题：填写活动的主题（废话），当然是要选用正式的名称，例如：“学雷锋志愿活动”</p>
@@ -1078,7 +1012,7 @@
 <p>在这次活动中，我们来到了（地名隐藏），这是一所有着悠久历史和文化的（地名隐藏）。我们用抹布和清洁剂擦拭（地名隐藏）等景观，让它们焕发出新的光彩。我们还向（地名隐藏）的老师和工作人员学习了书院的历史和文化，感受了（地名隐藏）的魅力。我们的志愿活动得到了（地名隐藏）的高度赞扬和感谢，我们也收获了知识和快乐。我觉得这次活动是一次非常有意义的经历，让我体会到了奉献和服务的价值，也增强了我的社会责任感和团队精神。</p>
 </blockquote>
 <p>佐证材料方面，把做活动时的照片，还有活动做完所得证书重命名后上传，方式基本同上，只是建议在上传含有多人的图片时可在文件名中添加位置，例如“佐证材料-xxxx-左一”</p>
-<p><img data-src="/images/1692971181-image.png"></p>
+<p><img data-src="images/1692971181-image.png" alt=""></p>
 <h4 id="研究性学习及创新成果"><a href="#研究性学习及创新成果" class="headerlink" title="研究性学习及创新成果"></a><strong>研究性学习及创新成果</strong></h4><p>这里尽可能填写学校带领下进行的研究性学习，如果实在是没有，可以自创，也可以AI编写。</p>
 <p>学年与学期信息已填写，无需在意。</p>
 <p>类型方面选择课题研究，接下来开始询问AI相关信息以生成我们的课题。建议询问高中物理化学生物进行的相关实验。询问的模板如下：</p>
@@ -1117,10 +1051,9 @@
 </li>
 <li><p>研究过程：</p>
 <ul>
-<li>实验原理：在气垫导轨上，由于气流减少了摩擦力，可以认为小车在水平方向上没有受到外力作用，因此满足动量守恒定律。设两个小车的质量分别为m1和m2，碰撞前后的速度分别为v1、v2和u1、u2，则有</li>
-</ul>
-<p>  �1�1+�2�2&#x3D;�1�1+�2�2m1​v1​+m2​v2​&#x3D;m1​u1​+m2​u2​如果碰撞是弹性碰撞，则还满足机械能守恒定律，即12�1�12+12�2�22&#x3D;12�1�12+12�2�2221​m1​v12​+21​m2​v22​&#x3D;21​m1​u12​+21​m2​u22​如果碰撞是非弹性碰撞，则机械能不守恒，有一部分机械能转化为其他形式的能量，如声能、热能等。</p>
-<ul>
+<li><p>实验原理：在气垫导轨上，由于气流减少了摩擦力，可以认为小车在水平方向上没有受到外力作用，因此满足动量守恒定律。设两个小车的质量分别为m1和m2，碰撞前后的速度分别为v1、v2和u1、u2，则有</p>
+<p>�1�1+�2�2=�1�1+�2�2m1​v1​+m2​v2​=m1​u1​+m2​u2​如果碰撞是弹性碰撞，则还满足机械能守恒定律，即12�1�12+12�2�22=12�1�12+12�2�2221​m1​v12​+21​m2​v22​=21​m1​u12​+21​m2​u22​如果碰撞是非弹性碰撞，则机械能不守恒，有一部分机械能转化为其他形式的能量，如声能、热能等。</p>
+</li>
 <li><p>实验装置：如图所示，主要由气垫导轨、两个小车、光电门、计时器等组成。 ![实验装置]</p>
 </li>
 <li><p>实验步骤：</p>
@@ -1194,13 +1127,13 @@
 </blockquote>
 <p>这样看起来就好写一点点。</p>
 <p>然后编辑学校下发的文档，或者不编辑直接打印并手抄一份。</p>
-<p><img data-src="/images/1692975890-image.png"></p>
+<p><img data-src="images/1692975890-image.png" alt=""></p>
 <p>抄在纸上时可以自己简略，不一定全抄上去。</p>
 <p>另：填写网页内容前请刷新网页以确定你仍处在Login的Session，防止点了保存却跳到登录页的尴尬。</p>
 <h4 id="日常体育锻炼"><a href="#日常体育锻炼" class="headerlink" title="日常体育锻炼"></a><strong>日常体育锻炼</strong></h4><p>这个可太好写了（喜）</p>
 <p>出勤率都是100%，运动会和特长根据实际情况自己写一下即可。</p>
 <p>佐证材料没有不填即可，如果参加了运动会得到奖牌之类的荣誉可以上传一下。</p>
-<p><img data-src="/images/1692976572-image.png"></p>
+<p><img data-src="images/1692976572-image.png" alt=""></p>
 <h4 id="心理素质展示"><a href="#心理素质展示" class="headerlink" title="心理素质展示"></a><strong>心理素质展示</strong></h4><p>这个不用说，直接丢给Bing AI。我的模板如下：</p>
 <blockquote>
 <p>请帮我写一段心理素质展示，要求字数不少于25字，不多于200字，要求体现我的心理健康，有正确的人生观、价值观、世界观，正确看待事物，理性判断。</p>
@@ -1245,7 +1178,7 @@
 <p>这段文字共有<strong>120</strong>个字，希望能够满足你的要求。如果你还有其他的问题或建议，请随时告诉我。😊</p>
 </blockquote>
 <p>这个就好多了，直接复制使用即可。</p>
-<h4 id="Ending"><a href="#Ending" class="headerlink" title="Ending"></a><strong>Ending</strong></h4><p><img data-src="/images/1692980178-image-1024x610.png"></p>
+<h4 id="Ending"><a href="#Ending" class="headerlink" title="Ending"></a><strong>Ending</strong></h4><p><img data-src="images/1692980178-image-1024x610.png" alt=""></p>
 <p>呼~填报完成的感觉就是爽，唯一可惜的是艺术素养没填好。最后再总结一下注意事项吧。</p>
 <p>首先这玩意最好认真对待，尽量不要弄虚作假，这东西关系到山东省内大学的自主招生。</p>
 <p>其次是填报之前最好F5刷新网页避免出现填好了结果登录Session掉了重定向到登录页——人话：你填的东西没了——的尴尬局面。</p>
@@ -1277,30 +1210,30 @@
 <p>2.安装UTM</p>
 <p>如果你越狱了，直接从爱思助手拖放ipa文件即可，要没有越狱（像是iPhone11），可以用altstore。</p>
 <p>altstore教程：</p>
-<p>1.打开<a href="https://altstore.io/%E4%B8%8B%E8%BD%BD%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E3%80%82Windows%E7%89%88%E4%BB%85%E6%94%AF%E6%8C%81Windows10">https://altstore.io/下载应用程序。Windows版仅支持Windows10</a> 。</p>
-<p><img data-src="/./../images/T8IZQbfJkzdXLF3-1759458037861-31.png" alt="pic"><br>解压后点击AltInstaller.msi，进行安装，根据需求安装即可。</p>
+<p>1.打开<a href="https://altstore.io/下载应用程序。Windows版仅支持Windows10">https://altstore.io/下载应用程序。Windows版仅支持Windows10</a> 。</p>
+<p><img data-src="./../images/T8IZQbfJkzdXLF3-1759458037861-31.png" alt="pic"><br>解压后点击AltInstaller.msi，进行安装，根据需求安装即可。</p>
 <p>在安装的目录下，像D:\Program Files (x86)\ 找到AltServer，打开，点击AltServer.exe，启动，在右下角图标左键。</p>
-<p><img data-src="/./../images/dhubM5rGjWx1tke-1759458037861-32.png" alt="pic"><br>选择“Install AltStore”选择你的设备。</p>
-<p><img data-src="/./../images/72XT5dHIsqPaYt3-1759458037861-33.png" alt="pic"><br>如实填写你的Apple ID和密码，要进行签名，不是盗号！注意，要下载官网的iTunes，不是Windows10自带的应用商店里的！要不然会报错！也不能不安装！</p>
-<p>安装完成后，添加源：<a href="https://alt.getutm.app/">https://alt.getutm.app</a></p>
+<p><img data-src="./../images/dhubM5rGjWx1tke-1759458037861-32.png" alt="pic"><br>选择“Install AltStore”选择你的设备。</p>
+<p><img data-src="./../images/72XT5dHIsqPaYt3-1759458037861-33.png" alt="pic"><br>如实填写你的Apple ID和密码，要进行签名，不是盗号！注意，要下载官网的iTunes，不是Windows10自带的应用商店里的！要不然会报错！也不能不安装！</p>
+<p>安装完成后，添加源：<a href="https://alt.getutm.app">https://alt.getutm.app</a></p>
 <p>然后搜索并下载即可。</p>
 <p>下载完成了，就该玩了。准备好一个镜像，ISO文件，Windows的可以从这里下载：<a href="http://msdn.itellyou.cn/">http://msdn.itellyou.cn/</a></p>
 <p>ed2k连接用迅雷下载即可。打开iTunes，找到左上角的小手机，点一下，如果是灰色，无法点击，那就等一会。点进去找到文件共享，在App找到“UTM”，这时里面是空的，添加你下载的镜像进去。接下来就是手机操作了（温馨提示：iPhone7建议用XP，iPhoneX以上最好不要用8.1或10，其他随意~）</p>
 <p>下载好的应用是这样子的</p>
-<p><img data-src="/./../images/e3TKP4DdCQ1lSWm-1759458037861-34.png" alt="pic"><br>加载很慢，截图截到3M<br>打开后。会出现一段提示，大概是不能强制关闭UTM，要点左上面的小X号</p>
+<p><img data-src="./../images/e3TKP4DdCQ1lSWm-1759458037861-34.png" alt="pic"><br>加载很慢，截图截到3M<br>打开后。会出现一段提示，大概是不能强制关闭UTM，要点左上面的小X号</p>
 <p>打开后，是这样的</p>
-<p><img data-src="/./../images/jV8Lr3ZmGNOl9eo-1759458037861-35.png" alt="pic"><br>那两个是我提前创建好的。点击右上角的+，会这样：</p>
-<p><img data-src="/./../images/fwsHnUy79YTtA4J-1759458037861-36.png" alt="pic"><br>内存，iPhone7设置到768差不多，最高的应该是1015吧，点击加载镜像，如下</p>
-<p><img data-src="/./../images/oYZSMsv8i2T5dk6-1759458037861-37.png" alt="pic"><br>点击右上角的+，创建一个驱动器，如图</p>
-<p><img data-src="/./../images/8qfijOIHSLBuXEF-1759458037861-38.png" alt="pic"><br>镜像类型，硬盘就是disk，光驱就是cd&#x2F;dvd，如图</p>
-<p><img data-src="/./../images/3nhPlu6W1KtxTJV-1759458037861-39.png" alt="pic"><br>先选cd&#x2F;dvd，点击文件路径，点击右上角的+，如图</p>
-<p><img data-src="/./../images/vnLVM6Sblpe5AkB-1759458037861-40.png" alt="pic"><br>会这样</p>
-<p><img data-src="/./../images/1kNJEcW2Hf6LhUe-1759458037861-41.png" alt="pic"><br>如果选的cd&#x2F;dvd，选“导入”，会这样</p>
-<p><img data-src="/./../images/Wevqyri87jakPOQ-1759458037861-42.png" alt="pic"><br>这是我已经打开utm文件夹，具体可以点击“我的iPhone”找到“UTM”文件夹，选择你复制的镜像ISO文件，如图</p>
-<p><img data-src="/./../images/zYtWGIiEkJRs146-1759458037861-43.png" alt="pic"><br>再点一次镜像，加载，重复第（调整disk或cd&#x2F;dvd）步选择disk，不要选导入，如果你有现成的，那就选导入，一般是xxx.img，创建，一般填hda.img，第二行看系统大小来定，XP可以是10G，win7可以是20G，10G填10240，20G填20480，以此类推。</p>
+<p><img data-src="./../images/jV8Lr3ZmGNOl9eo-1759458037861-35.png" alt="pic"><br>那两个是我提前创建好的。点击右上角的+，会这样：</p>
+<p><img data-src="./../images/fwsHnUy79YTtA4J-1759458037861-36.png" alt="pic"><br>内存，iPhone7设置到768差不多，最高的应该是1015吧，点击加载镜像，如下</p>
+<p><img data-src="./../images/oYZSMsv8i2T5dk6-1759458037861-37.png" alt="pic"><br>点击右上角的+，创建一个驱动器，如图</p>
+<p><img data-src="./../images/8qfijOIHSLBuXEF-1759458037861-38.png" alt="pic"><br>镜像类型，硬盘就是disk，光驱就是cd/dvd，如图</p>
+<p><img data-src="./../images/3nhPlu6W1KtxTJV-1759458037861-39.png" alt="pic"><br>先选cd/dvd，点击文件路径，点击右上角的+，如图</p>
+<p><img data-src="./../images/vnLVM6Sblpe5AkB-1759458037861-40.png" alt="pic"><br>会这样</p>
+<p><img data-src="./../images/1kNJEcW2Hf6LhUe-1759458037861-41.png" alt="pic"><br>如果选的cd/dvd，选“导入”，会这样</p>
+<p><img data-src="./../images/Wevqyri87jakPOQ-1759458037861-42.png" alt="pic"><br>这是我已经打开utm文件夹，具体可以点击“我的iPhone”找到“UTM”文件夹，选择你复制的镜像ISO文件，如图</p>
+<p><img data-src="./../images/zYtWGIiEkJRs146-1759458037861-43.png" alt="pic"><br>再点一次镜像，加载，重复第（调整disk或cd/dvd）步选择disk，不要选导入，如果你有现成的，那就选导入，一般是xxx.img，创建，一般填hda.img，第二行看系统大小来定，XP可以是10G，win7可以是20G，10G填10240，20G填20480，以此类推。</p>
 <p>创建完成后，点击播放建，开机，正常安装系统即可。来了电话回自动暂停，来了微信，就点击上面的暂停键，暂停。如图（会加载缓慢）</p>
-<p><img data-src="/./../images/Xl1ow2tg3qPU7xf-1759458037861-44.png" alt="pic"><br><img data-src="/./../images/Xl1ow2tg3qPU7xf-1759458037863-46.png" alt="pic"><br>继续运行点击中间即可。退出点击X，如果开着机，相当于强制关机。</p>
-<p><img data-src="/./../images/BDYJa1RFfnIX4Qt-1759458037861-45.png" alt="pic"></p>
+<p><img data-src="./../images/Xl1ow2tg3qPU7xf-1759458037861-44.png" alt="pic"><br><img data-src="./../images/Xl1ow2tg3qPU7xf-1759458037863-46.png" alt="pic"><br>继续运行点击中间即可。退出点击X，如果开着机，相当于强制关机。</p>
+<p><img data-src="./../images/BDYJa1RFfnIX4Qt-1759458037861-45.png" alt="pic"></p>
 <hr>
 <p>Q&amp;A：</p>
 <p>Q：为什么安装AltStore会出现签名错误？</p>
@@ -1326,6 +1259,27 @@
       </tags>
   </entry>
   <entry>
+    <title>Usage of Structure Block in Minecraft PE</title>
+    <url>/2020/11/22/Usage-of-structure-block-in-Minecraft-PE/</url>
+    <content><![CDATA[<p>写在前面：看到我写游戏，是不是感到非常惊讶？是否有很多问号？其实我从2013年接触我的世界，最早玩0.10.5版本，接触了多玩我的世界盒子和葫芦侠。最早玩我的世界还是用的三星的GT-I9050,安卓2.3，除了运行0.10.5,再大的版本就运行不了了。后来，我用我妈的红米玩0.12.2，地狱疣和药水炼制让我着迷。后来中间潜心学习了一段时间，终于在网易代理后又拾起了我的世界。现在手机版都有地狱更新了，我玩着新版本，没有感觉不熟悉，反而是满满的回忆。今天的我的世界,盒子类几乎没有，唯一好的盒子还是Toolbox，最近也要看广告才能解锁高级功能。<br>今天教大家如何在我的世界中使用结构方块，其实官方名字叫“建筑方块”。<br>首先，在创建世界时，打开“启用实验玩法”，确定开启了作弊和创造。建议下载Toolbox，我就用的toolbox。</p>
+<p><img data-src="./../images/2020042717372011.jpg" alt="jpg"><br><img data-src="./../images/2020042717372010.jpg" alt="jpg"><br><img data-src="./../images/202004271737209.jpg" alt="jpg"><br><img data-src="./../images/202004271737208.jpg" alt="jpg"></p>
+<p>接着，点击小稿头，找到世界-获取项目，不要点上面的四个，弹出键盘关闭即可。<br><img data-src="./../images/202004271737207.jpg" alt="jpg"></p>
+<p>在最下面找到这个方块，点击“添加”<br>然后放在地下，你想复制的地方，可以不是一个维度，比如复制各种遗迹。<br>放下“建筑方块”会看到以下界面<br><img data-src="./../images/202004271737206.jpg" alt="jpg"></p>
+<p>这就是要复制的范围，大小可以调，点击“建筑方块”<br><img data-src="./../images/202004271737205.jpg" alt="jpg"></p>
+<p>会看到一个3D图像和右边的大小和偏移。可以自行调节，比对3D图像，X轴是红色，Y轴是绿色，Z轴是红色，偏移是复制结构偏移多少格，像这样<br><img data-src="./../images/202004271737203.jpg" alt="jpg"></p>
+<p>X轴和Y轴最大64，Y轴未知（自己试试）<br><img data-src="./../images/202004271737204.jpg" alt="jpg"><br>可以选择包含实体或移除方块。包含实体如果打开了，掉落物，各种动物，怪物，村民都可以保存下来。如果打开了移除方块，就会只保留实体。<br><img data-src="./../images/202004271737202.jpg" alt="jpg"></p>
+<p>保存到磁盘中可以导出为3D图像，或复制到另一个世界。不过toolbox的世界与原版不互通，并且找不到toolbox的文档目录，我已经发邮件问作者，还没回。保存到内存的话，应该是退出世界就没有了。<br><img data-src="./../images/202004271737201.jpg" alt="jpg"></p>
+<p>保存的话，写上一个名字，会自动为你补全mystructure:这是，找个你想复制的地方，放下“建筑方块”,模式选择“加载”，也是光输入你保存时写的的名字。我这里是test，如果存在，则字体变亮，如果不存在，会是灰色。输入正确后，会显示出你保存的大小，调整即可。最后点击“加载”会有点卡，一点一点加载，甚是舒服！最后就是这个样子<br><img data-src="./../images/20200427173720.jpg" alt="jpg"></p>
+<p>突然出现的“山”是不是很有趣？也可以把末地船复制到大海上，稍加修缮，就成真正在海上的船了！<br>写在最后：近的物体，还是用clone命令吧。两者皆用，建筑我行！（这应该是全网第一篇教程，有不明白的可以点游戏中建筑方块里面的问号）</p>
+]]></content>
+      <categories>
+        <category>Games</category>
+      </categories>
+      <tags>
+        <tag>Minecarft</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>js.org free domain</title>
     <url>/2020/11/28/js-org-free-domain/</url>
     <content><![CDATA[<h2 id="了解"><a href="#了解" class="headerlink" title="了解"></a>了解</h2><p><a href="js.org">官方链接</a></p>
@@ -1333,8 +1287,8 @@
 <p>2.一台电脑；</p>
 <p>3.一个Github账号；</p>
 <p>4.明白PR的方法。</p>
-<p>5.:boom::boom::boom:<br><em><strong>Due to the increased number of requests for js.org subdomains recently, with many having questionable relevancy to the JavaScript community and ecosystem, we’ve decided that going forward js.org will be focusing on accepting subdomain requests from projects with a clear relation to the JS community.</strong></em></p>
-<p><em><strong>As some examples, personal pages, blogs, and Discord bot pages will no longer be accepted. Projects such as NPM packages, libraries, tools that have a clear direct relation to JavaScript, will be accepted when requesting a JS.ORG subdomain. This decision does not affect subdomains that have already been granted.</strong></em><br>:boom::boom::boom:</p>
+<p>5.:boom::boom::boom:<br><strong><em>Due to the increased number of requests for js.org subdomains recently, with many having questionable relevancy to the JavaScript community and ecosystem, we’ve decided that going forward js.org will be focusing on accepting subdomain requests from projects with a clear relation to the JS community.</em></strong></p>
+<p><strong><em>As some examples, personal pages, blogs, and Discord bot pages will no longer be accepted. Projects such as NPM packages, libraries, tools that have a clear direct relation to JavaScript, will be accepted when requesting a JS.ORG subdomain. This decision does not affect subdomains that have already been granted.</em></strong><br>:boom::boom::boom:</p>
 <p>意思是你的申请必须关于js，npm。提高了门槛。</p>
 <h2 id="详细步骤"><a href="#详细步骤" class="headerlink" title="详细步骤"></a>详细步骤</h2><p>打开js.org官方仓库。</p>
 <p><a href="https://github.com/js-org/js.org">直达链接</a></p>
@@ -1345,12 +1299,11 @@
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="string">&quot;你想要申请的前缀&quot;</span>: <span class="string">&quot;你的仓库URL&quot;</span>,</span><br></pre></td></tr></table></figure>
 <p>保存<br>打开你的仓库，确保Pages环境存在，添加CNAME文件，内容为</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">你的前缀.js.org</span><br></pre></td></tr></table></figure>
-
 <p>点击仓库上方的Pull requests，点击绿色的“New pull request”</p>
 <p>标题<strong>不要</strong>为Update cnames_active.js<br>改成“你的前缀.js.org”<br>其他的不用管，直接提交即可。</p>
 <p>坐等成功</p>
 <p>我的已经成功了，见<br><a href="https://github.com/js-org/js.org/pull/5039">#5039</a></p>
-<p><a href="https://mjy.js.org/">Blog</a></p>
+<p><a href="https://mjy.js.org">Blog</a></p>
 ]]></content>
       <categories>
         <category>Domain</category>
@@ -1366,66 +1319,10 @@
       </tags>
   </entry>
   <entry>
-    <title>Usage of Structure Block in Minecraft PE</title>
-    <url>/2020/11/22/Usage-of-structure-block-in-Minecraft-PE/</url>
-    <content><![CDATA[<p>写在前面：看到我写游戏，是不是感到非常惊讶？是否有很多问号？其实我从2013年接触我的世界，最早玩0.10.5版本，接触了多玩我的世界盒子和葫芦侠。最早玩我的世界还是用的三星的GT-I9050,安卓2.3，除了运行0.10.5,再大的版本就运行不了了。后来，我用我妈的红米玩0.12.2，地狱疣和药水炼制让我着迷。后来中间潜心学习了一段时间，终于在网易代理后又拾起了我的世界。现在手机版都有地狱更新了，我玩着新版本，没有感觉不熟悉，反而是满满的回忆。今天的我的世界,盒子类几乎没有，唯一好的盒子还是Toolbox，最近也要看广告才能解锁高级功能。<br>今天教大家如何在我的世界中使用结构方块，其实官方名字叫“建筑方块”。<br>首先，在创建世界时，打开“启用实验玩法”，确定开启了作弊和创造。建议下载Toolbox，我就用的toolbox。</p>
-<p><img data-src="/./../images/2020042717372011.jpg" alt="jpg"><br><img data-src="/./../images/2020042717372010.jpg" alt="jpg"><br><img data-src="/./../images/202004271737209.jpg" alt="jpg"><br><img data-src="/./../images/202004271737208.jpg" alt="jpg"></p>
-<p>接着，点击小稿头，找到世界-获取项目，不要点上面的四个，弹出键盘关闭即可。<br><img data-src="/./../images/202004271737207.jpg" alt="jpg"></p>
-<p>在最下面找到这个方块，点击“添加”<br>然后放在地下，你想复制的地方，可以不是一个维度，比如复制各种遗迹。<br>放下“建筑方块”会看到以下界面<br><img data-src="/./../images/202004271737206.jpg" alt="jpg"></p>
-<p>这就是要复制的范围，大小可以调，点击“建筑方块”<br><img data-src="/./../images/202004271737205.jpg" alt="jpg"></p>
-<p>会看到一个3D图像和右边的大小和偏移。可以自行调节，比对3D图像，X轴是红色，Y轴是绿色，Z轴是红色，偏移是复制结构偏移多少格，像这样<br><img data-src="/./../images/202004271737203.jpg" alt="jpg"></p>
-<p>X轴和Y轴最大64，Y轴未知（自己试试）<br><img data-src="/./../images/202004271737204.jpg" alt="jpg"><br>可以选择包含实体或移除方块。包含实体如果打开了，掉落物，各种动物，怪物，村民都可以保存下来。如果打开了移除方块，就会只保留实体。<br><img data-src="/./../images/202004271737202.jpg" alt="jpg"></p>
-<p>保存到磁盘中可以导出为3D图像，或复制到另一个世界。不过toolbox的世界与原版不互通，并且找不到toolbox的文档目录，我已经发邮件问作者，还没回。保存到内存的话，应该是退出世界就没有了。<br><img data-src="/./../images/202004271737201.jpg" alt="jpg"></p>
-<p>保存的话，写上一个名字，会自动为你补全mystructure:这是，找个你想复制的地方，放下“建筑方块”,模式选择“加载”，也是光输入你保存时写的的名字。我这里是test，如果存在，则字体变亮，如果不存在，会是灰色。输入正确后，会显示出你保存的大小，调整即可。最后点击“加载”会有点卡，一点一点加载，甚是舒服！最后就是这个样子<br><img data-src="/./../images/20200427173720.jpg" alt="jpg"></p>
-<p>突然出现的“山”是不是很有趣？也可以把末地船复制到大海上，稍加修缮，就成真正在海上的船了！<br>写在最后：近的物体，还是用clone命令吧。两者皆用，建筑我行！（这应该是全网第一篇教程，有不明白的可以点游戏中建筑方块里面的问号）</p>
-]]></content>
-      <categories>
-        <category>Games</category>
-      </categories>
-      <tags>
-        <tag>Minecarft</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>对过去的一些回忆与思考</title>
-    <url>/2023/08/05/memory1/</url>
-    <content><![CDATA[<p><img data-src="/./../images/1691270729-644e6321b37f3df28c6d147fd03a111-466x1024.jpg"></p>
-<p>实际上，当我看到这一幕时，我的内心是淡然的，没有了初中时的那份焦虑与慌张，但在一个人的夜晚里，还是会想起，于是写下这篇带有回忆性质的文章。</p>
-<p>与她相识在初中，也许是天意，初一与初二我们基本上是分在南北两排，用一句比较通俗的话就是，“我们没有一点交集”，唯一的一次交流还是初一结束时，她作为英语老师的助手，为优秀小组和学生写奖状，为我特别地用绿色笔写（现已褪色为棕色），这就是基础。我对她那个时候的印象，只知道她并没有去“希望之星”研学，另外就是她的成绩很好且很稳定，一直都是第一名。</p>
-<p>不过上了初二，我的成绩也在一点点进步，所以意外的被排位排到了同一排，之后我们的交流便开始了。有一个人不能不提，就是我那个时候的同桌，现在情况如图：</p>
-<p><img data-src="/./../images/1691271622-f3bfd6b39f889d1422e6c7758e904ba-466x1024.jpg"></p>
-<p>（估计两个人是商量好的）</p>
-<p>她们俩是要好的朋友，我因此也得以与她搭话。</p>
-<p>我们互相加了联系方式，有一天她在女生那边造我的谣，于是命运的齿轮开始乱转，我第一次与她聊天聊到12点（还是1点，反正很晚就对了），之后便一发不可收拾，最晚达到了凌晨3点，她第二天11点才起，我甚至一度以为她出什么事了（乐）。</p>
-<p>琐碎的事情不必闲谈，之后她删了我两三次，第一次是为了录视频，证明要是有人这么（反正语气就是不客气）跟她说话，她就删掉那人，第二次与第三次记不太清，有一次是因为AA制没完全AA，回家后我的母亲数落我，我反问她，她跟她的好朋友商量了1h把我删掉，第二天她就发烧了（乐）。反正每逢寒暑假必删我，到开学前一两周才加回来。</p>
-<p>我们在校外以一起玩剧本杀为主，第一次一起出去还是去我们的母校（小学），顺带一提，她是唯一一个我跟她出去玩我母亲不会怀疑的女生，虽然一起聊天时我的母亲还是会阴阳我罢了。</p>
-<p>我相信“日久生情”，可是她对我没有意思，所以我们的友谊就维持在朋友（或者高一点，闺蜜）上。她找过两次男友，其一是因为冲动，而且还是在我与她处于僵持阶段时谈的，因此我没有许多详细的信息（也不能说），其二现在是我同班同学，我早已劝过她趁早放弃，他这人性格古怪，而且不想谈恋爱，但她属于那种决定好了做什么事无论怎样也要完成的人，结果最后被伤得很惨，我也有幸喜提红色感叹号。很多人不理解，为啥她要把我删掉，实际上我也不是很理解，也许她认为我过于懦弱才造成了这种局面，反正错就在我没错吧？</p>
-<p>上了高中，我们在不同的学校，所以我们的往来也就变少了。要不就是互发微信询问各校的情况，要不就是放假出去初中同学聚餐。她找上了男朋友，我也不适合与她有过多的来往。</p>
-<p>之后她分手了，这个地方可以详细地写一下（毕竟是最后一次删的原因）</p>
-<p>首先我需要先纠正一点，什么是“嗑”啊? 有什么值得嗑的啊? 开玩笑的。嗑很正常，在一中他们也说我有个有好听名字的同学很好 (原话) ，这个名字他们一是从其他实验创新的同学嘴里听说的，还有就是从我之前在教室登录微信他们看到了那个名字 (老师让我登着上网课) ，我们班其实有很多认识她的，他们认识但是并非我告诉他们的 (这里作个铺垫)</p>
-<p>她分手的事想必你已经知道了，但是我还是想再说一遍，不要嫌罗嗦，因为这个情节是综合了三个渠道的消息 (目击者、徐的朋友、她给我发的消息) ，真实性确实有待考察，但是相信你可以总结出事情背后的真相</p>
-<p>故事发生在高考+中考假结束的一天后，我还拿着手机 (一般是要上交的，包括现在这个发消息的手机还是台 2012 年的老古董，我的主力机在家里放着不让带)，晚上放学回家她给我发消息说她分手了，那我肯定着急，我问她怎么回事，她说她过生日他没给她送礼物，然后分，但是今天有复合的迹象，她跟他面部交流，但是他的组员投来鄙夷的目光(原话并不是这样，但是目光反正就是在嘲讽就是了) ，然后她就很生气，她才知道他把分手的事跟他的组员说了。晚上他的朋友就让她滚，她就把他拉到一个角落给他跪下了，这时有个目击者 (女生，正是上文中提到的)看到了。第二天我问她怎么样了，她说抱了还亲了，但是不知道是什么关系，之后因为她的农历生日到了嘛，我去实验给她放下了礼物还有一封小作文 (就是关于分手的事情啦) ，之后手机没有了，她也没给我发消息。端午假期，她给我发消息，能不能有点距离感，我以为我写的信刺激到她了 (语言过于犀利 (自评) ) 她说不是，说从徐那知道，我在一中传播他们分手的消息，徐说问了个一中的，我想起，我在一中有个性格相似的女同学，我跟她讲了这个事，但是我并没有说提到人名和学校，她的前位是个旗城的女同学据我调查跟徐相对一中的其他同学关系密切，她听出了内容，冲我笑 (不怀好意) ，我跟她说谁也别说，但是据我推测她还是说了，我跟都道歉她就是不理我，于是想着看看，果真让我猜对了 (删了)。</p>
-<p>以上内容是我端午之前了解到的，端午后，我的同学 (上文中提到的目击者的好朋友) 跟我说她分手了，在学校里整天哭，这是端午之前的事这是一点，今晚上跟我同桌提起徐，他说 (以下皆为原话，我不可能改动) ，徐的朋友，觉得徐学习好，家里有钱，但是她，长得胖 (我不认可)觉得她配不上徐，劝徐分手。另，上面的目击者还说，徐是真想分了，但是她不想，或是说没看出来，她在她们班女生的内心地位很差，好像说了个因为哭还是怎样，反正人缘不是很好。</p>
-<p>故事讲到这里就没了，其实在夜深人静之时仔细想想，我没有对不起她的地方，她删了我很多次，因为不同原因，这些都是过眼云烟，同样的，她有她实验的圈子，我有我一中的圈子，本身已经交集不大。我还是觉得就这样散场还是不是很好，不是一个完美的结局，可是天下没有不散的筵席。之前合格考试碰见了她，也只是当作了陌生人刻意回避她。也许现在真如她第二次删我时所说我们不是一路人罢了。</p>
-<p>就这样，我们如图一一样可以说彻底分道扬镳了，思来想去，我觉得我没有将她加回来的必要。首先我们在各自的高中，过着各自的生活，有着各自的小圈子，过多的交流产生的误解容易不好及时解开。自我反省，我与她来往的这三年，我真的没有亏欠过她什么，我认为我做的一些事虽然不对不合适，但我相信我可以通过语言交流化解开。她比较擅长随心所欲，而我比较适合内向保守按规矩办事。我将她看作了我16年人生里的最重要的朋友，可是她也许没这么想。我认为她比较倾向于是一个利己主义者，我的出现可以说能满足她的需要，于是她接纳我。既然我影响到了她，对她产生了不好的影响，那错确实在我，她删我也是情有可原。就这样结束我确实于心不甘，但这也是命运所安排。</p>
-<p>最后在此祝她幸福，这是我想说的，也是我真心诚意所期待的。</p>
-]]></content>
-      <categories>
-        <category>情感经历</category>
-      </categories>
-      <tags>
-        <tag>回忆</tag>
-        <tag>思考</tag>
-        <tag>情感经历</tag>
-        <tag>朋友</tag>
-        <tag>过去</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【论文阅读 | TCSVT 2024 | MMI-Det：探索可见光与红外目标检测的多模态融合】</title>
     <url>/2025/10/14/%E3%80%90%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%20%20TCSVT%202024%20%20MMI-Det%EF%BC%9A%E6%8E%A2%E7%B4%A2%E5%8F%AF%E8%A7%81%E5%85%89%E4%B8%8E%E7%BA%A2%E5%A4%96%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E7%9A%84%E5%A4%9A%E6%A8%A1%E6%80%81%E8%9E%8D%E5%90%88%E3%80%91/</url>
     <content><![CDATA[<p>[TOC]</p>
-<p><img data-src="/./../images/image-20251014174923042-1760435411753-1.png" alt="image-20251014174923042"></p>
+<p><img data-src="./../images/image-20251014174923042-1760435411753-1.png" alt="image-20251014174923042"></p>
 <p>题目：MMI-Det: Exploring Multi-Modal Integration for<br>Visible and Infrared Object Detection</p>
 <p>期刊：TCSVT(IEEE Transactions on Circuits and Systems for Video Technology)</p>
 <p>论文链接：<a href="https://ieeexplore.ieee.org/document/10570450">Link</a></p>
@@ -1443,9 +1340,9 @@
 </li>
 <li><p>我们设计了<strong>融合聚焦模块(Fusion Focus Module)</strong>，以使得该方法能够在不同空间区域下感知并融合可见光-红外模态的目标细节信息；</p>
 </li>
-<li><p>**对比度桥接模块(Contrast Bridge Module)**旨在利用对比学习的思想，将可见光-红外数据分离为正负样本对。其能够引导模型提升在可见光-红外场景中感知模态不变特征的能力；</p>
+<li><p><strong>对比度桥接模块(Contrast Bridge Module)</strong>旨在利用对比学习的思想，将可见光-红外数据分离为正负样本对。其能够引导模型提升在可见光-红外场景中感知模态不变特征的能力；</p>
 </li>
-<li><p>**信息引导模块(Info Guided Module)**旨在引导我们的模型在训练过程中更有效地融合两种模态的特征信息。</p>
+<li><p><strong>信息引导模块(Info Guided Module)</strong>旨在引导我们的模型在训练过程中更有效地融合两种模态的特征信息。</p>
 </li>
 </ul>
 <h2 id="3-方法"><a href="#3-方法" class="headerlink" title="3.方法"></a>3.方法</h2><h3 id="先前方法-1"><a href="#先前方法-1" class="headerlink" title="先前方法"></a>先前方法</h3><h4 id="A-图像融合"><a href="#A-图像融合" class="headerlink" title="A. 图像融合"></a>A. 图像融合</h4><p>目前已经有许多较为成熟的图像融合方法：</p>
@@ -1486,18 +1383,35 @@
 <h3 id="本文所提出的方法"><a href="#本文所提出的方法" class="headerlink" title="本文所提出的方法"></a>本文所提出的方法</h3><h4 id="A-总体结构"><a href="#A-总体结构" class="headerlink" title="A. 总体结构"></a>A. 总体结构</h4><ul>
 <li>基于双流YOLOv5框架</li>
 </ul>
-<p>对于输入图像，我们令V和I分别表示可见光图像和红外图像。则可见光图像的输入可表示为<br>$$<br>X_V &#x3D; {x_V | x_V \in \mathbb{R}^{C \times H \times W}}<br>$$<br>红外图像的输入可表示为<br>$$<br>X_I &#x3D; {x_I | x_I \in \mathbb{R}^{C \times H \times W}}<br>$$<br>其中C、H和W分别对应图像的通道、高度和宽度。</p>
-<p>在一个批次的训练过程中，共有B幅图像，其中$x_i^V$和$x_i^I$的数量相同，$i \in {1, 2, \ldots, B&#x2F;2}$。输入的可见光-红外图像将首先通过轮廓增强模块(Contour Enhancement Module)，如下式所示：<br>$$<br>\begin{split}<br>F_{\text{V}}^{CEM} &amp;&#x3D; CEM(X_{\text{V}}), \<br>F_{\text{I}}^{CEM} &amp;&#x3D; CEM(X_{\text{I}}).<br>\end{split}<br>$$<br>在此，$F_{\text{V}}^{CEM}$和$F_{\text{I}}^{CEM}$表示经过CEM处理后的可见光-红外特征。接下来，为了使特征在不丢失过多信息的前提下能够在计算上进行降维，我们引入了FOC，该方法使用切片操作，将高分辨率特征图分割为多个低分辨率特征图。FOC的这种策略性分割以紧凑形式保留了关键空间信息，在促进更快处理的同时，保持了准确目标检测所需的特征完整性。这些FOC模块的输出特征被输入至Conv和C3模块。C3采用多尺度特征融合方法和跨通道信息传递机制来提升特征表示能力。通过将FOC与C3有效结合，网络同时受益于降维和特征丰富性，从而提升了检测性能。需要注意的是，FOC和C3均已在YOLOv5中可用。该过程如下所示：</p>
-<p>$$<br>\begin{split}<br>F_{\text{V}}^{C3} &amp;&#x3D; C3(\text{Conv}(\text{FOC}(F_{\text{V}}^{CEM}))), \<br>F_{\text{I}}^{C3} &amp;&#x3D; C3(\text{Conv}(\text{FOC}(F_{\text{I}}^{CEM}))).<br>\end{split}<br>$$</p>
-<p>公式2中的Conv模块和C3模块能够提升模型的特征提取能力。为了引导模型进行有效的训练优化，我们借鉴对比学习的思想设计了对比桥接模块(Contrastive Bridge Module, CBM)，并设计了损失函数 (\mathcal{L}_{CB})：</p>
-<p>$$<br>\mathcal{L}<em>{CB} &#x3D; CBM\bigl(F</em>{\text{V}}^{C3},, F_{\text{I}}^{C3}\bigr).<br>$$</p>
-<p>在此，(\mathcal{L}<em>{CB}) 可用作损失函数以引导模型学习模态不变信息。经过上述模块后，可见光特征 (F</em>{\text{V}}^{C3}) 与红外特征 (F_{\text{I}}^{C3}) 被输入至融合聚焦模块(Fusion Focus Module, FFM)。MMI-Det 设计了多个 FFM 用于不同深度的特征融合。具体而言，FFM 的结构如下式所示：</p>
-<p>$$<br>F_{\text{V}}^{FFM},; F_{\text{I}}^{FFM} &#x3D; FFM\bigl(F_{\text{V}}^{C3},, F_{\text{I}}^{C3}\bigr).<br>$$</p>
-<p>FFM 充分融合两种模态特征，并将融合后的特征反馈至两个分支。它们与在各自的分支上的特征相加，并一同被发送至下一个特征提取-融合阶段：</p>
-<p>$$<br>\begin{aligned}<br>F_{\text{V}}^{add} &amp;&#x3D; F_{\text{V}}^{FFM} + F_{\text{V}}^{C3}, \<br>F_{\text{I}}^{add} &amp;&#x3D; F_{\text{I}}^{FFM} + F_{\text{I}}^{C3}, \<br>F_{\text{V-I}}^{add_1} &amp;&#x3D; F_{\text{V}}^{add} + F_{\text{I}}^{add}.<br>\end{aligned}<br>$$</p>
-<p>在上式中，相加特征 (F_{\text{V}}^{add}) 和 (F_{\text{I}}^{add}) 被传送到后续阶段，我们设计了共 (i) 组此类阶段，以从不同深度充分提取两种模态中的目标信息。当前阶段的融合特征将被保存为 (F_{\text{V-I}}^{add_1})。最终结果通过检测头(Detect Head)输出，如下图所示。相关公式如下：</p>
-<p>$$<br>\mathrm{Pred} &#x3D; \mathrm{DetectHead}\bigl(F_{\text{V-I}}^{add_1},, F_{\text{V-I}}^{add_2},, \ldots,, F_{\text{V-I}}^{add_i}\bigr).<br>$$</p>
-]]></content>
+<p>对于输入图像，我们令V和I分别表示可见光图像和红外图像。则可见光图像的输入可表示为</p>
+<script type="math/tex; mode=display">
+X_V = \{x_V | x_V \in \mathbb{R}^{C \times H \times W}\}</script><p>红外图像的输入可表示为</p>
+<script type="math/tex; mode=display">
+X_I = \{x_I | x_I \in \mathbb{R}^{C \times H \times W}\}</script><p>其中C、H和W分别对应图像的通道、高度和宽度。</p>
+<p>在一个批次的训练过程中，共有B幅图像，其中$x_i^V$和$x_i^I$的数量相同，$i \in \{1, 2, \ldots, B/2\}$。输入的可见光-红外图像将首先通过轮廓增强模块(Contour Enhancement Module)，如下式所示：</p>
+<script type="math/tex; mode=display">
+\begin{split}
+F_{\text{V}}^{CEM} &= CEM(X_{\text{V}}), \\
+F_{\text{I}}^{CEM} &= CEM(X_{\text{I}}).
+\end{split}</script><p>在此，$F_{\text{V}}^{CEM}$和$F_{\text{I}}^{CEM}$表示经过CEM处理后的可见光-红外特征。接下来，为了使特征在不丢失过多信息的前提下能够在计算上进行降维，我们引入了FOC，该方法使用切片操作，将高分辨率特征图分割为多个低分辨率特征图。FOC的这种策略性分割以紧凑形式保留了关键空间信息，在促进更快处理的同时，保持了准确目标检测所需的特征完整性。这些FOC模块的输出特征被输入至Conv和C3模块。C3采用多尺度特征融合方法和跨通道信息传递机制来提升特征表示能力。通过将FOC与C3有效结合，网络同时受益于降维和特征丰富性，从而提升了检测性能。需要注意的是，FOC和C3均已在YOLOv5中可用。该过程如下所示：</p>
+<script type="math/tex; mode=display">
+\begin{split}
+F_{\text{V}}^{C3} &= C3(\text{Conv}(\text{FOC}(F_{\text{V}}^{CEM}))), \\
+F_{\text{I}}^{C3} &= C3(\text{Conv}(\text{FOC}(F_{\text{I}}^{CEM}))).
+\end{split}</script><p>公式2中的Conv模块和C3模块能够提升模型的特征提取能力。为了引导模型进行有效的训练优化，我们借鉴对比学习的思想设计了对比桥接模块(Contrastive Bridge Module, CBM)，并设计了损失函数$\mathcal{L}_{CB}$ ：</p>
+<script type="math/tex; mode=display">
+\mathcal{L}_{CB} = CBM(F_{\text{V}}^{C3}, F_{\text{I}}^{C3}).</script><p>在此，$\mathcal{L}_{CB}$可用作损失函数以引导模型学习模态不变信息。经过上述模块后，可见光特征$F_{\text{V}}^{C3}$与红外特征$F_{\text{I}}^{C3}$被输入至融合聚焦模块(Fusion Focus Module, FFM)。MMI-Det设计了多个FFM用于不同深度的特征融合。具体而言，FFM的结构如下式所示：</p>
+<script type="math/tex; mode=display">
+F_{\text{V}}^{FFM}, F_{\text{I}}^{FFM} = FFM(F_{\text{V}}^{C3}, F_{\text{I}}^{C3}).</script><p>FFM 充分融合两种模态特征，并将融合后的特征反馈至两个分支。它们与在各自的分支上的特征相加，并一同被发送至下一个特征提取-融合阶段：</p>
+<script type="math/tex; mode=display">
+\begin{align*}
+F_{\text{V}}^{add} &= F_{\text{V}}^{FFM} + F_{\text{V}}^{C3}, \\
+F_{\text{I}}^{add} &= F_{\text{I}}^{FFM} + F_{\text{I}}^{C3}, \\
+F_{\text{V-I}}^{add_1} &= F_{\text{V}}^{add} + F_{\text{I}}^{add}.
+\end{align*}</script><p>在上式中，相加特征$F_{\text{V}}^{add}$和$F_{\text{I}}^{add}$被传送到后续阶段，我们设计了共$i$组此类阶段，以从不同深度充分提取两种模态中的目标信息。当前阶段的融合特征将被保存为$F_{\text{V-I}}^{add_1}$。最终结果通过检测头(Detect Head)输出，如下图所示。相关公式如下：</p>
+<p><img data-src="./../images/image-20251014201352915.png" alt="image-20251014201352915"></p>
+<script type="math/tex; mode=display">
+Pred = DetectHead(F_{\text{V-I}}^{add_1}, F_{\text{V-I}}^{add_2}, \ldots, F_{\text{V-I}}^{add_i}).</script>]]></content>
       <categories>
         <category>论文阅读</category>
       </categories>
@@ -1506,6 +1420,41 @@
         <tag>多模态融合</tag>
         <tag>图像融合</tag>
         <tag>傅里叶变换</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>对过去的一些回忆与思考</title>
+    <url>/2023/08/05/memory1/</url>
+    <content><![CDATA[<p><img data-src="./../images/1691270729-644e6321b37f3df28c6d147fd03a111-466x1024.jpg" alt=""></p>
+<p>实际上，当我看到这一幕时，我的内心是淡然的，没有了初中时的那份焦虑与慌张，但在一个人的夜晚里，还是会想起，于是写下这篇带有回忆性质的文章。</p>
+<p>与她相识在初中，也许是天意，初一与初二我们基本上是分在南北两排，用一句比较通俗的话就是，“我们没有一点交集”，唯一的一次交流还是初一结束时，她作为英语老师的助手，为优秀小组和学生写奖状，为我特别地用绿色笔写（现已褪色为棕色），这就是基础。我对她那个时候的印象，只知道她并没有去“希望之星”研学，另外就是她的成绩很好且很稳定，一直都是第一名。</p>
+<p>不过上了初二，我的成绩也在一点点进步，所以意外的被排位排到了同一排，之后我们的交流便开始了。有一个人不能不提，就是我那个时候的同桌，现在情况如图：</p>
+<p><img data-src="./../images/1691271622-f3bfd6b39f889d1422e6c7758e904ba-466x1024.jpg" alt=""></p>
+<p>（估计两个人是商量好的）</p>
+<p>她们俩是要好的朋友，我因此也得以与她搭话。</p>
+<p>我们互相加了联系方式，有一天她在女生那边造我的谣，于是命运的齿轮开始乱转，我第一次与她聊天聊到12点（还是1点，反正很晚就对了），之后便一发不可收拾，最晚达到了凌晨3点，她第二天11点才起，我甚至一度以为她出什么事了（乐）。</p>
+<p>琐碎的事情不必闲谈，之后她删了我两三次，第一次是为了录视频，证明要是有人这么（反正语气就是不客气）跟她说话，她就删掉那人，第二次与第三次记不太清，有一次是因为AA制没完全AA，回家后我的母亲数落我，我反问她，她跟她的好朋友商量了1h把我删掉，第二天她就发烧了（乐）。反正每逢寒暑假必删我，到开学前一两周才加回来。</p>
+<p>我们在校外以一起玩剧本杀为主，第一次一起出去还是去我们的母校（小学），顺带一提，她是唯一一个我跟她出去玩我母亲不会怀疑的女生，虽然一起聊天时我的母亲还是会阴阳我罢了。</p>
+<p>我相信“日久生情”，可是她对我没有意思，所以我们的友谊就维持在朋友（或者高一点，闺蜜）上。她找过两次男友，其一是因为冲动，而且还是在我与她处于僵持阶段时谈的，因此我没有许多详细的信息（也不能说），其二现在是我同班同学，我早已劝过她趁早放弃，他这人性格古怪，而且不想谈恋爱，但她属于那种决定好了做什么事无论怎样也要完成的人，结果最后被伤得很惨，我也有幸喜提红色感叹号。很多人不理解，为啥她要把我删掉，实际上我也不是很理解，也许她认为我过于懦弱才造成了这种局面，反正错就在我没错吧？</p>
+<p>上了高中，我们在不同的学校，所以我们的往来也就变少了。要不就是互发微信询问各校的情况，要不就是放假出去初中同学聚餐。她找上了男朋友，我也不适合与她有过多的来往。</p>
+<p>之后她分手了，这个地方可以详细地写一下（毕竟是最后一次删的原因）</p>
+<p>首先我需要先纠正一点，什么是“嗑”啊? 有什么值得嗑的啊? 开玩笑的。嗑很正常，在一中他们也说我有个有好听名字的同学很好 (原话) ，这个名字他们一是从其他实验创新的同学嘴里听说的，还有就是从我之前在教室登录微信他们看到了那个名字 (老师让我登着上网课) ，我们班其实有很多认识她的，他们认识但是并非我告诉他们的 (这里作个铺垫)</p>
+<p>她分手的事想必你已经知道了，但是我还是想再说一遍，不要嫌罗嗦，因为这个情节是综合了三个渠道的消息 (目击者、徐的朋友、她给我发的消息) ，真实性确实有待考察，但是相信你可以总结出事情背后的真相</p>
+<p>故事发生在高考+中考假结束的一天后，我还拿着手机 (一般是要上交的，包括现在这个发消息的手机还是台 2012 年的老古董，我的主力机在家里放着不让带)，晚上放学回家她给我发消息说她分手了，那我肯定着急，我问她怎么回事，她说她过生日他没给她送礼物，然后分，但是今天有复合的迹象，她跟他面部交流，但是他的组员投来鄙夷的目光(原话并不是这样，但是目光反正就是在嘲讽就是了) ，然后她就很生气，她才知道他把分手的事跟他的组员说了。晚上他的朋友就让她滚，她就把他拉到一个角落给他跪下了，这时有个目击者 (女生，正是上文中提到的)看到了。第二天我问她怎么样了，她说抱了还亲了，但是不知道是什么关系，之后因为她的农历生日到了嘛，我去实验给她放下了礼物还有一封小作文 (就是关于分手的事情啦) ，之后手机没有了，她也没给我发消息。端午假期，她给我发消息，能不能有点距离感，我以为我写的信刺激到她了 (语言过于犀利 (自评) ) 她说不是，说从徐那知道，我在一中传播他们分手的消息，徐说问了个一中的，我想起，我在一中有个性格相似的女同学，我跟她讲了这个事，但是我并没有说提到人名和学校，她的前位是个旗城的女同学据我调查跟徐相对一中的其他同学关系密切，她听出了内容，冲我笑 (不怀好意) ，我跟她说谁也别说，但是据我推测她还是说了，我跟都道歉她就是不理我，于是想着看看，果真让我猜对了 (删了)。</p>
+<p>以上内容是我端午之前了解到的，端午后，我的同学 (上文中提到的目击者的好朋友) 跟我说她分手了，在学校里整天哭，这是端午之前的事这是一点，今晚上跟我同桌提起徐，他说 (以下皆为原话，我不可能改动) ，徐的朋友，觉得徐学习好，家里有钱，但是她，长得胖 (我不认可)觉得她配不上徐，劝徐分手。另，上面的目击者还说，徐是真想分了，但是她不想，或是说没看出来，她在她们班女生的内心地位很差，好像说了个因为哭还是怎样，反正人缘不是很好。</p>
+<p>故事讲到这里就没了，其实在夜深人静之时仔细想想，我没有对不起她的地方，她删了我很多次，因为不同原因，这些都是过眼云烟，同样的，她有她实验的圈子，我有我一中的圈子，本身已经交集不大。我还是觉得就这样散场还是不是很好，不是一个完美的结局，可是天下没有不散的筵席。之前合格考试碰见了她，也只是当作了陌生人刻意回避她。也许现在真如她第二次删我时所说我们不是一路人罢了。</p>
+<p>就这样，我们如图一一样可以说彻底分道扬镳了，思来想去，我觉得我没有将她加回来的必要。首先我们在各自的高中，过着各自的生活，有着各自的小圈子，过多的交流产生的误解容易不好及时解开。自我反省，我与她来往的这三年，我真的没有亏欠过她什么，我认为我做的一些事虽然不对不合适，但我相信我可以通过语言交流化解开。她比较擅长随心所欲，而我比较适合内向保守按规矩办事。我将她看作了我16年人生里的最重要的朋友，可是她也许没这么想。我认为她比较倾向于是一个利己主义者，我的出现可以说能满足她的需要，于是她接纳我。既然我影响到了她，对她产生了不好的影响，那错确实在我，她删我也是情有可原。就这样结束我确实于心不甘，但这也是命运所安排。</p>
+<p>最后在此祝她幸福，这是我想说的，也是我真心诚意所期待的。</p>
+]]></content>
+      <categories>
+        <category>情感经历</category>
+      </categories>
+      <tags>
+        <tag>回忆</tag>
+        <tag>思考</tag>
+        <tag>情感经历</tag>
+        <tag>朋友</tag>
+        <tag>过去</tag>
       </tags>
   </entry>
 </search>
