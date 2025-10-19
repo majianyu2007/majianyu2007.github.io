@@ -345,107 +345,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Markdown学习笔记</title>
-    <url>/2021/01/01/Markdown/</url>
-    <content><![CDATA[<h2 id="后缀"><a href="#后缀" class="headerlink" title="后缀"></a>后缀</h2><p>.md</p>
-<p>.markdown</p>
-<p>.MD</p>
-<p>.MARKDOWN</p>
-<h2 id="标头"><a href="#标头" class="headerlink" title="标头"></a>标头</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section"># h1标头</span></span><br><span class="line"><span class="section">## h2标头</span></span><br><span class="line"><span class="section">### h3标头</span></span><br><span class="line">......</span><br><span class="line"><span class="section">###### h6标头</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="h1标头"><a href="#h1标头" class="headerlink" title="h1标头"></a>h1标头</h1><h2 id="h2标头"><a href="#h2标头" class="headerlink" title="h2标头"></a>h2标头</h2><h3 id="h3标头"><a href="#h3标头" class="headerlink" title="h3标头"></a>h3标头</h3><p>……</p>
-<h6 id="h6标头"><a href="#h6标头" class="headerlink" title="h6标头"></a>h6标头</h6><p>H后数越大，字体越小</p>
-<h2 id="重点"><a href="#重点" class="headerlink" title="重点"></a>重点</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="emphasis">*要斜体的文字*</span></span><br><span class="line"></span><br><span class="line"><span class="strong">**要加黑的文字**</span></span><br><span class="line"></span><br><span class="line"><span class="emphasis">_要斜体的文字_</span></span><br><span class="line"></span><br><span class="line"><span class="strong">__要加黑的文字__</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><em>要斜体的文字</em></p>
-<p><strong>要加黑的文字</strong></p>
-<p><em>要斜体的文字</em></p>
-<p><strong>要加黑的文字</strong></p>
-<h2 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h2><h3 id="无序"><a href="#无序" class="headerlink" title="无序"></a>无序</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet">*</span> 1</span><br><span class="line"><span class="bullet">*</span> 2</span><br><span class="line"><span class="bullet">*</span> 3</span><br><span class="line"><span class="bullet">*</span> 4</span><br><span class="line"><span class="bullet">*</span> 5</span><br><span class="line"><span class="bullet"> *</span> 1</span><br><span class="line"><span class="bullet"> *</span> 2</span><br><span class="line"><span class="bullet"> *</span> 3</span><br><span class="line"><span class="bullet"> *</span> 4</span><br><span class="line"><span class="bullet"> *</span> 5</span><br></pre></td></tr></table></figure>
-
-
-<ul>
-<li>1</li>
-<li>2</li>
-<li>3</li>
-<li>4</li>
-<li>5</li>
-<li>1</li>
-<li>2</li>
-<li>3</li>
-<li>4</li>
-<li>5</li>
-</ul>
-<p>在此博客上空格加“*”是同样的效果。</p>
-<h3 id="有序"><a href="#有序" class="headerlink" title="有序"></a>有序</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet">1.</span> 1</span><br><span class="line"><span class="bullet">2.</span> 2</span><br><span class="line"><span class="bullet">3.</span> 3</span><br><span class="line"><span class="bullet">4.</span> 4</span><br><span class="line"><span class="bullet">5.</span> 5</span><br></pre></td></tr></table></figure>
-<ol>
-<li>1</li>
-<li>2</li>
-<li>3</li>
-<li>4</li>
-<li>5</li>
-</ol>
-<p>使用一个回车后会自动补充</p>
-<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p>###图片</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">![<span class="string">图片描述</span>](<span class="link">图片位置</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">[<span class="string">链接描述</span>](<span class="link">链接</span>)</span><br></pre></td></tr></table></figure>
-
-<p><a href="https://mjy.js.org/">Blog</a></p>
-<h3 id="块引用"><a href="#块引用" class="headerlink" title="块引用"></a>块引用</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">As Kanye West said:</span><br><span class="line"></span><br><span class="line"><span class="quote">&gt; We&#x27;re living the future so</span></span><br><span class="line"><span class="quote">&gt; the present is our past.</span></span><br></pre></td></tr></table></figure>
-
-<p>As Kanye West said:</p>
-<blockquote>
-<p>We’re living the future so<br>the present is our past.</p>
-</blockquote>
-<h3 id="内联代码"><a href="#内联代码" class="headerlink" title="内联代码"></a>内联代码</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">I think you should use an</span><br><span class="line"><span class="code">`&lt;addr&gt;`</span> element here instead.</span><br></pre></td></tr></table></figure>
-<p>I think you should use an<br><code>&lt;addr&gt;</code> element here instead.</p>
-<h2 id="语法高亮"><a href="#语法高亮" class="headerlink" title="语法高亮"></a>语法高亮</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="code">` `</span> `语言类型</span><br><span class="line">code</span><br><span class="line"><span class="code">` `</span> `</span><br><span class="line">// 中间无空格</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> <span class="keyword">echo</span> <span class="string">&quot;Hello world&quot;</span>;<span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<p>将代码前加上四个空格有同样的效果</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="code">    &lt;?php echo &quot;Hello world&quot;;?&gt;</span></span><br><span class="line"><span class="code">四个空格+code</span></span><br></pre></td></tr></table></figure>
-<pre><code>&lt;?php echo &quot;Hello world&quot;;?&gt;
-&lt;?php echo &quot;1&quot;;?&gt;
-&lt;?php echo &quot;2&quot;;?&gt;
-&lt;?php echo &quot;3&quot;;?&gt;
-</code></pre>
-<h2 id="任务清单"><a href="#任务清单" class="headerlink" title="任务清单"></a>任务清单</h2><ul>
-<li><input disabled="" type="checkbox"> 未完成</li>
-<li><input checked="" disabled="" type="checkbox"> 已完成</li>
-</ul>
-<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">A | B</span><br><span class="line">-- | --</span><br><span class="line">1 | 2</span><br><span class="line">2 | 3</span><br></pre></td></tr></table></figure>
-<table>
-<thead>
-<tr>
-<th>A</th>
-<th>B</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1</td>
-<td>2</td>
-</tr>
-<tr>
-<td>2</td>
-<td>3</td>
-</tr>
-</tbody></table>
-<h2 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">del</span>&gt;</span></span>Del<span class="language-xml"><span class="tag">&lt;/<span class="name">del</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-
-<p><del>Del</del></p>
-<h2 id="表情"><a href="#表情" class="headerlink" title="表情"></a>表情</h2><p><a href="https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md">URL</a></p>
-]]></content>
-      <categories>
-        <category>notes</category>
-      </categories>
-      <tags>
-        <tag>markdown</tag>
-        <tag>Markdown</tag>
-        <tag>笔记</tag>
-        <tag>notes</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>MATLAB基础作业其一</title>
     <url>/2025/10/18/MATLAB0001/</url>
     <content><![CDATA[<h1 id="MATLAB-基础第一次作业"><a href="#MATLAB-基础第一次作业" class="headerlink" title="MATLAB 基础第一次作业"></a>MATLAB 基础第一次作业</h1><h2 id="一、基础巩固题（每题8-分，共4-题，满分32-分）"><a href="#一、基础巩固题（每题8-分，共4-题，满分32-分）" class="headerlink" title="一、基础巩固题（每题8 分，共4 题，满分32 分）"></a>一、基础巩固题（每题8 分，共4 题，满分32 分）</h2><p><strong>目标：熟练掌握MATLAB 的基本运算规则、变量赋值及简单函数使用。</strong></p>
@@ -590,6 +489,107 @@
       </categories>
       <tags>
         <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Markdown学习笔记</title>
+    <url>/2021/01/01/Markdown/</url>
+    <content><![CDATA[<h2 id="后缀"><a href="#后缀" class="headerlink" title="后缀"></a>后缀</h2><p>.md</p>
+<p>.markdown</p>
+<p>.MD</p>
+<p>.MARKDOWN</p>
+<h2 id="标头"><a href="#标头" class="headerlink" title="标头"></a>标头</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section"># h1标头</span></span><br><span class="line"><span class="section">## h2标头</span></span><br><span class="line"><span class="section">### h3标头</span></span><br><span class="line">......</span><br><span class="line"><span class="section">###### h6标头</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="h1标头"><a href="#h1标头" class="headerlink" title="h1标头"></a>h1标头</h1><h2 id="h2标头"><a href="#h2标头" class="headerlink" title="h2标头"></a>h2标头</h2><h3 id="h3标头"><a href="#h3标头" class="headerlink" title="h3标头"></a>h3标头</h3><p>……</p>
+<h6 id="h6标头"><a href="#h6标头" class="headerlink" title="h6标头"></a>h6标头</h6><p>H后数越大，字体越小</p>
+<h2 id="重点"><a href="#重点" class="headerlink" title="重点"></a>重点</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="emphasis">*要斜体的文字*</span></span><br><span class="line"></span><br><span class="line"><span class="strong">**要加黑的文字**</span></span><br><span class="line"></span><br><span class="line"><span class="emphasis">_要斜体的文字_</span></span><br><span class="line"></span><br><span class="line"><span class="strong">__要加黑的文字__</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><em>要斜体的文字</em></p>
+<p><strong>要加黑的文字</strong></p>
+<p><em>要斜体的文字</em></p>
+<p><strong>要加黑的文字</strong></p>
+<h2 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h2><h3 id="无序"><a href="#无序" class="headerlink" title="无序"></a>无序</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet">*</span> 1</span><br><span class="line"><span class="bullet">*</span> 2</span><br><span class="line"><span class="bullet">*</span> 3</span><br><span class="line"><span class="bullet">*</span> 4</span><br><span class="line"><span class="bullet">*</span> 5</span><br><span class="line"><span class="bullet"> *</span> 1</span><br><span class="line"><span class="bullet"> *</span> 2</span><br><span class="line"><span class="bullet"> *</span> 3</span><br><span class="line"><span class="bullet"> *</span> 4</span><br><span class="line"><span class="bullet"> *</span> 5</span><br></pre></td></tr></table></figure>
+
+
+<ul>
+<li>1</li>
+<li>2</li>
+<li>3</li>
+<li>4</li>
+<li>5</li>
+<li>1</li>
+<li>2</li>
+<li>3</li>
+<li>4</li>
+<li>5</li>
+</ul>
+<p>在此博客上空格加“*”是同样的效果。</p>
+<h3 id="有序"><a href="#有序" class="headerlink" title="有序"></a>有序</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet">1.</span> 1</span><br><span class="line"><span class="bullet">2.</span> 2</span><br><span class="line"><span class="bullet">3.</span> 3</span><br><span class="line"><span class="bullet">4.</span> 4</span><br><span class="line"><span class="bullet">5.</span> 5</span><br></pre></td></tr></table></figure>
+<ol>
+<li>1</li>
+<li>2</li>
+<li>3</li>
+<li>4</li>
+<li>5</li>
+</ol>
+<p>使用一个回车后会自动补充</p>
+<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p>###图片</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">![<span class="string">图片描述</span>](<span class="link">图片位置</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">[<span class="string">链接描述</span>](<span class="link">链接</span>)</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://mjy.js.org/">Blog</a></p>
+<h3 id="块引用"><a href="#块引用" class="headerlink" title="块引用"></a>块引用</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">As Kanye West said:</span><br><span class="line"></span><br><span class="line"><span class="quote">&gt; We&#x27;re living the future so</span></span><br><span class="line"><span class="quote">&gt; the present is our past.</span></span><br></pre></td></tr></table></figure>
+
+<p>As Kanye West said:</p>
+<blockquote>
+<p>We’re living the future so<br>the present is our past.</p>
+</blockquote>
+<h3 id="内联代码"><a href="#内联代码" class="headerlink" title="内联代码"></a>内联代码</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">I think you should use an</span><br><span class="line"><span class="code">`&lt;addr&gt;`</span> element here instead.</span><br></pre></td></tr></table></figure>
+<p>I think you should use an<br><code>&lt;addr&gt;</code> element here instead.</p>
+<h2 id="语法高亮"><a href="#语法高亮" class="headerlink" title="语法高亮"></a>语法高亮</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="code">` `</span> `语言类型</span><br><span class="line">code</span><br><span class="line"><span class="code">` `</span> `</span><br><span class="line">// 中间无空格</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> <span class="keyword">echo</span> <span class="string">&quot;Hello world&quot;</span>;<span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>将代码前加上四个空格有同样的效果</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="code">    &lt;?php echo &quot;Hello world&quot;;?&gt;</span></span><br><span class="line"><span class="code">四个空格+code</span></span><br></pre></td></tr></table></figure>
+<pre><code>&lt;?php echo &quot;Hello world&quot;;?&gt;
+&lt;?php echo &quot;1&quot;;?&gt;
+&lt;?php echo &quot;2&quot;;?&gt;
+&lt;?php echo &quot;3&quot;;?&gt;
+</code></pre>
+<h2 id="任务清单"><a href="#任务清单" class="headerlink" title="任务清单"></a>任务清单</h2><ul>
+<li><input disabled="" type="checkbox"> 未完成</li>
+<li><input checked="" disabled="" type="checkbox"> 已完成</li>
+</ul>
+<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">A | B</span><br><span class="line">-- | --</span><br><span class="line">1 | 2</span><br><span class="line">2 | 3</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>A</th>
+<th>B</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr>
+<td>2</td>
+<td>3</td>
+</tr>
+</tbody></table>
+<h2 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">del</span>&gt;</span></span>Del<span class="language-xml"><span class="tag">&lt;/<span class="name">del</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p><del>Del</del></p>
+<h2 id="表情"><a href="#表情" class="headerlink" title="表情"></a>表情</h2><p><a href="https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md">URL</a></p>
+]]></content>
+      <categories>
+        <category>notes</category>
+      </categories>
+      <tags>
+        <tag>markdown</tag>
+        <tag>Markdown</tag>
+        <tag>笔记</tag>
+        <tag>notes</tag>
       </tags>
   </entry>
   <entry>
@@ -1014,68 +1014,6 @@
       </tags>
   </entry>
   <entry>
-    <title>UTM Virtual Machine</title>
-    <url>/2020/11/12/UTM-virtual-machine/</url>
-    <content><![CDATA[<p>写在前面：手里有台iPhone7，不知干什么好，没有Android的可玩性，即使Android不root，也会有像termux的容器。9-11岁时，我还在玩limbo，bochs，lbochs，APQ。这些都是一些模拟器。bochs和lbochs是基于bochs的，而limbo和APQ是基于qemu的。要我给他们排序的话，bochs是最简单的，我记得我最早用过的镜像是andows.img，用起来简单，把sdl和镜像放在指定位置就行了。点击app启动，音量键控制左右键，滑动屏幕控制鼠标。点击左下角（还是右下角，我忘了）呼出键盘。就是在朋友同学面前装B用的。lbochs支持更多扩展，limbo有各种版本，对于X86的安卓兼容较好，一般在Android上我首选limbo。APQ比较稳定，但是前提是要Root，仅支持VNC，得自己去改配置。就这样。我接触到了qemu。</p>
-<p>在qemu的世界，我只做了XP的镜像，当年我家的电脑配置不高，仅仅有2G而已，一般开个虚拟机就要处在死机的边缘。但我还是经常用它来做镜像，传到手机上。那段时间，我只是从贴吧收藏大佬分享的镜像，大多都是XP和98，再高的就是7，8，10，不过开个机都要等几个小时。</p>
-<p>以前我有一台iPhone 4，完美越狱，用的盘古越狱工具。唯一能装B的，也就是一个叫Bochs的应用。在百度上，我勉勉强强找到了安装方法，但是打开就闪退，并且教程都是用的iPhone1或3，后来，我在威锋源上找到了一个writeful的源，但是后来威锋源关闭，新版的Bochs出来，但是仅仅支持iOS10以下，也就是32位系统，这时，我已经用着iPhone7了。</p>
-<p>对于iPhone7而言，可以用三种方式运行Windows。一种叫Idos2，在iOS10以前，是Idos，是用来运行dos游戏的，idos2用的dosbox，但是仅能在越狱后浏览其目录，放上教程里提供的镜像，输入“win95”启动，虽然麻烦，却异常稳定，只是显卡没有驱动。</p>
-<p>再后来，国外大神开发了iBox，基于Bochs，国外大神演示时用的iPhone7，跑起了Windows，但是却花屏。我把Windows3.11，Windows95，Windows98的镜像放在里面，却异常好用！其实就是能在64位设备上运行的Bochs而已。</p>
-<p>第三个，就是今天说的UTM虚拟机，基于qemu，能跑起Windows XP，貌似能跑起Windows7，10。也能跑起Android x86，Linux。以下是详细步骤。项目主页：<a href="https://getutm.app/">https://getutm.app/</a> GitHub：<a href="https://github.com/utmapp/UTM">https://github.com/utmapp/UTM</a></p>
-<p>1.建议越狱。</p>
-<p>为什么呢？说白了——便于续签。没错，便于续签！要不然你忍心7天装一次吗？iPhone X以下设备可以使用checkra1n越狱，可以的话我可以出一期教程。</p>
-<p>2.安装UTM</p>
-<p>如果你越狱了，直接从爱思助手拖放ipa文件即可，要没有越狱（像是iPhone11），可以用altstore。</p>
-<p>altstore教程：</p>
-<p>1.打开<a href="https://altstore.io/%E4%B8%8B%E8%BD%BD%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E3%80%82Windows%E7%89%88%E4%BB%85%E6%94%AF%E6%8C%81Windows10">https://altstore.io/下载应用程序。Windows版仅支持Windows10</a> 。</p>
-<p><img data-src="/./../images/T8IZQbfJkzdXLF3-1759458037861-31.png" alt="pic"><br>解压后点击AltInstaller.msi，进行安装，根据需求安装即可。</p>
-<p>在安装的目录下，像D:\Program Files (x86)\ 找到AltServer，打开，点击AltServer.exe，启动，在右下角图标左键。</p>
-<p><img data-src="/./../images/dhubM5rGjWx1tke-1759458037861-32.png" alt="pic"><br>选择“Install AltStore”选择你的设备。</p>
-<p><img data-src="/./../images/72XT5dHIsqPaYt3-1759458037861-33.png" alt="pic"><br>如实填写你的Apple ID和密码，要进行签名，不是盗号！注意，要下载官网的iTunes，不是Windows10自带的应用商店里的！要不然会报错！也不能不安装！</p>
-<p>安装完成后，添加源：<a href="https://alt.getutm.app/">https://alt.getutm.app</a></p>
-<p>然后搜索并下载即可。</p>
-<p>下载完成了，就该玩了。准备好一个镜像，ISO文件，Windows的可以从这里下载：<a href="http://msdn.itellyou.cn/">http://msdn.itellyou.cn/</a></p>
-<p>ed2k连接用迅雷下载即可。打开iTunes，找到左上角的小手机，点一下，如果是灰色，无法点击，那就等一会。点进去找到文件共享，在App找到“UTM”，这时里面是空的，添加你下载的镜像进去。接下来就是手机操作了（温馨提示：iPhone7建议用XP，iPhoneX以上最好不要用8.1或10，其他随意~）</p>
-<p>下载好的应用是这样子的</p>
-<p><img data-src="/./../images/e3TKP4DdCQ1lSWm-1759458037861-34.png" alt="pic"><br>加载很慢，截图截到3M<br>打开后。会出现一段提示，大概是不能强制关闭UTM，要点左上面的小X号</p>
-<p>打开后，是这样的</p>
-<p><img data-src="/./../images/jV8Lr3ZmGNOl9eo-1759458037861-35.png" alt="pic"><br>那两个是我提前创建好的。点击右上角的+，会这样：</p>
-<p><img data-src="/./../images/fwsHnUy79YTtA4J-1759458037861-36.png" alt="pic"><br>内存，iPhone7设置到768差不多，最高的应该是1015吧，点击加载镜像，如下</p>
-<p><img data-src="/./../images/oYZSMsv8i2T5dk6-1759458037861-37.png" alt="pic"><br>点击右上角的+，创建一个驱动器，如图</p>
-<p><img data-src="/./../images/8qfijOIHSLBuXEF-1759458037861-38.png" alt="pic"><br>镜像类型，硬盘就是disk，光驱就是cd&#x2F;dvd，如图</p>
-<p><img data-src="/./../images/3nhPlu6W1KtxTJV-1759458037861-39.png" alt="pic"><br>先选cd&#x2F;dvd，点击文件路径，点击右上角的+，如图</p>
-<p><img data-src="/./../images/vnLVM6Sblpe5AkB-1759458037861-40.png" alt="pic"><br>会这样</p>
-<p><img data-src="/./../images/1kNJEcW2Hf6LhUe-1759458037861-41.png" alt="pic"><br>如果选的cd&#x2F;dvd，选“导入”，会这样</p>
-<p><img data-src="/./../images/Wevqyri87jakPOQ-1759458037861-42.png" alt="pic"><br>这是我已经打开utm文件夹，具体可以点击“我的iPhone”找到“UTM”文件夹，选择你复制的镜像ISO文件，如图</p>
-<p><img data-src="/./../images/zYtWGIiEkJRs146-1759458037861-43.png" alt="pic"><br>再点一次镜像，加载，重复第（调整disk或cd&#x2F;dvd）步选择disk，不要选导入，如果你有现成的，那就选导入，一般是xxx.img，创建，一般填hda.img，第二行看系统大小来定，XP可以是10G，win7可以是20G，10G填10240，20G填20480，以此类推。</p>
-<p>创建完成后，点击播放建，开机，正常安装系统即可。来了电话回自动暂停，来了微信，就点击上面的暂停键，暂停。如图（会加载缓慢）</p>
-<p><img data-src="/./../images/Xl1ow2tg3qPU7xf-1759458037861-44.png" alt="pic"><br><img data-src="/./../images/Xl1ow2tg3qPU7xf-1759458037863-46.png" alt="pic"><br>继续运行点击中间即可。退出点击X，如果开着机，相当于强制关机。</p>
-<p><img data-src="/./../images/BDYJa1RFfnIX4Qt-1759458037861-45.png" alt="pic"></p>
-<hr>
-<p>Q&amp;A：</p>
-<p>Q：为什么安装AltStore会出现签名错误？</p>
-<p>A：13.3.1有此问题，建议越狱后使用，或用爱思助手安装。</p>
-<p>Q：为什么7天后提示我验证应用？</p>
-<p>A：普遍问题，建议越狱后安装续签插件。免费开发者账户需要7天一签，付费的一年一签。</p>
-<p>Q：越狱后如何在手机上直接安装UTM.ipa？</p>
-<p>A：下载Filza，在里面点选ipa文件安装。</p>
-<p>Q：为什么我在一些云上续签了，但是启动VM时会崩溃？</p>
-<p>A：许多“云”签名服务（包括AppCake）不能与UTM一起使用，因为它们使用了错误的签名证书。如果尝试启动VM时发生崩溃，则可能是您的签名证书无效。</p>
-<p>Q：有什么免费的续签方法吗？</p>
-<p>A：如果您运行的是普通iOS，则使用iOS App Signer 可以免费，轻松地重新签名IPA 。然后，您可以使用iTunes，音乐应用程序或Xcode安装它。</p>
-<p>注：图片加载于sm.ms图床，部分资料参考与UTM官网。</p>
-]]></content>
-      <categories>
-        <category>IOS</category>
-      </categories>
-      <tags>
-        <tag>ios</tag>
-        <tag>UTM</tag>
-        <tag>VM</tag>
-        <tag>iPhone</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Python学习笔记其四</title>
     <url>/2025/10/04/Python0004/</url>
     <content><![CDATA[<h1 id="Pytorch教程"><a href="#Pytorch教程" class="headerlink" title="Pytorch教程"></a>Pytorch教程</h1><h2 id="搭建一个神经网络"><a href="#搭建一个神经网络" class="headerlink" title="搭建一个神经网络"></a>搭建一个神经网络</h2><p><img data-src="/./../images/image-20251004141830767-1759558936645-3-1759559443801-13-1759559811461-26-1759559952609-43.png" alt="image-20251004141830767"></p>
@@ -1326,6 +1264,89 @@
       </tags>
   </entry>
   <entry>
+    <title>UTM Virtual Machine</title>
+    <url>/2020/11/12/UTM-virtual-machine/</url>
+    <content><![CDATA[<p>写在前面：手里有台iPhone7，不知干什么好，没有Android的可玩性，即使Android不root，也会有像termux的容器。9-11岁时，我还在玩limbo，bochs，lbochs，APQ。这些都是一些模拟器。bochs和lbochs是基于bochs的，而limbo和APQ是基于qemu的。要我给他们排序的话，bochs是最简单的，我记得我最早用过的镜像是andows.img，用起来简单，把sdl和镜像放在指定位置就行了。点击app启动，音量键控制左右键，滑动屏幕控制鼠标。点击左下角（还是右下角，我忘了）呼出键盘。就是在朋友同学面前装B用的。lbochs支持更多扩展，limbo有各种版本，对于X86的安卓兼容较好，一般在Android上我首选limbo。APQ比较稳定，但是前提是要Root，仅支持VNC，得自己去改配置。就这样。我接触到了qemu。</p>
+<p>在qemu的世界，我只做了XP的镜像，当年我家的电脑配置不高，仅仅有2G而已，一般开个虚拟机就要处在死机的边缘。但我还是经常用它来做镜像，传到手机上。那段时间，我只是从贴吧收藏大佬分享的镜像，大多都是XP和98，再高的就是7，8，10，不过开个机都要等几个小时。</p>
+<p>以前我有一台iPhone 4，完美越狱，用的盘古越狱工具。唯一能装B的，也就是一个叫Bochs的应用。在百度上，我勉勉强强找到了安装方法，但是打开就闪退，并且教程都是用的iPhone1或3，后来，我在威锋源上找到了一个writeful的源，但是后来威锋源关闭，新版的Bochs出来，但是仅仅支持iOS10以下，也就是32位系统，这时，我已经用着iPhone7了。</p>
+<p>对于iPhone7而言，可以用三种方式运行Windows。一种叫Idos2，在iOS10以前，是Idos，是用来运行dos游戏的，idos2用的dosbox，但是仅能在越狱后浏览其目录，放上教程里提供的镜像，输入“win95”启动，虽然麻烦，却异常稳定，只是显卡没有驱动。</p>
+<p>再后来，国外大神开发了iBox，基于Bochs，国外大神演示时用的iPhone7，跑起了Windows，但是却花屏。我把Windows3.11，Windows95，Windows98的镜像放在里面，却异常好用！其实就是能在64位设备上运行的Bochs而已。</p>
+<p>第三个，就是今天说的UTM虚拟机，基于qemu，能跑起Windows XP，貌似能跑起Windows7，10。也能跑起Android x86，Linux。以下是详细步骤。项目主页：<a href="https://getutm.app/">https://getutm.app/</a> GitHub：<a href="https://github.com/utmapp/UTM">https://github.com/utmapp/UTM</a></p>
+<p>1.建议越狱。</p>
+<p>为什么呢？说白了——便于续签。没错，便于续签！要不然你忍心7天装一次吗？iPhone X以下设备可以使用checkra1n越狱，可以的话我可以出一期教程。</p>
+<p>2.安装UTM</p>
+<p>如果你越狱了，直接从爱思助手拖放ipa文件即可，要没有越狱（像是iPhone11），可以用altstore。</p>
+<p>altstore教程：</p>
+<p>1.打开<a href="https://altstore.io/%E4%B8%8B%E8%BD%BD%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E3%80%82Windows%E7%89%88%E4%BB%85%E6%94%AF%E6%8C%81Windows10">https://altstore.io/下载应用程序。Windows版仅支持Windows10</a> 。</p>
+<p><img data-src="/./../images/T8IZQbfJkzdXLF3-1759458037861-31.png" alt="pic"><br>解压后点击AltInstaller.msi，进行安装，根据需求安装即可。</p>
+<p>在安装的目录下，像D:\Program Files (x86)\ 找到AltServer，打开，点击AltServer.exe，启动，在右下角图标左键。</p>
+<p><img data-src="/./../images/dhubM5rGjWx1tke-1759458037861-32.png" alt="pic"><br>选择“Install AltStore”选择你的设备。</p>
+<p><img data-src="/./../images/72XT5dHIsqPaYt3-1759458037861-33.png" alt="pic"><br>如实填写你的Apple ID和密码，要进行签名，不是盗号！注意，要下载官网的iTunes，不是Windows10自带的应用商店里的！要不然会报错！也不能不安装！</p>
+<p>安装完成后，添加源：<a href="https://alt.getutm.app/">https://alt.getutm.app</a></p>
+<p>然后搜索并下载即可。</p>
+<p>下载完成了，就该玩了。准备好一个镜像，ISO文件，Windows的可以从这里下载：<a href="http://msdn.itellyou.cn/">http://msdn.itellyou.cn/</a></p>
+<p>ed2k连接用迅雷下载即可。打开iTunes，找到左上角的小手机，点一下，如果是灰色，无法点击，那就等一会。点进去找到文件共享，在App找到“UTM”，这时里面是空的，添加你下载的镜像进去。接下来就是手机操作了（温馨提示：iPhone7建议用XP，iPhoneX以上最好不要用8.1或10，其他随意~）</p>
+<p>下载好的应用是这样子的</p>
+<p><img data-src="/./../images/e3TKP4DdCQ1lSWm-1759458037861-34.png" alt="pic"><br>加载很慢，截图截到3M<br>打开后。会出现一段提示，大概是不能强制关闭UTM，要点左上面的小X号</p>
+<p>打开后，是这样的</p>
+<p><img data-src="/./../images/jV8Lr3ZmGNOl9eo-1759458037861-35.png" alt="pic"><br>那两个是我提前创建好的。点击右上角的+，会这样：</p>
+<p><img data-src="/./../images/fwsHnUy79YTtA4J-1759458037861-36.png" alt="pic"><br>内存，iPhone7设置到768差不多，最高的应该是1015吧，点击加载镜像，如下</p>
+<p><img data-src="/./../images/oYZSMsv8i2T5dk6-1759458037861-37.png" alt="pic"><br>点击右上角的+，创建一个驱动器，如图</p>
+<p><img data-src="/./../images/8qfijOIHSLBuXEF-1759458037861-38.png" alt="pic"><br>镜像类型，硬盘就是disk，光驱就是cd&#x2F;dvd，如图</p>
+<p><img data-src="/./../images/3nhPlu6W1KtxTJV-1759458037861-39.png" alt="pic"><br>先选cd&#x2F;dvd，点击文件路径，点击右上角的+，如图</p>
+<p><img data-src="/./../images/vnLVM6Sblpe5AkB-1759458037861-40.png" alt="pic"><br>会这样</p>
+<p><img data-src="/./../images/1kNJEcW2Hf6LhUe-1759458037861-41.png" alt="pic"><br>如果选的cd&#x2F;dvd，选“导入”，会这样</p>
+<p><img data-src="/./../images/Wevqyri87jakPOQ-1759458037861-42.png" alt="pic"><br>这是我已经打开utm文件夹，具体可以点击“我的iPhone”找到“UTM”文件夹，选择你复制的镜像ISO文件，如图</p>
+<p><img data-src="/./../images/zYtWGIiEkJRs146-1759458037861-43.png" alt="pic"><br>再点一次镜像，加载，重复第（调整disk或cd&#x2F;dvd）步选择disk，不要选导入，如果你有现成的，那就选导入，一般是xxx.img，创建，一般填hda.img，第二行看系统大小来定，XP可以是10G，win7可以是20G，10G填10240，20G填20480，以此类推。</p>
+<p>创建完成后，点击播放建，开机，正常安装系统即可。来了电话回自动暂停，来了微信，就点击上面的暂停键，暂停。如图（会加载缓慢）</p>
+<p><img data-src="/./../images/Xl1ow2tg3qPU7xf-1759458037861-44.png" alt="pic"><br><img data-src="/./../images/Xl1ow2tg3qPU7xf-1759458037863-46.png" alt="pic"><br>继续运行点击中间即可。退出点击X，如果开着机，相当于强制关机。</p>
+<p><img data-src="/./../images/BDYJa1RFfnIX4Qt-1759458037861-45.png" alt="pic"></p>
+<hr>
+<p>Q&amp;A：</p>
+<p>Q：为什么安装AltStore会出现签名错误？</p>
+<p>A：13.3.1有此问题，建议越狱后使用，或用爱思助手安装。</p>
+<p>Q：为什么7天后提示我验证应用？</p>
+<p>A：普遍问题，建议越狱后安装续签插件。免费开发者账户需要7天一签，付费的一年一签。</p>
+<p>Q：越狱后如何在手机上直接安装UTM.ipa？</p>
+<p>A：下载Filza，在里面点选ipa文件安装。</p>
+<p>Q：为什么我在一些云上续签了，但是启动VM时会崩溃？</p>
+<p>A：许多“云”签名服务（包括AppCake）不能与UTM一起使用，因为它们使用了错误的签名证书。如果尝试启动VM时发生崩溃，则可能是您的签名证书无效。</p>
+<p>Q：有什么免费的续签方法吗？</p>
+<p>A：如果您运行的是普通iOS，则使用iOS App Signer 可以免费，轻松地重新签名IPA 。然后，您可以使用iTunes，音乐应用程序或Xcode安装它。</p>
+<p>注：图片加载于sm.ms图床，部分资料参考与UTM官网。</p>
+]]></content>
+      <categories>
+        <category>IOS</category>
+      </categories>
+      <tags>
+        <tag>ios</tag>
+        <tag>UTM</tag>
+        <tag>VM</tag>
+        <tag>iPhone</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Usage of Structure Block in Minecraft PE</title>
+    <url>/2020/11/22/Usage-of-structure-block-in-Minecraft-PE/</url>
+    <content><![CDATA[<p>写在前面：看到我写游戏，是不是感到非常惊讶？是否有很多问号？其实我从2013年接触我的世界，最早玩0.10.5版本，接触了多玩我的世界盒子和葫芦侠。最早玩我的世界还是用的三星的GT-I9050,安卓2.3，除了运行0.10.5,再大的版本就运行不了了。后来，我用我妈的红米玩0.12.2，地狱疣和药水炼制让我着迷。后来中间潜心学习了一段时间，终于在网易代理后又拾起了我的世界。现在手机版都有地狱更新了，我玩着新版本，没有感觉不熟悉，反而是满满的回忆。今天的我的世界,盒子类几乎没有，唯一好的盒子还是Toolbox，最近也要看广告才能解锁高级功能。<br>今天教大家如何在我的世界中使用结构方块，其实官方名字叫“建筑方块”。<br>首先，在创建世界时，打开“启用实验玩法”，确定开启了作弊和创造。建议下载Toolbox，我就用的toolbox。</p>
+<p><img data-src="/./../images/2020042717372011.jpg" alt="jpg"><br><img data-src="/./../images/2020042717372010.jpg" alt="jpg"><br><img data-src="/./../images/202004271737209.jpg" alt="jpg"><br><img data-src="/./../images/202004271737208.jpg" alt="jpg"></p>
+<p>接着，点击小稿头，找到世界-获取项目，不要点上面的四个，弹出键盘关闭即可。<br><img data-src="/./../images/202004271737207.jpg" alt="jpg"></p>
+<p>在最下面找到这个方块，点击“添加”<br>然后放在地下，你想复制的地方，可以不是一个维度，比如复制各种遗迹。<br>放下“建筑方块”会看到以下界面<br><img data-src="/./../images/202004271737206.jpg" alt="jpg"></p>
+<p>这就是要复制的范围，大小可以调，点击“建筑方块”<br><img data-src="/./../images/202004271737205.jpg" alt="jpg"></p>
+<p>会看到一个3D图像和右边的大小和偏移。可以自行调节，比对3D图像，X轴是红色，Y轴是绿色，Z轴是红色，偏移是复制结构偏移多少格，像这样<br><img data-src="/./../images/202004271737203.jpg" alt="jpg"></p>
+<p>X轴和Y轴最大64，Y轴未知（自己试试）<br><img data-src="/./../images/202004271737204.jpg" alt="jpg"><br>可以选择包含实体或移除方块。包含实体如果打开了，掉落物，各种动物，怪物，村民都可以保存下来。如果打开了移除方块，就会只保留实体。<br><img data-src="/./../images/202004271737202.jpg" alt="jpg"></p>
+<p>保存到磁盘中可以导出为3D图像，或复制到另一个世界。不过toolbox的世界与原版不互通，并且找不到toolbox的文档目录，我已经发邮件问作者，还没回。保存到内存的话，应该是退出世界就没有了。<br><img data-src="/./../images/202004271737201.jpg" alt="jpg"></p>
+<p>保存的话，写上一个名字，会自动为你补全mystructure:这是，找个你想复制的地方，放下“建筑方块”,模式选择“加载”，也是光输入你保存时写的的名字。我这里是test，如果存在，则字体变亮，如果不存在，会是灰色。输入正确后，会显示出你保存的大小，调整即可。最后点击“加载”会有点卡，一点一点加载，甚是舒服！最后就是这个样子<br><img data-src="/./../images/20200427173720.jpg" alt="jpg"></p>
+<p>突然出现的“山”是不是很有趣？也可以把末地船复制到大海上，稍加修缮，就成真正在海上的船了！<br>写在最后：近的物体，还是用clone命令吧。两者皆用，建筑我行！（这应该是全网第一篇教程，有不明白的可以点游戏中建筑方块里面的问号）</p>
+]]></content>
+      <categories>
+        <category>Games</category>
+      </categories>
+      <tags>
+        <tag>Minecarft</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>js.org free domain</title>
     <url>/2020/11/28/js-org-free-domain/</url>
     <content><![CDATA[<h2 id="了解"><a href="#了解" class="headerlink" title="了解"></a>了解</h2><p><a href="js.org">官方链接</a></p>
@@ -1401,27 +1422,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Usage of Structure Block in Minecraft PE</title>
-    <url>/2020/11/22/Usage-of-structure-block-in-Minecraft-PE/</url>
-    <content><![CDATA[<p>写在前面：看到我写游戏，是不是感到非常惊讶？是否有很多问号？其实我从2013年接触我的世界，最早玩0.10.5版本，接触了多玩我的世界盒子和葫芦侠。最早玩我的世界还是用的三星的GT-I9050,安卓2.3，除了运行0.10.5,再大的版本就运行不了了。后来，我用我妈的红米玩0.12.2，地狱疣和药水炼制让我着迷。后来中间潜心学习了一段时间，终于在网易代理后又拾起了我的世界。现在手机版都有地狱更新了，我玩着新版本，没有感觉不熟悉，反而是满满的回忆。今天的我的世界,盒子类几乎没有，唯一好的盒子还是Toolbox，最近也要看广告才能解锁高级功能。<br>今天教大家如何在我的世界中使用结构方块，其实官方名字叫“建筑方块”。<br>首先，在创建世界时，打开“启用实验玩法”，确定开启了作弊和创造。建议下载Toolbox，我就用的toolbox。</p>
-<p><img data-src="/./../images/2020042717372011.jpg" alt="jpg"><br><img data-src="/./../images/2020042717372010.jpg" alt="jpg"><br><img data-src="/./../images/202004271737209.jpg" alt="jpg"><br><img data-src="/./../images/202004271737208.jpg" alt="jpg"></p>
-<p>接着，点击小稿头，找到世界-获取项目，不要点上面的四个，弹出键盘关闭即可。<br><img data-src="/./../images/202004271737207.jpg" alt="jpg"></p>
-<p>在最下面找到这个方块，点击“添加”<br>然后放在地下，你想复制的地方，可以不是一个维度，比如复制各种遗迹。<br>放下“建筑方块”会看到以下界面<br><img data-src="/./../images/202004271737206.jpg" alt="jpg"></p>
-<p>这就是要复制的范围，大小可以调，点击“建筑方块”<br><img data-src="/./../images/202004271737205.jpg" alt="jpg"></p>
-<p>会看到一个3D图像和右边的大小和偏移。可以自行调节，比对3D图像，X轴是红色，Y轴是绿色，Z轴是红色，偏移是复制结构偏移多少格，像这样<br><img data-src="/./../images/202004271737203.jpg" alt="jpg"></p>
-<p>X轴和Y轴最大64，Y轴未知（自己试试）<br><img data-src="/./../images/202004271737204.jpg" alt="jpg"><br>可以选择包含实体或移除方块。包含实体如果打开了，掉落物，各种动物，怪物，村民都可以保存下来。如果打开了移除方块，就会只保留实体。<br><img data-src="/./../images/202004271737202.jpg" alt="jpg"></p>
-<p>保存到磁盘中可以导出为3D图像，或复制到另一个世界。不过toolbox的世界与原版不互通，并且找不到toolbox的文档目录，我已经发邮件问作者，还没回。保存到内存的话，应该是退出世界就没有了。<br><img data-src="/./../images/202004271737201.jpg" alt="jpg"></p>
-<p>保存的话，写上一个名字，会自动为你补全mystructure:这是，找个你想复制的地方，放下“建筑方块”,模式选择“加载”，也是光输入你保存时写的的名字。我这里是test，如果存在，则字体变亮，如果不存在，会是灰色。输入正确后，会显示出你保存的大小，调整即可。最后点击“加载”会有点卡，一点一点加载，甚是舒服！最后就是这个样子<br><img data-src="/./../images/20200427173720.jpg" alt="jpg"></p>
-<p>突然出现的“山”是不是很有趣？也可以把末地船复制到大海上，稍加修缮，就成真正在海上的船了！<br>写在最后：近的物体，还是用clone命令吧。两者皆用，建筑我行！（这应该是全网第一篇教程，有不明白的可以点游戏中建筑方块里面的问号）</p>
-]]></content>
-      <categories>
-        <category>Games</category>
-      </categories>
-      <tags>
-        <tag>Minecarft</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【论文阅读 | TCSVT 2024 | MMI-Det：探索可见光与红外目标检测的多模态融合】</title>
     <url>/2025/10/14/%E3%80%90%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%20%20TCSVT%202024%20%20MMI-Det%EF%BC%9A%E6%8E%A2%E7%B4%A2%E5%8F%AF%E8%A7%81%E5%85%89%E4%B8%8E%E7%BA%A2%E5%A4%96%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E7%9A%84%E5%A4%9A%E6%A8%A1%E6%80%81%E8%9E%8D%E5%90%88%E3%80%91/</url>
     <content><![CDATA[<p>[TOC]</p>
@@ -1489,14 +1489,15 @@
 <p>对于输入图像，我们令V和I分别表示可见光图像和红外图像。则可见光图像的输入可表示为<br>$$<br>X_V &#x3D; {x_V | x_V \in \mathbb{R}^{C \times H \times W}}<br>$$<br>红外图像的输入可表示为<br>$$<br>X_I &#x3D; {x_I | x_I \in \mathbb{R}^{C \times H \times W}}<br>$$<br>其中C、H和W分别对应图像的通道、高度和宽度。</p>
 <p>在一个批次的训练过程中，共有B幅图像，其中$x_i^V$和$x_i^I$的数量相同，$i \in {1, 2, \ldots, B&#x2F;2}$。输入的可见光-红外图像将首先通过轮廓增强模块(Contour Enhancement Module)，如下式所示：<br>$$<br>\begin{split}<br>F_{\text{V}}^{CEM} &amp;&#x3D; CEM(X_{\text{V}}), \<br>F_{\text{I}}^{CEM} &amp;&#x3D; CEM(X_{\text{I}}).<br>\end{split}<br>$$<br>在此，$F_{\text{V}}^{CEM}$和$F_{\text{I}}^{CEM}$表示经过CEM处理后的可见光-红外特征。接下来，为了使特征在不丢失过多信息的前提下能够在计算上进行降维，我们引入了FOC，该方法使用切片操作，将高分辨率特征图分割为多个低分辨率特征图。FOC的这种策略性分割以紧凑形式保留了关键空间信息，在促进更快处理的同时，保持了准确目标检测所需的特征完整性。这些FOC模块的输出特征被输入至Conv和C3模块。C3采用多尺度特征融合方法和跨通道信息传递机制来提升特征表示能力。通过将FOC与C3有效结合，网络同时受益于降维和特征丰富性，从而提升了检测性能。需要注意的是，FOC和C3均已在YOLOv5中可用。该过程如下所示：</p>
 <p>$$<br>\begin{split}<br>F_{\text{V}}^{C3} &amp;&#x3D; C3(\text{Conv}(\text{FOC}(F_{\text{V}}^{CEM}))), \<br>F_{\text{I}}^{C3} &amp;&#x3D; C3(\text{Conv}(\text{FOC}(F_{\text{I}}^{CEM}))).<br>\end{split}<br>$$</p>
-<p>公式2中的Conv模块和C3模块能够提升模型的特征提取能力。为了引导模型进行有效的训练优化，我们借鉴对比学习的思想设计了对比桥接模块(Contrastive Bridge Module, CBM)，并设计了损失函数$\mathcal{L}_{CB}$ ：</p>
+<p>公式2中的Conv模块和C3模块能够提升模型的特征提取能力。为了引导模型进行有效的训练优化，我们借鉴对比学习的思想设计了对比桥接模块(Contrastive Bridge Module, CBM)，并设计了损失函数$\mathcal{L}_{CB}$ :</p>
 <p>$$<br>\mathcal{L}<em>{CB} &#x3D; CBM(F</em>{\text{V}}^{C3}, F_{\text{I}}^{C3}).<br>$$</p>
-<p>在此，$\mathcal{L}<em>{CB}$可用作损失函数以引导模型学习模态不变信息。经过上述模块后，可见光特征$F</em>{\text{V}}^{C3}$与红外特征$F_{\text{I}}^{C3}$被输入至融合聚焦模块(Fusion Focus Module, FFM)。MMI-Det设计了多个FFM用于不同深度的特征融合。具体而言，FFM的结构如下式所示：</p>
+<p>在此， $\mathcal{L}<em>{CB}$ 可用作损失函数以引导模型学习模态不变信息。经过上述模块后，可见光特征$F</em>{\text{V}}^{C3}$与红外特征 $F_{\text{I}}^{C3}$ 被输入至融合聚焦模块(Fusion Focus Module, FFM)。MMI-Det设计了多个FFM用于不同深度的特征融合。具体而言，FFM的结构如下式所示：</p>
 <p>$$<br>F_{\text{V}}^{FFM}, F_{\text{I}}^{FFM} &#x3D; FFM(F_{\text{V}}^{C3}, F_{\text{I}}^{C3}).<br>$$</p>
 <p>FFM 充分融合两种模态特征，并将融合后的特征反馈至两个分支。它们与在各自的分支上的特征相加，并一同被发送至下一个特征提取-融合阶段：</p>
 <p>$$<br>\begin{align*}<br>F_{\text{V}}^{add} &amp;&#x3D; F_{\text{V}}^{FFM} + F_{\text{V}}^{C3}, \<br>F_{\text{I}}^{add} &amp;&#x3D; F_{\text{I}}^{FFM} + F_{\text{I}}^{C3}, \<br>F_{\text{V-I}}^{add_1} &amp;&#x3D; F_{\text{V}}^{add} + F_{\text{I}}^{add}.<br>\end{align*}<br>$$</p>
-<p>在上式中，相加特征$F_{\text{V}}^{add}$和$F_{\text{I}}^{add}$被传送到后续阶段，我们设计了共$i$组此类阶段，以从不同深度充分提取两种模态中的目标信息。当前阶段的融合特征将被保存为$F_{\text{V-I}}^{add_1}$。最终结果通过检测头(Detect Head)输出，如下图所示。相关公式如下：</p>
-<p><img data-src="/./../images/image-20251014201352915.png" alt="image-20251014201352915"><br>$$<br>Pred &#x3D; DetectHead(F_{\text{V-I}}^{add_1}, F_{\text{V-I}}^{add_2}, \ldots, F_{\text{V-I}}^{add_i}).<br>$$</p>
+<p>在上式中，相加特征 $F_{\text{V}}^{add}$ 和 $F_{\text{I}}^{add}$ 被传送到后续阶段，我们设计了共 $i$ 组此类阶段，以从不同深度充分提取两种模态中的目标信息。当前阶段的融合特征将被保存为     $F_{\text{V-I}}^{add_1}$ 。最终结果通过检测头(Detect Head)输出，如下图所示。相关公式如下：</p>
+<p><img data-src="/./../images/image-20251014201352915.png" alt="image-20251014201352915"></p>
+<p>$$<br>Pred &#x3D; DetectHead(F_{\text{V-I}}^{add_1}, F_{\text{V-I}}^{add_2}, \ldots, F_{\text{V-I}}^{add_i}).<br>$$</p>
 ]]></content>
       <categories>
         <category>论文阅读</category>
