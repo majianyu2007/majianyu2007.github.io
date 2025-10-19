@@ -1,89 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>将Windows中文用户主文件夹修改为英文</title>
-    <url>/2025/10/03/Change-the-Windows-Chinese-user-home-folder-to-English/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在Windows下，部分软件对于中文目录的适配性并不完整，导致程序无法正常运行或是出现一堆奇奇怪怪的报错。大部分软件会要求你选择一个非中文目录，但是由于部分软件的用户配置数据存储在了用户文件夹下，而用户文件夹的名字一般由Windows自动配置，若我们在OOBE阶段设置了中文名，则用户主文件夹也将是中文名，不利于后续操作。因此本教程将向您介绍在不重装系统、不创建新用户的情况下修改用户主文件夹名。</p>
-<h2 id="判断"><a href="#判断" class="headerlink" title="判断"></a>判断</h2><p>如何判断自己的用户主文件夹名是否为中文？<br>若您在Windows的OOBE阶段（激活）使用了Microsoft账户登录，那么您的用户主文件夹应该为邮箱前缀。您无需继续浏览本教程。<br>若您在Windows的OOBE阶段（激活）使用了<strong>oobe\bypassnro</strong>跳过联网而创建本地用户，并为账户起了中文名，那么您将会拥有一个中文用户主文件夹，正如下图所示：</p>
-<p><img data-src="/./../images/image-20251003084919376.png" alt="image-20251003084919376"></p>
-<p>如果您已经忘记了自己如何激活的Windows，那么您可以转到<strong>C:\Users</strong>文件夹下进行判断。在文件资源管理器中，<strong>User</strong>文件夹一般显示为中文<strong>用户</strong>。如下图所示：</p>
-<p><img data-src="/./../images/image-20251003085747561.png" alt="image-20251003085747561"></p>
-<p>图示“姓名”不合规的中文主文件夹，现在我们将对其进行修改，使之变为英文文件夹</p>
-<p><strong>注意！以下操作存在极大风险！可能导致部分软件无法使用需要重装！</strong></p>
-<h2 id="创建还原点"><a href="#创建还原点" class="headerlink" title="创建还原点"></a>创建还原点</h2><p>对系统做这么大手术，当然需要创建一个还原点了，方便恢复修改前状态。在Windows开始菜单搜索框中搜索<strong>还原点</strong></p>
-<p><img data-src="/./../images/image-20251003090032036.png" alt="image-20251003090032036"></p>
-<p>即可找到创建还原点选项。</p>
-<p>首先先点击<strong>配置</strong>启用系统保护（若已启用则忽略）</p>
-<p><img data-src="/./../images/image-20251003090225081.png" alt="image-20251003090225081"></p>
-<p>然后点击<strong>创建</strong>，名字随意，创建一个还原点。</p>
-<p><img data-src="/./../images/image-20251003090322343.png" alt="image-20251003090322343"></p>
-<p>耐心等待还原点创建完成，然后点击<strong>确定</strong>关闭所有窗口。</p>
-<h2 id="启用Administrator账户"><a href="#启用Administrator账户" class="headerlink" title="启用Administrator账户"></a>启用Administrator账户</h2><p>右键开始菜单的微软徽标，点击<strong>终端管理员</strong></p>
-<p><img data-src="/./../images/image-20251003090715686.png" alt="image-20251003090715686"></p>
-<p>在出现的终端中输入命令并回车</p>
- <figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="built_in">net</span> user administrator /active:yes</span><br></pre></td></tr></table></figure>
-
-<p>执行后，屏幕会提示“命令成功完成”，说明Administrator账号已启用。如下图所示：</p>
-<p><img data-src="/./../images/image-20251003090912298.png" alt="image-20251003090912298"></p>
-<h2 id="切换Administrator账户并注销原账户"><a href="#切换Administrator账户并注销原账户" class="headerlink" title="切换Administrator账户并注销原账户"></a>切换Administrator账户并注销原账户</h2><p><img data-src="/./../images/202510030001.gif" alt="202510030001"></p>
-<p>将所有选项取消勾选</p>
-<p><img data-src="/./../images/image-20251003091504362.png" alt="image-20251003091504362"></p>
-<p>进入桌面后，切回原用户，注销后再登录Administrator账户。</p>
-<p><img data-src="/./../images/202510030002.gif" alt="202510030002"></p>
-<h2 id="重命名用户主文件夹"><a href="#重命名用户主文件夹" class="headerlink" title="重命名用户主文件夹"></a>重命名用户主文件夹</h2><p>现在转到<strong>C:\Users</strong>，修改原来的中文用户主文件夹文件名为英文，可能会提示“操作无法完成，因为文件或文件夹已在其他程序中打开”。</p>
-<h2 id="处理文件夹占用"><a href="#处理文件夹占用" class="headerlink" title="处理文件夹占用"></a>处理文件夹占用</h2><p>Win + R打开cmd，执行以下命令（替换“用户名”为你实际的用户名）</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> /f &quot;skip=<span class="number">1</span> tokens=<span class="number">3</span>&quot; %s <span class="keyword">in</span> (&#x27;query user 用户名&#x27;) <span class="keyword">do</span> <span class="built_in">taskkill</span> /f /fi &quot;sessionname eq %s&quot;</span><br></pre></td></tr></table></figure>
-
-<p>杀死进程后再次修改。</p>
-<h2 id="修改注册表"><a href="#修改注册表" class="headerlink" title="修改注册表"></a>修改注册表</h2><p>按Win + R输入regedit并回车打开注册表编辑器</p>
-<p>在上方输入框中输入</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\ProfileList</span><br></pre></td></tr></table></figure>
-
-<p>在此路径下还有很多以S开头的目录，挨个排查，直到找到右边的<strong>ProfileImagePath</strong>为中文的目录，如下图</p>
-<p><img data-src="/./../images/image-20251003093307131.png" alt="image-20251003093307131"></p>
-<p>双击<strong>ProfileImagePath</strong>条目修改，将中文替换为您刚修改的英文文件夹名称。</p>
-<p>在上方输入框中输入</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\UserManager\Users</span><br></pre></td></tr></table></figure>
-
-<p>找到包含中文用户名的数字项(<strong>UserPicture</strong>)，双击对应的键值，将中文用户名改为英文全拼，点击“确定”</p>
-<h2 id="关闭Administrator账户"><a href="#关闭Administrator账户" class="headerlink" title="关闭Administrator账户"></a>关闭Administrator账户</h2><p>按Win + R打开终端，输入命令并回车，关闭Administrator账户</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="built_in">net</span> user administrator /active:no</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="/./../images/image-20251003093749028.png" alt="image-20251003093749028"></p>
-<p>提示“命令成功完成”后，注销Administrator账号，回到登录页面。</p>
-<h2 id="更新环境变量"><a href="#更新环境变量" class="headerlink" title="更新环境变量"></a><strong>更新环境变量</strong></h2><p>登录回原用户后，搜索<strong>环境变量</strong>，编辑<strong>用户</strong>环境变量</p>
-<p><img data-src="/./../images/image-20251003093857619.png" alt="image-20251003093857619"></p>
-<p>接下来要对<strong>用户变量</strong>进行操作，首先把OneDrive的变量进行修改，将原来的中文文件夹名改为你原来的英文文件夹名。</p>
-<p>然后单击<strong>Path</strong>条目，点击<strong>编辑</strong>，检查所有包含中文用户名的路径，将条目中原来的中文文件夹名改为你原来的英文文件夹名。</p>
-<p>连续点击三个<strong>确定</strong>，完成环境变量编辑。</p>
-<h2 id="更新用户账户信息（可选）"><a href="#更新用户账户信息（可选）" class="headerlink" title="更新用户账户信息（可选）"></a>更新用户账户信息（可选）</h2><p>如果你想一并把显示的用户信息进行修改，请完成以下操作。</p>
-<p>按Win + R，输入</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">control userpasswords2</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="/./../images/image-20251003094407027.png" alt="image-20251003094407027"></p>
-<p>对其进行修改，点两次<strong>确定</strong>退出即可。</p>
-<h2 id="创建符号链接"><a href="#创建符号链接" class="headerlink" title="创建符号链接"></a>创建符号链接</h2><p>部分软件可能认死理，这时我们要照顾这些软件的情绪，想办法让它们读到文件。</p>
-<p>右键开始菜单的微软徽标，点击<strong>终端管理员</strong></p>
-<p>对下方命令按照实际情况进行修改后，在出现的终端中输入命令并回车</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cmd</span></span><br><span class="line"></span><br><span class="line">mklink /d &quot;C:\Users\用户&quot; &quot;C:\Users\User&quot;</span><br></pre></td></tr></table></figure>
-
-<p>这会将旧用户名路径链接到新路径，解决软件路径报错问题。</p>
-<h2 id="重启"><a href="#重启" class="headerlink" title="重启"></a>重启</h2><p>确保全部操作完成后重启计算机，如果正常进入桌面，那么基本没有什么问题了</p>
-<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><ul>
-<li>备份重要数据：修改用户名涉及注册表操作，建议提前备份重要文件，以防万一。单纯仅仅创建还原点是不够的，还原点只可备份当前系统配置文件</li>
-<li>谨慎操作注册表：确保按照步骤修改，避免误删关键项。</li>
-<li>软件路径问题：部分软件可能仍需重新安装，确保路径正确。</li>
-<li>桌面文件丢失：如果重启后桌面只剩“此电脑”和“回收站”，用符号链接方法即可恢复。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>Windows</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Windows下的Python环境配置</title>
     <url>/2025/10/01/Configuring-the-Python-Environment-on-Windows/</url>
     <content><![CDATA[<h2 id="在开始之前"><a href="#在开始之前" class="headerlink" title="在开始之前"></a>在开始之前</h2><ul>
@@ -338,10 +255,93 @@
         <category>教程</category>
       </categories>
       <tags>
-        <tag>Windows</tag>
         <tag>Python</tag>
+        <tag>Windows</tag>
         <tag>PyCharm</tag>
         <tag>Anaconda</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>将Windows中文用户主文件夹修改为英文</title>
+    <url>/2025/10/03/Change-the-Windows-Chinese-user-home-folder-to-English/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在Windows下，部分软件对于中文目录的适配性并不完整，导致程序无法正常运行或是出现一堆奇奇怪怪的报错。大部分软件会要求你选择一个非中文目录，但是由于部分软件的用户配置数据存储在了用户文件夹下，而用户文件夹的名字一般由Windows自动配置，若我们在OOBE阶段设置了中文名，则用户主文件夹也将是中文名，不利于后续操作。因此本教程将向您介绍在不重装系统、不创建新用户的情况下修改用户主文件夹名。</p>
+<h2 id="判断"><a href="#判断" class="headerlink" title="判断"></a>判断</h2><p>如何判断自己的用户主文件夹名是否为中文？<br>若您在Windows的OOBE阶段（激活）使用了Microsoft账户登录，那么您的用户主文件夹应该为邮箱前缀。您无需继续浏览本教程。<br>若您在Windows的OOBE阶段（激活）使用了<strong>oobe\bypassnro</strong>跳过联网而创建本地用户，并为账户起了中文名，那么您将会拥有一个中文用户主文件夹，正如下图所示：</p>
+<p><img data-src="/./../images/image-20251003084919376.png" alt="image-20251003084919376"></p>
+<p>如果您已经忘记了自己如何激活的Windows，那么您可以转到<strong>C:\Users</strong>文件夹下进行判断。在文件资源管理器中，<strong>User</strong>文件夹一般显示为中文<strong>用户</strong>。如下图所示：</p>
+<p><img data-src="/./../images/image-20251003085747561.png" alt="image-20251003085747561"></p>
+<p>图示“姓名”不合规的中文主文件夹，现在我们将对其进行修改，使之变为英文文件夹</p>
+<p><strong>注意！以下操作存在极大风险！可能导致部分软件无法使用需要重装！</strong></p>
+<h2 id="创建还原点"><a href="#创建还原点" class="headerlink" title="创建还原点"></a>创建还原点</h2><p>对系统做这么大手术，当然需要创建一个还原点了，方便恢复修改前状态。在Windows开始菜单搜索框中搜索<strong>还原点</strong></p>
+<p><img data-src="/./../images/image-20251003090032036.png" alt="image-20251003090032036"></p>
+<p>即可找到创建还原点选项。</p>
+<p>首先先点击<strong>配置</strong>启用系统保护（若已启用则忽略）</p>
+<p><img data-src="/./../images/image-20251003090225081.png" alt="image-20251003090225081"></p>
+<p>然后点击<strong>创建</strong>，名字随意，创建一个还原点。</p>
+<p><img data-src="/./../images/image-20251003090322343.png" alt="image-20251003090322343"></p>
+<p>耐心等待还原点创建完成，然后点击<strong>确定</strong>关闭所有窗口。</p>
+<h2 id="启用Administrator账户"><a href="#启用Administrator账户" class="headerlink" title="启用Administrator账户"></a>启用Administrator账户</h2><p>右键开始菜单的微软徽标，点击<strong>终端管理员</strong></p>
+<p><img data-src="/./../images/image-20251003090715686.png" alt="image-20251003090715686"></p>
+<p>在出现的终端中输入命令并回车</p>
+ <figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="built_in">net</span> user administrator /active:yes</span><br></pre></td></tr></table></figure>
+
+<p>执行后，屏幕会提示“命令成功完成”，说明Administrator账号已启用。如下图所示：</p>
+<p><img data-src="/./../images/image-20251003090912298.png" alt="image-20251003090912298"></p>
+<h2 id="切换Administrator账户并注销原账户"><a href="#切换Administrator账户并注销原账户" class="headerlink" title="切换Administrator账户并注销原账户"></a>切换Administrator账户并注销原账户</h2><p><img data-src="/./../images/202510030001.gif" alt="202510030001"></p>
+<p>将所有选项取消勾选</p>
+<p><img data-src="/./../images/image-20251003091504362.png" alt="image-20251003091504362"></p>
+<p>进入桌面后，切回原用户，注销后再登录Administrator账户。</p>
+<p><img data-src="/./../images/202510030002.gif" alt="202510030002"></p>
+<h2 id="重命名用户主文件夹"><a href="#重命名用户主文件夹" class="headerlink" title="重命名用户主文件夹"></a>重命名用户主文件夹</h2><p>现在转到<strong>C:\Users</strong>，修改原来的中文用户主文件夹文件名为英文，可能会提示“操作无法完成，因为文件或文件夹已在其他程序中打开”。</p>
+<h2 id="处理文件夹占用"><a href="#处理文件夹占用" class="headerlink" title="处理文件夹占用"></a>处理文件夹占用</h2><p>Win + R打开cmd，执行以下命令（替换“用户名”为你实际的用户名）</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> /f &quot;skip=<span class="number">1</span> tokens=<span class="number">3</span>&quot; %s <span class="keyword">in</span> (&#x27;query user 用户名&#x27;) <span class="keyword">do</span> <span class="built_in">taskkill</span> /f /fi &quot;sessionname eq %s&quot;</span><br></pre></td></tr></table></figure>
+
+<p>杀死进程后再次修改。</p>
+<h2 id="修改注册表"><a href="#修改注册表" class="headerlink" title="修改注册表"></a>修改注册表</h2><p>按Win + R输入regedit并回车打开注册表编辑器</p>
+<p>在上方输入框中输入</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\ProfileList</span><br></pre></td></tr></table></figure>
+
+<p>在此路径下还有很多以S开头的目录，挨个排查，直到找到右边的<strong>ProfileImagePath</strong>为中文的目录，如下图</p>
+<p><img data-src="/./../images/image-20251003093307131.png" alt="image-20251003093307131"></p>
+<p>双击<strong>ProfileImagePath</strong>条目修改，将中文替换为您刚修改的英文文件夹名称。</p>
+<p>在上方输入框中输入</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\UserManager\Users</span><br></pre></td></tr></table></figure>
+
+<p>找到包含中文用户名的数字项(<strong>UserPicture</strong>)，双击对应的键值，将中文用户名改为英文全拼，点击“确定”</p>
+<h2 id="关闭Administrator账户"><a href="#关闭Administrator账户" class="headerlink" title="关闭Administrator账户"></a>关闭Administrator账户</h2><p>按Win + R打开终端，输入命令并回车，关闭Administrator账户</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="built_in">net</span> user administrator /active:no</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="/./../images/image-20251003093749028.png" alt="image-20251003093749028"></p>
+<p>提示“命令成功完成”后，注销Administrator账号，回到登录页面。</p>
+<h2 id="更新环境变量"><a href="#更新环境变量" class="headerlink" title="更新环境变量"></a><strong>更新环境变量</strong></h2><p>登录回原用户后，搜索<strong>环境变量</strong>，编辑<strong>用户</strong>环境变量</p>
+<p><img data-src="/./../images/image-20251003093857619.png" alt="image-20251003093857619"></p>
+<p>接下来要对<strong>用户变量</strong>进行操作，首先把OneDrive的变量进行修改，将原来的中文文件夹名改为你原来的英文文件夹名。</p>
+<p>然后单击<strong>Path</strong>条目，点击<strong>编辑</strong>，检查所有包含中文用户名的路径，将条目中原来的中文文件夹名改为你原来的英文文件夹名。</p>
+<p>连续点击三个<strong>确定</strong>，完成环境变量编辑。</p>
+<h2 id="更新用户账户信息（可选）"><a href="#更新用户账户信息（可选）" class="headerlink" title="更新用户账户信息（可选）"></a>更新用户账户信息（可选）</h2><p>如果你想一并把显示的用户信息进行修改，请完成以下操作。</p>
+<p>按Win + R，输入</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">control userpasswords2</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="/./../images/image-20251003094407027.png" alt="image-20251003094407027"></p>
+<p>对其进行修改，点两次<strong>确定</strong>退出即可。</p>
+<h2 id="创建符号链接"><a href="#创建符号链接" class="headerlink" title="创建符号链接"></a>创建符号链接</h2><p>部分软件可能认死理，这时我们要照顾这些软件的情绪，想办法让它们读到文件。</p>
+<p>右键开始菜单的微软徽标，点击<strong>终端管理员</strong></p>
+<p>对下方命令按照实际情况进行修改后，在出现的终端中输入命令并回车</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cmd</span></span><br><span class="line"></span><br><span class="line">mklink /d &quot;C:\Users\用户&quot; &quot;C:\Users\User&quot;</span><br></pre></td></tr></table></figure>
+
+<p>这会将旧用户名路径链接到新路径，解决软件路径报错问题。</p>
+<h2 id="重启"><a href="#重启" class="headerlink" title="重启"></a>重启</h2><p>确保全部操作完成后重启计算机，如果正常进入桌面，那么基本没有什么问题了</p>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><ul>
+<li>备份重要数据：修改用户名涉及注册表操作，建议提前备份重要文件，以防万一。单纯仅仅创建还原点是不够的，还原点只可备份当前系统配置文件</li>
+<li>谨慎操作注册表：确保按照步骤修改，避免误删关键项。</li>
+<li>软件路径问题：部分软件可能仍需重新安装，确保路径正确。</li>
+<li>桌面文件丢失：如果重启后桌面只剩“此电脑”和“回收站”，用符号链接方法即可恢复。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>Windows</tag>
       </tags>
   </entry>
   <entry>
@@ -457,41 +457,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Python学习笔记其一</title>
-    <url>/2025/10/01/Python0001/</url>
-    <content><![CDATA[<p>相关教程：</p>
-<p><a href="https://www.runoob.com/python3/python3-conditional-statements.html">Python3 条件控制 | 菜鸟教程</a></p>
-<p><a href="https://www.runoob.com/python3/python3-loop.html">Python3 循环语句 | 菜鸟教程</a></p>
-<p>使用for求1-100的和：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="built_in">sum</span> = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">101</span>):</span><br><span class="line">    <span class="built_in">sum</span> += i</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">sum</span>)</span><br></pre></td></tr></table></figure>
-
-<p>使用while求1-100的和：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="built_in">sum</span> = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> i &lt; <span class="number">101</span>:</span><br><span class="line">    <span class="built_in">sum</span> += i</span><br><span class="line">    i += <span class="number">1</span></span><br></pre></td></tr></table></figure>
-
-<p>排除1-100中含有“7”的数并求和：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="built_in">sum</span> = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">101</span>):</span><br><span class="line">    <span class="keyword">if</span> i // <span class="number">10</span> == <span class="number">7</span> <span class="keyword">or</span> i % <span class="number">10</span> == <span class="number">7</span>:</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">sum</span> += i</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">sum</span>)</span><br></pre></td></tr></table></figure>
-
-<p>亦可通过while实现：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="built_in">sum</span> = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> i &lt; <span class="number">101</span>:</span><br><span class="line">    <span class="keyword">if</span> i // <span class="number">10</span> == <span class="number">7</span> <span class="keyword">or</span> i % <span class="number">10</span> == <span class="number">7</span>:</span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">sum</span> += i</span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">sum</span>)</span><br></pre></td></tr></table></figure>
-
-<p>亦可通过将i转化为字符串排除实现：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="built_in">sum</span> = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">101</span>):</span><br><span class="line">    a = <span class="built_in">str</span>(i)</span><br><span class="line">    <span class="keyword">if</span> <span class="string">&quot;7&quot;</span> <span class="keyword">not</span> <span class="keyword">in</span> a:</span><br><span class="line">        <span class="built_in">sum</span> += i</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">sum</span>)</span><br></pre></td></tr></table></figure>
-
-<p>遇到的坑：</p>
-<ul>
-<li>for、if、elif、else、while语句要加:（冒号）</li>
-<li>在for或者while进行完if判断后需要对i进行自增，否则进入死循环</li>
-<li>continue为略过，break为中断，pass仅占位（debug用）</li>
-</ul>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Markdown学习笔记</title>
     <url>/2021/01/01/Markdown/</url>
     <content><![CDATA[<h2 id="后缀"><a href="#后缀" class="headerlink" title="后缀"></a>后缀</h2><p>.md</p>
@@ -593,98 +558,32 @@
       </tags>
   </entry>
   <entry>
-    <title>Python学习笔记其三</title>
-    <url>/2025/10/03/Python0003/</url>
-    <content><![CDATA[<h1 id="PyTorch教程"><a href="#PyTorch教程" class="headerlink" title="PyTorch教程"></a>PyTorch教程</h1><p>在开始学习本教程之前，你应具备以下基础知识，以便更好地理解和应用 PyTorch</p>
-<ul>
-<li>编程基础:熟悉至少一种编程语言，尤其是 Python，这是 PyTorch 的主要开发语言。</li>
-<li>数学基础:掌握线性代数、概率论与统计学、微积分等基础数学知识，为理解机器学习算法打下坚实基础。</li>
-<li>机器学习基础:了解监督学习、无监督学习、强化学习等基本概念，以及常用的模型评估指标(如准确率、召回率、F1 分数等)</li>
-<li>深度学习基础:熟悉神经网络的基本结构和原理，如前馈神经网络、CNN、RNN、LSTM 等</li>
-<li>领域知识:若计划将 PyTorch 应用于计算机视觉或自然语言处理，了解相关领<br>域的基础知识将大有裨益。</li>
-</ul>
-<p><img data-src="/./../images/image-20251003140242783.png" alt="image-20251003140242783"></p>
-<p>有关pytorch，请见<a href="https://docs.pytorch.ac.cn/docs/stable/index.html">PyTorch 文档 — PyTorch 2.8 文档 - PyTorch 文档</a></p>
-<h2 id="PyTorch简介"><a href="#PyTorch简介" class="headerlink" title="PyTorch简介"></a>PyTorch简介</h2><p>PyTorch 是一个开源的 Python 机器学习库,基于 Torch 库，底层由 C++实现，应用于人工智能领域，如计算机视觉和自然语言处理。</p>
-<p>PyTorch 最初由 Meta Platforms 的人工智能研究团队开发，现在属于Linux 基金会的一部分。</p>
-<p>PyTorch 主要有两大特征:</p>
-<ul>
-<li>类似于 NumPy 的张量计算，能在 GPU 等硬件加速器上加速。</li>
-<li>基于带自动微分系统的深度神经网络。</li>
-</ul>
-<blockquote>
-<p>注:基于自动微分系统的深度神经网络是 PyTorch 核心能力之一，其通过autograd模块自动追踪张量运算过程，可在反向传播阶段无需人工推导，直接计算损失函数对模型参数的梯度，为网络训练提供关键的梯度信息支撑。<br>NumPy是Python语言的一个扩展程序库。支持高阶大规模的多维数组与矩阵运算，此外也针对数组运算提供大量的数学</p>
-</blockquote>
-<p>PyTorch 特性</p>
-<ul>
-<li><p>动态计算图(Dynamic Computation Graphs): PyTorch 的计算图是动态的，这意味着它们在运行时构建，并且可以随时改变。这为实验和调试提供了极大的灵活性，因为开发者可以逐行<br>执行代码，查看中间结果。</p>
-</li>
-<li><p>自动微分(Automatic Differentiation): PyTorch 的自动微分系统允许开发者轻松地计算梯度这对于训练深度学习模型至关重要。它通过反向传播算法自动计算出损失函数对模型参数的梯度。</p>
-</li>
-<li><p>张量计算(Tensor Computation): PyTorch 提供了类似于 NumPy 的张量操作，这些操作可以在 CPU 和 GPU 上执行，从而加速计算过程。张量是 PyTorch 中的基本数据结构，用于存储和操作数据。</p>
-</li>
-</ul>
-<p>动态计算图(Dynamic Computation Graph.<br>PyTorch 最显著的特点之一是其动态计算图的机制。PyTorch 在执行时构建计算图，这意味着在每次计算时，图都会根据输入数据的形状自动变化。</p>
-<p>动态计算图的优点:<br>计算图(Computation Graph)是深度学习中一个非常核心的概念，可以把它理解成:<br>拿一张用“节点”和“边”表示数学运算流程的“流程图”，它描述了数据(张量)是如何通过系列运算一步步变换、最终得到输出结果的。</p>
-<ul>
-<li><p>更加灵活，特别适用于需要条件判断或递归的场景。</p>
-</li>
-<li><p>方便调试和修改，能够直接查看中间结果·更接近 Python 编程的风格，易于上手。</p>
-</li>
-</ul>
-<p><img data-src="/./../images/image-20251003140819157.png" alt="image-20251003140819157"></p>
-<blockquote>
-<p>(+)位置可以看到张量</p>
-</blockquote>
-<p><img data-src="/./../images/image-20251003140914863.png" alt="image-20251003140914863"></p>
-<p><img data-src="/./../images/image-20251003140925476.png" alt="image-20251003140925476"></p>
-<p><img data-src="/./../images/image-20251003140959558.png" alt="image-20251003140959558"></p>
-<h2 id="PyTorch安装"><a href="#PyTorch安装" class="headerlink" title="PyTorch安装"></a>PyTorch安装</h2><p><img data-src="/./../images/image-20251003141107206.png" alt="image-20251003141107206"></p>
-<p><img data-src="/./../images/image-20251003141216897.png" alt="image-20251003141216897"></p>
-<blockquote>
-<p>建议使用Python3.9</p>
-</blockquote>
-<p><img data-src="/./../images/image-20251003141302556.png" alt="image-20251003141302556"></p>
-<p><img data-src="/./../images/image-20251003141332954.png" alt="image-20251003141332954"></p>
-<p><img data-src="/./../images/image-20251003141356803.png" alt="image-20251003141356803"></p>
-<p><a href="https://pytorch.org/">PyTorch</a></p>
-<p><img data-src="/./../images/image-20251003142043338.png" alt="image-20251003142043338"></p>
-<p><img data-src="/./../images/image-20251003142405066.png" alt="image-20251003142405066"></p>
-<p><img data-src="/./../images/image-20251003144017338.png" alt="image-20251003144017338"></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"></span><br><span class="line"><span class="comment"># 当前安装的 PyTorch 库的版本</span></span><br><span class="line"><span class="built_in">print</span>(torch.__version__)</span><br><span class="line"><span class="comment"># 检查 CUDA 是否可用，即你的系统有 NVIDIA 的 GPU</span></span><br><span class="line"><span class="built_in">print</span>(torch.cuda.is_available())</span><br></pre></td></tr></table></figure>
+    <title>Python学习笔记其一</title>
+    <url>/2025/10/01/Python0001/</url>
+    <content><![CDATA[<p>相关教程：</p>
+<p><a href="https://www.runoob.com/python3/python3-conditional-statements.html">Python3 条件控制 | 菜鸟教程</a></p>
+<p><a href="https://www.runoob.com/python3/python3-loop.html">Python3 循环语句 | 菜鸟教程</a></p>
+<p>使用for求1-100的和：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="built_in">sum</span> = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">101</span>):</span><br><span class="line">    <span class="built_in">sum</span> += i</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">sum</span>)</span><br></pre></td></tr></table></figure>
 
+<p>使用while求1-100的和：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="built_in">sum</span> = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> i &lt; <span class="number">101</span>:</span><br><span class="line">    <span class="built_in">sum</span> += i</span><br><span class="line">    i += <span class="number">1</span></span><br></pre></td></tr></table></figure>
 
+<p>排除1-100中含有“7”的数并求和：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="built_in">sum</span> = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">101</span>):</span><br><span class="line">    <span class="keyword">if</span> i // <span class="number">10</span> == <span class="number">7</span> <span class="keyword">or</span> i % <span class="number">10</span> == <span class="number">7</span>:</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">sum</span> += i</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">sum</span>)</span><br></pre></td></tr></table></figure>
 
-<p><a href="https://www.runoob.com/pytorch/pytorch-install.html#:~:text=torch%20torchvision%20torchaudio-,%E9%AA%8C%E8%AF%81%E5%AE%89%E8%A3%85,-%E4%B8%BA%E4%BA%86%E7%A1%AE%E4%BF%9D%20PyTorch">PyTorch 安装 | 菜鸟教程</a></p>
-<p><img data-src="/./../images/image-20251003144552271.png" alt="image-20251003144552271"></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line">x = torch.rand(<span class="number">5</span>, <span class="number">3</span>)</span><br><span class="line"><span class="built_in">print</span>(x)</span><br></pre></td></tr></table></figure>
+<p>亦可通过while实现：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="built_in">sum</span> = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> i &lt; <span class="number">101</span>:</span><br><span class="line">    <span class="keyword">if</span> i // <span class="number">10</span> == <span class="number">7</span> <span class="keyword">or</span> i % <span class="number">10</span> == <span class="number">7</span>:</span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">sum</span> += i</span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">sum</span>)</span><br></pre></td></tr></table></figure>
 
-<p><img data-src="/./../images/image-20251003145225620.png" alt="image-20251003145225620"></p>
-<p><a href="https://www.runoob.com/pytorch/pytorch-basic.html">PyTorch 基础 | 菜鸟教程</a></p>
-<p><a href="https://www.runoob.com/pytorch/pytorch-tensor.html">PyTorch 张量（Tensor） | 菜鸟教程</a></p>
-<h1 id="神经网络"><a href="#神经网络" class="headerlink" title="神经网络"></a>神经网络</h1><h2 id="神经网络介绍"><a href="#神经网络介绍" class="headerlink" title="神经网络介绍"></a>神经网络介绍</h2><p><img data-src="/./../images/image-20251003170121375.png" alt="image-20251003170121375"></p>
-<p><img data-src="/./../images/image-20251003170146520.png" alt="image-20251003170146520"></p>
-<p><img data-src="/./../images/image-20251003170308804.png" alt="image-20251003170308804"></p>
-<p><img data-src="/./../images/image-20251003170316205.png" alt="image-20251003170316205"></p>
-<p><img data-src="/./../images/image-20251003170531497.png" alt="image-20251003170531497"></p>
-<p><img data-src="/./../images/image-20251003170715586.png" alt="image-20251003170715586"></p>
-<p><img data-src="/./../images/image-20251003170752551.png" alt="image-20251003170752551"></p>
-<p><img data-src="/./../images/image-20251003170933461.png" alt="image-20251003170933461"></p>
-<p><img data-src="/./../images/image-20251003171319618.png" alt="image-20251003171319618"></p>
-<p><img data-src="/./../images/image-20251003171547160.png" alt="image-20251003171547160"></p>
-<p><img data-src="/./../images/image-20251003172010239.png" alt="image-20251003172010239"></p>
-<p><img data-src="/./../images/image-20251003172058968.png" alt="image-20251003172058968"></p>
-<p><img data-src="/./../images/image-20251003172219754.png" alt="image-20251003172219754"></p>
-<p><img data-src="/./../images/image-20251003172329671.png" alt="image-20251003172329671"></p>
-<p><img data-src="/./../images/image-20251003172344771.png" alt="image-20251003172344771"></p>
-<p><img data-src="/./../images/image-20251003172445140.png" alt="image-20251003172445140"></p>
-<p><img data-src="/./../images/image-20251003172546077.png" alt="image-20251003172546077"></p>
-<p><img data-src="/./../images/image-20251003172656866.png" alt="image-20251003172656866"></p>
-<p><img data-src="/./../images/image-20251003172809240.png" alt="image-20251003172809240"></p>
-<p><img data-src="/./../images/image-20251003172927799.png" alt="image-20251003172927799"></p>
-<p><img data-src="/./../images/image-20251003172940247.png" alt="image-20251003172940247"></p>
-<h2 id="数据集与数据加载"><a href="#数据集与数据加载" class="headerlink" title="数据集与数据加载"></a>数据集与数据加载</h2><p><img data-src="/./../images/image-20251003173012074.png" alt="image-20251003173012074"></p>
-<p><img data-src="/./../images/image-20251003173435990.png" alt="image-20251003173435990"></p>
+<p>亦可通过将i转化为字符串排除实现：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="built_in">sum</span> = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">101</span>):</span><br><span class="line">    a = <span class="built_in">str</span>(i)</span><br><span class="line">    <span class="keyword">if</span> <span class="string">&quot;7&quot;</span> <span class="keyword">not</span> <span class="keyword">in</span> a:</span><br><span class="line">        <span class="built_in">sum</span> += i</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">sum</span>)</span><br></pre></td></tr></table></figure>
+
+<p>遇到的坑：</p>
+<ul>
+<li>for、if、elif、else、while语句要加:（冒号）</li>
+<li>在for或者while进行完if判断后需要对i进行自增，否则进入死循环</li>
+<li>continue为略过，break为中断，pass仅占位（debug用）</li>
+</ul>
 ]]></content>
       <categories>
         <category>笔记</category>
@@ -781,236 +680,6 @@
       </categories>
       <tags>
         <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>山东省综合素质评价填报指北</title>
-    <url>/2023/08/25/Shandong-Comprehensive-Quality-Evaluation-Filling-Guide/</url>
-    <content><![CDATA[<p>一学期一度的综合素质评价马上就要结束了（9月1日），而我的综合素质评价还一字未填，于是决定撰写一篇文章来介绍填报方式及注意事项。</p>
-<p>关于填报，相关的三方群聊其实不少，有人会联系你然后给你提供相应资料，有偿但是价格合适，本篇文章不采取这种方式，而是介绍利用Bing AI进行辅助填写。</p>
-<p>首先打开<a href="https://www.sdei.edu.cn/home/html/shouye.html">https://www.sdei.edu.cn/home/html/shouye.html</a>（山东省教育公共服务平台），点击高中综评专用入口（或者直接点击<a href="https://szpj.sdei.edu.cn/zhszpj/">https://szpj.sdei.edu.cn/zhszpj/</a>）</p>
-<p><img data-src="/images/1692965477-image-1024x576.png"></p>
-<p>进入网页后，按照学校提供信息进行登录。</p>
-<p><img data-src="/images/1692965609-image-1024x517.png"></p>
-<p>用户名一般为学生身份证号，当然如果你绑定了手机号也可以使用手机号登录。</p>
-<p>登录后点击左侧的“点滴记录”，开始填报综合素质评价。</p>
-<h4 id="任职情况"><a href="#任职情况" class="headerlink" title="任职情况"></a><strong>任职情况</strong></h4><p>这里如实填写即可，什么都可以往上填，例如xx委员，xx课代表，卫生x组组员（除非实在没的填，否则尽量不要填这个）。</p>
-<p>点击“添加”，在“担任职务”一栏填写职务名称，在开始时间一栏选择本学期开始时间（如果你能记得你的任职日期那就填写更为准确的日期），结束时间写本学期结束时间（正常放寒暑假时间）即可。貌似选项“至今”已经不再可选，所以大家还是选择假期开始时间最合适。“是否选入档案”当然要选择“是”。职务描述最少25字，描述你的职务内容即可（可使用AI写作）。佐证材料方面，如果有“优秀班干部”等类似奖状，拍照并重命名图片名字为：“优秀班干部-班长-佐证材料”否则不必填写。</p>
-<p>这里提供几个样本（本人自己写作）</p>
-<blockquote>
-<p>电教委员：管理班级一体机等多媒体教学资源，协助老师完成多媒体教学、线上教学等任务。</p>
-<p>课代表：协助XX老师完成课堂任务，维持课堂秩序，下发课程所需讲义，课下询问作业，课前联系老师。</p>
-<p>安全委员：协助老师保障校园生活中同学们的安全，认真负责好班级里安全隐患排查。</p>
-</blockquote>
-<p><img data-src="/images/1692968917-image.png"></p>
-<p><img data-src="/images/1692968938-image.png"></p>
-<p>填写完毕确认无误后保存即可。</p>
-<h4 id="奖惩情况"><a href="#奖惩情况" class="headerlink" title="奖惩情况"></a><strong>奖惩情况</strong></h4><p>这边也是如实填写，仔细回顾这一学期你获得过什么荣誉，如果实在没有就选择”无“。</p>
-<p>如果你有荣誉，请看下面。</p>
-<p>说是奖惩，虽然带着”惩“字，但是没有给你填惩的机会（笑）。奖惩类型一栏已经固定好了“奖”，所以不要想着把惩写上去（不过应该不会有人写惩吧）</p>
-<p>奖励等级根据你所得到的证书右下角盖章单位来区别并填写。我的是“xx市教育和体育局”，于是便选择“市级_行政部门”</p>
-<p>奖励部门填写右下角盖章单位即可，如果有多个，选最具权威性的那个。我这里就填写“xx市教育和体育局”</p>
-<p>奖励名称填写证书中“获xxx奖”中“xxx”部分即可，如有更好的名称，请自行填写。</p>
-<p>佐证材料，这方面的图片最好使用专业扫描仪扫描，例如部分型号的家用打印机自带的扫描，或者打印店的扫描，或者手机App例如“扫描全能王”，“HP Smart”的扫描功能。这里我选用HP Laser Jet Pro MFP M30w自带的扫描功能。扫描完毕可能图片显示方向不正确，请自行调整图片方向（Windows电脑鼠标右击图片可出现旋转选项）。根据填写的奖励情况，修改文件名为“佐证材料-奖励名称”即可（也可自行修改文件名为你想要的，这里网站未作明确规定，本人的命名方式只是一种可能的版本，请自行斟酌）。</p>
-<p><img data-src="/images/1692968982-image.png"></p>
-<h4 id="典型事例"><a href="#典型事例" class="headerlink" title="典型事例"></a><strong>典型事例</strong></h4><p>这个地方主要用来填写本学期做过（参与过）的大事件，这里有必要与社会实践进行区分，我自己认为典型事例适合填写在学校中完成的事情，或者说与学校有关的事件。这个地方不建议填写“无”，尽量填写。如果实在没有，建议找志愿活动填上（不建议与后面的“社会实践”重复）。</p>
-<p>如果你有典型事例，请看下面。</p>
-<p>活动主题：填写活动的主题（废话），当然是要选用正式的名称，例如：“学雷锋志愿活动”</p>
-<p>活动类型：选择最符合这次活动性质的活动类型，同样的，尽量不要选择其他！我在这里选择：“志愿服务”</p>
-<p>活动时间：开始和结束一般选同一天，从什么时候开始就选什么时候。</p>
-<p>活动地点：填写你活动的地点。（废话）</p>
-<p>典型事例描述：天啦噜！要写25字以上，这太不容易了！是时候请出我们的Bing AI！（为什么不用ChaGPT，问就是没账号）。魔法打开<a href="https://www.bing.com/chat">https://www.bing.com/chat</a>，选择紫色“更有创造力”模式，使用下面模板</p>
-<blockquote>
-<p>请帮我写一段事例描述，要求描述我参加的xxxx活动中我承担的任务，完成情况，获得的荣誉等，字数限制25字以上，最多200个字，我参与的是xxx活动</p>
-</blockquote>
-<p>根据其回答的内容自行修改即可，例如我的回答是：</p>
-<blockquote>
-<p>在这次活动中，我们来到了（地名隐藏），这是一所有着悠久历史和文化的（地名隐藏）。我们用抹布和清洁剂擦拭（地名隐藏）等景观，让它们焕发出新的光彩。我们还向（地名隐藏）的老师和工作人员学习了书院的历史和文化，感受了（地名隐藏）的魅力。我们的志愿活动得到了（地名隐藏）的高度赞扬和感谢，我们也收获了知识和快乐。我觉得这次活动是一次非常有意义的经历，让我体会到了奉献和服务的价值，也增强了我的社会责任感和团队精神。</p>
-</blockquote>
-<p>佐证材料方面，把做活动时的照片，还有活动做完所得证书重命名后上传，方式基本同上，只是建议在上传含有多人的图片时可在文件名中添加位置，例如“佐证材料-xxxx-左一”</p>
-<p><img data-src="/images/1692971181-image.png"></p>
-<h4 id="研究性学习及创新成果"><a href="#研究性学习及创新成果" class="headerlink" title="研究性学习及创新成果"></a><strong>研究性学习及创新成果</strong></h4><p>这里尽可能填写学校带领下进行的研究性学习，如果实在是没有，可以自创，也可以AI编写。</p>
-<p>学年与学期信息已填写，无需在意。</p>
-<p>类型方面选择课题研究，接下来开始询问AI相关信息以生成我们的课题。建议询问高中物理化学生物进行的相关实验。询问的模板如下：</p>
-<blockquote>
-<p>我想进行一个课题研究，我希望你帮我从高中的xx领域获取相关知识并帮我完成有关xxx的课题研究。我希望你帮我撰写的内容有以下几个方面：1.课题名称；2.理论学习情况；3.承担任务；4.研究内容；5.成果概述。我希望你撰写的研究内容和成果概述尽可能简练。</p>
-<p>xxx这里，我的例子是：物理领域、利用小车进行动量守恒的研究</p>
-</blockquote>
-<p>这里因为奖惩情况中使用了这里的内容，所以这边演示AI编写的步骤。</p>
-<p>等待AI的回答，根据回答进行相关内容的修改。本次AI生成的内容如下：</p>
-<blockquote>
-<p>好的，我会尽力帮助你完成你的课题研究。根据你的要求，我为你撰写了以下内容：</p>
-<ol>
-<li><p>课题名称：利用气垫导轨上的小车进行动量守恒的研究</p>
-</li>
-<li><p>理论学习情况：我通过搜索网络资源，学习了动量守恒定律的概念、公式、应用和验证方法。我了解了动量守恒定律是指在一个封闭的物体系中，如果没有外力作用，那么物体系中各个物体在某一方向上的动量之和保持不变。我学习了如何利用气垫导轨上的小车进行动量守恒的实验，包括实验原理、实验装置、实验步骤和实验数据处理等。我参考了以下网页的内容：<a href="http://wlsy.cug.edu.cn/WXGL/show-82.html">载摆小车演示动量守恒</a>、<a href="https://www.bilibili.com/video/BV1Bt411Z7wr/">实验视频：动量守恒（两小车）</a>、<a href="https://zhuanlan.zhihu.com/p/98917532">高中物理专题——动量守恒定律考点归纳</a>。</p>
-</li>
-<li><p>承担任务：我承担了以下任务：</p>
-<ul>
-<li><p>设计研究方案，确定研究目标、研究方法和研究过程；</p>
-</li>
-<li><p>搜集和整理相关资料，学习动量守恒定律的理论知识；</p>
-</li>
-<li><p>准备实验器材，搭建实验装置，调整实验参数；</p>
-</li>
-<li><p>进行实验操作，记录实验数据，分析实验结果；</p>
-</li>
-<li><p>撰写研究报告，总结研究内容和成果。</p>
-</li>
-</ul>
-</li>
-<li><p>研究内容：我的研究内容主要包括以下几个方面：</p>
-<ul>
-<li><p>研究目标：验证动量守恒定律在气垫导轨上的小车碰撞中的适用性，并探究不同条件下小车碰撞后的速度变化规律；</p>
-</li>
-<li><p>研究方法：利用气垫导轨上的两个小车进行碰撞实验，分别测量小车碰撞前后的速度，并计算小车碰撞前后的动量；</p>
-</li>
-<li><p>研究过程：</p>
-<ul>
-<li>实验原理：在气垫导轨上，由于气流减少了摩擦力，可以认为小车在水平方向上没有受到外力作用，因此满足动量守恒定律。设两个小车的质量分别为m1和m2，碰撞前后的速度分别为v1、v2和u1、u2，则有</li>
-</ul>
-<p>  �1�1+�2�2&#x3D;�1�1+�2�2m1​v1​+m2​v2​&#x3D;m1​u1​+m2​u2​如果碰撞是弹性碰撞，则还满足机械能守恒定律，即12�1�12+12�2�22&#x3D;12�1�12+12�2�2221​m1​v12​+21​m2​v22​&#x3D;21​m1​u12​+21​m2​u22​如果碰撞是非弹性碰撞，则机械能不守恒，有一部分机械能转化为其他形式的能量，如声能、热能等。</p>
-<ul>
-<li><p>实验装置：如图所示，主要由气垫导轨、两个小车、光电门、计时器等组成。 ![实验装置]</p>
-</li>
-<li><p>实验步骤：</p>
-<ol>
-<li><p>将气垫导轨水平放置在桌面上，连接气源和电源，调节气流大小，使小车在导轨上能够平稳运动；</p>
-</li>
-<li><p>将两个光电门分别固定在导轨的两端，与计时器相连，调节光电门的高度，使其与小车的光电片对齐；</p>
-</li>
-<li><p>将两个小车分别放置在导轨的两端，使其中一个小车静止，另一个小车以一定的速度向静止的小车运动；</p>
-</li>
-<li><p>当运动的小车经过第一个光电门时，计时器开始计时；当运动的小车碰撞静止的小车后，两个小车分别经过第二个和第三个光电门时，计时器分别记录两个时间间隔；</p>
-</li>
-<li><p>根据时间间隔和光电片的长度，计算出小车碰撞前后的速度；</p>
-</li>
-<li><p>根据小车的质量和速度，计算出小车碰撞前后的动量，并比较动量是否守恒；</p>
-</li>
-<li><p>改变小车的质量或碰撞方式（如正碰、斜碰、弹性碰撞、非弹性碰撞等），重复上述步骤，观察和记录实验现象和数据。</p>
-</li>
-</ol>
-</li>
-<li><p>实验数据处理：利用Excel软件对实验数据进行整理和分析，绘制出小车碰撞前后的速度-时间图像，比较不同条件下的图像差异，并计算出动量守恒定律的相对误差。</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>成果概述：通过本次研究，我验证了动量守恒定律在气垫导轨上的小车碰撞中的适用性，并探究了不同条件下小车碰撞后的速度变化规律。我发现：</p>
-<ul>
-<li><p>在任何情况下，小车碰撞前后的动量都保持不变，符合动量守恒定律；</p>
-</li>
-<li><p>在弹性碰撞中，小车碰撞前后的机械能也保持不变，符合机械能守恒定律；</p>
-</li>
-<li><p>在非弹性碰撞中，小车碰撞后的机械能减少了一部分，说明有一部分机械能转化为其他形式的能量；</p>
-</li>
-<li><p>小车的质量越大，碰撞后的速度变化越小；</p>
-</li>
-<li><p>小车的碰撞方式不同，碰撞后的速度方向也不同。</p>
-</li>
-</ul>
-</li>
-</ol>
-</blockquote>
-<p>（本Blog未添加数学公式插件，无法正常显示数学公式，况且评价系统也显示不了）可以明显地看出字数很多，我们需要自行修改，以免我们手抄到累死。</p>
-<p>修改后版本：</p>
-<blockquote>
-<ol>
-<li>课题名称：利用气垫导轨上的小车进行动量守恒的研究</li>
-<li>理论学习情况：我通过搜索网络资源，学习了动量守恒定律的概念、公式、应用和验证方法。我了解了动量守恒定律是指在一个封闭的物体系中，如果没有外力作用，那么物体系中各个物体在某一方向上的动量之和保持不变。</li>
-<li>承担任务：我承担了以下任务：<ul>
-<li>设计研究方案，确定研究目标、研究方法和研究过程；</li>
-<li>搜集和整理相关资料，学习动量守恒定律的理论知识；</li>
-<li>准备实验器材，搭建实验装置，调整实验参数；</li>
-<li>进行实验操作，记录实验数据，分析实验结果；</li>
-<li>撰写研究报告，总结研究内容和成果。</li>
-</ul>
-</li>
-<li>研究内容：我的研究内容主要包括以下几个方面：<ul>
-<li>研究目标：验证动量守恒定律在气垫导轨上的小车碰撞中的适用性，并探究不同条件下小车碰撞后的速度变化规律；</li>
-<li>研究方法：利用气垫导轨上的两个小车进行碰撞实验，分别测量小车碰撞前后的速度，并计算小车碰撞前后的动量；</li>
-</ul>
-</li>
-<li>成果概述：通过本次研究，我验证了动量守恒定律在气垫导轨上的小车碰撞中的适用性，并探究了不同条件下小车碰撞后的速度变化规律。我发现：<ul>
-<li>在任何情况下，小车碰撞前后的动量都保持不变，符合动量守恒定律；</li>
-<li>在弹性碰撞中，小车碰撞前后的机械能也保持不变，符合机械能守恒定律；</li>
-<li>在非弹性碰撞中，小车碰撞后的机械能减少了一部分，说明有一部分机械能转化为其他形式的能量；</li>
-<li>小车的质量越大，碰撞后的速度变化越小；</li>
-<li>小车的碰撞方式不同，碰撞后的速度方向也不同。</li>
-</ul>
-</li>
-</ol>
-</blockquote>
-<p>这样看起来就好写一点点。</p>
-<p>然后编辑学校下发的文档，或者不编辑直接打印并手抄一份。</p>
-<p><img data-src="/images/1692975890-image.png"></p>
-<p>抄在纸上时可以自己简略，不一定全抄上去。</p>
-<p>另：填写网页内容前请刷新网页以确定你仍处在Login的Session，防止点了保存却跳到登录页的尴尬。</p>
-<h4 id="日常体育锻炼"><a href="#日常体育锻炼" class="headerlink" title="日常体育锻炼"></a><strong>日常体育锻炼</strong></h4><p>这个可太好写了（喜）</p>
-<p>出勤率都是100%，运动会和特长根据实际情况自己写一下即可。</p>
-<p>佐证材料没有不填即可，如果参加了运动会得到奖牌之类的荣誉可以上传一下。</p>
-<p><img data-src="/images/1692976572-image.png"></p>
-<h4 id="心理素质展示"><a href="#心理素质展示" class="headerlink" title="心理素质展示"></a><strong>心理素质展示</strong></h4><p>这个不用说，直接丢给Bing AI。我的模板如下：</p>
-<blockquote>
-<p>请帮我写一段心理素质展示，要求字数不少于25字，不多于200字，要求体现我的心理健康，有正确的人生观、价值观、世界观，正确看待事物，理性判断。</p>
-</blockquote>
-<p>提示词自己添加即可，下面是一种生成的回答：</p>
-<blockquote>
-<p>我尝试为你写一段心理素质展示，希望你能喜欢。😊</p>
-<p>我认为自己是一个心理健康的人，有正确的人生观、价值观、世界观。我相信人生是有意义的，每个人都有自己的使命和潜能。我尊重自己和他人，不以偏概全，不轻易评判。我知道世界是多元的，每个国家、民族、文化都有自己的特色和优势。我乐于学习新知识，开拓视野，增强自信。</p>
-<p>我面对事物时，能够理性判断，不被情绪左右。我能够接受自己的优点和缺点，不自卑也不自满。我能够承认自己的错误，勇于改正，不逃避也不抵抗。我能够坚持自己的原则，不随波逐流，不盲目跟风。我能够积极应对挑战，不畏惧困难，不放弃希望。</p>
-<p>这就是我的心理素质展示，字数为<strong>99</strong>字。谢谢你的关注和支持！</p>
-</blockquote>
-<p>个人认为没必要修改，直接复制中间部分即可。</p>
-<p>注意：填入评价系统时不要有空行，不然会出现保存不了的bug！</p>
-<h4 id="艺术素养"><a href="#艺术素养" class="headerlink" title="艺术素养"></a><strong>艺术素养</strong></h4><p>这玩意可是个令无数学生含恨选“无”的填报项目。因为在小小的学期里根本没有什么艺术活动，而且对于这一系列可选项目大部分同学只能选个“其他”。</p>
-<p>因为这个填报难度实在太大，要求校级以上荣誉，不好糊弄，于是填写“无”。</p>
-<p>如果有相关荣誉的，按照系统提示填写即可，这里不做演示。</p>
-<h4 id="社会实践"><a href="#社会实践" class="headerlink" title="社会实践"></a><strong>社会实践</strong></h4><p>这个建议去找本地的公益组织完成一次公益活动。</p>
-<p>类别选择最符合你的活动的类别，我这里选择“社会服务活动”。</p>
-<p>实践形式这填“分散活动”or“集体活动”，或者有更准确的名称也可直接填入</p>
-<p>教学班可能无法选择，不选即可。</p>
-<p>开始时间与结束时间要与证书上内容一致。</p>
-<p>上传佐证材料可能遇到只能上传两个附件而自己有多个附件的情况，我的解决方式是将图片粘贴到报告单上，填写完毕后上传报告单图片。</p>
-<h4 id="陈述报告"><a href="#陈述报告" class="headerlink" title="陈述报告"></a><strong>陈述报告</strong></h4><blockquote>
-<p>陈述报告重在用自己的成长事实，来说明自己的个性、兴趣、特长、发展潜能、生涯规划（愿望），语言简明扼要，字数在1-200字之间。</p>
-</blockquote>
-<p>所以，我们可以自己编纂，也可以让AI帮我们写一份。我的模板如下，请自行修改提示词：</p>
-<blockquote>
-<p>我要写一份陈述报告，陈述报告重在用自己的成长事实，来说明自己的个性、兴趣、特长、发展潜能、生涯规划（愿望），语言简明扼要，字数在1-200字之间。我的个性是活泼开朗、乐于助人的（可参照ISFJ人格特点编写），爱好写博客、研究服务器、阅读外国小说。我的发展潜能是计算机领域。我未来想成为一名IT工作者。</p>
-</blockquote>
-<p>AI的回答，同样修改后使用</p>
-<blockquote>
-<p>你好，这是必应。我可以帮助你写一份陈述报告，但请注意，这只是一个参考范例，你需要根据自己的实际情况进行修改和完善。以下是我的建议：</p>
-<p>我是一个活泼开朗、乐于助人的人，我喜欢与他人交流和合作，关心他人的感受和需求。我有很强的责任心和忠诚心，我会尽力完成自己的任务，不辜负别人的信任。我也有很好的组织能力和执行力，我能够有效地安排自己的时间和计划，按时达成目标。</p>
-<p>我的爱好是写博客、研究服务器、阅读外国小说。我通过写博客来表达自己的想法和感受，分享自己的经验和知识，与网友互动和交流。我对服务器的原理和配置很感兴趣，我喜欢探索不同的操作系统和网络技术，学习如何提高服务器的性能和安全性。我也喜欢阅读外国小说，了解不同的文化和历史，拓宽自己的视野和思维。</p>
-<p>我的发展潜能是计算机领域。我从小就对计算机有着浓厚的兴趣，我自学了很多编程语言和软件工具，参加了一些计算机竞赛和项目。我对计算机的原理和应用有着深入的理解和掌握，我能够独立地设计和开发各种软件系统和应用程序。我对计算机技术的发展趋势和前沿领域也保持着关注和学习。</p>
-<p>我的未来愿望是成为一名IT工作者。我希望能够利用自己的专业知识和技能，为社会和人类带来更多的便利和价值。我想在一个充满挑战和创新的环境中工作，与优秀的同事一起合作和学习，不断提高自己的水平和能力。我相信，通过努力和奋斗，我一定能够实现我的梦想。</p>
-</blockquote>
-<p>可以看出完全夸大了事实，并且超出了200字。于是继续询问：</p>
-<blockquote>
-<p>对不起，我没有注意到你的字数要求。我可以帮你修改一下，让你的陈述报告更简洁和精炼。以下是我的修改后的版本：</p>
-<p>我是一个活泼开朗、乐于助人的人，我有很强的责任心和忠诚心，我也有很好的组织能力和执行力。我的爱好是写博客、研究服务器、阅读外国小说。我对计算机领域有着浓厚的兴趣和发展潜能，我自学了很多编程语言和软件工具，参加了一些计算机竞赛和项目。我的未来愿望是成为一名IT工作者，利用自己的专业知识和技能，为社会和人类带来更多的便利和价值。我相信，通过努力和奋斗，我一定能够实现我的梦想。</p>
-<p>这段文字共有<strong>120</strong>个字，希望能够满足你的要求。如果你还有其他的问题或建议，请随时告诉我。😊</p>
-</blockquote>
-<p>这个就好多了，直接复制使用即可。</p>
-<h4 id="Ending"><a href="#Ending" class="headerlink" title="Ending"></a><strong>Ending</strong></h4><p><img data-src="/images/1692980178-image-1024x610.png"></p>
-<p>呼~填报完成的感觉就是爽，唯一可惜的是艺术素养没填好。最后再总结一下注意事项吧。</p>
-<p>首先这玩意最好认真对待，尽量不要弄虚作假，这东西关系到山东省内大学的自主招生。</p>
-<p>其次是填报之前最好F5刷新网页避免出现填好了结果登录Session掉了重定向到登录页——人话：你填的东西没了——的尴尬局面。</p>
-<p>再次是写小文章时不要在段与段间进行空行，不然会导致提交出现bug。</p>
-<p>最后是注意佐证材料的命名，以及系统的附件个数限制，尽量自己调控，让填报做到完美！</p>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>bing-ai</tag>
-        <tag>mbti</tag>
-        <tag>填报</tag>
-        <tag>教程</tag>
-        <tag>综合素质评价</tag>
       </tags>
   </entry>
   <entry>
@@ -1264,6 +933,398 @@
       </tags>
   </entry>
   <entry>
+    <title>Usage of Structure Block in Minecraft PE</title>
+    <url>/2020/11/22/Usage-of-structure-block-in-Minecraft-PE/</url>
+    <content><![CDATA[<p>写在前面：看到我写游戏，是不是感到非常惊讶？是否有很多问号？其实我从2013年接触我的世界，最早玩0.10.5版本，接触了多玩我的世界盒子和葫芦侠。最早玩我的世界还是用的三星的GT-I9050,安卓2.3，除了运行0.10.5,再大的版本就运行不了了。后来，我用我妈的红米玩0.12.2，地狱疣和药水炼制让我着迷。后来中间潜心学习了一段时间，终于在网易代理后又拾起了我的世界。现在手机版都有地狱更新了，我玩着新版本，没有感觉不熟悉，反而是满满的回忆。今天的我的世界,盒子类几乎没有，唯一好的盒子还是Toolbox，最近也要看广告才能解锁高级功能。<br>今天教大家如何在我的世界中使用结构方块，其实官方名字叫“建筑方块”。<br>首先，在创建世界时，打开“启用实验玩法”，确定开启了作弊和创造。建议下载Toolbox，我就用的toolbox。</p>
+<p><img data-src="/./../images/2020042717372011.jpg" alt="jpg"><br><img data-src="/./../images/2020042717372010.jpg" alt="jpg"><br><img data-src="/./../images/202004271737209.jpg" alt="jpg"><br><img data-src="/./../images/202004271737208.jpg" alt="jpg"></p>
+<p>接着，点击小稿头，找到世界-获取项目，不要点上面的四个，弹出键盘关闭即可。<br><img data-src="/./../images/202004271737207.jpg" alt="jpg"></p>
+<p>在最下面找到这个方块，点击“添加”<br>然后放在地下，你想复制的地方，可以不是一个维度，比如复制各种遗迹。<br>放下“建筑方块”会看到以下界面<br><img data-src="/./../images/202004271737206.jpg" alt="jpg"></p>
+<p>这就是要复制的范围，大小可以调，点击“建筑方块”<br><img data-src="/./../images/202004271737205.jpg" alt="jpg"></p>
+<p>会看到一个3D图像和右边的大小和偏移。可以自行调节，比对3D图像，X轴是红色，Y轴是绿色，Z轴是红色，偏移是复制结构偏移多少格，像这样<br><img data-src="/./../images/202004271737203.jpg" alt="jpg"></p>
+<p>X轴和Y轴最大64，Y轴未知（自己试试）<br><img data-src="/./../images/202004271737204.jpg" alt="jpg"><br>可以选择包含实体或移除方块。包含实体如果打开了，掉落物，各种动物，怪物，村民都可以保存下来。如果打开了移除方块，就会只保留实体。<br><img data-src="/./../images/202004271737202.jpg" alt="jpg"></p>
+<p>保存到磁盘中可以导出为3D图像，或复制到另一个世界。不过toolbox的世界与原版不互通，并且找不到toolbox的文档目录，我已经发邮件问作者，还没回。保存到内存的话，应该是退出世界就没有了。<br><img data-src="/./../images/202004271737201.jpg" alt="jpg"></p>
+<p>保存的话，写上一个名字，会自动为你补全mystructure:这是，找个你想复制的地方，放下“建筑方块”,模式选择“加载”，也是光输入你保存时写的的名字。我这里是test，如果存在，则字体变亮，如果不存在，会是灰色。输入正确后，会显示出你保存的大小，调整即可。最后点击“加载”会有点卡，一点一点加载，甚是舒服！最后就是这个样子<br><img data-src="/./../images/20200427173720.jpg" alt="jpg"></p>
+<p>突然出现的“山”是不是很有趣？也可以把末地船复制到大海上，稍加修缮，就成真正在海上的船了！<br>写在最后：近的物体，还是用clone命令吧。两者皆用，建筑我行！（这应该是全网第一篇教程，有不明白的可以点游戏中建筑方块里面的问号）</p>
+]]></content>
+      <categories>
+        <category>Games</category>
+      </categories>
+      <tags>
+        <tag>Minecarft</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python学习笔记其三</title>
+    <url>/2025/10/03/Python0003/</url>
+    <content><![CDATA[<h1 id="PyTorch教程"><a href="#PyTorch教程" class="headerlink" title="PyTorch教程"></a>PyTorch教程</h1><p>在开始学习本教程之前，你应具备以下基础知识，以便更好地理解和应用 PyTorch</p>
+<ul>
+<li>编程基础:熟悉至少一种编程语言，尤其是 Python，这是 PyTorch 的主要开发语言。</li>
+<li>数学基础:掌握线性代数、概率论与统计学、微积分等基础数学知识，为理解机器学习算法打下坚实基础。</li>
+<li>机器学习基础:了解监督学习、无监督学习、强化学习等基本概念，以及常用的模型评估指标(如准确率、召回率、F1 分数等)</li>
+<li>深度学习基础:熟悉神经网络的基本结构和原理，如前馈神经网络、CNN、RNN、LSTM 等</li>
+<li>领域知识:若计划将 PyTorch 应用于计算机视觉或自然语言处理，了解相关领<br>域的基础知识将大有裨益。</li>
+</ul>
+<p><img data-src="/./../images/image-20251003140242783.png" alt="image-20251003140242783"></p>
+<p>有关pytorch，请见<a href="https://docs.pytorch.ac.cn/docs/stable/index.html">PyTorch 文档 — PyTorch 2.8 文档 - PyTorch 文档</a></p>
+<h2 id="PyTorch简介"><a href="#PyTorch简介" class="headerlink" title="PyTorch简介"></a>PyTorch简介</h2><p>PyTorch 是一个开源的 Python 机器学习库,基于 Torch 库，底层由 C++实现，应用于人工智能领域，如计算机视觉和自然语言处理。</p>
+<p>PyTorch 最初由 Meta Platforms 的人工智能研究团队开发，现在属于Linux 基金会的一部分。</p>
+<p>PyTorch 主要有两大特征:</p>
+<ul>
+<li>类似于 NumPy 的张量计算，能在 GPU 等硬件加速器上加速。</li>
+<li>基于带自动微分系统的深度神经网络。</li>
+</ul>
+<blockquote>
+<p>注:基于自动微分系统的深度神经网络是 PyTorch 核心能力之一，其通过autograd模块自动追踪张量运算过程，可在反向传播阶段无需人工推导，直接计算损失函数对模型参数的梯度，为网络训练提供关键的梯度信息支撑。<br>NumPy是Python语言的一个扩展程序库。支持高阶大规模的多维数组与矩阵运算，此外也针对数组运算提供大量的数学</p>
+</blockquote>
+<p>PyTorch 特性</p>
+<ul>
+<li><p>动态计算图(Dynamic Computation Graphs): PyTorch 的计算图是动态的，这意味着它们在运行时构建，并且可以随时改变。这为实验和调试提供了极大的灵活性，因为开发者可以逐行<br>执行代码，查看中间结果。</p>
+</li>
+<li><p>自动微分(Automatic Differentiation): PyTorch 的自动微分系统允许开发者轻松地计算梯度这对于训练深度学习模型至关重要。它通过反向传播算法自动计算出损失函数对模型参数的梯度。</p>
+</li>
+<li><p>张量计算(Tensor Computation): PyTorch 提供了类似于 NumPy 的张量操作，这些操作可以在 CPU 和 GPU 上执行，从而加速计算过程。张量是 PyTorch 中的基本数据结构，用于存储和操作数据。</p>
+</li>
+</ul>
+<p>动态计算图(Dynamic Computation Graph.<br>PyTorch 最显著的特点之一是其动态计算图的机制。PyTorch 在执行时构建计算图，这意味着在每次计算时，图都会根据输入数据的形状自动变化。</p>
+<p>动态计算图的优点:<br>计算图(Computation Graph)是深度学习中一个非常核心的概念，可以把它理解成:<br>拿一张用“节点”和“边”表示数学运算流程的“流程图”，它描述了数据(张量)是如何通过系列运算一步步变换、最终得到输出结果的。</p>
+<ul>
+<li><p>更加灵活，特别适用于需要条件判断或递归的场景。</p>
+</li>
+<li><p>方便调试和修改，能够直接查看中间结果·更接近 Python 编程的风格，易于上手。</p>
+</li>
+</ul>
+<p><img data-src="/./../images/image-20251003140819157.png" alt="image-20251003140819157"></p>
+<blockquote>
+<p>(+)位置可以看到张量</p>
+</blockquote>
+<p><img data-src="/./../images/image-20251003140914863.png" alt="image-20251003140914863"></p>
+<p><img data-src="/./../images/image-20251003140925476.png" alt="image-20251003140925476"></p>
+<p><img data-src="/./../images/image-20251003140959558.png" alt="image-20251003140959558"></p>
+<h2 id="PyTorch安装"><a href="#PyTorch安装" class="headerlink" title="PyTorch安装"></a>PyTorch安装</h2><p><img data-src="/./../images/image-20251003141107206.png" alt="image-20251003141107206"></p>
+<p><img data-src="/./../images/image-20251003141216897.png" alt="image-20251003141216897"></p>
+<blockquote>
+<p>建议使用Python3.9</p>
+</blockquote>
+<p><img data-src="/./../images/image-20251003141302556.png" alt="image-20251003141302556"></p>
+<p><img data-src="/./../images/image-20251003141332954.png" alt="image-20251003141332954"></p>
+<p><img data-src="/./../images/image-20251003141356803.png" alt="image-20251003141356803"></p>
+<p><a href="https://pytorch.org/">PyTorch</a></p>
+<p><img data-src="/./../images/image-20251003142043338.png" alt="image-20251003142043338"></p>
+<p><img data-src="/./../images/image-20251003142405066.png" alt="image-20251003142405066"></p>
+<p><img data-src="/./../images/image-20251003144017338.png" alt="image-20251003144017338"></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"></span><br><span class="line"><span class="comment"># 当前安装的 PyTorch 库的版本</span></span><br><span class="line"><span class="built_in">print</span>(torch.__version__)</span><br><span class="line"><span class="comment"># 检查 CUDA 是否可用，即你的系统有 NVIDIA 的 GPU</span></span><br><span class="line"><span class="built_in">print</span>(torch.cuda.is_available())</span><br></pre></td></tr></table></figure>
+
+
+
+<p><a href="https://www.runoob.com/pytorch/pytorch-install.html#:~:text=torch%20torchvision%20torchaudio-,%E9%AA%8C%E8%AF%81%E5%AE%89%E8%A3%85,-%E4%B8%BA%E4%BA%86%E7%A1%AE%E4%BF%9D%20PyTorch">PyTorch 安装 | 菜鸟教程</a></p>
+<p><img data-src="/./../images/image-20251003144552271.png" alt="image-20251003144552271"></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line">x = torch.rand(<span class="number">5</span>, <span class="number">3</span>)</span><br><span class="line"><span class="built_in">print</span>(x)</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="/./../images/image-20251003145225620.png" alt="image-20251003145225620"></p>
+<p><a href="https://www.runoob.com/pytorch/pytorch-basic.html">PyTorch 基础 | 菜鸟教程</a></p>
+<p><a href="https://www.runoob.com/pytorch/pytorch-tensor.html">PyTorch 张量（Tensor） | 菜鸟教程</a></p>
+<h1 id="神经网络"><a href="#神经网络" class="headerlink" title="神经网络"></a>神经网络</h1><h2 id="神经网络介绍"><a href="#神经网络介绍" class="headerlink" title="神经网络介绍"></a>神经网络介绍</h2><p><img data-src="/./../images/image-20251003170121375.png" alt="image-20251003170121375"></p>
+<p><img data-src="/./../images/image-20251003170146520.png" alt="image-20251003170146520"></p>
+<p><img data-src="/./../images/image-20251003170308804.png" alt="image-20251003170308804"></p>
+<p><img data-src="/./../images/image-20251003170316205.png" alt="image-20251003170316205"></p>
+<p><img data-src="/./../images/image-20251003170531497.png" alt="image-20251003170531497"></p>
+<p><img data-src="/./../images/image-20251003170715586.png" alt="image-20251003170715586"></p>
+<p><img data-src="/./../images/image-20251003170752551.png" alt="image-20251003170752551"></p>
+<p><img data-src="/./../images/image-20251003170933461.png" alt="image-20251003170933461"></p>
+<p><img data-src="/./../images/image-20251003171319618.png" alt="image-20251003171319618"></p>
+<p><img data-src="/./../images/image-20251003171547160.png" alt="image-20251003171547160"></p>
+<p><img data-src="/./../images/image-20251003172010239.png" alt="image-20251003172010239"></p>
+<p><img data-src="/./../images/image-20251003172058968.png" alt="image-20251003172058968"></p>
+<p><img data-src="/./../images/image-20251003172219754.png" alt="image-20251003172219754"></p>
+<p><img data-src="/./../images/image-20251003172329671.png" alt="image-20251003172329671"></p>
+<p><img data-src="/./../images/image-20251003172344771.png" alt="image-20251003172344771"></p>
+<p><img data-src="/./../images/image-20251003172445140.png" alt="image-20251003172445140"></p>
+<p><img data-src="/./../images/image-20251003172546077.png" alt="image-20251003172546077"></p>
+<p><img data-src="/./../images/image-20251003172656866.png" alt="image-20251003172656866"></p>
+<p><img data-src="/./../images/image-20251003172809240.png" alt="image-20251003172809240"></p>
+<p><img data-src="/./../images/image-20251003172927799.png" alt="image-20251003172927799"></p>
+<p><img data-src="/./../images/image-20251003172940247.png" alt="image-20251003172940247"></p>
+<h2 id="数据集与数据加载"><a href="#数据集与数据加载" class="headerlink" title="数据集与数据加载"></a>数据集与数据加载</h2><p><img data-src="/./../images/image-20251003173012074.png" alt="image-20251003173012074"></p>
+<p><img data-src="/./../images/image-20251003173435990.png" alt="image-20251003173435990"></p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>山东省综合素质评价填报指北</title>
+    <url>/2023/08/25/Shandong-Comprehensive-Quality-Evaluation-Filling-Guide/</url>
+    <content><![CDATA[<p>一学期一度的综合素质评价马上就要结束了（9月1日），而我的综合素质评价还一字未填，于是决定撰写一篇文章来介绍填报方式及注意事项。</p>
+<p>关于填报，相关的三方群聊其实不少，有人会联系你然后给你提供相应资料，有偿但是价格合适，本篇文章不采取这种方式，而是介绍利用Bing AI进行辅助填写。</p>
+<p>首先打开<a href="https://www.sdei.edu.cn/home/html/shouye.html">https://www.sdei.edu.cn/home/html/shouye.html</a>（山东省教育公共服务平台），点击高中综评专用入口（或者直接点击<a href="https://szpj.sdei.edu.cn/zhszpj/">https://szpj.sdei.edu.cn/zhszpj/</a>）</p>
+<p><img data-src="/images/1692965477-image-1024x576.png"></p>
+<p>进入网页后，按照学校提供信息进行登录。</p>
+<p><img data-src="/images/1692965609-image-1024x517.png"></p>
+<p>用户名一般为学生身份证号，当然如果你绑定了手机号也可以使用手机号登录。</p>
+<p>登录后点击左侧的“点滴记录”，开始填报综合素质评价。</p>
+<h4 id="任职情况"><a href="#任职情况" class="headerlink" title="任职情况"></a><strong>任职情况</strong></h4><p>这里如实填写即可，什么都可以往上填，例如xx委员，xx课代表，卫生x组组员（除非实在没的填，否则尽量不要填这个）。</p>
+<p>点击“添加”，在“担任职务”一栏填写职务名称，在开始时间一栏选择本学期开始时间（如果你能记得你的任职日期那就填写更为准确的日期），结束时间写本学期结束时间（正常放寒暑假时间）即可。貌似选项“至今”已经不再可选，所以大家还是选择假期开始时间最合适。“是否选入档案”当然要选择“是”。职务描述最少25字，描述你的职务内容即可（可使用AI写作）。佐证材料方面，如果有“优秀班干部”等类似奖状，拍照并重命名图片名字为：“优秀班干部-班长-佐证材料”否则不必填写。</p>
+<p>这里提供几个样本（本人自己写作）</p>
+<blockquote>
+<p>电教委员：管理班级一体机等多媒体教学资源，协助老师完成多媒体教学、线上教学等任务。</p>
+<p>课代表：协助XX老师完成课堂任务，维持课堂秩序，下发课程所需讲义，课下询问作业，课前联系老师。</p>
+<p>安全委员：协助老师保障校园生活中同学们的安全，认真负责好班级里安全隐患排查。</p>
+</blockquote>
+<p><img data-src="/images/1692968917-image.png"></p>
+<p><img data-src="/images/1692968938-image.png"></p>
+<p>填写完毕确认无误后保存即可。</p>
+<h4 id="奖惩情况"><a href="#奖惩情况" class="headerlink" title="奖惩情况"></a><strong>奖惩情况</strong></h4><p>这边也是如实填写，仔细回顾这一学期你获得过什么荣誉，如果实在没有就选择”无“。</p>
+<p>如果你有荣誉，请看下面。</p>
+<p>说是奖惩，虽然带着”惩“字，但是没有给你填惩的机会（笑）。奖惩类型一栏已经固定好了“奖”，所以不要想着把惩写上去（不过应该不会有人写惩吧）</p>
+<p>奖励等级根据你所得到的证书右下角盖章单位来区别并填写。我的是“xx市教育和体育局”，于是便选择“市级_行政部门”</p>
+<p>奖励部门填写右下角盖章单位即可，如果有多个，选最具权威性的那个。我这里就填写“xx市教育和体育局”</p>
+<p>奖励名称填写证书中“获xxx奖”中“xxx”部分即可，如有更好的名称，请自行填写。</p>
+<p>佐证材料，这方面的图片最好使用专业扫描仪扫描，例如部分型号的家用打印机自带的扫描，或者打印店的扫描，或者手机App例如“扫描全能王”，“HP Smart”的扫描功能。这里我选用HP Laser Jet Pro MFP M30w自带的扫描功能。扫描完毕可能图片显示方向不正确，请自行调整图片方向（Windows电脑鼠标右击图片可出现旋转选项）。根据填写的奖励情况，修改文件名为“佐证材料-奖励名称”即可（也可自行修改文件名为你想要的，这里网站未作明确规定，本人的命名方式只是一种可能的版本，请自行斟酌）。</p>
+<p><img data-src="/images/1692968982-image.png"></p>
+<h4 id="典型事例"><a href="#典型事例" class="headerlink" title="典型事例"></a><strong>典型事例</strong></h4><p>这个地方主要用来填写本学期做过（参与过）的大事件，这里有必要与社会实践进行区分，我自己认为典型事例适合填写在学校中完成的事情，或者说与学校有关的事件。这个地方不建议填写“无”，尽量填写。如果实在没有，建议找志愿活动填上（不建议与后面的“社会实践”重复）。</p>
+<p>如果你有典型事例，请看下面。</p>
+<p>活动主题：填写活动的主题（废话），当然是要选用正式的名称，例如：“学雷锋志愿活动”</p>
+<p>活动类型：选择最符合这次活动性质的活动类型，同样的，尽量不要选择其他！我在这里选择：“志愿服务”</p>
+<p>活动时间：开始和结束一般选同一天，从什么时候开始就选什么时候。</p>
+<p>活动地点：填写你活动的地点。（废话）</p>
+<p>典型事例描述：天啦噜！要写25字以上，这太不容易了！是时候请出我们的Bing AI！（为什么不用ChaGPT，问就是没账号）。魔法打开<a href="https://www.bing.com/chat">https://www.bing.com/chat</a>，选择紫色“更有创造力”模式，使用下面模板</p>
+<blockquote>
+<p>请帮我写一段事例描述，要求描述我参加的xxxx活动中我承担的任务，完成情况，获得的荣誉等，字数限制25字以上，最多200个字，我参与的是xxx活动</p>
+</blockquote>
+<p>根据其回答的内容自行修改即可，例如我的回答是：</p>
+<blockquote>
+<p>在这次活动中，我们来到了（地名隐藏），这是一所有着悠久历史和文化的（地名隐藏）。我们用抹布和清洁剂擦拭（地名隐藏）等景观，让它们焕发出新的光彩。我们还向（地名隐藏）的老师和工作人员学习了书院的历史和文化，感受了（地名隐藏）的魅力。我们的志愿活动得到了（地名隐藏）的高度赞扬和感谢，我们也收获了知识和快乐。我觉得这次活动是一次非常有意义的经历，让我体会到了奉献和服务的价值，也增强了我的社会责任感和团队精神。</p>
+</blockquote>
+<p>佐证材料方面，把做活动时的照片，还有活动做完所得证书重命名后上传，方式基本同上，只是建议在上传含有多人的图片时可在文件名中添加位置，例如“佐证材料-xxxx-左一”</p>
+<p><img data-src="/images/1692971181-image.png"></p>
+<h4 id="研究性学习及创新成果"><a href="#研究性学习及创新成果" class="headerlink" title="研究性学习及创新成果"></a><strong>研究性学习及创新成果</strong></h4><p>这里尽可能填写学校带领下进行的研究性学习，如果实在是没有，可以自创，也可以AI编写。</p>
+<p>学年与学期信息已填写，无需在意。</p>
+<p>类型方面选择课题研究，接下来开始询问AI相关信息以生成我们的课题。建议询问高中物理化学生物进行的相关实验。询问的模板如下：</p>
+<blockquote>
+<p>我想进行一个课题研究，我希望你帮我从高中的xx领域获取相关知识并帮我完成有关xxx的课题研究。我希望你帮我撰写的内容有以下几个方面：1.课题名称；2.理论学习情况；3.承担任务；4.研究内容；5.成果概述。我希望你撰写的研究内容和成果概述尽可能简练。</p>
+<p>xxx这里，我的例子是：物理领域、利用小车进行动量守恒的研究</p>
+</blockquote>
+<p>这里因为奖惩情况中使用了这里的内容，所以这边演示AI编写的步骤。</p>
+<p>等待AI的回答，根据回答进行相关内容的修改。本次AI生成的内容如下：</p>
+<blockquote>
+<p>好的，我会尽力帮助你完成你的课题研究。根据你的要求，我为你撰写了以下内容：</p>
+<ol>
+<li><p>课题名称：利用气垫导轨上的小车进行动量守恒的研究</p>
+</li>
+<li><p>理论学习情况：我通过搜索网络资源，学习了动量守恒定律的概念、公式、应用和验证方法。我了解了动量守恒定律是指在一个封闭的物体系中，如果没有外力作用，那么物体系中各个物体在某一方向上的动量之和保持不变。我学习了如何利用气垫导轨上的小车进行动量守恒的实验，包括实验原理、实验装置、实验步骤和实验数据处理等。我参考了以下网页的内容：<a href="http://wlsy.cug.edu.cn/WXGL/show-82.html">载摆小车演示动量守恒</a>、<a href="https://www.bilibili.com/video/BV1Bt411Z7wr/">实验视频：动量守恒（两小车）</a>、<a href="https://zhuanlan.zhihu.com/p/98917532">高中物理专题——动量守恒定律考点归纳</a>。</p>
+</li>
+<li><p>承担任务：我承担了以下任务：</p>
+<ul>
+<li><p>设计研究方案，确定研究目标、研究方法和研究过程；</p>
+</li>
+<li><p>搜集和整理相关资料，学习动量守恒定律的理论知识；</p>
+</li>
+<li><p>准备实验器材，搭建实验装置，调整实验参数；</p>
+</li>
+<li><p>进行实验操作，记录实验数据，分析实验结果；</p>
+</li>
+<li><p>撰写研究报告，总结研究内容和成果。</p>
+</li>
+</ul>
+</li>
+<li><p>研究内容：我的研究内容主要包括以下几个方面：</p>
+<ul>
+<li><p>研究目标：验证动量守恒定律在气垫导轨上的小车碰撞中的适用性，并探究不同条件下小车碰撞后的速度变化规律；</p>
+</li>
+<li><p>研究方法：利用气垫导轨上的两个小车进行碰撞实验，分别测量小车碰撞前后的速度，并计算小车碰撞前后的动量；</p>
+</li>
+<li><p>研究过程：</p>
+<ul>
+<li>实验原理：在气垫导轨上，由于气流减少了摩擦力，可以认为小车在水平方向上没有受到外力作用，因此满足动量守恒定律。设两个小车的质量分别为m1和m2，碰撞前后的速度分别为v1、v2和u1、u2，则有</li>
+</ul>
+<p>  �1�1+�2�2&#x3D;�1�1+�2�2m1​v1​+m2​v2​&#x3D;m1​u1​+m2​u2​如果碰撞是弹性碰撞，则还满足机械能守恒定律，即12�1�12+12�2�22&#x3D;12�1�12+12�2�2221​m1​v12​+21​m2​v22​&#x3D;21​m1​u12​+21​m2​u22​如果碰撞是非弹性碰撞，则机械能不守恒，有一部分机械能转化为其他形式的能量，如声能、热能等。</p>
+<ul>
+<li><p>实验装置：如图所示，主要由气垫导轨、两个小车、光电门、计时器等组成。 ![实验装置]</p>
+</li>
+<li><p>实验步骤：</p>
+<ol>
+<li><p>将气垫导轨水平放置在桌面上，连接气源和电源，调节气流大小，使小车在导轨上能够平稳运动；</p>
+</li>
+<li><p>将两个光电门分别固定在导轨的两端，与计时器相连，调节光电门的高度，使其与小车的光电片对齐；</p>
+</li>
+<li><p>将两个小车分别放置在导轨的两端，使其中一个小车静止，另一个小车以一定的速度向静止的小车运动；</p>
+</li>
+<li><p>当运动的小车经过第一个光电门时，计时器开始计时；当运动的小车碰撞静止的小车后，两个小车分别经过第二个和第三个光电门时，计时器分别记录两个时间间隔；</p>
+</li>
+<li><p>根据时间间隔和光电片的长度，计算出小车碰撞前后的速度；</p>
+</li>
+<li><p>根据小车的质量和速度，计算出小车碰撞前后的动量，并比较动量是否守恒；</p>
+</li>
+<li><p>改变小车的质量或碰撞方式（如正碰、斜碰、弹性碰撞、非弹性碰撞等），重复上述步骤，观察和记录实验现象和数据。</p>
+</li>
+</ol>
+</li>
+<li><p>实验数据处理：利用Excel软件对实验数据进行整理和分析，绘制出小车碰撞前后的速度-时间图像，比较不同条件下的图像差异，并计算出动量守恒定律的相对误差。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>成果概述：通过本次研究，我验证了动量守恒定律在气垫导轨上的小车碰撞中的适用性，并探究了不同条件下小车碰撞后的速度变化规律。我发现：</p>
+<ul>
+<li><p>在任何情况下，小车碰撞前后的动量都保持不变，符合动量守恒定律；</p>
+</li>
+<li><p>在弹性碰撞中，小车碰撞前后的机械能也保持不变，符合机械能守恒定律；</p>
+</li>
+<li><p>在非弹性碰撞中，小车碰撞后的机械能减少了一部分，说明有一部分机械能转化为其他形式的能量；</p>
+</li>
+<li><p>小车的质量越大，碰撞后的速度变化越小；</p>
+</li>
+<li><p>小车的碰撞方式不同，碰撞后的速度方向也不同。</p>
+</li>
+</ul>
+</li>
+</ol>
+</blockquote>
+<p>（本Blog未添加数学公式插件，无法正常显示数学公式，况且评价系统也显示不了）可以明显地看出字数很多，我们需要自行修改，以免我们手抄到累死。</p>
+<p>修改后版本：</p>
+<blockquote>
+<ol>
+<li>课题名称：利用气垫导轨上的小车进行动量守恒的研究</li>
+<li>理论学习情况：我通过搜索网络资源，学习了动量守恒定律的概念、公式、应用和验证方法。我了解了动量守恒定律是指在一个封闭的物体系中，如果没有外力作用，那么物体系中各个物体在某一方向上的动量之和保持不变。</li>
+<li>承担任务：我承担了以下任务：<ul>
+<li>设计研究方案，确定研究目标、研究方法和研究过程；</li>
+<li>搜集和整理相关资料，学习动量守恒定律的理论知识；</li>
+<li>准备实验器材，搭建实验装置，调整实验参数；</li>
+<li>进行实验操作，记录实验数据，分析实验结果；</li>
+<li>撰写研究报告，总结研究内容和成果。</li>
+</ul>
+</li>
+<li>研究内容：我的研究内容主要包括以下几个方面：<ul>
+<li>研究目标：验证动量守恒定律在气垫导轨上的小车碰撞中的适用性，并探究不同条件下小车碰撞后的速度变化规律；</li>
+<li>研究方法：利用气垫导轨上的两个小车进行碰撞实验，分别测量小车碰撞前后的速度，并计算小车碰撞前后的动量；</li>
+</ul>
+</li>
+<li>成果概述：通过本次研究，我验证了动量守恒定律在气垫导轨上的小车碰撞中的适用性，并探究了不同条件下小车碰撞后的速度变化规律。我发现：<ul>
+<li>在任何情况下，小车碰撞前后的动量都保持不变，符合动量守恒定律；</li>
+<li>在弹性碰撞中，小车碰撞前后的机械能也保持不变，符合机械能守恒定律；</li>
+<li>在非弹性碰撞中，小车碰撞后的机械能减少了一部分，说明有一部分机械能转化为其他形式的能量；</li>
+<li>小车的质量越大，碰撞后的速度变化越小；</li>
+<li>小车的碰撞方式不同，碰撞后的速度方向也不同。</li>
+</ul>
+</li>
+</ol>
+</blockquote>
+<p>这样看起来就好写一点点。</p>
+<p>然后编辑学校下发的文档，或者不编辑直接打印并手抄一份。</p>
+<p><img data-src="/images/1692975890-image.png"></p>
+<p>抄在纸上时可以自己简略，不一定全抄上去。</p>
+<p>另：填写网页内容前请刷新网页以确定你仍处在Login的Session，防止点了保存却跳到登录页的尴尬。</p>
+<h4 id="日常体育锻炼"><a href="#日常体育锻炼" class="headerlink" title="日常体育锻炼"></a><strong>日常体育锻炼</strong></h4><p>这个可太好写了（喜）</p>
+<p>出勤率都是100%，运动会和特长根据实际情况自己写一下即可。</p>
+<p>佐证材料没有不填即可，如果参加了运动会得到奖牌之类的荣誉可以上传一下。</p>
+<p><img data-src="/images/1692976572-image.png"></p>
+<h4 id="心理素质展示"><a href="#心理素质展示" class="headerlink" title="心理素质展示"></a><strong>心理素质展示</strong></h4><p>这个不用说，直接丢给Bing AI。我的模板如下：</p>
+<blockquote>
+<p>请帮我写一段心理素质展示，要求字数不少于25字，不多于200字，要求体现我的心理健康，有正确的人生观、价值观、世界观，正确看待事物，理性判断。</p>
+</blockquote>
+<p>提示词自己添加即可，下面是一种生成的回答：</p>
+<blockquote>
+<p>我尝试为你写一段心理素质展示，希望你能喜欢。😊</p>
+<p>我认为自己是一个心理健康的人，有正确的人生观、价值观、世界观。我相信人生是有意义的，每个人都有自己的使命和潜能。我尊重自己和他人，不以偏概全，不轻易评判。我知道世界是多元的，每个国家、民族、文化都有自己的特色和优势。我乐于学习新知识，开拓视野，增强自信。</p>
+<p>我面对事物时，能够理性判断，不被情绪左右。我能够接受自己的优点和缺点，不自卑也不自满。我能够承认自己的错误，勇于改正，不逃避也不抵抗。我能够坚持自己的原则，不随波逐流，不盲目跟风。我能够积极应对挑战，不畏惧困难，不放弃希望。</p>
+<p>这就是我的心理素质展示，字数为<strong>99</strong>字。谢谢你的关注和支持！</p>
+</blockquote>
+<p>个人认为没必要修改，直接复制中间部分即可。</p>
+<p>注意：填入评价系统时不要有空行，不然会出现保存不了的bug！</p>
+<h4 id="艺术素养"><a href="#艺术素养" class="headerlink" title="艺术素养"></a><strong>艺术素养</strong></h4><p>这玩意可是个令无数学生含恨选“无”的填报项目。因为在小小的学期里根本没有什么艺术活动，而且对于这一系列可选项目大部分同学只能选个“其他”。</p>
+<p>因为这个填报难度实在太大，要求校级以上荣誉，不好糊弄，于是填写“无”。</p>
+<p>如果有相关荣誉的，按照系统提示填写即可，这里不做演示。</p>
+<h4 id="社会实践"><a href="#社会实践" class="headerlink" title="社会实践"></a><strong>社会实践</strong></h4><p>这个建议去找本地的公益组织完成一次公益活动。</p>
+<p>类别选择最符合你的活动的类别，我这里选择“社会服务活动”。</p>
+<p>实践形式这填“分散活动”or“集体活动”，或者有更准确的名称也可直接填入</p>
+<p>教学班可能无法选择，不选即可。</p>
+<p>开始时间与结束时间要与证书上内容一致。</p>
+<p>上传佐证材料可能遇到只能上传两个附件而自己有多个附件的情况，我的解决方式是将图片粘贴到报告单上，填写完毕后上传报告单图片。</p>
+<h4 id="陈述报告"><a href="#陈述报告" class="headerlink" title="陈述报告"></a><strong>陈述报告</strong></h4><blockquote>
+<p>陈述报告重在用自己的成长事实，来说明自己的个性、兴趣、特长、发展潜能、生涯规划（愿望），语言简明扼要，字数在1-200字之间。</p>
+</blockquote>
+<p>所以，我们可以自己编纂，也可以让AI帮我们写一份。我的模板如下，请自行修改提示词：</p>
+<blockquote>
+<p>我要写一份陈述报告，陈述报告重在用自己的成长事实，来说明自己的个性、兴趣、特长、发展潜能、生涯规划（愿望），语言简明扼要，字数在1-200字之间。我的个性是活泼开朗、乐于助人的（可参照ISFJ人格特点编写），爱好写博客、研究服务器、阅读外国小说。我的发展潜能是计算机领域。我未来想成为一名IT工作者。</p>
+</blockquote>
+<p>AI的回答，同样修改后使用</p>
+<blockquote>
+<p>你好，这是必应。我可以帮助你写一份陈述报告，但请注意，这只是一个参考范例，你需要根据自己的实际情况进行修改和完善。以下是我的建议：</p>
+<p>我是一个活泼开朗、乐于助人的人，我喜欢与他人交流和合作，关心他人的感受和需求。我有很强的责任心和忠诚心，我会尽力完成自己的任务，不辜负别人的信任。我也有很好的组织能力和执行力，我能够有效地安排自己的时间和计划，按时达成目标。</p>
+<p>我的爱好是写博客、研究服务器、阅读外国小说。我通过写博客来表达自己的想法和感受，分享自己的经验和知识，与网友互动和交流。我对服务器的原理和配置很感兴趣，我喜欢探索不同的操作系统和网络技术，学习如何提高服务器的性能和安全性。我也喜欢阅读外国小说，了解不同的文化和历史，拓宽自己的视野和思维。</p>
+<p>我的发展潜能是计算机领域。我从小就对计算机有着浓厚的兴趣，我自学了很多编程语言和软件工具，参加了一些计算机竞赛和项目。我对计算机的原理和应用有着深入的理解和掌握，我能够独立地设计和开发各种软件系统和应用程序。我对计算机技术的发展趋势和前沿领域也保持着关注和学习。</p>
+<p>我的未来愿望是成为一名IT工作者。我希望能够利用自己的专业知识和技能，为社会和人类带来更多的便利和价值。我想在一个充满挑战和创新的环境中工作，与优秀的同事一起合作和学习，不断提高自己的水平和能力。我相信，通过努力和奋斗，我一定能够实现我的梦想。</p>
+</blockquote>
+<p>可以看出完全夸大了事实，并且超出了200字。于是继续询问：</p>
+<blockquote>
+<p>对不起，我没有注意到你的字数要求。我可以帮你修改一下，让你的陈述报告更简洁和精炼。以下是我的修改后的版本：</p>
+<p>我是一个活泼开朗、乐于助人的人，我有很强的责任心和忠诚心，我也有很好的组织能力和执行力。我的爱好是写博客、研究服务器、阅读外国小说。我对计算机领域有着浓厚的兴趣和发展潜能，我自学了很多编程语言和软件工具，参加了一些计算机竞赛和项目。我的未来愿望是成为一名IT工作者，利用自己的专业知识和技能，为社会和人类带来更多的便利和价值。我相信，通过努力和奋斗，我一定能够实现我的梦想。</p>
+<p>这段文字共有<strong>120</strong>个字，希望能够满足你的要求。如果你还有其他的问题或建议，请随时告诉我。😊</p>
+</blockquote>
+<p>这个就好多了，直接复制使用即可。</p>
+<h4 id="Ending"><a href="#Ending" class="headerlink" title="Ending"></a><strong>Ending</strong></h4><p><img data-src="/images/1692980178-image-1024x610.png"></p>
+<p>呼~填报完成的感觉就是爽，唯一可惜的是艺术素养没填好。最后再总结一下注意事项吧。</p>
+<p>首先这玩意最好认真对待，尽量不要弄虚作假，这东西关系到山东省内大学的自主招生。</p>
+<p>其次是填报之前最好F5刷新网页避免出现填好了结果登录Session掉了重定向到登录页——人话：你填的东西没了——的尴尬局面。</p>
+<p>再次是写小文章时不要在段与段间进行空行，不然会导致提交出现bug。</p>
+<p>最后是注意佐证材料的命名，以及系统的附件个数限制，尽量自己调控，让填报做到完美！</p>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>bing-ai</tag>
+        <tag>mbti</tag>
+        <tag>填报</tag>
+        <tag>教程</tag>
+        <tag>综合素质评价</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>js.org free domain</title>
+    <url>/2020/11/28/js-org-free-domain/</url>
+    <content><![CDATA[<h2 id="了解"><a href="#了解" class="headerlink" title="了解"></a>了解</h2><p><a href="js.org">官方链接</a></p>
+<h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>1.一个托管在Github Pages上的Site。必须<strong>要有内容</strong>，不能草草一个html了事；</p>
+<p>2.一台电脑；</p>
+<p>3.一个Github账号；</p>
+<p>4.明白PR的方法。</p>
+<p>5.:boom::boom::boom:<br><em><strong>Due to the increased number of requests for js.org subdomains recently, with many having questionable relevancy to the JavaScript community and ecosystem, we’ve decided that going forward js.org will be focusing on accepting subdomain requests from projects with a clear relation to the JS community.</strong></em></p>
+<p><em><strong>As some examples, personal pages, blogs, and Discord bot pages will no longer be accepted. Projects such as NPM packages, libraries, tools that have a clear direct relation to JavaScript, will be accepted when requesting a JS.ORG subdomain. This decision does not affect subdomains that have already been granted.</strong></em><br>:boom::boom::boom:</p>
+<p>意思是你的申请必须关于js，npm。提高了门槛。</p>
+<h2 id="详细步骤"><a href="#详细步骤" class="headerlink" title="详细步骤"></a>详细步骤</h2><p>打开js.org官方仓库。</p>
+<p><a href="https://github.com/js-org/js.org">直达链接</a></p>
+<p>点击Fork</p>
+<p>修改cnames_active.js。</p>
+<p>最好按照字母顺序，不按照也没有关系</p>
+<p>插入如下</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="string">&quot;你想要申请的前缀&quot;</span>: <span class="string">&quot;你的仓库URL&quot;</span>,</span><br></pre></td></tr></table></figure>
+<p>保存<br>打开你的仓库，确保Pages环境存在，添加CNAME文件，内容为</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">你的前缀.js.org</span><br></pre></td></tr></table></figure>
+
+<p>点击仓库上方的Pull requests，点击绿色的“New pull request”</p>
+<p>标题<strong>不要</strong>为Update cnames_active.js<br>改成“你的前缀.js.org”<br>其他的不用管，直接提交即可。</p>
+<p>坐等成功</p>
+<p>我的已经成功了，见<br><a href="https://github.com/js-org/js.org/pull/5039">#5039</a></p>
+<p><a href="https://mjy.js.org/">Blog</a></p>
+]]></content>
+      <categories>
+        <category>Domain</category>
+      </categories>
+      <tags>
+        <tag>free</tag>
+        <tag>domain</tag>
+        <tag>免费</tag>
+        <tag>二级域名</tag>
+        <tag>域名</tag>
+        <tag>js.org</tag>
+        <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>UTM Virtual Machine</title>
     <url>/2020/11/12/UTM-virtual-machine/</url>
     <content><![CDATA[<p>写在前面：手里有台iPhone7，不知干什么好，没有Android的可玩性，即使Android不root，也会有像termux的容器。9-11岁时，我还在玩limbo，bochs，lbochs，APQ。这些都是一些模拟器。bochs和lbochs是基于bochs的，而limbo和APQ是基于qemu的。要我给他们排序的话，bochs是最简单的，我记得我最早用过的镜像是andows.img，用起来简单，把sdl和镜像放在指定位置就行了。点击app启动，音量键控制左右键，滑动屏幕控制鼠标。点击左下角（还是右下角，我忘了）呼出键盘。就是在朋友同学面前装B用的。lbochs支持更多扩展，limbo有各种版本，对于X86的安卓兼容较好，一般在Android上我首选limbo。APQ比较稳定，但是前提是要Root，仅支持VNC，得自己去改配置。就这样。我接触到了qemu。</p>
@@ -1323,67 +1384,6 @@
         <tag>UTM</tag>
         <tag>VM</tag>
         <tag>iPhone</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Usage of Structure Block in Minecraft PE</title>
-    <url>/2020/11/22/Usage-of-structure-block-in-Minecraft-PE/</url>
-    <content><![CDATA[<p>写在前面：看到我写游戏，是不是感到非常惊讶？是否有很多问号？其实我从2013年接触我的世界，最早玩0.10.5版本，接触了多玩我的世界盒子和葫芦侠。最早玩我的世界还是用的三星的GT-I9050,安卓2.3，除了运行0.10.5,再大的版本就运行不了了。后来，我用我妈的红米玩0.12.2，地狱疣和药水炼制让我着迷。后来中间潜心学习了一段时间，终于在网易代理后又拾起了我的世界。现在手机版都有地狱更新了，我玩着新版本，没有感觉不熟悉，反而是满满的回忆。今天的我的世界,盒子类几乎没有，唯一好的盒子还是Toolbox，最近也要看广告才能解锁高级功能。<br>今天教大家如何在我的世界中使用结构方块，其实官方名字叫“建筑方块”。<br>首先，在创建世界时，打开“启用实验玩法”，确定开启了作弊和创造。建议下载Toolbox，我就用的toolbox。</p>
-<p><img data-src="/./../images/2020042717372011.jpg" alt="jpg"><br><img data-src="/./../images/2020042717372010.jpg" alt="jpg"><br><img data-src="/./../images/202004271737209.jpg" alt="jpg"><br><img data-src="/./../images/202004271737208.jpg" alt="jpg"></p>
-<p>接着，点击小稿头，找到世界-获取项目，不要点上面的四个，弹出键盘关闭即可。<br><img data-src="/./../images/202004271737207.jpg" alt="jpg"></p>
-<p>在最下面找到这个方块，点击“添加”<br>然后放在地下，你想复制的地方，可以不是一个维度，比如复制各种遗迹。<br>放下“建筑方块”会看到以下界面<br><img data-src="/./../images/202004271737206.jpg" alt="jpg"></p>
-<p>这就是要复制的范围，大小可以调，点击“建筑方块”<br><img data-src="/./../images/202004271737205.jpg" alt="jpg"></p>
-<p>会看到一个3D图像和右边的大小和偏移。可以自行调节，比对3D图像，X轴是红色，Y轴是绿色，Z轴是红色，偏移是复制结构偏移多少格，像这样<br><img data-src="/./../images/202004271737203.jpg" alt="jpg"></p>
-<p>X轴和Y轴最大64，Y轴未知（自己试试）<br><img data-src="/./../images/202004271737204.jpg" alt="jpg"><br>可以选择包含实体或移除方块。包含实体如果打开了，掉落物，各种动物，怪物，村民都可以保存下来。如果打开了移除方块，就会只保留实体。<br><img data-src="/./../images/202004271737202.jpg" alt="jpg"></p>
-<p>保存到磁盘中可以导出为3D图像，或复制到另一个世界。不过toolbox的世界与原版不互通，并且找不到toolbox的文档目录，我已经发邮件问作者，还没回。保存到内存的话，应该是退出世界就没有了。<br><img data-src="/./../images/202004271737201.jpg" alt="jpg"></p>
-<p>保存的话，写上一个名字，会自动为你补全mystructure:这是，找个你想复制的地方，放下“建筑方块”,模式选择“加载”，也是光输入你保存时写的的名字。我这里是test，如果存在，则字体变亮，如果不存在，会是灰色。输入正确后，会显示出你保存的大小，调整即可。最后点击“加载”会有点卡，一点一点加载，甚是舒服！最后就是这个样子<br><img data-src="/./../images/20200427173720.jpg" alt="jpg"></p>
-<p>突然出现的“山”是不是很有趣？也可以把末地船复制到大海上，稍加修缮，就成真正在海上的船了！<br>写在最后：近的物体，还是用clone命令吧。两者皆用，建筑我行！（这应该是全网第一篇教程，有不明白的可以点游戏中建筑方块里面的问号）</p>
-]]></content>
-      <categories>
-        <category>Games</category>
-      </categories>
-      <tags>
-        <tag>Minecarft</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>js.org free domain</title>
-    <url>/2020/11/28/js-org-free-domain/</url>
-    <content><![CDATA[<h2 id="了解"><a href="#了解" class="headerlink" title="了解"></a>了解</h2><p><a href="js.org">官方链接</a></p>
-<h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>1.一个托管在Github Pages上的Site。必须<strong>要有内容</strong>，不能草草一个html了事；</p>
-<p>2.一台电脑；</p>
-<p>3.一个Github账号；</p>
-<p>4.明白PR的方法。</p>
-<p>5.:boom::boom::boom:<br><em><strong>Due to the increased number of requests for js.org subdomains recently, with many having questionable relevancy to the JavaScript community and ecosystem, we’ve decided that going forward js.org will be focusing on accepting subdomain requests from projects with a clear relation to the JS community.</strong></em></p>
-<p><em><strong>As some examples, personal pages, blogs, and Discord bot pages will no longer be accepted. Projects such as NPM packages, libraries, tools that have a clear direct relation to JavaScript, will be accepted when requesting a JS.ORG subdomain. This decision does not affect subdomains that have already been granted.</strong></em><br>:boom::boom::boom:</p>
-<p>意思是你的申请必须关于js，npm。提高了门槛。</p>
-<h2 id="详细步骤"><a href="#详细步骤" class="headerlink" title="详细步骤"></a>详细步骤</h2><p>打开js.org官方仓库。</p>
-<p><a href="https://github.com/js-org/js.org">直达链接</a></p>
-<p>点击Fork</p>
-<p>修改cnames_active.js。</p>
-<p>最好按照字母顺序，不按照也没有关系</p>
-<p>插入如下</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="string">&quot;你想要申请的前缀&quot;</span>: <span class="string">&quot;你的仓库URL&quot;</span>,</span><br></pre></td></tr></table></figure>
-<p>保存<br>打开你的仓库，确保Pages环境存在，添加CNAME文件，内容为</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">你的前缀.js.org</span><br></pre></td></tr></table></figure>
-
-<p>点击仓库上方的Pull requests，点击绿色的“New pull request”</p>
-<p>标题<strong>不要</strong>为Update cnames_active.js<br>改成“你的前缀.js.org”<br>其他的不用管，直接提交即可。</p>
-<p>坐等成功</p>
-<p>我的已经成功了，见<br><a href="https://github.com/js-org/js.org/pull/5039">#5039</a></p>
-<p><a href="https://mjy.js.org/">Blog</a></p>
-]]></content>
-      <categories>
-        <category>Domain</category>
-      </categories>
-      <tags>
-        <tag>free</tag>
-        <tag>domain</tag>
-        <tag>免费</tag>
-        <tag>二级域名</tag>
-        <tag>域名</tag>
-        <tag>js.org</tag>
-        <tag>js</tag>
       </tags>
   </entry>
   <entry>
@@ -1489,15 +1489,14 @@
 <p>对于输入图像，我们令V和I分别表示可见光图像和红外图像。则可见光图像的输入可表示为<br>$$<br>X_V &#x3D; {x_V | x_V \in \mathbb{R}^{C \times H \times W}}<br>$$<br>红外图像的输入可表示为<br>$$<br>X_I &#x3D; {x_I | x_I \in \mathbb{R}^{C \times H \times W}}<br>$$<br>其中C、H和W分别对应图像的通道、高度和宽度。</p>
 <p>在一个批次的训练过程中，共有B幅图像，其中$x_i^V$和$x_i^I$的数量相同，$i \in {1, 2, \ldots, B&#x2F;2}$。输入的可见光-红外图像将首先通过轮廓增强模块(Contour Enhancement Module)，如下式所示：<br>$$<br>\begin{split}<br>F_{\text{V}}^{CEM} &amp;&#x3D; CEM(X_{\text{V}}), \<br>F_{\text{I}}^{CEM} &amp;&#x3D; CEM(X_{\text{I}}).<br>\end{split}<br>$$<br>在此，$F_{\text{V}}^{CEM}$和$F_{\text{I}}^{CEM}$表示经过CEM处理后的可见光-红外特征。接下来，为了使特征在不丢失过多信息的前提下能够在计算上进行降维，我们引入了FOC，该方法使用切片操作，将高分辨率特征图分割为多个低分辨率特征图。FOC的这种策略性分割以紧凑形式保留了关键空间信息，在促进更快处理的同时，保持了准确目标检测所需的特征完整性。这些FOC模块的输出特征被输入至Conv和C3模块。C3采用多尺度特征融合方法和跨通道信息传递机制来提升特征表示能力。通过将FOC与C3有效结合，网络同时受益于降维和特征丰富性，从而提升了检测性能。需要注意的是，FOC和C3均已在YOLOv5中可用。该过程如下所示：</p>
 <p>$$<br>\begin{split}<br>F_{\text{V}}^{C3} &amp;&#x3D; C3(\text{Conv}(\text{FOC}(F_{\text{V}}^{CEM}))), \<br>F_{\text{I}}^{C3} &amp;&#x3D; C3(\text{Conv}(\text{FOC}(F_{\text{I}}^{CEM}))).<br>\end{split}<br>$$</p>
-<p>公式2中的Conv模块和C3模块能够提升模型的特征提取能力。为了引导模型进行有效的训练优化，我们借鉴对比学习的思想设计了对比桥接模块(Contrastive Bridge Module, CBM)，并设计了损失函数$\mathcal{L}_{CB}$ :</p>
-<p>$$<br>\mathcal{L}<em>{CB} &#x3D; CBM(F</em>{\text{V}}^{C3}, F_{\text{I}}^{C3}).<br>$$</p>
-<p>在此， $\mathcal{L}<em>{CB}$ 可用作损失函数以引导模型学习模态不变信息。经过上述模块后，可见光特征$F</em>{\text{V}}^{C3}$与红外特征 $F_{\text{I}}^{C3}$ 被输入至融合聚焦模块(Fusion Focus Module, FFM)。MMI-Det设计了多个FFM用于不同深度的特征融合。具体而言，FFM的结构如下式所示：</p>
-<p>$$<br>F_{\text{V}}^{FFM}, F_{\text{I}}^{FFM} &#x3D; FFM(F_{\text{V}}^{C3}, F_{\text{I}}^{C3}).<br>$$</p>
+<p>公式2中的Conv模块和C3模块能够提升模型的特征提取能力。为了引导模型进行有效的训练优化，我们借鉴对比学习的思想设计了对比桥接模块(Contrastive Bridge Module, CBM)，并设计了损失函数 (\mathcal{L}_{CB})：</p>
+<p>$$<br>\mathcal{L}<em>{CB} &#x3D; CBM\bigl(F</em>{\text{V}}^{C3},, F_{\text{I}}^{C3}\bigr).<br>$$</p>
+<p>在此，(\mathcal{L}<em>{CB}) 可用作损失函数以引导模型学习模态不变信息。经过上述模块后，可见光特征 (F</em>{\text{V}}^{C3}) 与红外特征 (F_{\text{I}}^{C3}) 被输入至融合聚焦模块(Fusion Focus Module, FFM)。MMI-Det 设计了多个 FFM 用于不同深度的特征融合。具体而言，FFM 的结构如下式所示：</p>
+<p>$$<br>F_{\text{V}}^{FFM},; F_{\text{I}}^{FFM} &#x3D; FFM\bigl(F_{\text{V}}^{C3},, F_{\text{I}}^{C3}\bigr).<br>$$</p>
 <p>FFM 充分融合两种模态特征，并将融合后的特征反馈至两个分支。它们与在各自的分支上的特征相加，并一同被发送至下一个特征提取-融合阶段：</p>
-<p>$$<br>\begin{align*}<br>F_{\text{V}}^{add} &amp;&#x3D; F_{\text{V}}^{FFM} + F_{\text{V}}^{C3}, \<br>F_{\text{I}}^{add} &amp;&#x3D; F_{\text{I}}^{FFM} + F_{\text{I}}^{C3}, \<br>F_{\text{V-I}}^{add_1} &amp;&#x3D; F_{\text{V}}^{add} + F_{\text{I}}^{add}.<br>\end{align*}<br>$$</p>
-<p>在上式中，相加特征 $F_{\text{V}}^{add}$ 和 $F_{\text{I}}^{add}$ 被传送到后续阶段，我们设计了共 $i$ 组此类阶段，以从不同深度充分提取两种模态中的目标信息。当前阶段的融合特征将被保存为     $F_{\text{V-I}}^{add_1}$ 。最终结果通过检测头(Detect Head)输出，如下图所示。相关公式如下：</p>
-<p><img data-src="/./../images/image-20251014201352915.png" alt="image-20251014201352915"></p>
-<p>$$<br>Pred &#x3D; DetectHead(F_{\text{V-I}}^{add_1}, F_{\text{V-I}}^{add_2}, \ldots, F_{\text{V-I}}^{add_i}).<br>$$</p>
+<p>$$<br>\begin{aligned}<br>F_{\text{V}}^{add} &amp;&#x3D; F_{\text{V}}^{FFM} + F_{\text{V}}^{C3}, \<br>F_{\text{I}}^{add} &amp;&#x3D; F_{\text{I}}^{FFM} + F_{\text{I}}^{C3}, \<br>F_{\text{V-I}}^{add_1} &amp;&#x3D; F_{\text{V}}^{add} + F_{\text{I}}^{add}.<br>\end{aligned}<br>$$</p>
+<p>在上式中，相加特征 (F_{\text{V}}^{add}) 和 (F_{\text{I}}^{add}) 被传送到后续阶段，我们设计了共 (i) 组此类阶段，以从不同深度充分提取两种模态中的目标信息。当前阶段的融合特征将被保存为 (F_{\text{V-I}}^{add_1})。最终结果通过检测头(Detect Head)输出，如下图所示。相关公式如下：</p>
+<p>$$<br>\mathrm{Pred} &#x3D; \mathrm{DetectHead}\bigl(F_{\text{V-I}}^{add_1},, F_{\text{V-I}}^{add_2},, \ldots,, F_{\text{V-I}}^{add_i}\bigr).<br>$$</p>
 ]]></content>
       <categories>
         <category>论文阅读</category>
