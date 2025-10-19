@@ -1,6 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>将Windows中文用户主文件夹修改为英文</title>
+    <url>/2025/10/03/Change-the-Windows-Chinese-user-home-folder-to-English/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在Windows下，部分软件对于中文目录的适配性并不完整，导致程序无法正常运行或是出现一堆奇奇怪怪的报错。大部分软件会要求你选择一个非中文目录，但是由于部分软件的用户配置数据存储在了用户文件夹下，而用户文件夹的名字一般由Windows自动配置，若我们在OOBE阶段设置了中文名，则用户主文件夹也将是中文名，不利于后续操作。因此本教程将向您介绍在不重装系统、不创建新用户的情况下修改用户主文件夹名。</p>
+<h2 id="判断"><a href="#判断" class="headerlink" title="判断"></a>判断</h2><p>如何判断自己的用户主文件夹名是否为中文？<br>若您在Windows的OOBE阶段（激活）使用了Microsoft账户登录，那么您的用户主文件夹应该为邮箱前缀。您无需继续浏览本教程。<br>若您在Windows的OOBE阶段（激活）使用了<strong>oobe\bypassnro</strong>跳过联网而创建本地用户，并为账户起了中文名，那么您将会拥有一个中文用户主文件夹，正如下图所示：</p>
+<p><img data-src="/./../images/image-20251003084919376.png" alt="image-20251003084919376"></p>
+<p>如果您已经忘记了自己如何激活的Windows，那么您可以转到<strong>C:\Users</strong>文件夹下进行判断。在文件资源管理器中，<strong>User</strong>文件夹一般显示为中文<strong>用户</strong>。如下图所示：</p>
+<p><img data-src="/./../images/image-20251003085747561.png" alt="image-20251003085747561"></p>
+<p>图示“姓名”不合规的中文主文件夹，现在我们将对其进行修改，使之变为英文文件夹</p>
+<p><strong>注意！以下操作存在极大风险！可能导致部分软件无法使用需要重装！</strong></p>
+<h2 id="创建还原点"><a href="#创建还原点" class="headerlink" title="创建还原点"></a>创建还原点</h2><p>对系统做这么大手术，当然需要创建一个还原点了，方便恢复修改前状态。在Windows开始菜单搜索框中搜索<strong>还原点</strong></p>
+<p><img data-src="/./../images/image-20251003090032036.png" alt="image-20251003090032036"></p>
+<p>即可找到创建还原点选项。</p>
+<p>首先先点击<strong>配置</strong>启用系统保护（若已启用则忽略）</p>
+<p><img data-src="/./../images/image-20251003090225081.png" alt="image-20251003090225081"></p>
+<p>然后点击<strong>创建</strong>，名字随意，创建一个还原点。</p>
+<p><img data-src="/./../images/image-20251003090322343.png" alt="image-20251003090322343"></p>
+<p>耐心等待还原点创建完成，然后点击<strong>确定</strong>关闭所有窗口。</p>
+<h2 id="启用Administrator账户"><a href="#启用Administrator账户" class="headerlink" title="启用Administrator账户"></a>启用Administrator账户</h2><p>右键开始菜单的微软徽标，点击<strong>终端管理员</strong></p>
+<p><img data-src="/./../images/image-20251003090715686.png" alt="image-20251003090715686"></p>
+<p>在出现的终端中输入命令并回车</p>
+ <figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="built_in">net</span> user administrator /active:yes</span><br></pre></td></tr></table></figure>
+
+<p>执行后，屏幕会提示“命令成功完成”，说明Administrator账号已启用。如下图所示：</p>
+<p><img data-src="/./../images/image-20251003090912298.png" alt="image-20251003090912298"></p>
+<h2 id="切换Administrator账户并注销原账户"><a href="#切换Administrator账户并注销原账户" class="headerlink" title="切换Administrator账户并注销原账户"></a>切换Administrator账户并注销原账户</h2><p><img data-src="/./../images/202510030001.gif" alt="202510030001"></p>
+<p>将所有选项取消勾选</p>
+<p><img data-src="/./../images/image-20251003091504362.png" alt="image-20251003091504362"></p>
+<p>进入桌面后，切回原用户，注销后再登录Administrator账户。</p>
+<p><img data-src="/./../images/202510030002.gif" alt="202510030002"></p>
+<h2 id="重命名用户主文件夹"><a href="#重命名用户主文件夹" class="headerlink" title="重命名用户主文件夹"></a>重命名用户主文件夹</h2><p>现在转到<strong>C:\Users</strong>，修改原来的中文用户主文件夹文件名为英文，可能会提示“操作无法完成，因为文件或文件夹已在其他程序中打开”。</p>
+<h2 id="处理文件夹占用"><a href="#处理文件夹占用" class="headerlink" title="处理文件夹占用"></a>处理文件夹占用</h2><p>Win + R打开cmd，执行以下命令（替换“用户名”为你实际的用户名）</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> /f &quot;skip=<span class="number">1</span> tokens=<span class="number">3</span>&quot; %s <span class="keyword">in</span> (&#x27;query user 用户名&#x27;) <span class="keyword">do</span> <span class="built_in">taskkill</span> /f /fi &quot;sessionname eq %s&quot;</span><br></pre></td></tr></table></figure>
+
+<p>杀死进程后再次修改。</p>
+<h2 id="修改注册表"><a href="#修改注册表" class="headerlink" title="修改注册表"></a>修改注册表</h2><p>按Win + R输入regedit并回车打开注册表编辑器</p>
+<p>在上方输入框中输入</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\ProfileList</span><br></pre></td></tr></table></figure>
+
+<p>在此路径下还有很多以S开头的目录，挨个排查，直到找到右边的<strong>ProfileImagePath</strong>为中文的目录，如下图</p>
+<p><img data-src="/./../images/image-20251003093307131.png" alt="image-20251003093307131"></p>
+<p>双击<strong>ProfileImagePath</strong>条目修改，将中文替换为您刚修改的英文文件夹名称。</p>
+<p>在上方输入框中输入</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\UserManager\Users</span><br></pre></td></tr></table></figure>
+
+<p>找到包含中文用户名的数字项(<strong>UserPicture</strong>)，双击对应的键值，将中文用户名改为英文全拼，点击“确定”</p>
+<h2 id="关闭Administrator账户"><a href="#关闭Administrator账户" class="headerlink" title="关闭Administrator账户"></a>关闭Administrator账户</h2><p>按Win + R打开终端，输入命令并回车，关闭Administrator账户</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="built_in">net</span> user administrator /active:no</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="/./../images/image-20251003093749028.png" alt="image-20251003093749028"></p>
+<p>提示“命令成功完成”后，注销Administrator账号，回到登录页面。</p>
+<h2 id="更新环境变量"><a href="#更新环境变量" class="headerlink" title="更新环境变量"></a><strong>更新环境变量</strong></h2><p>登录回原用户后，搜索<strong>环境变量</strong>，编辑<strong>用户</strong>环境变量</p>
+<p><img data-src="/./../images/image-20251003093857619.png" alt="image-20251003093857619"></p>
+<p>接下来要对<strong>用户变量</strong>进行操作，首先把OneDrive的变量进行修改，将原来的中文文件夹名改为你原来的英文文件夹名。</p>
+<p>然后单击<strong>Path</strong>条目，点击<strong>编辑</strong>，检查所有包含中文用户名的路径，将条目中原来的中文文件夹名改为你原来的英文文件夹名。</p>
+<p>连续点击三个<strong>确定</strong>，完成环境变量编辑。</p>
+<h2 id="更新用户账户信息（可选）"><a href="#更新用户账户信息（可选）" class="headerlink" title="更新用户账户信息（可选）"></a>更新用户账户信息（可选）</h2><p>如果你想一并把显示的用户信息进行修改，请完成以下操作。</p>
+<p>按Win + R，输入</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">control userpasswords2</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="/./../images/image-20251003094407027.png" alt="image-20251003094407027"></p>
+<p>对其进行修改，点两次<strong>确定</strong>退出即可。</p>
+<h2 id="创建符号链接"><a href="#创建符号链接" class="headerlink" title="创建符号链接"></a>创建符号链接</h2><p>部分软件可能认死理，这时我们要照顾这些软件的情绪，想办法让它们读到文件。</p>
+<p>右键开始菜单的微软徽标，点击<strong>终端管理员</strong></p>
+<p>对下方命令按照实际情况进行修改后，在出现的终端中输入命令并回车</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cmd</span></span><br><span class="line"></span><br><span class="line">mklink /d &quot;C:\Users\用户&quot; &quot;C:\Users\User&quot;</span><br></pre></td></tr></table></figure>
+
+<p>这会将旧用户名路径链接到新路径，解决软件路径报错问题。</p>
+<h2 id="重启"><a href="#重启" class="headerlink" title="重启"></a>重启</h2><p>确保全部操作完成后重启计算机，如果正常进入桌面，那么基本没有什么问题了</p>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><ul>
+<li>备份重要数据：修改用户名涉及注册表操作，建议提前备份重要文件，以防万一。单纯仅仅创建还原点是不够的，还原点只可备份当前系统配置文件</li>
+<li>谨慎操作注册表：确保按照步骤修改，避免误删关键项。</li>
+<li>软件路径问题：部分软件可能仍需重新安装，确保路径正确。</li>
+<li>桌面文件丢失：如果重启后桌面只剩“此电脑”和“回收站”，用符号链接方法即可恢复。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>Windows</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Windows下的Python环境配置</title>
     <url>/2025/10/01/Configuring-the-Python-Environment-on-Windows/</url>
     <content><![CDATA[<h2 id="在开始之前"><a href="#在开始之前" class="headerlink" title="在开始之前"></a>在开始之前</h2><ul>
@@ -255,205 +338,10 @@
         <category>教程</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>Windows</tag>
+        <tag>Python</tag>
         <tag>PyCharm</tag>
         <tag>Anaconda</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>将Windows中文用户主文件夹修改为英文</title>
-    <url>/2025/10/03/Change-the-Windows-Chinese-user-home-folder-to-English/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在Windows下，部分软件对于中文目录的适配性并不完整，导致程序无法正常运行或是出现一堆奇奇怪怪的报错。大部分软件会要求你选择一个非中文目录，但是由于部分软件的用户配置数据存储在了用户文件夹下，而用户文件夹的名字一般由Windows自动配置，若我们在OOBE阶段设置了中文名，则用户主文件夹也将是中文名，不利于后续操作。因此本教程将向您介绍在不重装系统、不创建新用户的情况下修改用户主文件夹名。</p>
-<h2 id="判断"><a href="#判断" class="headerlink" title="判断"></a>判断</h2><p>如何判断自己的用户主文件夹名是否为中文？<br>若您在Windows的OOBE阶段（激活）使用了Microsoft账户登录，那么您的用户主文件夹应该为邮箱前缀。您无需继续浏览本教程。<br>若您在Windows的OOBE阶段（激活）使用了<strong>oobe\bypassnro</strong>跳过联网而创建本地用户，并为账户起了中文名，那么您将会拥有一个中文用户主文件夹，正如下图所示：</p>
-<p><img data-src="/./../images/image-20251003084919376.png" alt="image-20251003084919376"></p>
-<p>如果您已经忘记了自己如何激活的Windows，那么您可以转到<strong>C:\Users</strong>文件夹下进行判断。在文件资源管理器中，<strong>User</strong>文件夹一般显示为中文<strong>用户</strong>。如下图所示：</p>
-<p><img data-src="/./../images/image-20251003085747561.png" alt="image-20251003085747561"></p>
-<p>图示“姓名”不合规的中文主文件夹，现在我们将对其进行修改，使之变为英文文件夹</p>
-<p><strong>注意！以下操作存在极大风险！可能导致部分软件无法使用需要重装！</strong></p>
-<h2 id="创建还原点"><a href="#创建还原点" class="headerlink" title="创建还原点"></a>创建还原点</h2><p>对系统做这么大手术，当然需要创建一个还原点了，方便恢复修改前状态。在Windows开始菜单搜索框中搜索<strong>还原点</strong></p>
-<p><img data-src="/./../images/image-20251003090032036.png" alt="image-20251003090032036"></p>
-<p>即可找到创建还原点选项。</p>
-<p>首先先点击<strong>配置</strong>启用系统保护（若已启用则忽略）</p>
-<p><img data-src="/./../images/image-20251003090225081.png" alt="image-20251003090225081"></p>
-<p>然后点击<strong>创建</strong>，名字随意，创建一个还原点。</p>
-<p><img data-src="/./../images/image-20251003090322343.png" alt="image-20251003090322343"></p>
-<p>耐心等待还原点创建完成，然后点击<strong>确定</strong>关闭所有窗口。</p>
-<h2 id="启用Administrator账户"><a href="#启用Administrator账户" class="headerlink" title="启用Administrator账户"></a>启用Administrator账户</h2><p>右键开始菜单的微软徽标，点击<strong>终端管理员</strong></p>
-<p><img data-src="/./../images/image-20251003090715686.png" alt="image-20251003090715686"></p>
-<p>在出现的终端中输入命令并回车</p>
- <figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="built_in">net</span> user administrator /active:yes</span><br></pre></td></tr></table></figure>
-
-<p>执行后，屏幕会提示“命令成功完成”，说明Administrator账号已启用。如下图所示：</p>
-<p><img data-src="/./../images/image-20251003090912298.png" alt="image-20251003090912298"></p>
-<h2 id="切换Administrator账户并注销原账户"><a href="#切换Administrator账户并注销原账户" class="headerlink" title="切换Administrator账户并注销原账户"></a>切换Administrator账户并注销原账户</h2><p><img data-src="/./../images/202510030001.gif" alt="202510030001"></p>
-<p>将所有选项取消勾选</p>
-<p><img data-src="/./../images/image-20251003091504362.png" alt="image-20251003091504362"></p>
-<p>进入桌面后，切回原用户，注销后再登录Administrator账户。</p>
-<p><img data-src="/./../images/202510030002.gif" alt="202510030002"></p>
-<h2 id="重命名用户主文件夹"><a href="#重命名用户主文件夹" class="headerlink" title="重命名用户主文件夹"></a>重命名用户主文件夹</h2><p>现在转到<strong>C:\Users</strong>，修改原来的中文用户主文件夹文件名为英文，可能会提示“操作无法完成，因为文件或文件夹已在其他程序中打开”。</p>
-<h2 id="处理文件夹占用"><a href="#处理文件夹占用" class="headerlink" title="处理文件夹占用"></a>处理文件夹占用</h2><p>Win + R打开cmd，执行以下命令（替换“用户名”为你实际的用户名）</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> /f &quot;skip=<span class="number">1</span> tokens=<span class="number">3</span>&quot; %s <span class="keyword">in</span> (&#x27;query user 用户名&#x27;) <span class="keyword">do</span> <span class="built_in">taskkill</span> /f /fi &quot;sessionname eq %s&quot;</span><br></pre></td></tr></table></figure>
-
-<p>杀死进程后再次修改。</p>
-<h2 id="修改注册表"><a href="#修改注册表" class="headerlink" title="修改注册表"></a>修改注册表</h2><p>按Win + R输入regedit并回车打开注册表编辑器</p>
-<p>在上方输入框中输入</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\ProfileList</span><br></pre></td></tr></table></figure>
-
-<p>在此路径下还有很多以S开头的目录，挨个排查，直到找到右边的<strong>ProfileImagePath</strong>为中文的目录，如下图</p>
-<p><img data-src="/./../images/image-20251003093307131.png" alt="image-20251003093307131"></p>
-<p>双击<strong>ProfileImagePath</strong>条目修改，将中文替换为您刚修改的英文文件夹名称。</p>
-<p>在上方输入框中输入</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\UserManager\Users</span><br></pre></td></tr></table></figure>
-
-<p>找到包含中文用户名的数字项(<strong>UserPicture</strong>)，双击对应的键值，将中文用户名改为英文全拼，点击“确定”</p>
-<h2 id="关闭Administrator账户"><a href="#关闭Administrator账户" class="headerlink" title="关闭Administrator账户"></a>关闭Administrator账户</h2><p>按Win + R打开终端，输入命令并回车，关闭Administrator账户</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="built_in">net</span> user administrator /active:no</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="/./../images/image-20251003093749028.png" alt="image-20251003093749028"></p>
-<p>提示“命令成功完成”后，注销Administrator账号，回到登录页面。</p>
-<h2 id="更新环境变量"><a href="#更新环境变量" class="headerlink" title="更新环境变量"></a><strong>更新环境变量</strong></h2><p>登录回原用户后，搜索<strong>环境变量</strong>，编辑<strong>用户</strong>环境变量</p>
-<p><img data-src="/./../images/image-20251003093857619.png" alt="image-20251003093857619"></p>
-<p>接下来要对<strong>用户变量</strong>进行操作，首先把OneDrive的变量进行修改，将原来的中文文件夹名改为你原来的英文文件夹名。</p>
-<p>然后单击<strong>Path</strong>条目，点击<strong>编辑</strong>，检查所有包含中文用户名的路径，将条目中原来的中文文件夹名改为你原来的英文文件夹名。</p>
-<p>连续点击三个<strong>确定</strong>，完成环境变量编辑。</p>
-<h2 id="更新用户账户信息（可选）"><a href="#更新用户账户信息（可选）" class="headerlink" title="更新用户账户信息（可选）"></a>更新用户账户信息（可选）</h2><p>如果你想一并把显示的用户信息进行修改，请完成以下操作。</p>
-<p>按Win + R，输入</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">control userpasswords2</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="/./../images/image-20251003094407027.png" alt="image-20251003094407027"></p>
-<p>对其进行修改，点两次<strong>确定</strong>退出即可。</p>
-<h2 id="创建符号链接"><a href="#创建符号链接" class="headerlink" title="创建符号链接"></a>创建符号链接</h2><p>部分软件可能认死理，这时我们要照顾这些软件的情绪，想办法让它们读到文件。</p>
-<p>右键开始菜单的微软徽标，点击<strong>终端管理员</strong></p>
-<p>对下方命令按照实际情况进行修改后，在出现的终端中输入命令并回车</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cmd</span></span><br><span class="line"></span><br><span class="line">mklink /d &quot;C:\Users\用户&quot; &quot;C:\Users\User&quot;</span><br></pre></td></tr></table></figure>
-
-<p>这会将旧用户名路径链接到新路径，解决软件路径报错问题。</p>
-<h2 id="重启"><a href="#重启" class="headerlink" title="重启"></a>重启</h2><p>确保全部操作完成后重启计算机，如果正常进入桌面，那么基本没有什么问题了</p>
-<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><ul>
-<li>备份重要数据：修改用户名涉及注册表操作，建议提前备份重要文件，以防万一。单纯仅仅创建还原点是不够的，还原点只可备份当前系统配置文件</li>
-<li>谨慎操作注册表：确保按照步骤修改，避免误删关键项。</li>
-<li>软件路径问题：部分软件可能仍需重新安装，确保路径正确。</li>
-<li>桌面文件丢失：如果重启后桌面只剩“此电脑”和“回收站”，用符号链接方法即可恢复。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>Windows</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>MATLAB基础作业其一</title>
-    <url>/2025/10/18/MATLAB0001/</url>
-    <content><![CDATA[<h1 id="MATLAB-基础第一次作业"><a href="#MATLAB-基础第一次作业" class="headerlink" title="MATLAB 基础第一次作业"></a>MATLAB 基础第一次作业</h1><h2 id="一、基础巩固题（每题8-分，共4-题，满分32-分）"><a href="#一、基础巩固题（每题8-分，共4-题，满分32-分）" class="headerlink" title="一、基础巩固题（每题8 分，共4 题，满分32 分）"></a>一、基础巩固题（每题8 分，共4 题，满分32 分）</h2><p><strong>目标：熟练掌握MATLAB 的基本运算规则、变量赋值及简单函数使用。</strong></p>
-<h3 id="1-温度转换计算"><a href="#1-温度转换计算" class="headerlink" title="1. 温度转换计算"></a>1. 温度转换计算</h3><p>  编写代码将25 摄氏度转换为华氏度，转换公式为F &#x3D; C × 9&#x2F;5 + 32。要求：定义变量C 存储摄氏度数值，计算后输出结果（保留1 位小数）。</p>
-<p>MATLAB代码：</p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% 定义摄氏度变量</span></span><br><span class="line">C = <span class="number">25</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">% 根据公式计算华氏度</span></span><br><span class="line">F = C * <span class="number">9</span>/<span class="number">5</span> + <span class="number">32</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">% 输出结果，保留1位小数</span></span><br><span class="line">fprintf(<span class="string">&#x27;25摄氏度转换为华氏度是: %.1f°F\n&#x27;</span>, F);</span><br></pre></td></tr></table></figure>
-
-<p>运行结果截图：</p>
-<p><img data-src="/./../images/image-20251018131426548.png" alt="image-20251018131426548"></p>
-<p>命令行输出：</p>
-<blockquote>
-<p>&gt;&gt; h1_1</p>
-<p>25摄氏度转换为华氏度是: 77.0°F</p>
-</blockquote>
-<h3 id="2-简单表达式求值"><a href="#2-简单表达式求值" class="headerlink" title="2. 简单表达式求值"></a>2. 简单表达式求值</h3><p>计算表达式$\frac{\sqrt{16} + \log_{10}(1000) - \sin(\frac{\pi}{2})}{2^3 - 5}$的值。要求：使用MATLAB 内置函数（sqrt、log10、sin、pi）计算，直接输出结果。</p>
-<p>MATLAB代码：</p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% 计算分子部分</span></span><br><span class="line">numerator = <span class="built_in">sqrt</span>(<span class="number">16</span>) + <span class="built_in">log10</span>(<span class="number">1000</span>) - <span class="built_in">sin</span>(<span class="built_in">pi</span>/<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 计算分母部分</span></span><br><span class="line">denominator = <span class="number">2</span>^<span class="number">3</span> - <span class="number">5</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">% 计算整个表达式的值</span></span><br><span class="line">result = numerator / denominator;</span><br><span class="line"></span><br><span class="line"><span class="comment">% 输出结果</span></span><br><span class="line"><span class="built_in">disp</span>(result);</span><br></pre></td></tr></table></figure>
-
-<p>运行结果截图：</p>
-<p><img data-src="/./../images/image-20251018131827586.png" alt="image-20251018131827586"></p>
-<p>命令行输出：</p>
-<blockquote>
-<p>&gt;&gt; h1_2</p>
-<p>​     2</p>
-</blockquote>
-<h3 id="3-矩阵创建与输出"><a href="#3-矩阵创建与输出" class="headerlink" title="3. 矩阵创建与输出"></a>3. 矩阵创建与输出</h3><p>创建一个3×3 的矩阵A，元素为1-9 的递增整数（第一行1-3，第二行4-6，第三行7-9），再创建一个3×1 的列向量B（元素为[2;4;6]），最后分别输出矩阵A 和向量B。</p>
-<p>MATLAB代码：</p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% 创建 3×3 矩阵 A</span></span><br><span class="line">A = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>; <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>; <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">% 创建 3×1 列向量 B</span></span><br><span class="line">B = [<span class="number">2</span>; <span class="number">4</span>; <span class="number">6</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">% 输出矩阵 A</span></span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;矩阵 A:&#x27;</span>);</span><br><span class="line"><span class="built_in">disp</span>(A);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 输出向量 B</span></span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;列向量 B:&#x27;</span>);</span><br><span class="line"><span class="built_in">disp</span>(B);</span><br></pre></td></tr></table></figure>
-
-<p>运行结果截图：</p>
-<p><img data-src="/./../images/image-20251018132020159.png" alt="image-20251018132020159"></p>
-<p>命令行输出：</p>
-<blockquote>
-<p>&gt;&gt; h1_3</p>
-<p>矩阵 A:<br>    1     2     3<br>    4     5     6<br>    7     8     9</p>
-<p>列向量 B:<br>    2<br>    4<br>    6</p>
-</blockquote>
-<h3 id="4-矩阵基本运算"><a href="#4-矩阵基本运算" class="headerlink" title="4. 矩阵基本运算"></a>4. 矩阵基本运算</h3><p>基于第3 题中的矩阵A 和向量B，计算以下结果并输出：（1）A 的转置矩阵；（2）A 与B 的乘法（A*B）；（3）A 中所有元素的平均值。</p>
-<p>MATLAB代码：</p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% 矩阵A和列向量B</span></span><br><span class="line">A = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>; <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>; <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>];</span><br><span class="line">B = [<span class="number">2</span>; <span class="number">4</span>; <span class="number">6</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">% 计算A的转置矩阵</span></span><br><span class="line">A_transpose = A&#x27;;</span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;A的转置矩阵:&#x27;</span>);</span><br><span class="line"><span class="built_in">disp</span>(A_transpose);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 计算A与B的乘法（A*B）</span></span><br><span class="line">AB_product = A * B;</span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;A与B的乘法结果:&#x27;</span>);</span><br><span class="line"><span class="built_in">disp</span>(AB_product);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 计算A中所有元素的平均值</span></span><br><span class="line">A_mean = <span class="built_in">mean</span>(A(:));</span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;A中所有元素的平均值:&#x27;</span>);</span><br><span class="line"><span class="built_in">disp</span>(A_mean);</span><br></pre></td></tr></table></figure>
-
-<p>运行结果截图：</p>
-<p><img data-src="/./../images/image-20251018132310167.png" alt="image-20251018132310167"></p>
-<p>命令行输出：</p>
-<blockquote>
-<p>&gt;&gt; h1_4</p>
-<p>A的转置矩阵:<br>    1     4     7<br>    2     5     8<br>    3     6     9</p>
-<p>A与B的乘法结果:<br>   28<br>   64<br>  100</p>
-<p>A中所有元素的平均值:<br>    5</p>
-</blockquote>
-<h2 id="二、能力提升题（每题17-分，共4-题，满分68-分）"><a href="#二、能力提升题（每题17-分，共4-题，满分68-分）" class="headerlink" title="二、能力提升题（每题17 分，共4 题，满分68 分）"></a>二、能力提升题（每题17 分，共4 题，满分68 分）</h2><p><strong>目标：结合多个知识点，实现复杂逻辑与数据处理。</strong></p>
-<h3 id="1-矩阵条件筛选"><a href="#1-矩阵条件筛选" class="headerlink" title="1. 矩阵条件筛选"></a>1. 矩阵条件筛选</h3><p>创建一个4×4 的随机矩阵（元素范围0-10，使用randi 函数），筛选出矩阵中大于5 的元素并输出这些元素的位置（行号和列号）及具体数值。</p>
-<p>MATLAB代码：</p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% 创建 4×4 的随机矩阵，元素范围 0 - 10</span></span><br><span class="line">A = randi([<span class="number">0</span>, <span class="number">10</span>], <span class="number">4</span>, <span class="number">4</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 输出原始矩阵</span></span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;原始矩阵 A:&#x27;</span>);</span><br><span class="line"><span class="built_in">disp</span>(A);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 筛选出大于 5 的元素的行和列索引</span></span><br><span class="line">[row, col] = <span class="built_in">find</span>(A &gt; <span class="number">5</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 筛选出大于 5 的元素值</span></span><br><span class="line">values = A(A &gt; <span class="number">5</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 输出大于 5 的元素的位置（行号和列号）及具体数值</span></span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;矩阵中大于 5 的元素：&#x27;</span>);</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>:<span class="built_in">length</span>(row)</span><br><span class="line">    fprintf(<span class="string">&#x27;行号：%d，列号：%d，数值：%d\n&#x27;</span>, row(<span class="built_in">i</span>), col(<span class="built_in">i</span>), values(<span class="built_in">i</span>));</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-
-<p>运行结果截图：</p>
-<p><img data-src="/./../images/image-20251018132717474.png" alt="image-20251018132717474"></p>
-<p>命令行输出：</p>
-<blockquote>
-<p>&gt;&gt; h2_1</p>
-<p>原始矩阵 A:<br>    8     6    10    10<br>    9     1    10     5<br>    1     3     1     8<br>   10     6    10     1</p>
-<p>矩阵中大于 5 的元素：<br>行号：1，列号：1，数值：8<br>行号：2，列号：1，数值：9<br>行号：4，列号：1，数值：10<br>行号：1，列号：2，数值：6<br>行号：4，列号：2，数值：6<br>行号：1，列号：3，数值：10<br>行号：2，列号：3，数值：10<br>行号：4，列号：3，数值：10<br>行号：1，列号：4，数值：10<br>行号：3，列号：4，数值：8</p>
-</blockquote>
-<h3 id="2-线性代数方程组求解"><a href="#2-线性代数方程组求解" class="headerlink" title="2. 线性代数方程组求解"></a>2. 线性代数方程组求解</h3><p>已知线性方程组：<br>$$<br>\begin{cases}<br>2x_1 + 3x_2 - x_3 &#x3D; 10 \<br>x_1 - 2x_2 + 4x_3 &#x3D; -5 \<br>3x_1 + x_2 - 2x_3 &#x3D; 12<br>\end{cases}<br>$$<br>将其表示为Ax &#x3D; b 的形式（其中A 为系数矩阵，b 为常数项向量），使用MATLAB 求解x，并验证A ∗ x 是否等于b。</p>
-<p>MATLAB代码：</p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% 定义系数矩阵 A</span></span><br><span class="line">A = [<span class="number">2</span>, <span class="number">3</span>, <span class="number">-1</span>; <span class="number">1</span>, <span class="number">-2</span>, <span class="number">4</span>; <span class="number">3</span>, <span class="number">1</span>, <span class="number">-2</span>];</span><br><span class="line"><span class="comment">% 定义常数项向量 b</span></span><br><span class="line">b = [<span class="number">10</span>; <span class="number">-5</span>; <span class="number">12</span>];</span><br><span class="line"><span class="comment">% 求解线性方程组 Ax = b</span></span><br><span class="line">x = A \ b;</span><br><span class="line"><span class="comment">% 验证 A*x 是否等于 b</span></span><br><span class="line">verify = A * x;</span><br><span class="line"></span><br><span class="line"><span class="comment">% 输出结果</span></span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;方程组的解 x:&#x27;</span>);</span><br><span class="line"><span class="built_in">disp</span>(x);</span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;验证 A*x 的结果:&#x27;</span>);</span><br><span class="line"><span class="built_in">disp</span>(verify);</span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;常数项向量 b:&#x27;</span>);</span><br><span class="line"><span class="built_in">disp</span>(b);</span><br></pre></td></tr></table></figure>
-
-<p>运行结果截图：</p>
-<p><img data-src="/./../images/image-20251018132958993.png" alt="image-20251018132958993"></p>
-<p>命令行输出：</p>
-<blockquote>
-<p>&gt;&gt; h2_2</p>
-<p>方程组的解 x:<br>   2.7143<br>   1.0571<br>  -1.4000</p>
-<p>验证 A*x 的结果:<br>   10<br>   -5<br>   12</p>
-<p>常数项向量 b:<br>   10<br>   -5<br>   12</p>
-</blockquote>
-<h3 id="3-描述性统计分析"><a href="#3-描述性统计分析" class="headerlink" title="3. 描述性统计分析"></a>3. 描述性统计分析</h3><p>生成一个包含50 个随机数的向量（服从均值为10、标准差为2 的正态分布，使用normrnd 函数），计算该向量的描述性统计量：均值、中位数、标准差、方差、极差（最大值减最小值），并将结果以表格形式输出。</p>
-<p>MATLAB代码：</p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% 生成服从均值为 10、标准差为 2 的正态分布的 50 个随机数向量</span></span><br><span class="line"></span><br><span class="line">x = normrnd(<span class="number">10</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">50</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 计算描述性统计量</span></span><br><span class="line">mean_val = <span class="built_in">mean</span>(x);          <span class="comment">% 均值</span></span><br><span class="line">median_val = median(x);      <span class="comment">% 中位数</span></span><br><span class="line">std_val = std(x);            <span class="comment">% 标准差</span></span><br><span class="line">var_val = var(x);            <span class="comment">% 方差</span></span><br><span class="line">range_val = range(x);        <span class="comment">% 极差（最大值减最小值）</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% 以表格形式输出结果</span></span><br><span class="line">stats_table = <span class="built_in">table</span>(mean_val, median_val, std_val, var_val, range_val, ...</span><br><span class="line">    <span class="string">&#x27;VariableNames&#x27;</span>, &#123;<span class="string">&#x27;均值&#x27;</span>, <span class="string">&#x27;中位数&#x27;</span>, <span class="string">&#x27;标准差&#x27;</span>, <span class="string">&#x27;方差&#x27;</span>, <span class="string">&#x27;极差&#x27;</span>&#125;);</span><br><span class="line"><span class="built_in">disp</span>(stats_table);</span><br></pre></td></tr></table></figure>
-
-<p>运行结果截图：</p>
-<p><img data-src="/./../images/image-20251018133420352.png" alt="image-20251018133420352"></p>
-<p>命令行输出：</p>
-<blockquote>
-<p>&gt;&gt; h2_3</p>
-<p>​     均值     中位数     标准差      方差      极差 </p>
-<hr>
-<p>​    10.568    10.644    2.5251    6.3759    13.045</p>
-</blockquote>
-<h3 id="4-线性规划问题求解"><a href="#4-线性规划问题求解" class="headerlink" title="4. 线性规划问题求解"></a>4. 线性规划问题求解</h3><p>使用 <code>linprog</code> 函数求解线性规划问题。目标函数：$\min f(x) &#x3D; 2x_1 + 3x_2$；约束条件：$x_1 + x_2 \geq 2$，$x_1 - 2x_2 \leq 1$，$x_1 \geq 0$，$x_2 \geq 0$。要求：正确设置目标函数系数 <code>f</code>、不等式约束矩阵 <code>A</code> 和向量 <code>b</code>、变量上下界 <code>lb</code>，输出最优解 <code>x</code> 及对应的目标函数最小值。（提示：<code>linprog</code> 默认求解 $\min$ 问题，不等式约束需转换为 $A\mathbf{x} \leq \mathbf{b}$ 形式）</p>
-<p>MATLAB代码：</p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% 目标函数系数（对应 min f(x) = 2x1 + 3x2）</span></span><br><span class="line">f = [<span class="number">2</span>; <span class="number">3</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">% 不等式约束转换为 A*x ≤ b 形式</span></span><br><span class="line"><span class="comment">% 原约束 x1 + x2 ≥ 2 转换为 -x1 - x2 ≤ -2</span></span><br><span class="line"><span class="comment">% 原约束 x1 - 2x2 ≤ 1 保持不变</span></span><br><span class="line">A = [<span class="number">-1</span>, <span class="number">-1</span>;</span><br><span class="line">      <span class="number">1</span>, <span class="number">-2</span>];</span><br><span class="line">b = [<span class="number">-2</span>;</span><br><span class="line">      <span class="number">1</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">% 变量下界（x1 ≥ 0, x2 ≥ 0）</span></span><br><span class="line">lb = [<span class="number">0</span>; <span class="number">0</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">% 调用 linprog 求解</span></span><br><span class="line">options = optimoptions(<span class="string">&#x27;linprog&#x27;</span>, <span class="string">&#x27;Display&#x27;</span>, <span class="string">&#x27;iter&#x27;</span>); <span class="comment">% 显示迭代过程</span></span><br><span class="line">[x, fval] = linprog(f, A, b, [], [], lb, [], options);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 输出结果</span></span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;最优解 x:&#x27;</span>);</span><br><span class="line"><span class="built_in">disp</span>(x);</span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;目标函数最小值 fval:&#x27;</span>);</span><br><span class="line"><span class="built_in">disp</span>(fval);</span><br></pre></td></tr></table></figure>
-
-<p>运行结果截图：</p>
-<p><img data-src="/./../images/image-20251018133842761.png" alt="image-20251018133842761"></p>
-<p>命令行输出：</p>
-<blockquote>
-<p>&gt;&gt; h2_4</p>
-<p>Running HiGHS 1.7.1: Copyright (c) 2024 HiGHS under MIT licence terms<br>Coefficient ranges:<br> Matrix [1e+00, 2e+00]<br> Cost   [2e+00, 3e+00]<br> Bound  [0e+00, 0e+00]<br> RHS    [1e+00, 2e+00]<br>Presolving model<br>2 rows, 2 cols, 4 nonzeros  0s<br>2 rows, 2 cols, 4 nonzeros  0s<br>Presolve : Reductions: rows 2(-0); columns 2(-0); elements 4(-0) - Not reduced<br>Problem not reduced by presolve: solving the LP<br>Using EKK dual simplex solver - serial<br> Iteration        Objective     Infeasibilities num(sum)<br>         0     0.0000000000e+00 Pr: 1(2) 0s<br>         2     4.3333333333e+00 Pr: 0(0) 0s<br>Model   status      : Optimal<br>Simplex   iterations: 2<br>Objective value     :  4.3333333333e+00<br>HiGHS run time      :          0.01</p>
-<p>找到最优解。</p>
-<p>最优解 x:<br>   1.6667<br>   0.3333</p>
-<p>目标函数最小值 fval:<br>   4.3333</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>作业</category>
-      </categories>
-      <tags>
-        <tag>MATLAB</tag>
       </tags>
   </entry>
   <entry>
@@ -593,6 +481,118 @@
       </tags>
   </entry>
   <entry>
+    <title>MATLAB基础作业其一</title>
+    <url>/2025/10/18/MATLAB0001/</url>
+    <content><![CDATA[<h1 id="MATLAB-基础第一次作业"><a href="#MATLAB-基础第一次作业" class="headerlink" title="MATLAB 基础第一次作业"></a>MATLAB 基础第一次作业</h1><h2 id="一、基础巩固题（每题8-分，共4-题，满分32-分）"><a href="#一、基础巩固题（每题8-分，共4-题，满分32-分）" class="headerlink" title="一、基础巩固题（每题8 分，共4 题，满分32 分）"></a>一、基础巩固题（每题8 分，共4 题，满分32 分）</h2><p><strong>目标：熟练掌握MATLAB 的基本运算规则、变量赋值及简单函数使用。</strong></p>
+<h3 id="1-温度转换计算"><a href="#1-温度转换计算" class="headerlink" title="1. 温度转换计算"></a>1. 温度转换计算</h3><p>  编写代码将25 摄氏度转换为华氏度，转换公式为F &#x3D; C × 9&#x2F;5 + 32。要求：定义变量C 存储摄氏度数值，计算后输出结果（保留1 位小数）。</p>
+<p>MATLAB代码：</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% 定义摄氏度变量</span></span><br><span class="line">C = <span class="number">25</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">% 根据公式计算华氏度</span></span><br><span class="line">F = C * <span class="number">9</span>/<span class="number">5</span> + <span class="number">32</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">% 输出结果，保留1位小数</span></span><br><span class="line">fprintf(<span class="string">&#x27;25摄氏度转换为华氏度是: %.1f°F\n&#x27;</span>, F);</span><br></pre></td></tr></table></figure>
+
+<p>运行结果截图：</p>
+<p><img data-src="/./../images/image-20251018131426548.png" alt="image-20251018131426548"></p>
+<p>命令行输出：</p>
+<blockquote>
+<p>&gt;&gt; h1_1</p>
+<p>25摄氏度转换为华氏度是: 77.0°F</p>
+</blockquote>
+<h3 id="2-简单表达式求值"><a href="#2-简单表达式求值" class="headerlink" title="2. 简单表达式求值"></a>2. 简单表达式求值</h3><p>计算表达式$\frac{\sqrt{16} + \log_{10}(1000) - \sin(\frac{\pi}{2})}{2^3 - 5}$的值。要求：使用MATLAB 内置函数（sqrt、log10、sin、pi）计算，直接输出结果。</p>
+<p>MATLAB代码：</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% 计算分子部分</span></span><br><span class="line">numerator = <span class="built_in">sqrt</span>(<span class="number">16</span>) + <span class="built_in">log10</span>(<span class="number">1000</span>) - <span class="built_in">sin</span>(<span class="built_in">pi</span>/<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 计算分母部分</span></span><br><span class="line">denominator = <span class="number">2</span>^<span class="number">3</span> - <span class="number">5</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">% 计算整个表达式的值</span></span><br><span class="line">result = numerator / denominator;</span><br><span class="line"></span><br><span class="line"><span class="comment">% 输出结果</span></span><br><span class="line"><span class="built_in">disp</span>(result);</span><br></pre></td></tr></table></figure>
+
+<p>运行结果截图：</p>
+<p><img data-src="/./../images/image-20251018131827586.png" alt="image-20251018131827586"></p>
+<p>命令行输出：</p>
+<blockquote>
+<p>&gt;&gt; h1_2</p>
+<p>​     2</p>
+</blockquote>
+<h3 id="3-矩阵创建与输出"><a href="#3-矩阵创建与输出" class="headerlink" title="3. 矩阵创建与输出"></a>3. 矩阵创建与输出</h3><p>创建一个3×3 的矩阵A，元素为1-9 的递增整数（第一行1-3，第二行4-6，第三行7-9），再创建一个3×1 的列向量B（元素为[2;4;6]），最后分别输出矩阵A 和向量B。</p>
+<p>MATLAB代码：</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% 创建 3×3 矩阵 A</span></span><br><span class="line">A = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>; <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>; <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">% 创建 3×1 列向量 B</span></span><br><span class="line">B = [<span class="number">2</span>; <span class="number">4</span>; <span class="number">6</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">% 输出矩阵 A</span></span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;矩阵 A:&#x27;</span>);</span><br><span class="line"><span class="built_in">disp</span>(A);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 输出向量 B</span></span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;列向量 B:&#x27;</span>);</span><br><span class="line"><span class="built_in">disp</span>(B);</span><br></pre></td></tr></table></figure>
+
+<p>运行结果截图：</p>
+<p><img data-src="/./../images/image-20251018132020159.png" alt="image-20251018132020159"></p>
+<p>命令行输出：</p>
+<blockquote>
+<p>&gt;&gt; h1_3</p>
+<p>矩阵 A:<br>    1     2     3<br>    4     5     6<br>    7     8     9</p>
+<p>列向量 B:<br>    2<br>    4<br>    6</p>
+</blockquote>
+<h3 id="4-矩阵基本运算"><a href="#4-矩阵基本运算" class="headerlink" title="4. 矩阵基本运算"></a>4. 矩阵基本运算</h3><p>基于第3 题中的矩阵A 和向量B，计算以下结果并输出：（1）A 的转置矩阵；（2）A 与B 的乘法（A*B）；（3）A 中所有元素的平均值。</p>
+<p>MATLAB代码：</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% 矩阵A和列向量B</span></span><br><span class="line">A = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>; <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>; <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>];</span><br><span class="line">B = [<span class="number">2</span>; <span class="number">4</span>; <span class="number">6</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">% 计算A的转置矩阵</span></span><br><span class="line">A_transpose = A&#x27;;</span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;A的转置矩阵:&#x27;</span>);</span><br><span class="line"><span class="built_in">disp</span>(A_transpose);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 计算A与B的乘法（A*B）</span></span><br><span class="line">AB_product = A * B;</span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;A与B的乘法结果:&#x27;</span>);</span><br><span class="line"><span class="built_in">disp</span>(AB_product);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 计算A中所有元素的平均值</span></span><br><span class="line">A_mean = <span class="built_in">mean</span>(A(:));</span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;A中所有元素的平均值:&#x27;</span>);</span><br><span class="line"><span class="built_in">disp</span>(A_mean);</span><br></pre></td></tr></table></figure>
+
+<p>运行结果截图：</p>
+<p><img data-src="/./../images/image-20251018132310167.png" alt="image-20251018132310167"></p>
+<p>命令行输出：</p>
+<blockquote>
+<p>&gt;&gt; h1_4</p>
+<p>A的转置矩阵:<br>    1     4     7<br>    2     5     8<br>    3     6     9</p>
+<p>A与B的乘法结果:<br>   28<br>   64<br>  100</p>
+<p>A中所有元素的平均值:<br>    5</p>
+</blockquote>
+<h2 id="二、能力提升题（每题17-分，共4-题，满分68-分）"><a href="#二、能力提升题（每题17-分，共4-题，满分68-分）" class="headerlink" title="二、能力提升题（每题17 分，共4 题，满分68 分）"></a>二、能力提升题（每题17 分，共4 题，满分68 分）</h2><p><strong>目标：结合多个知识点，实现复杂逻辑与数据处理。</strong></p>
+<h3 id="1-矩阵条件筛选"><a href="#1-矩阵条件筛选" class="headerlink" title="1. 矩阵条件筛选"></a>1. 矩阵条件筛选</h3><p>创建一个4×4 的随机矩阵（元素范围0-10，使用randi 函数），筛选出矩阵中大于5 的元素并输出这些元素的位置（行号和列号）及具体数值。</p>
+<p>MATLAB代码：</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% 创建 4×4 的随机矩阵，元素范围 0 - 10</span></span><br><span class="line">A = randi([<span class="number">0</span>, <span class="number">10</span>], <span class="number">4</span>, <span class="number">4</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 输出原始矩阵</span></span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;原始矩阵 A:&#x27;</span>);</span><br><span class="line"><span class="built_in">disp</span>(A);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 筛选出大于 5 的元素的行和列索引</span></span><br><span class="line">[row, col] = <span class="built_in">find</span>(A &gt; <span class="number">5</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 筛选出大于 5 的元素值</span></span><br><span class="line">values = A(A &gt; <span class="number">5</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 输出大于 5 的元素的位置（行号和列号）及具体数值</span></span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;矩阵中大于 5 的元素：&#x27;</span>);</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>:<span class="built_in">length</span>(row)</span><br><span class="line">    fprintf(<span class="string">&#x27;行号：%d，列号：%d，数值：%d\n&#x27;</span>, row(<span class="built_in">i</span>), col(<span class="built_in">i</span>), values(<span class="built_in">i</span>));</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<p>运行结果截图：</p>
+<p><img data-src="/./../images/image-20251018132717474.png" alt="image-20251018132717474"></p>
+<p>命令行输出：</p>
+<blockquote>
+<p>&gt;&gt; h2_1</p>
+<p>原始矩阵 A:<br>    8     6    10    10<br>    9     1    10     5<br>    1     3     1     8<br>   10     6    10     1</p>
+<p>矩阵中大于 5 的元素：<br>行号：1，列号：1，数值：8<br>行号：2，列号：1，数值：9<br>行号：4，列号：1，数值：10<br>行号：1，列号：2，数值：6<br>行号：4，列号：2，数值：6<br>行号：1，列号：3，数值：10<br>行号：2，列号：3，数值：10<br>行号：4，列号：3，数值：10<br>行号：1，列号：4，数值：10<br>行号：3，列号：4，数值：8</p>
+</blockquote>
+<h3 id="2-线性代数方程组求解"><a href="#2-线性代数方程组求解" class="headerlink" title="2. 线性代数方程组求解"></a>2. 线性代数方程组求解</h3><p>已知线性方程组：<br>$$<br>\begin{cases}<br>2x_1 + 3x_2 - x_3 &#x3D; 10 \<br>x_1 - 2x_2 + 4x_3 &#x3D; -5 \<br>3x_1 + x_2 - 2x_3 &#x3D; 12<br>\end{cases}<br>$$<br>将其表示为Ax &#x3D; b 的形式（其中A 为系数矩阵，b 为常数项向量），使用MATLAB 求解x，并验证A ∗ x 是否等于b。</p>
+<p>MATLAB代码：</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% 定义系数矩阵 A</span></span><br><span class="line">A = [<span class="number">2</span>, <span class="number">3</span>, <span class="number">-1</span>; <span class="number">1</span>, <span class="number">-2</span>, <span class="number">4</span>; <span class="number">3</span>, <span class="number">1</span>, <span class="number">-2</span>];</span><br><span class="line"><span class="comment">% 定义常数项向量 b</span></span><br><span class="line">b = [<span class="number">10</span>; <span class="number">-5</span>; <span class="number">12</span>];</span><br><span class="line"><span class="comment">% 求解线性方程组 Ax = b</span></span><br><span class="line">x = A \ b;</span><br><span class="line"><span class="comment">% 验证 A*x 是否等于 b</span></span><br><span class="line">verify = A * x;</span><br><span class="line"></span><br><span class="line"><span class="comment">% 输出结果</span></span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;方程组的解 x:&#x27;</span>);</span><br><span class="line"><span class="built_in">disp</span>(x);</span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;验证 A*x 的结果:&#x27;</span>);</span><br><span class="line"><span class="built_in">disp</span>(verify);</span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;常数项向量 b:&#x27;</span>);</span><br><span class="line"><span class="built_in">disp</span>(b);</span><br></pre></td></tr></table></figure>
+
+<p>运行结果截图：</p>
+<p><img data-src="/./../images/image-20251018132958993.png" alt="image-20251018132958993"></p>
+<p>命令行输出：</p>
+<blockquote>
+<p>&gt;&gt; h2_2</p>
+<p>方程组的解 x:<br>   2.7143<br>   1.0571<br>  -1.4000</p>
+<p>验证 A*x 的结果:<br>   10<br>   -5<br>   12</p>
+<p>常数项向量 b:<br>   10<br>   -5<br>   12</p>
+</blockquote>
+<h3 id="3-描述性统计分析"><a href="#3-描述性统计分析" class="headerlink" title="3. 描述性统计分析"></a>3. 描述性统计分析</h3><p>生成一个包含50 个随机数的向量（服从均值为10、标准差为2 的正态分布，使用normrnd 函数），计算该向量的描述性统计量：均值、中位数、标准差、方差、极差（最大值减最小值），并将结果以表格形式输出。</p>
+<p>MATLAB代码：</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% 生成服从均值为 10、标准差为 2 的正态分布的 50 个随机数向量</span></span><br><span class="line"></span><br><span class="line">x = normrnd(<span class="number">10</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">50</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 计算描述性统计量</span></span><br><span class="line">mean_val = <span class="built_in">mean</span>(x);          <span class="comment">% 均值</span></span><br><span class="line">median_val = median(x);      <span class="comment">% 中位数</span></span><br><span class="line">std_val = std(x);            <span class="comment">% 标准差</span></span><br><span class="line">var_val = var(x);            <span class="comment">% 方差</span></span><br><span class="line">range_val = range(x);        <span class="comment">% 极差（最大值减最小值）</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% 以表格形式输出结果</span></span><br><span class="line">stats_table = <span class="built_in">table</span>(mean_val, median_val, std_val, var_val, range_val, ...</span><br><span class="line">    <span class="string">&#x27;VariableNames&#x27;</span>, &#123;<span class="string">&#x27;均值&#x27;</span>, <span class="string">&#x27;中位数&#x27;</span>, <span class="string">&#x27;标准差&#x27;</span>, <span class="string">&#x27;方差&#x27;</span>, <span class="string">&#x27;极差&#x27;</span>&#125;);</span><br><span class="line"><span class="built_in">disp</span>(stats_table);</span><br></pre></td></tr></table></figure>
+
+<p>运行结果截图：</p>
+<p><img data-src="/./../images/image-20251018133420352.png" alt="image-20251018133420352"></p>
+<p>命令行输出：</p>
+<blockquote>
+<p>&gt;&gt; h2_3</p>
+<p>​     均值     中位数     标准差      方差      极差 </p>
+<hr>
+<p>​    10.568    10.644    2.5251    6.3759    13.045</p>
+</blockquote>
+<h3 id="4-线性规划问题求解"><a href="#4-线性规划问题求解" class="headerlink" title="4. 线性规划问题求解"></a>4. 线性规划问题求解</h3><p>使用 <code>linprog</code> 函数求解线性规划问题。目标函数：$\min f(x) &#x3D; 2x_1 + 3x_2$；约束条件：$x_1 + x_2 \geq 2$，$x_1 - 2x_2 \leq 1$，$x_1 \geq 0$，$x_2 \geq 0$。要求：正确设置目标函数系数 <code>f</code>、不等式约束矩阵 <code>A</code> 和向量 <code>b</code>、变量上下界 <code>lb</code>，输出最优解 <code>x</code> 及对应的目标函数最小值。（提示：<code>linprog</code> 默认求解 $\min$ 问题，不等式约束需转换为 $A\mathbf{x} \leq \mathbf{b}$ 形式）</p>
+<p>MATLAB代码：</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% 目标函数系数（对应 min f(x) = 2x1 + 3x2）</span></span><br><span class="line">f = [<span class="number">2</span>; <span class="number">3</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">% 不等式约束转换为 A*x ≤ b 形式</span></span><br><span class="line"><span class="comment">% 原约束 x1 + x2 ≥ 2 转换为 -x1 - x2 ≤ -2</span></span><br><span class="line"><span class="comment">% 原约束 x1 - 2x2 ≤ 1 保持不变</span></span><br><span class="line">A = [<span class="number">-1</span>, <span class="number">-1</span>;</span><br><span class="line">      <span class="number">1</span>, <span class="number">-2</span>];</span><br><span class="line">b = [<span class="number">-2</span>;</span><br><span class="line">      <span class="number">1</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">% 变量下界（x1 ≥ 0, x2 ≥ 0）</span></span><br><span class="line">lb = [<span class="number">0</span>; <span class="number">0</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">% 调用 linprog 求解</span></span><br><span class="line">options = optimoptions(<span class="string">&#x27;linprog&#x27;</span>, <span class="string">&#x27;Display&#x27;</span>, <span class="string">&#x27;iter&#x27;</span>); <span class="comment">% 显示迭代过程</span></span><br><span class="line">[x, fval] = linprog(f, A, b, [], [], lb, [], options);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 输出结果</span></span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;最优解 x:&#x27;</span>);</span><br><span class="line"><span class="built_in">disp</span>(x);</span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;目标函数最小值 fval:&#x27;</span>);</span><br><span class="line"><span class="built_in">disp</span>(fval);</span><br></pre></td></tr></table></figure>
+
+<p>运行结果截图：</p>
+<p><img data-src="/./../images/image-20251018133842761.png" alt="image-20251018133842761"></p>
+<p>命令行输出：</p>
+<blockquote>
+<p>&gt;&gt; h2_4</p>
+<p>Running HiGHS 1.7.1: Copyright (c) 2024 HiGHS under MIT licence terms<br>Coefficient ranges:<br> Matrix [1e+00, 2e+00]<br> Cost   [2e+00, 3e+00]<br> Bound  [0e+00, 0e+00]<br> RHS    [1e+00, 2e+00]<br>Presolving model<br>2 rows, 2 cols, 4 nonzeros  0s<br>2 rows, 2 cols, 4 nonzeros  0s<br>Presolve : Reductions: rows 2(-0); columns 2(-0); elements 4(-0) - Not reduced<br>Problem not reduced by presolve: solving the LP<br>Using EKK dual simplex solver - serial<br> Iteration        Objective     Infeasibilities num(sum)<br>         0     0.0000000000e+00 Pr: 1(2) 0s<br>         2     4.3333333333e+00 Pr: 0(0) 0s<br>Model   status      : Optimal<br>Simplex   iterations: 2<br>Objective value     :  4.3333333333e+00<br>HiGHS run time      :          0.01</p>
+<p>找到最优解。</p>
+<p>最优解 x:<br>   1.6667<br>   0.3333</p>
+<p>目标函数最小值 fval:<br>   4.3333</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>作业</category>
+      </categories>
+      <tags>
+        <tag>MATLAB</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Python学习笔记其二</title>
     <url>/2025/10/02/Python0002/</url>
     <content><![CDATA[<h2 id="写在最前"><a href="#写在最前" class="headerlink" title="写在最前"></a>写在最前</h2><p><strong>先看完教程链接，再看相关实例！</strong></p>
@@ -674,6 +674,107 @@
 <h2 id="错误和异常"><a href="#错误和异常" class="headerlink" title="错误和异常"></a>错误和异常</h2><p><a href="https://www.runoob.com/python3/python3-errors-execptions.html">Python3 错误和异常 | 菜鸟教程</a></p>
 <h2 id="标准库概览"><a href="#标准库概览" class="headerlink" title="标准库概览"></a>标准库概览</h2><p><a href="https://www.runoob.com/python3/python3-stdlib.html">Python3 标准库概览 | 菜鸟教程</a></p>
 <h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><p><a href="https://www.runoob.com/python3/python3-examples.html">Python3 实例 | 菜鸟教程</a></p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python学习笔记其三</title>
+    <url>/2025/10/03/Python0003/</url>
+    <content><![CDATA[<h1 id="PyTorch教程"><a href="#PyTorch教程" class="headerlink" title="PyTorch教程"></a>PyTorch教程</h1><p>在开始学习本教程之前，你应具备以下基础知识，以便更好地理解和应用 PyTorch</p>
+<ul>
+<li>编程基础:熟悉至少一种编程语言，尤其是 Python，这是 PyTorch 的主要开发语言。</li>
+<li>数学基础:掌握线性代数、概率论与统计学、微积分等基础数学知识，为理解机器学习算法打下坚实基础。</li>
+<li>机器学习基础:了解监督学习、无监督学习、强化学习等基本概念，以及常用的模型评估指标(如准确率、召回率、F1 分数等)</li>
+<li>深度学习基础:熟悉神经网络的基本结构和原理，如前馈神经网络、CNN、RNN、LSTM 等</li>
+<li>领域知识:若计划将 PyTorch 应用于计算机视觉或自然语言处理，了解相关领<br>域的基础知识将大有裨益。</li>
+</ul>
+<p><img data-src="/./../images/image-20251003140242783.png" alt="image-20251003140242783"></p>
+<p>有关pytorch，请见<a href="https://docs.pytorch.ac.cn/docs/stable/index.html">PyTorch 文档 — PyTorch 2.8 文档 - PyTorch 文档</a></p>
+<h2 id="PyTorch简介"><a href="#PyTorch简介" class="headerlink" title="PyTorch简介"></a>PyTorch简介</h2><p>PyTorch 是一个开源的 Python 机器学习库,基于 Torch 库，底层由 C++实现，应用于人工智能领域，如计算机视觉和自然语言处理。</p>
+<p>PyTorch 最初由 Meta Platforms 的人工智能研究团队开发，现在属于Linux 基金会的一部分。</p>
+<p>PyTorch 主要有两大特征:</p>
+<ul>
+<li>类似于 NumPy 的张量计算，能在 GPU 等硬件加速器上加速。</li>
+<li>基于带自动微分系统的深度神经网络。</li>
+</ul>
+<blockquote>
+<p>注:基于自动微分系统的深度神经网络是 PyTorch 核心能力之一，其通过autograd模块自动追踪张量运算过程，可在反向传播阶段无需人工推导，直接计算损失函数对模型参数的梯度，为网络训练提供关键的梯度信息支撑。<br>NumPy是Python语言的一个扩展程序库。支持高阶大规模的多维数组与矩阵运算，此外也针对数组运算提供大量的数学</p>
+</blockquote>
+<p>PyTorch 特性</p>
+<ul>
+<li><p>动态计算图(Dynamic Computation Graphs): PyTorch 的计算图是动态的，这意味着它们在运行时构建，并且可以随时改变。这为实验和调试提供了极大的灵活性，因为开发者可以逐行<br>执行代码，查看中间结果。</p>
+</li>
+<li><p>自动微分(Automatic Differentiation): PyTorch 的自动微分系统允许开发者轻松地计算梯度这对于训练深度学习模型至关重要。它通过反向传播算法自动计算出损失函数对模型参数的梯度。</p>
+</li>
+<li><p>张量计算(Tensor Computation): PyTorch 提供了类似于 NumPy 的张量操作，这些操作可以在 CPU 和 GPU 上执行，从而加速计算过程。张量是 PyTorch 中的基本数据结构，用于存储和操作数据。</p>
+</li>
+</ul>
+<p>动态计算图(Dynamic Computation Graph.<br>PyTorch 最显著的特点之一是其动态计算图的机制。PyTorch 在执行时构建计算图，这意味着在每次计算时，图都会根据输入数据的形状自动变化。</p>
+<p>动态计算图的优点:<br>计算图(Computation Graph)是深度学习中一个非常核心的概念，可以把它理解成:<br>拿一张用“节点”和“边”表示数学运算流程的“流程图”，它描述了数据(张量)是如何通过系列运算一步步变换、最终得到输出结果的。</p>
+<ul>
+<li><p>更加灵活，特别适用于需要条件判断或递归的场景。</p>
+</li>
+<li><p>方便调试和修改，能够直接查看中间结果·更接近 Python 编程的风格，易于上手。</p>
+</li>
+</ul>
+<p><img data-src="/./../images/image-20251003140819157.png" alt="image-20251003140819157"></p>
+<blockquote>
+<p>(+)位置可以看到张量</p>
+</blockquote>
+<p><img data-src="/./../images/image-20251003140914863.png" alt="image-20251003140914863"></p>
+<p><img data-src="/./../images/image-20251003140925476.png" alt="image-20251003140925476"></p>
+<p><img data-src="/./../images/image-20251003140959558.png" alt="image-20251003140959558"></p>
+<h2 id="PyTorch安装"><a href="#PyTorch安装" class="headerlink" title="PyTorch安装"></a>PyTorch安装</h2><p><img data-src="/./../images/image-20251003141107206.png" alt="image-20251003141107206"></p>
+<p><img data-src="/./../images/image-20251003141216897.png" alt="image-20251003141216897"></p>
+<blockquote>
+<p>建议使用Python3.9</p>
+</blockquote>
+<p><img data-src="/./../images/image-20251003141302556.png" alt="image-20251003141302556"></p>
+<p><img data-src="/./../images/image-20251003141332954.png" alt="image-20251003141332954"></p>
+<p><img data-src="/./../images/image-20251003141356803.png" alt="image-20251003141356803"></p>
+<p><a href="https://pytorch.org/">PyTorch</a></p>
+<p><img data-src="/./../images/image-20251003142043338.png" alt="image-20251003142043338"></p>
+<p><img data-src="/./../images/image-20251003142405066.png" alt="image-20251003142405066"></p>
+<p><img data-src="/./../images/image-20251003144017338.png" alt="image-20251003144017338"></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"></span><br><span class="line"><span class="comment"># 当前安装的 PyTorch 库的版本</span></span><br><span class="line"><span class="built_in">print</span>(torch.__version__)</span><br><span class="line"><span class="comment"># 检查 CUDA 是否可用，即你的系统有 NVIDIA 的 GPU</span></span><br><span class="line"><span class="built_in">print</span>(torch.cuda.is_available())</span><br></pre></td></tr></table></figure>
+
+
+
+<p><a href="https://www.runoob.com/pytorch/pytorch-install.html#:~:text=torch%20torchvision%20torchaudio-,%E9%AA%8C%E8%AF%81%E5%AE%89%E8%A3%85,-%E4%B8%BA%E4%BA%86%E7%A1%AE%E4%BF%9D%20PyTorch">PyTorch 安装 | 菜鸟教程</a></p>
+<p><img data-src="/./../images/image-20251003144552271.png" alt="image-20251003144552271"></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line">x = torch.rand(<span class="number">5</span>, <span class="number">3</span>)</span><br><span class="line"><span class="built_in">print</span>(x)</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="/./../images/image-20251003145225620.png" alt="image-20251003145225620"></p>
+<p><a href="https://www.runoob.com/pytorch/pytorch-basic.html">PyTorch 基础 | 菜鸟教程</a></p>
+<p><a href="https://www.runoob.com/pytorch/pytorch-tensor.html">PyTorch 张量（Tensor） | 菜鸟教程</a></p>
+<h1 id="神经网络"><a href="#神经网络" class="headerlink" title="神经网络"></a>神经网络</h1><h2 id="神经网络介绍"><a href="#神经网络介绍" class="headerlink" title="神经网络介绍"></a>神经网络介绍</h2><p><img data-src="/./../images/image-20251003170121375.png" alt="image-20251003170121375"></p>
+<p><img data-src="/./../images/image-20251003170146520.png" alt="image-20251003170146520"></p>
+<p><img data-src="/./../images/image-20251003170308804.png" alt="image-20251003170308804"></p>
+<p><img data-src="/./../images/image-20251003170316205.png" alt="image-20251003170316205"></p>
+<p><img data-src="/./../images/image-20251003170531497.png" alt="image-20251003170531497"></p>
+<p><img data-src="/./../images/image-20251003170715586.png" alt="image-20251003170715586"></p>
+<p><img data-src="/./../images/image-20251003170752551.png" alt="image-20251003170752551"></p>
+<p><img data-src="/./../images/image-20251003170933461.png" alt="image-20251003170933461"></p>
+<p><img data-src="/./../images/image-20251003171319618.png" alt="image-20251003171319618"></p>
+<p><img data-src="/./../images/image-20251003171547160.png" alt="image-20251003171547160"></p>
+<p><img data-src="/./../images/image-20251003172010239.png" alt="image-20251003172010239"></p>
+<p><img data-src="/./../images/image-20251003172058968.png" alt="image-20251003172058968"></p>
+<p><img data-src="/./../images/image-20251003172219754.png" alt="image-20251003172219754"></p>
+<p><img data-src="/./../images/image-20251003172329671.png" alt="image-20251003172329671"></p>
+<p><img data-src="/./../images/image-20251003172344771.png" alt="image-20251003172344771"></p>
+<p><img data-src="/./../images/image-20251003172445140.png" alt="image-20251003172445140"></p>
+<p><img data-src="/./../images/image-20251003172546077.png" alt="image-20251003172546077"></p>
+<p><img data-src="/./../images/image-20251003172656866.png" alt="image-20251003172656866"></p>
+<p><img data-src="/./../images/image-20251003172809240.png" alt="image-20251003172809240"></p>
+<p><img data-src="/./../images/image-20251003172927799.png" alt="image-20251003172927799"></p>
+<p><img data-src="/./../images/image-20251003172940247.png" alt="image-20251003172940247"></p>
+<h2 id="数据集与数据加载"><a href="#数据集与数据加载" class="headerlink" title="数据集与数据加载"></a>数据集与数据加载</h2><p><img data-src="/./../images/image-20251003173012074.png" alt="image-20251003173012074"></p>
+<p><img data-src="/./../images/image-20251003173435990.png" alt="image-20251003173435990"></p>
 ]]></content>
       <categories>
         <category>笔记</category>
@@ -933,128 +1034,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Usage of Structure Block in Minecraft PE</title>
-    <url>/2020/11/22/Usage-of-structure-block-in-Minecraft-PE/</url>
-    <content><![CDATA[<p>写在前面：看到我写游戏，是不是感到非常惊讶？是否有很多问号？其实我从2013年接触我的世界，最早玩0.10.5版本，接触了多玩我的世界盒子和葫芦侠。最早玩我的世界还是用的三星的GT-I9050,安卓2.3，除了运行0.10.5,再大的版本就运行不了了。后来，我用我妈的红米玩0.12.2，地狱疣和药水炼制让我着迷。后来中间潜心学习了一段时间，终于在网易代理后又拾起了我的世界。现在手机版都有地狱更新了，我玩着新版本，没有感觉不熟悉，反而是满满的回忆。今天的我的世界,盒子类几乎没有，唯一好的盒子还是Toolbox，最近也要看广告才能解锁高级功能。<br>今天教大家如何在我的世界中使用结构方块，其实官方名字叫“建筑方块”。<br>首先，在创建世界时，打开“启用实验玩法”，确定开启了作弊和创造。建议下载Toolbox，我就用的toolbox。</p>
-<p><img data-src="/./../images/2020042717372011.jpg" alt="jpg"><br><img data-src="/./../images/2020042717372010.jpg" alt="jpg"><br><img data-src="/./../images/202004271737209.jpg" alt="jpg"><br><img data-src="/./../images/202004271737208.jpg" alt="jpg"></p>
-<p>接着，点击小稿头，找到世界-获取项目，不要点上面的四个，弹出键盘关闭即可。<br><img data-src="/./../images/202004271737207.jpg" alt="jpg"></p>
-<p>在最下面找到这个方块，点击“添加”<br>然后放在地下，你想复制的地方，可以不是一个维度，比如复制各种遗迹。<br>放下“建筑方块”会看到以下界面<br><img data-src="/./../images/202004271737206.jpg" alt="jpg"></p>
-<p>这就是要复制的范围，大小可以调，点击“建筑方块”<br><img data-src="/./../images/202004271737205.jpg" alt="jpg"></p>
-<p>会看到一个3D图像和右边的大小和偏移。可以自行调节，比对3D图像，X轴是红色，Y轴是绿色，Z轴是红色，偏移是复制结构偏移多少格，像这样<br><img data-src="/./../images/202004271737203.jpg" alt="jpg"></p>
-<p>X轴和Y轴最大64，Y轴未知（自己试试）<br><img data-src="/./../images/202004271737204.jpg" alt="jpg"><br>可以选择包含实体或移除方块。包含实体如果打开了，掉落物，各种动物，怪物，村民都可以保存下来。如果打开了移除方块，就会只保留实体。<br><img data-src="/./../images/202004271737202.jpg" alt="jpg"></p>
-<p>保存到磁盘中可以导出为3D图像，或复制到另一个世界。不过toolbox的世界与原版不互通，并且找不到toolbox的文档目录，我已经发邮件问作者，还没回。保存到内存的话，应该是退出世界就没有了。<br><img data-src="/./../images/202004271737201.jpg" alt="jpg"></p>
-<p>保存的话，写上一个名字，会自动为你补全mystructure:这是，找个你想复制的地方，放下“建筑方块”,模式选择“加载”，也是光输入你保存时写的的名字。我这里是test，如果存在，则字体变亮，如果不存在，会是灰色。输入正确后，会显示出你保存的大小，调整即可。最后点击“加载”会有点卡，一点一点加载，甚是舒服！最后就是这个样子<br><img data-src="/./../images/20200427173720.jpg" alt="jpg"></p>
-<p>突然出现的“山”是不是很有趣？也可以把末地船复制到大海上，稍加修缮，就成真正在海上的船了！<br>写在最后：近的物体，还是用clone命令吧。两者皆用，建筑我行！（这应该是全网第一篇教程，有不明白的可以点游戏中建筑方块里面的问号）</p>
-]]></content>
-      <categories>
-        <category>Games</category>
-      </categories>
-      <tags>
-        <tag>Minecarft</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Python学习笔记其三</title>
-    <url>/2025/10/03/Python0003/</url>
-    <content><![CDATA[<h1 id="PyTorch教程"><a href="#PyTorch教程" class="headerlink" title="PyTorch教程"></a>PyTorch教程</h1><p>在开始学习本教程之前，你应具备以下基础知识，以便更好地理解和应用 PyTorch</p>
-<ul>
-<li>编程基础:熟悉至少一种编程语言，尤其是 Python，这是 PyTorch 的主要开发语言。</li>
-<li>数学基础:掌握线性代数、概率论与统计学、微积分等基础数学知识，为理解机器学习算法打下坚实基础。</li>
-<li>机器学习基础:了解监督学习、无监督学习、强化学习等基本概念，以及常用的模型评估指标(如准确率、召回率、F1 分数等)</li>
-<li>深度学习基础:熟悉神经网络的基本结构和原理，如前馈神经网络、CNN、RNN、LSTM 等</li>
-<li>领域知识:若计划将 PyTorch 应用于计算机视觉或自然语言处理，了解相关领<br>域的基础知识将大有裨益。</li>
-</ul>
-<p><img data-src="/./../images/image-20251003140242783.png" alt="image-20251003140242783"></p>
-<p>有关pytorch，请见<a href="https://docs.pytorch.ac.cn/docs/stable/index.html">PyTorch 文档 — PyTorch 2.8 文档 - PyTorch 文档</a></p>
-<h2 id="PyTorch简介"><a href="#PyTorch简介" class="headerlink" title="PyTorch简介"></a>PyTorch简介</h2><p>PyTorch 是一个开源的 Python 机器学习库,基于 Torch 库，底层由 C++实现，应用于人工智能领域，如计算机视觉和自然语言处理。</p>
-<p>PyTorch 最初由 Meta Platforms 的人工智能研究团队开发，现在属于Linux 基金会的一部分。</p>
-<p>PyTorch 主要有两大特征:</p>
-<ul>
-<li>类似于 NumPy 的张量计算，能在 GPU 等硬件加速器上加速。</li>
-<li>基于带自动微分系统的深度神经网络。</li>
-</ul>
-<blockquote>
-<p>注:基于自动微分系统的深度神经网络是 PyTorch 核心能力之一，其通过autograd模块自动追踪张量运算过程，可在反向传播阶段无需人工推导，直接计算损失函数对模型参数的梯度，为网络训练提供关键的梯度信息支撑。<br>NumPy是Python语言的一个扩展程序库。支持高阶大规模的多维数组与矩阵运算，此外也针对数组运算提供大量的数学</p>
-</blockquote>
-<p>PyTorch 特性</p>
-<ul>
-<li><p>动态计算图(Dynamic Computation Graphs): PyTorch 的计算图是动态的，这意味着它们在运行时构建，并且可以随时改变。这为实验和调试提供了极大的灵活性，因为开发者可以逐行<br>执行代码，查看中间结果。</p>
-</li>
-<li><p>自动微分(Automatic Differentiation): PyTorch 的自动微分系统允许开发者轻松地计算梯度这对于训练深度学习模型至关重要。它通过反向传播算法自动计算出损失函数对模型参数的梯度。</p>
-</li>
-<li><p>张量计算(Tensor Computation): PyTorch 提供了类似于 NumPy 的张量操作，这些操作可以在 CPU 和 GPU 上执行，从而加速计算过程。张量是 PyTorch 中的基本数据结构，用于存储和操作数据。</p>
-</li>
-</ul>
-<p>动态计算图(Dynamic Computation Graph.<br>PyTorch 最显著的特点之一是其动态计算图的机制。PyTorch 在执行时构建计算图，这意味着在每次计算时，图都会根据输入数据的形状自动变化。</p>
-<p>动态计算图的优点:<br>计算图(Computation Graph)是深度学习中一个非常核心的概念，可以把它理解成:<br>拿一张用“节点”和“边”表示数学运算流程的“流程图”，它描述了数据(张量)是如何通过系列运算一步步变换、最终得到输出结果的。</p>
-<ul>
-<li><p>更加灵活，特别适用于需要条件判断或递归的场景。</p>
-</li>
-<li><p>方便调试和修改，能够直接查看中间结果·更接近 Python 编程的风格，易于上手。</p>
-</li>
-</ul>
-<p><img data-src="/./../images/image-20251003140819157.png" alt="image-20251003140819157"></p>
-<blockquote>
-<p>(+)位置可以看到张量</p>
-</blockquote>
-<p><img data-src="/./../images/image-20251003140914863.png" alt="image-20251003140914863"></p>
-<p><img data-src="/./../images/image-20251003140925476.png" alt="image-20251003140925476"></p>
-<p><img data-src="/./../images/image-20251003140959558.png" alt="image-20251003140959558"></p>
-<h2 id="PyTorch安装"><a href="#PyTorch安装" class="headerlink" title="PyTorch安装"></a>PyTorch安装</h2><p><img data-src="/./../images/image-20251003141107206.png" alt="image-20251003141107206"></p>
-<p><img data-src="/./../images/image-20251003141216897.png" alt="image-20251003141216897"></p>
-<blockquote>
-<p>建议使用Python3.9</p>
-</blockquote>
-<p><img data-src="/./../images/image-20251003141302556.png" alt="image-20251003141302556"></p>
-<p><img data-src="/./../images/image-20251003141332954.png" alt="image-20251003141332954"></p>
-<p><img data-src="/./../images/image-20251003141356803.png" alt="image-20251003141356803"></p>
-<p><a href="https://pytorch.org/">PyTorch</a></p>
-<p><img data-src="/./../images/image-20251003142043338.png" alt="image-20251003142043338"></p>
-<p><img data-src="/./../images/image-20251003142405066.png" alt="image-20251003142405066"></p>
-<p><img data-src="/./../images/image-20251003144017338.png" alt="image-20251003144017338"></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"></span><br><span class="line"><span class="comment"># 当前安装的 PyTorch 库的版本</span></span><br><span class="line"><span class="built_in">print</span>(torch.__version__)</span><br><span class="line"><span class="comment"># 检查 CUDA 是否可用，即你的系统有 NVIDIA 的 GPU</span></span><br><span class="line"><span class="built_in">print</span>(torch.cuda.is_available())</span><br></pre></td></tr></table></figure>
-
-
-
-<p><a href="https://www.runoob.com/pytorch/pytorch-install.html#:~:text=torch%20torchvision%20torchaudio-,%E9%AA%8C%E8%AF%81%E5%AE%89%E8%A3%85,-%E4%B8%BA%E4%BA%86%E7%A1%AE%E4%BF%9D%20PyTorch">PyTorch 安装 | 菜鸟教程</a></p>
-<p><img data-src="/./../images/image-20251003144552271.png" alt="image-20251003144552271"></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line">x = torch.rand(<span class="number">5</span>, <span class="number">3</span>)</span><br><span class="line"><span class="built_in">print</span>(x)</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="/./../images/image-20251003145225620.png" alt="image-20251003145225620"></p>
-<p><a href="https://www.runoob.com/pytorch/pytorch-basic.html">PyTorch 基础 | 菜鸟教程</a></p>
-<p><a href="https://www.runoob.com/pytorch/pytorch-tensor.html">PyTorch 张量（Tensor） | 菜鸟教程</a></p>
-<h1 id="神经网络"><a href="#神经网络" class="headerlink" title="神经网络"></a>神经网络</h1><h2 id="神经网络介绍"><a href="#神经网络介绍" class="headerlink" title="神经网络介绍"></a>神经网络介绍</h2><p><img data-src="/./../images/image-20251003170121375.png" alt="image-20251003170121375"></p>
-<p><img data-src="/./../images/image-20251003170146520.png" alt="image-20251003170146520"></p>
-<p><img data-src="/./../images/image-20251003170308804.png" alt="image-20251003170308804"></p>
-<p><img data-src="/./../images/image-20251003170316205.png" alt="image-20251003170316205"></p>
-<p><img data-src="/./../images/image-20251003170531497.png" alt="image-20251003170531497"></p>
-<p><img data-src="/./../images/image-20251003170715586.png" alt="image-20251003170715586"></p>
-<p><img data-src="/./../images/image-20251003170752551.png" alt="image-20251003170752551"></p>
-<p><img data-src="/./../images/image-20251003170933461.png" alt="image-20251003170933461"></p>
-<p><img data-src="/./../images/image-20251003171319618.png" alt="image-20251003171319618"></p>
-<p><img data-src="/./../images/image-20251003171547160.png" alt="image-20251003171547160"></p>
-<p><img data-src="/./../images/image-20251003172010239.png" alt="image-20251003172010239"></p>
-<p><img data-src="/./../images/image-20251003172058968.png" alt="image-20251003172058968"></p>
-<p><img data-src="/./../images/image-20251003172219754.png" alt="image-20251003172219754"></p>
-<p><img data-src="/./../images/image-20251003172329671.png" alt="image-20251003172329671"></p>
-<p><img data-src="/./../images/image-20251003172344771.png" alt="image-20251003172344771"></p>
-<p><img data-src="/./../images/image-20251003172445140.png" alt="image-20251003172445140"></p>
-<p><img data-src="/./../images/image-20251003172546077.png" alt="image-20251003172546077"></p>
-<p><img data-src="/./../images/image-20251003172656866.png" alt="image-20251003172656866"></p>
-<p><img data-src="/./../images/image-20251003172809240.png" alt="image-20251003172809240"></p>
-<p><img data-src="/./../images/image-20251003172927799.png" alt="image-20251003172927799"></p>
-<p><img data-src="/./../images/image-20251003172940247.png" alt="image-20251003172940247"></p>
-<h2 id="数据集与数据加载"><a href="#数据集与数据加载" class="headerlink" title="数据集与数据加载"></a>数据集与数据加载</h2><p><img data-src="/./../images/image-20251003173012074.png" alt="image-20251003173012074"></p>
-<p><img data-src="/./../images/image-20251003173435990.png" alt="image-20251003173435990"></p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>山东省综合素质评价填报指北</title>
     <url>/2023/08/25/Shandong-Comprehensive-Quality-Evaluation-Filling-Guide/</url>
     <content><![CDATA[<p>一学期一度的综合素质评价马上就要结束了（9月1日），而我的综合素质评价还一字未填，于是决定撰写一篇文章来介绍填报方式及注意事项。</p>
@@ -1285,46 +1264,6 @@
       </tags>
   </entry>
   <entry>
-    <title>js.org free domain</title>
-    <url>/2020/11/28/js-org-free-domain/</url>
-    <content><![CDATA[<h2 id="了解"><a href="#了解" class="headerlink" title="了解"></a>了解</h2><p><a href="js.org">官方链接</a></p>
-<h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>1.一个托管在Github Pages上的Site。必须<strong>要有内容</strong>，不能草草一个html了事；</p>
-<p>2.一台电脑；</p>
-<p>3.一个Github账号；</p>
-<p>4.明白PR的方法。</p>
-<p>5.:boom::boom::boom:<br><em><strong>Due to the increased number of requests for js.org subdomains recently, with many having questionable relevancy to the JavaScript community and ecosystem, we’ve decided that going forward js.org will be focusing on accepting subdomain requests from projects with a clear relation to the JS community.</strong></em></p>
-<p><em><strong>As some examples, personal pages, blogs, and Discord bot pages will no longer be accepted. Projects such as NPM packages, libraries, tools that have a clear direct relation to JavaScript, will be accepted when requesting a JS.ORG subdomain. This decision does not affect subdomains that have already been granted.</strong></em><br>:boom::boom::boom:</p>
-<p>意思是你的申请必须关于js，npm。提高了门槛。</p>
-<h2 id="详细步骤"><a href="#详细步骤" class="headerlink" title="详细步骤"></a>详细步骤</h2><p>打开js.org官方仓库。</p>
-<p><a href="https://github.com/js-org/js.org">直达链接</a></p>
-<p>点击Fork</p>
-<p>修改cnames_active.js。</p>
-<p>最好按照字母顺序，不按照也没有关系</p>
-<p>插入如下</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="string">&quot;你想要申请的前缀&quot;</span>: <span class="string">&quot;你的仓库URL&quot;</span>,</span><br></pre></td></tr></table></figure>
-<p>保存<br>打开你的仓库，确保Pages环境存在，添加CNAME文件，内容为</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">你的前缀.js.org</span><br></pre></td></tr></table></figure>
-
-<p>点击仓库上方的Pull requests，点击绿色的“New pull request”</p>
-<p>标题<strong>不要</strong>为Update cnames_active.js<br>改成“你的前缀.js.org”<br>其他的不用管，直接提交即可。</p>
-<p>坐等成功</p>
-<p>我的已经成功了，见<br><a href="https://github.com/js-org/js.org/pull/5039">#5039</a></p>
-<p><a href="https://mjy.js.org/">Blog</a></p>
-]]></content>
-      <categories>
-        <category>Domain</category>
-      </categories>
-      <tags>
-        <tag>free</tag>
-        <tag>domain</tag>
-        <tag>免费</tag>
-        <tag>二级域名</tag>
-        <tag>域名</tag>
-        <tag>js.org</tag>
-        <tag>js</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>UTM Virtual Machine</title>
     <url>/2020/11/12/UTM-virtual-machine/</url>
     <content><![CDATA[<p>写在前面：手里有台iPhone7，不知干什么好，没有Android的可玩性，即使Android不root，也会有像termux的容器。9-11岁时，我还在玩limbo，bochs，lbochs，APQ。这些都是一些模拟器。bochs和lbochs是基于bochs的，而limbo和APQ是基于qemu的。要我给他们排序的话，bochs是最简单的，我记得我最早用过的镜像是andows.img，用起来简单，把sdl和镜像放在指定位置就行了。点击app启动，音量键控制左右键，滑动屏幕控制鼠标。点击左下角（还是右下角，我忘了）呼出键盘。就是在朋友同学面前装B用的。lbochs支持更多扩展，limbo有各种版本，对于X86的安卓兼容较好，一般在Android上我首选limbo。APQ比较稳定，但是前提是要Root，仅支持VNC，得自己去改配置。就这样。我接触到了qemu。</p>
@@ -1384,6 +1323,67 @@
         <tag>UTM</tag>
         <tag>VM</tag>
         <tag>iPhone</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>js.org free domain</title>
+    <url>/2020/11/28/js-org-free-domain/</url>
+    <content><![CDATA[<h2 id="了解"><a href="#了解" class="headerlink" title="了解"></a>了解</h2><p><a href="js.org">官方链接</a></p>
+<h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>1.一个托管在Github Pages上的Site。必须<strong>要有内容</strong>，不能草草一个html了事；</p>
+<p>2.一台电脑；</p>
+<p>3.一个Github账号；</p>
+<p>4.明白PR的方法。</p>
+<p>5.:boom::boom::boom:<br><em><strong>Due to the increased number of requests for js.org subdomains recently, with many having questionable relevancy to the JavaScript community and ecosystem, we’ve decided that going forward js.org will be focusing on accepting subdomain requests from projects with a clear relation to the JS community.</strong></em></p>
+<p><em><strong>As some examples, personal pages, blogs, and Discord bot pages will no longer be accepted. Projects such as NPM packages, libraries, tools that have a clear direct relation to JavaScript, will be accepted when requesting a JS.ORG subdomain. This decision does not affect subdomains that have already been granted.</strong></em><br>:boom::boom::boom:</p>
+<p>意思是你的申请必须关于js，npm。提高了门槛。</p>
+<h2 id="详细步骤"><a href="#详细步骤" class="headerlink" title="详细步骤"></a>详细步骤</h2><p>打开js.org官方仓库。</p>
+<p><a href="https://github.com/js-org/js.org">直达链接</a></p>
+<p>点击Fork</p>
+<p>修改cnames_active.js。</p>
+<p>最好按照字母顺序，不按照也没有关系</p>
+<p>插入如下</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="string">&quot;你想要申请的前缀&quot;</span>: <span class="string">&quot;你的仓库URL&quot;</span>,</span><br></pre></td></tr></table></figure>
+<p>保存<br>打开你的仓库，确保Pages环境存在，添加CNAME文件，内容为</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">你的前缀.js.org</span><br></pre></td></tr></table></figure>
+
+<p>点击仓库上方的Pull requests，点击绿色的“New pull request”</p>
+<p>标题<strong>不要</strong>为Update cnames_active.js<br>改成“你的前缀.js.org”<br>其他的不用管，直接提交即可。</p>
+<p>坐等成功</p>
+<p>我的已经成功了，见<br><a href="https://github.com/js-org/js.org/pull/5039">#5039</a></p>
+<p><a href="https://mjy.js.org/">Blog</a></p>
+]]></content>
+      <categories>
+        <category>Domain</category>
+      </categories>
+      <tags>
+        <tag>free</tag>
+        <tag>domain</tag>
+        <tag>免费</tag>
+        <tag>二级域名</tag>
+        <tag>域名</tag>
+        <tag>js.org</tag>
+        <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Usage of Structure Block in Minecraft PE</title>
+    <url>/2020/11/22/Usage-of-structure-block-in-Minecraft-PE/</url>
+    <content><![CDATA[<p>写在前面：看到我写游戏，是不是感到非常惊讶？是否有很多问号？其实我从2013年接触我的世界，最早玩0.10.5版本，接触了多玩我的世界盒子和葫芦侠。最早玩我的世界还是用的三星的GT-I9050,安卓2.3，除了运行0.10.5,再大的版本就运行不了了。后来，我用我妈的红米玩0.12.2，地狱疣和药水炼制让我着迷。后来中间潜心学习了一段时间，终于在网易代理后又拾起了我的世界。现在手机版都有地狱更新了，我玩着新版本，没有感觉不熟悉，反而是满满的回忆。今天的我的世界,盒子类几乎没有，唯一好的盒子还是Toolbox，最近也要看广告才能解锁高级功能。<br>今天教大家如何在我的世界中使用结构方块，其实官方名字叫“建筑方块”。<br>首先，在创建世界时，打开“启用实验玩法”，确定开启了作弊和创造。建议下载Toolbox，我就用的toolbox。</p>
+<p><img data-src="/./../images/2020042717372011.jpg" alt="jpg"><br><img data-src="/./../images/2020042717372010.jpg" alt="jpg"><br><img data-src="/./../images/202004271737209.jpg" alt="jpg"><br><img data-src="/./../images/202004271737208.jpg" alt="jpg"></p>
+<p>接着，点击小稿头，找到世界-获取项目，不要点上面的四个，弹出键盘关闭即可。<br><img data-src="/./../images/202004271737207.jpg" alt="jpg"></p>
+<p>在最下面找到这个方块，点击“添加”<br>然后放在地下，你想复制的地方，可以不是一个维度，比如复制各种遗迹。<br>放下“建筑方块”会看到以下界面<br><img data-src="/./../images/202004271737206.jpg" alt="jpg"></p>
+<p>这就是要复制的范围，大小可以调，点击“建筑方块”<br><img data-src="/./../images/202004271737205.jpg" alt="jpg"></p>
+<p>会看到一个3D图像和右边的大小和偏移。可以自行调节，比对3D图像，X轴是红色，Y轴是绿色，Z轴是红色，偏移是复制结构偏移多少格，像这样<br><img data-src="/./../images/202004271737203.jpg" alt="jpg"></p>
+<p>X轴和Y轴最大64，Y轴未知（自己试试）<br><img data-src="/./../images/202004271737204.jpg" alt="jpg"><br>可以选择包含实体或移除方块。包含实体如果打开了，掉落物，各种动物，怪物，村民都可以保存下来。如果打开了移除方块，就会只保留实体。<br><img data-src="/./../images/202004271737202.jpg" alt="jpg"></p>
+<p>保存到磁盘中可以导出为3D图像，或复制到另一个世界。不过toolbox的世界与原版不互通，并且找不到toolbox的文档目录，我已经发邮件问作者，还没回。保存到内存的话，应该是退出世界就没有了。<br><img data-src="/./../images/202004271737201.jpg" alt="jpg"></p>
+<p>保存的话，写上一个名字，会自动为你补全mystructure:这是，找个你想复制的地方，放下“建筑方块”,模式选择“加载”，也是光输入你保存时写的的名字。我这里是test，如果存在，则字体变亮，如果不存在，会是灰色。输入正确后，会显示出你保存的大小，调整即可。最后点击“加载”会有点卡，一点一点加载，甚是舒服！最后就是这个样子<br><img data-src="/./../images/20200427173720.jpg" alt="jpg"></p>
+<p>突然出现的“山”是不是很有趣？也可以把末地船复制到大海上，稍加修缮，就成真正在海上的船了！<br>写在最后：近的物体，还是用clone命令吧。两者皆用，建筑我行！（这应该是全网第一篇教程，有不明白的可以点游戏中建筑方块里面的问号）</p>
+]]></content>
+      <categories>
+        <category>Games</category>
+      </categories>
+      <tags>
+        <tag>Minecarft</tag>
       </tags>
   </entry>
   <entry>
