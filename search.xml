@@ -345,6 +345,142 @@
       </tags>
   </entry>
   <entry>
+    <title>Markdown学习笔记</title>
+    <url>/2021/01/01/Markdown/</url>
+    <content><![CDATA[<h2 id="后缀"><a href="#后缀" class="headerlink" title="后缀"></a>后缀</h2><p>.md</p>
+<p>.markdown</p>
+<p>.MD</p>
+<p>.MARKDOWN</p>
+<h2 id="标头"><a href="#标头" class="headerlink" title="标头"></a>标头</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section"># h1标头</span></span><br><span class="line"><span class="section">## h2标头</span></span><br><span class="line"><span class="section">### h3标头</span></span><br><span class="line">......</span><br><span class="line"><span class="section">###### h6标头</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="h1标头"><a href="#h1标头" class="headerlink" title="h1标头"></a>h1标头</h1><h2 id="h2标头"><a href="#h2标头" class="headerlink" title="h2标头"></a>h2标头</h2><h3 id="h3标头"><a href="#h3标头" class="headerlink" title="h3标头"></a>h3标头</h3><p>……</p>
+<h6 id="h6标头"><a href="#h6标头" class="headerlink" title="h6标头"></a>h6标头</h6><p>H后数越大，字体越小</p>
+<h2 id="重点"><a href="#重点" class="headerlink" title="重点"></a>重点</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="emphasis">*要斜体的文字*</span></span><br><span class="line"></span><br><span class="line"><span class="strong">**要加黑的文字**</span></span><br><span class="line"></span><br><span class="line"><span class="emphasis">_要斜体的文字_</span></span><br><span class="line"></span><br><span class="line"><span class="strong">__要加黑的文字__</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><em>要斜体的文字</em></p>
+<p><strong>要加黑的文字</strong></p>
+<p><em>要斜体的文字</em></p>
+<p><strong>要加黑的文字</strong></p>
+<h2 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h2><h3 id="无序"><a href="#无序" class="headerlink" title="无序"></a>无序</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet">*</span> 1</span><br><span class="line"><span class="bullet">*</span> 2</span><br><span class="line"><span class="bullet">*</span> 3</span><br><span class="line"><span class="bullet">*</span> 4</span><br><span class="line"><span class="bullet">*</span> 5</span><br><span class="line"><span class="bullet"> *</span> 1</span><br><span class="line"><span class="bullet"> *</span> 2</span><br><span class="line"><span class="bullet"> *</span> 3</span><br><span class="line"><span class="bullet"> *</span> 4</span><br><span class="line"><span class="bullet"> *</span> 5</span><br></pre></td></tr></table></figure>
+
+
+<ul>
+<li>1</li>
+<li>2</li>
+<li>3</li>
+<li>4</li>
+<li>5</li>
+<li>1</li>
+<li>2</li>
+<li>3</li>
+<li>4</li>
+<li>5</li>
+</ul>
+<p>在此博客上空格加“*”是同样的效果。</p>
+<h3 id="有序"><a href="#有序" class="headerlink" title="有序"></a>有序</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet">1.</span> 1</span><br><span class="line"><span class="bullet">2.</span> 2</span><br><span class="line"><span class="bullet">3.</span> 3</span><br><span class="line"><span class="bullet">4.</span> 4</span><br><span class="line"><span class="bullet">5.</span> 5</span><br></pre></td></tr></table></figure>
+<ol>
+<li>1</li>
+<li>2</li>
+<li>3</li>
+<li>4</li>
+<li>5</li>
+</ol>
+<p>使用一个回车后会自动补充</p>
+<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p>###图片</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">![<span class="string">图片描述</span>](<span class="link">图片位置</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">[<span class="string">链接描述</span>](<span class="link">链接</span>)</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://mjy.js.org/">Blog</a></p>
+<h3 id="块引用"><a href="#块引用" class="headerlink" title="块引用"></a>块引用</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">As Kanye West said:</span><br><span class="line"></span><br><span class="line"><span class="quote">&gt; We&#x27;re living the future so</span></span><br><span class="line"><span class="quote">&gt; the present is our past.</span></span><br></pre></td></tr></table></figure>
+
+<p>As Kanye West said:</p>
+<blockquote>
+<p>We’re living the future so<br>the present is our past.</p>
+</blockquote>
+<h3 id="内联代码"><a href="#内联代码" class="headerlink" title="内联代码"></a>内联代码</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">I think you should use an</span><br><span class="line"><span class="code">`&lt;addr&gt;`</span> element here instead.</span><br></pre></td></tr></table></figure>
+<p>I think you should use an<br><code>&lt;addr&gt;</code> element here instead.</p>
+<h2 id="语法高亮"><a href="#语法高亮" class="headerlink" title="语法高亮"></a>语法高亮</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="code">` `</span> `语言类型</span><br><span class="line">code</span><br><span class="line"><span class="code">` `</span> `</span><br><span class="line">// 中间无空格</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> <span class="keyword">echo</span> <span class="string">&quot;Hello world&quot;</span>;<span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>将代码前加上四个空格有同样的效果</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="code">    &lt;?php echo &quot;Hello world&quot;;?&gt;</span></span><br><span class="line"><span class="code">四个空格+code</span></span><br></pre></td></tr></table></figure>
+<pre><code>&lt;?php echo &quot;Hello world&quot;;?&gt;
+&lt;?php echo &quot;1&quot;;?&gt;
+&lt;?php echo &quot;2&quot;;?&gt;
+&lt;?php echo &quot;3&quot;;?&gt;
+</code></pre>
+<h2 id="任务清单"><a href="#任务清单" class="headerlink" title="任务清单"></a>任务清单</h2><ul>
+<li><input disabled="" type="checkbox"> 未完成</li>
+<li><input checked="" disabled="" type="checkbox"> 已完成</li>
+</ul>
+<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">A | B</span><br><span class="line">-- | --</span><br><span class="line">1 | 2</span><br><span class="line">2 | 3</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>A</th>
+<th>B</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr>
+<td>2</td>
+<td>3</td>
+</tr>
+</tbody></table>
+<h2 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">del</span>&gt;</span></span>Del<span class="language-xml"><span class="tag">&lt;/<span class="name">del</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p><del>Del</del></p>
+<h2 id="表情"><a href="#表情" class="headerlink" title="表情"></a>表情</h2><p><a href="https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md">URL</a></p>
+]]></content>
+      <categories>
+        <category>notes</category>
+      </categories>
+      <tags>
+        <tag>markdown</tag>
+        <tag>Markdown</tag>
+        <tag>笔记</tag>
+        <tag>notes</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python学习笔记其一</title>
+    <url>/2025/10/01/Python0001/</url>
+    <content><![CDATA[<p>相关教程：</p>
+<p><a href="https://www.runoob.com/python3/python3-conditional-statements.html">Python3 条件控制 | 菜鸟教程</a></p>
+<p><a href="https://www.runoob.com/python3/python3-loop.html">Python3 循环语句 | 菜鸟教程</a></p>
+<p>使用for求1-100的和：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="built_in">sum</span> = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">101</span>):</span><br><span class="line">    <span class="built_in">sum</span> += i</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">sum</span>)</span><br></pre></td></tr></table></figure>
+
+<p>使用while求1-100的和：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="built_in">sum</span> = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> i &lt; <span class="number">101</span>:</span><br><span class="line">    <span class="built_in">sum</span> += i</span><br><span class="line">    i += <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<p>排除1-100中含有“7”的数并求和：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="built_in">sum</span> = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">101</span>):</span><br><span class="line">    <span class="keyword">if</span> i // <span class="number">10</span> == <span class="number">7</span> <span class="keyword">or</span> i % <span class="number">10</span> == <span class="number">7</span>:</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">sum</span> += i</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">sum</span>)</span><br></pre></td></tr></table></figure>
+
+<p>亦可通过while实现：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="built_in">sum</span> = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> i &lt; <span class="number">101</span>:</span><br><span class="line">    <span class="keyword">if</span> i // <span class="number">10</span> == <span class="number">7</span> <span class="keyword">or</span> i % <span class="number">10</span> == <span class="number">7</span>:</span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">sum</span> += i</span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">sum</span>)</span><br></pre></td></tr></table></figure>
+
+<p>亦可通过将i转化为字符串排除实现：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="built_in">sum</span> = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">101</span>):</span><br><span class="line">    a = <span class="built_in">str</span>(i)</span><br><span class="line">    <span class="keyword">if</span> <span class="string">&quot;7&quot;</span> <span class="keyword">not</span> <span class="keyword">in</span> a:</span><br><span class="line">        <span class="built_in">sum</span> += i</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">sum</span>)</span><br></pre></td></tr></table></figure>
+
+<p>遇到的坑：</p>
+<ul>
+<li>for、if、elif、else、while语句要加:（冒号）</li>
+<li>在for或者while进行完if判断后需要对i进行自增，否则进入死循环</li>
+<li>continue为略过，break为中断，pass仅占位（debug用）</li>
+</ul>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>MATLAB基础作业其一</title>
     <url>/2025/10/18/MATLAB0001/</url>
     <content><![CDATA[<h1 id="MATLAB-基础第一次作业"><a href="#MATLAB-基础第一次作业" class="headerlink" title="MATLAB 基础第一次作业"></a>MATLAB 基础第一次作业</h1><h2 id="一、基础巩固题（每题8-分，共4-题，满分32-分）"><a href="#一、基础巩固题（每题8-分，共4-题，满分32-分）" class="headerlink" title="一、基础巩固题（每题8 分，共4 题，满分32 分）"></a>一、基础巩固题（每题8 分，共4 题，满分32 分）</h2><p><strong>目标：熟练掌握MATLAB 的基本运算规则、变量赋值及简单函数使用。</strong></p>
@@ -476,107 +612,6 @@ x_1 - 2x_2 + 4x_3 = -5 \\
       </tags>
   </entry>
   <entry>
-    <title>Markdown学习笔记</title>
-    <url>/2021/01/01/Markdown/</url>
-    <content><![CDATA[<h2 id="后缀"><a href="#后缀" class="headerlink" title="后缀"></a>后缀</h2><p>.md</p>
-<p>.markdown</p>
-<p>.MD</p>
-<p>.MARKDOWN</p>
-<h2 id="标头"><a href="#标头" class="headerlink" title="标头"></a>标头</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section"># h1标头</span></span><br><span class="line"><span class="section">## h2标头</span></span><br><span class="line"><span class="section">### h3标头</span></span><br><span class="line">......</span><br><span class="line"><span class="section">###### h6标头</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="h1标头"><a href="#h1标头" class="headerlink" title="h1标头"></a>h1标头</h1><h2 id="h2标头"><a href="#h2标头" class="headerlink" title="h2标头"></a>h2标头</h2><h3 id="h3标头"><a href="#h3标头" class="headerlink" title="h3标头"></a>h3标头</h3><p>……</p>
-<h6 id="h6标头"><a href="#h6标头" class="headerlink" title="h6标头"></a>h6标头</h6><p>H后数越大，字体越小</p>
-<h2 id="重点"><a href="#重点" class="headerlink" title="重点"></a>重点</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="emphasis">*要斜体的文字*</span></span><br><span class="line"></span><br><span class="line"><span class="strong">**要加黑的文字**</span></span><br><span class="line"></span><br><span class="line"><span class="emphasis">_要斜体的文字_</span></span><br><span class="line"></span><br><span class="line"><span class="strong">__要加黑的文字__</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><em>要斜体的文字</em></p>
-<p><strong>要加黑的文字</strong></p>
-<p><em>要斜体的文字</em></p>
-<p><strong>要加黑的文字</strong></p>
-<h2 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h2><h3 id="无序"><a href="#无序" class="headerlink" title="无序"></a>无序</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet">*</span> 1</span><br><span class="line"><span class="bullet">*</span> 2</span><br><span class="line"><span class="bullet">*</span> 3</span><br><span class="line"><span class="bullet">*</span> 4</span><br><span class="line"><span class="bullet">*</span> 5</span><br><span class="line"><span class="bullet"> *</span> 1</span><br><span class="line"><span class="bullet"> *</span> 2</span><br><span class="line"><span class="bullet"> *</span> 3</span><br><span class="line"><span class="bullet"> *</span> 4</span><br><span class="line"><span class="bullet"> *</span> 5</span><br></pre></td></tr></table></figure>
-
-
-<ul>
-<li>1</li>
-<li>2</li>
-<li>3</li>
-<li>4</li>
-<li>5</li>
-<li>1</li>
-<li>2</li>
-<li>3</li>
-<li>4</li>
-<li>5</li>
-</ul>
-<p>在此博客上空格加“*”是同样的效果。</p>
-<h3 id="有序"><a href="#有序" class="headerlink" title="有序"></a>有序</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet">1.</span> 1</span><br><span class="line"><span class="bullet">2.</span> 2</span><br><span class="line"><span class="bullet">3.</span> 3</span><br><span class="line"><span class="bullet">4.</span> 4</span><br><span class="line"><span class="bullet">5.</span> 5</span><br></pre></td></tr></table></figure>
-<ol>
-<li>1</li>
-<li>2</li>
-<li>3</li>
-<li>4</li>
-<li>5</li>
-</ol>
-<p>使用一个回车后会自动补充</p>
-<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p>###图片</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">![<span class="string">图片描述</span>](<span class="link">图片位置</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">[<span class="string">链接描述</span>](<span class="link">链接</span>)</span><br></pre></td></tr></table></figure>
-
-<p><a href="https://mjy.js.org/">Blog</a></p>
-<h3 id="块引用"><a href="#块引用" class="headerlink" title="块引用"></a>块引用</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">As Kanye West said:</span><br><span class="line"></span><br><span class="line"><span class="quote">&gt; We&#x27;re living the future so</span></span><br><span class="line"><span class="quote">&gt; the present is our past.</span></span><br></pre></td></tr></table></figure>
-
-<p>As Kanye West said:</p>
-<blockquote>
-<p>We’re living the future so<br>the present is our past.</p>
-</blockquote>
-<h3 id="内联代码"><a href="#内联代码" class="headerlink" title="内联代码"></a>内联代码</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">I think you should use an</span><br><span class="line"><span class="code">`&lt;addr&gt;`</span> element here instead.</span><br></pre></td></tr></table></figure>
-<p>I think you should use an<br><code>&lt;addr&gt;</code> element here instead.</p>
-<h2 id="语法高亮"><a href="#语法高亮" class="headerlink" title="语法高亮"></a>语法高亮</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="code">` `</span> `语言类型</span><br><span class="line">code</span><br><span class="line"><span class="code">` `</span> `</span><br><span class="line">// 中间无空格</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> <span class="keyword">echo</span> <span class="string">&quot;Hello world&quot;</span>;<span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<p>将代码前加上四个空格有同样的效果</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="code">    &lt;?php echo &quot;Hello world&quot;;?&gt;</span></span><br><span class="line"><span class="code">四个空格+code</span></span><br></pre></td></tr></table></figure>
-<pre><code>&lt;?php echo &quot;Hello world&quot;;?&gt;
-&lt;?php echo &quot;1&quot;;?&gt;
-&lt;?php echo &quot;2&quot;;?&gt;
-&lt;?php echo &quot;3&quot;;?&gt;
-</code></pre>
-<h2 id="任务清单"><a href="#任务清单" class="headerlink" title="任务清单"></a>任务清单</h2><ul>
-<li><input disabled="" type="checkbox"> 未完成</li>
-<li><input checked="" disabled="" type="checkbox"> 已完成</li>
-</ul>
-<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">A | B</span><br><span class="line">-- | --</span><br><span class="line">1 | 2</span><br><span class="line">2 | 3</span><br></pre></td></tr></table></figure>
-<table>
-<thead>
-<tr>
-<th>A</th>
-<th>B</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1</td>
-<td>2</td>
-</tr>
-<tr>
-<td>2</td>
-<td>3</td>
-</tr>
-</tbody></table>
-<h2 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">del</span>&gt;</span></span>Del<span class="language-xml"><span class="tag">&lt;/<span class="name">del</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-
-<p><del>Del</del></p>
-<h2 id="表情"><a href="#表情" class="headerlink" title="表情"></a>表情</h2><p><a href="https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md">URL</a></p>
-]]></content>
-      <categories>
-        <category>notes</category>
-      </categories>
-      <tags>
-        <tag>markdown</tag>
-        <tag>Markdown</tag>
-        <tag>笔记</tag>
-        <tag>notes</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Python学习笔记其二</title>
     <url>/2025/10/02/Python0002/</url>
     <content><![CDATA[<h2 id="写在最前"><a href="#写在最前" class="headerlink" title="写在最前"></a>写在最前</h2><p><strong>先看完教程链接，再看相关实例！</strong></p>
@@ -667,32 +702,98 @@ x_1 - 2x_2 + 4x_3 = -5 \\
       </tags>
   </entry>
   <entry>
-    <title>Python学习笔记其一</title>
-    <url>/2025/10/01/Python0001/</url>
-    <content><![CDATA[<p>相关教程：</p>
-<p><a href="https://www.runoob.com/python3/python3-conditional-statements.html">Python3 条件控制 | 菜鸟教程</a></p>
-<p><a href="https://www.runoob.com/python3/python3-loop.html">Python3 循环语句 | 菜鸟教程</a></p>
-<p>使用for求1-100的和：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="built_in">sum</span> = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">101</span>):</span><br><span class="line">    <span class="built_in">sum</span> += i</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">sum</span>)</span><br></pre></td></tr></table></figure>
-
-<p>使用while求1-100的和：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="built_in">sum</span> = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> i &lt; <span class="number">101</span>:</span><br><span class="line">    <span class="built_in">sum</span> += i</span><br><span class="line">    i += <span class="number">1</span></span><br></pre></td></tr></table></figure>
-
-<p>排除1-100中含有“7”的数并求和：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="built_in">sum</span> = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">101</span>):</span><br><span class="line">    <span class="keyword">if</span> i // <span class="number">10</span> == <span class="number">7</span> <span class="keyword">or</span> i % <span class="number">10</span> == <span class="number">7</span>:</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">sum</span> += i</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">sum</span>)</span><br></pre></td></tr></table></figure>
-
-<p>亦可通过while实现：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="built_in">sum</span> = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> i &lt; <span class="number">101</span>:</span><br><span class="line">    <span class="keyword">if</span> i // <span class="number">10</span> == <span class="number">7</span> <span class="keyword">or</span> i % <span class="number">10</span> == <span class="number">7</span>:</span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">sum</span> += i</span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">sum</span>)</span><br></pre></td></tr></table></figure>
-
-<p>亦可通过将i转化为字符串排除实现：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="built_in">sum</span> = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">101</span>):</span><br><span class="line">    a = <span class="built_in">str</span>(i)</span><br><span class="line">    <span class="keyword">if</span> <span class="string">&quot;7&quot;</span> <span class="keyword">not</span> <span class="keyword">in</span> a:</span><br><span class="line">        <span class="built_in">sum</span> += i</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">sum</span>)</span><br></pre></td></tr></table></figure>
-
-<p>遇到的坑：</p>
+    <title>Python学习笔记其三</title>
+    <url>/2025/10/03/Python0003/</url>
+    <content><![CDATA[<h1 id="PyTorch教程"><a href="#PyTorch教程" class="headerlink" title="PyTorch教程"></a>PyTorch教程</h1><p>在开始学习本教程之前，你应具备以下基础知识，以便更好地理解和应用 PyTorch</p>
 <ul>
-<li>for、if、elif、else、while语句要加:（冒号）</li>
-<li>在for或者while进行完if判断后需要对i进行自增，否则进入死循环</li>
-<li>continue为略过，break为中断，pass仅占位（debug用）</li>
+<li>编程基础:熟悉至少一种编程语言，尤其是 Python，这是 PyTorch 的主要开发语言。</li>
+<li>数学基础:掌握线性代数、概率论与统计学、微积分等基础数学知识，为理解机器学习算法打下坚实基础。</li>
+<li>机器学习基础:了解监督学习、无监督学习、强化学习等基本概念，以及常用的模型评估指标(如准确率、召回率、F1 分数等)</li>
+<li>深度学习基础:熟悉神经网络的基本结构和原理，如前馈神经网络、CNN、RNN、LSTM 等</li>
+<li>领域知识:若计划将 PyTorch 应用于计算机视觉或自然语言处理，了解相关领<br>域的基础知识将大有裨益。</li>
 </ul>
+<p><img data-src="/./../images/image-20251003140242783.png" alt="image-20251003140242783"></p>
+<p>有关pytorch，请见<a href="https://docs.pytorch.ac.cn/docs/stable/index.html">PyTorch 文档 — PyTorch 2.8 文档 - PyTorch 文档</a></p>
+<h2 id="PyTorch简介"><a href="#PyTorch简介" class="headerlink" title="PyTorch简介"></a>PyTorch简介</h2><p>PyTorch 是一个开源的 Python 机器学习库,基于 Torch 库，底层由 C++实现，应用于人工智能领域，如计算机视觉和自然语言处理。</p>
+<p>PyTorch 最初由 Meta Platforms 的人工智能研究团队开发，现在属于Linux 基金会的一部分。</p>
+<p>PyTorch 主要有两大特征:</p>
+<ul>
+<li>类似于 NumPy 的张量计算，能在 GPU 等硬件加速器上加速。</li>
+<li>基于带自动微分系统的深度神经网络。</li>
+</ul>
+<blockquote>
+<p>注:基于自动微分系统的深度神经网络是 PyTorch 核心能力之一，其通过autograd模块自动追踪张量运算过程，可在反向传播阶段无需人工推导，直接计算损失函数对模型参数的梯度，为网络训练提供关键的梯度信息支撑。<br>NumPy是Python语言的一个扩展程序库。支持高阶大规模的多维数组与矩阵运算，此外也针对数组运算提供大量的数学</p>
+</blockquote>
+<p>PyTorch 特性</p>
+<ul>
+<li><p>动态计算图(Dynamic Computation Graphs): PyTorch 的计算图是动态的，这意味着它们在运行时构建，并且可以随时改变。这为实验和调试提供了极大的灵活性，因为开发者可以逐行<br>执行代码，查看中间结果。</p>
+</li>
+<li><p>自动微分(Automatic Differentiation): PyTorch 的自动微分系统允许开发者轻松地计算梯度这对于训练深度学习模型至关重要。它通过反向传播算法自动计算出损失函数对模型参数的梯度。</p>
+</li>
+<li><p>张量计算(Tensor Computation): PyTorch 提供了类似于 NumPy 的张量操作，这些操作可以在 CPU 和 GPU 上执行，从而加速计算过程。张量是 PyTorch 中的基本数据结构，用于存储和操作数据。</p>
+</li>
+</ul>
+<p>动态计算图(Dynamic Computation Graph.<br>PyTorch 最显著的特点之一是其动态计算图的机制。PyTorch 在执行时构建计算图，这意味着在每次计算时，图都会根据输入数据的形状自动变化。</p>
+<p>动态计算图的优点:<br>计算图(Computation Graph)是深度学习中一个非常核心的概念，可以把它理解成:<br>拿一张用“节点”和“边”表示数学运算流程的“流程图”，它描述了数据(张量)是如何通过系列运算一步步变换、最终得到输出结果的。</p>
+<ul>
+<li><p>更加灵活，特别适用于需要条件判断或递归的场景。</p>
+</li>
+<li><p>方便调试和修改，能够直接查看中间结果·更接近 Python 编程的风格，易于上手。</p>
+</li>
+</ul>
+<p><img data-src="/./../images/image-20251003140819157.png" alt="image-20251003140819157"></p>
+<blockquote>
+<p>(+)位置可以看到张量</p>
+</blockquote>
+<p><img data-src="/./../images/image-20251003140914863.png" alt="image-20251003140914863"></p>
+<p><img data-src="/./../images/image-20251003140925476.png" alt="image-20251003140925476"></p>
+<p><img data-src="/./../images/image-20251003140959558.png" alt="image-20251003140959558"></p>
+<h2 id="PyTorch安装"><a href="#PyTorch安装" class="headerlink" title="PyTorch安装"></a>PyTorch安装</h2><p><img data-src="/./../images/image-20251003141107206.png" alt="image-20251003141107206"></p>
+<p><img data-src="/./../images/image-20251003141216897.png" alt="image-20251003141216897"></p>
+<blockquote>
+<p>建议使用Python3.9</p>
+</blockquote>
+<p><img data-src="/./../images/image-20251003141302556.png" alt="image-20251003141302556"></p>
+<p><img data-src="/./../images/image-20251003141332954.png" alt="image-20251003141332954"></p>
+<p><img data-src="/./../images/image-20251003141356803.png" alt="image-20251003141356803"></p>
+<p><a href="https://pytorch.org/">PyTorch</a></p>
+<p><img data-src="/./../images/image-20251003142043338.png" alt="image-20251003142043338"></p>
+<p><img data-src="/./../images/image-20251003142405066.png" alt="image-20251003142405066"></p>
+<p><img data-src="/./../images/image-20251003144017338.png" alt="image-20251003144017338"></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"></span><br><span class="line"><span class="comment"># 当前安装的 PyTorch 库的版本</span></span><br><span class="line"><span class="built_in">print</span>(torch.__version__)</span><br><span class="line"><span class="comment"># 检查 CUDA 是否可用，即你的系统有 NVIDIA 的 GPU</span></span><br><span class="line"><span class="built_in">print</span>(torch.cuda.is_available())</span><br></pre></td></tr></table></figure>
+
+
+
+<p><a href="https://www.runoob.com/pytorch/pytorch-install.html#:~:text=torch%20torchvision%20torchaudio-,%E9%AA%8C%E8%AF%81%E5%AE%89%E8%A3%85,-%E4%B8%BA%E4%BA%86%E7%A1%AE%E4%BF%9D%20PyTorch">PyTorch 安装 | 菜鸟教程</a></p>
+<p><img data-src="/./../images/image-20251003144552271.png" alt="image-20251003144552271"></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line">x = torch.rand(<span class="number">5</span>, <span class="number">3</span>)</span><br><span class="line"><span class="built_in">print</span>(x)</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="/./../images/image-20251003145225620.png" alt="image-20251003145225620"></p>
+<p><a href="https://www.runoob.com/pytorch/pytorch-basic.html">PyTorch 基础 | 菜鸟教程</a></p>
+<p><a href="https://www.runoob.com/pytorch/pytorch-tensor.html">PyTorch 张量（Tensor） | 菜鸟教程</a></p>
+<h1 id="神经网络"><a href="#神经网络" class="headerlink" title="神经网络"></a>神经网络</h1><h2 id="神经网络介绍"><a href="#神经网络介绍" class="headerlink" title="神经网络介绍"></a>神经网络介绍</h2><p><img data-src="/./../images/image-20251003170121375.png" alt="image-20251003170121375"></p>
+<p><img data-src="/./../images/image-20251003170146520.png" alt="image-20251003170146520"></p>
+<p><img data-src="/./../images/image-20251003170308804.png" alt="image-20251003170308804"></p>
+<p><img data-src="/./../images/image-20251003170316205.png" alt="image-20251003170316205"></p>
+<p><img data-src="/./../images/image-20251003170531497.png" alt="image-20251003170531497"></p>
+<p><img data-src="/./../images/image-20251003170715586.png" alt="image-20251003170715586"></p>
+<p><img data-src="/./../images/image-20251003170752551.png" alt="image-20251003170752551"></p>
+<p><img data-src="/./../images/image-20251003170933461.png" alt="image-20251003170933461"></p>
+<p><img data-src="/./../images/image-20251003171319618.png" alt="image-20251003171319618"></p>
+<p><img data-src="/./../images/image-20251003171547160.png" alt="image-20251003171547160"></p>
+<p><img data-src="/./../images/image-20251003172010239.png" alt="image-20251003172010239"></p>
+<p><img data-src="/./../images/image-20251003172058968.png" alt="image-20251003172058968"></p>
+<p><img data-src="/./../images/image-20251003172219754.png" alt="image-20251003172219754"></p>
+<p><img data-src="/./../images/image-20251003172329671.png" alt="image-20251003172329671"></p>
+<p><img data-src="/./../images/image-20251003172344771.png" alt="image-20251003172344771"></p>
+<p><img data-src="/./../images/image-20251003172445140.png" alt="image-20251003172445140"></p>
+<p><img data-src="/./../images/image-20251003172546077.png" alt="image-20251003172546077"></p>
+<p><img data-src="/./../images/image-20251003172656866.png" alt="image-20251003172656866"></p>
+<p><img data-src="/./../images/image-20251003172809240.png" alt="image-20251003172809240"></p>
+<p><img data-src="/./../images/image-20251003172927799.png" alt="image-20251003172927799"></p>
+<p><img data-src="/./../images/image-20251003172940247.png" alt="image-20251003172940247"></p>
+<h2 id="数据集与数据加载"><a href="#数据集与数据加载" class="headerlink" title="数据集与数据加载"></a>数据集与数据加载</h2><p><img data-src="/./../images/image-20251003173012074.png" alt="image-20251003173012074"></p>
+<p><img data-src="/./../images/image-20251003173435990.png" alt="image-20251003173435990"></p>
 ]]></content>
       <categories>
         <category>笔记</category>
@@ -975,107 +1076,6 @@ x, &amp; x &gt; 0 \\
 <p><img data-src="/./../images/image-20251004161850169.png" alt="image-20251004161850169"></p>
 <h1 id="图像分类略讲"><a href="#图像分类略讲" class="headerlink" title="图像分类略讲"></a>图像分类略讲</h1><p><img data-src="/./../images/image-20251004161924416.png" alt="image-20251004161924416"></p>
 <p><img data-src="/./../images/image-20251004162126318.png" alt="image-20251004162126318"></p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Python学习笔记其三</title>
-    <url>/2025/10/03/Python0003/</url>
-    <content><![CDATA[<h1 id="PyTorch教程"><a href="#PyTorch教程" class="headerlink" title="PyTorch教程"></a>PyTorch教程</h1><p>在开始学习本教程之前，你应具备以下基础知识，以便更好地理解和应用 PyTorch</p>
-<ul>
-<li>编程基础:熟悉至少一种编程语言，尤其是 Python，这是 PyTorch 的主要开发语言。</li>
-<li>数学基础:掌握线性代数、概率论与统计学、微积分等基础数学知识，为理解机器学习算法打下坚实基础。</li>
-<li>机器学习基础:了解监督学习、无监督学习、强化学习等基本概念，以及常用的模型评估指标(如准确率、召回率、F1 分数等)</li>
-<li>深度学习基础:熟悉神经网络的基本结构和原理，如前馈神经网络、CNN、RNN、LSTM 等</li>
-<li>领域知识:若计划将 PyTorch 应用于计算机视觉或自然语言处理，了解相关领<br>域的基础知识将大有裨益。</li>
-</ul>
-<p><img data-src="/./../images/image-20251003140242783.png" alt="image-20251003140242783"></p>
-<p>有关pytorch，请见<a href="https://docs.pytorch.ac.cn/docs/stable/index.html">PyTorch 文档 — PyTorch 2.8 文档 - PyTorch 文档</a></p>
-<h2 id="PyTorch简介"><a href="#PyTorch简介" class="headerlink" title="PyTorch简介"></a>PyTorch简介</h2><p>PyTorch 是一个开源的 Python 机器学习库,基于 Torch 库，底层由 C++实现，应用于人工智能领域，如计算机视觉和自然语言处理。</p>
-<p>PyTorch 最初由 Meta Platforms 的人工智能研究团队开发，现在属于Linux 基金会的一部分。</p>
-<p>PyTorch 主要有两大特征:</p>
-<ul>
-<li>类似于 NumPy 的张量计算，能在 GPU 等硬件加速器上加速。</li>
-<li>基于带自动微分系统的深度神经网络。</li>
-</ul>
-<blockquote>
-<p>注:基于自动微分系统的深度神经网络是 PyTorch 核心能力之一，其通过autograd模块自动追踪张量运算过程，可在反向传播阶段无需人工推导，直接计算损失函数对模型参数的梯度，为网络训练提供关键的梯度信息支撑。<br>NumPy是Python语言的一个扩展程序库。支持高阶大规模的多维数组与矩阵运算，此外也针对数组运算提供大量的数学</p>
-</blockquote>
-<p>PyTorch 特性</p>
-<ul>
-<li><p>动态计算图(Dynamic Computation Graphs): PyTorch 的计算图是动态的，这意味着它们在运行时构建，并且可以随时改变。这为实验和调试提供了极大的灵活性，因为开发者可以逐行<br>执行代码，查看中间结果。</p>
-</li>
-<li><p>自动微分(Automatic Differentiation): PyTorch 的自动微分系统允许开发者轻松地计算梯度这对于训练深度学习模型至关重要。它通过反向传播算法自动计算出损失函数对模型参数的梯度。</p>
-</li>
-<li><p>张量计算(Tensor Computation): PyTorch 提供了类似于 NumPy 的张量操作，这些操作可以在 CPU 和 GPU 上执行，从而加速计算过程。张量是 PyTorch 中的基本数据结构，用于存储和操作数据。</p>
-</li>
-</ul>
-<p>动态计算图(Dynamic Computation Graph.<br>PyTorch 最显著的特点之一是其动态计算图的机制。PyTorch 在执行时构建计算图，这意味着在每次计算时，图都会根据输入数据的形状自动变化。</p>
-<p>动态计算图的优点:<br>计算图(Computation Graph)是深度学习中一个非常核心的概念，可以把它理解成:<br>拿一张用“节点”和“边”表示数学运算流程的“流程图”，它描述了数据(张量)是如何通过系列运算一步步变换、最终得到输出结果的。</p>
-<ul>
-<li><p>更加灵活，特别适用于需要条件判断或递归的场景。</p>
-</li>
-<li><p>方便调试和修改，能够直接查看中间结果·更接近 Python 编程的风格，易于上手。</p>
-</li>
-</ul>
-<p><img data-src="/./../images/image-20251003140819157.png" alt="image-20251003140819157"></p>
-<blockquote>
-<p>(+)位置可以看到张量</p>
-</blockquote>
-<p><img data-src="/./../images/image-20251003140914863.png" alt="image-20251003140914863"></p>
-<p><img data-src="/./../images/image-20251003140925476.png" alt="image-20251003140925476"></p>
-<p><img data-src="/./../images/image-20251003140959558.png" alt="image-20251003140959558"></p>
-<h2 id="PyTorch安装"><a href="#PyTorch安装" class="headerlink" title="PyTorch安装"></a>PyTorch安装</h2><p><img data-src="/./../images/image-20251003141107206.png" alt="image-20251003141107206"></p>
-<p><img data-src="/./../images/image-20251003141216897.png" alt="image-20251003141216897"></p>
-<blockquote>
-<p>建议使用Python3.9</p>
-</blockquote>
-<p><img data-src="/./../images/image-20251003141302556.png" alt="image-20251003141302556"></p>
-<p><img data-src="/./../images/image-20251003141332954.png" alt="image-20251003141332954"></p>
-<p><img data-src="/./../images/image-20251003141356803.png" alt="image-20251003141356803"></p>
-<p><a href="https://pytorch.org/">PyTorch</a></p>
-<p><img data-src="/./../images/image-20251003142043338.png" alt="image-20251003142043338"></p>
-<p><img data-src="/./../images/image-20251003142405066.png" alt="image-20251003142405066"></p>
-<p><img data-src="/./../images/image-20251003144017338.png" alt="image-20251003144017338"></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"></span><br><span class="line"><span class="comment"># 当前安装的 PyTorch 库的版本</span></span><br><span class="line"><span class="built_in">print</span>(torch.__version__)</span><br><span class="line"><span class="comment"># 检查 CUDA 是否可用，即你的系统有 NVIDIA 的 GPU</span></span><br><span class="line"><span class="built_in">print</span>(torch.cuda.is_available())</span><br></pre></td></tr></table></figure>
-
-
-
-<p><a href="https://www.runoob.com/pytorch/pytorch-install.html#:~:text=torch%20torchvision%20torchaudio-,%E9%AA%8C%E8%AF%81%E5%AE%89%E8%A3%85,-%E4%B8%BA%E4%BA%86%E7%A1%AE%E4%BF%9D%20PyTorch">PyTorch 安装 | 菜鸟教程</a></p>
-<p><img data-src="/./../images/image-20251003144552271.png" alt="image-20251003144552271"></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line">x = torch.rand(<span class="number">5</span>, <span class="number">3</span>)</span><br><span class="line"><span class="built_in">print</span>(x)</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="/./../images/image-20251003145225620.png" alt="image-20251003145225620"></p>
-<p><a href="https://www.runoob.com/pytorch/pytorch-basic.html">PyTorch 基础 | 菜鸟教程</a></p>
-<p><a href="https://www.runoob.com/pytorch/pytorch-tensor.html">PyTorch 张量（Tensor） | 菜鸟教程</a></p>
-<h1 id="神经网络"><a href="#神经网络" class="headerlink" title="神经网络"></a>神经网络</h1><h2 id="神经网络介绍"><a href="#神经网络介绍" class="headerlink" title="神经网络介绍"></a>神经网络介绍</h2><p><img data-src="/./../images/image-20251003170121375.png" alt="image-20251003170121375"></p>
-<p><img data-src="/./../images/image-20251003170146520.png" alt="image-20251003170146520"></p>
-<p><img data-src="/./../images/image-20251003170308804.png" alt="image-20251003170308804"></p>
-<p><img data-src="/./../images/image-20251003170316205.png" alt="image-20251003170316205"></p>
-<p><img data-src="/./../images/image-20251003170531497.png" alt="image-20251003170531497"></p>
-<p><img data-src="/./../images/image-20251003170715586.png" alt="image-20251003170715586"></p>
-<p><img data-src="/./../images/image-20251003170752551.png" alt="image-20251003170752551"></p>
-<p><img data-src="/./../images/image-20251003170933461.png" alt="image-20251003170933461"></p>
-<p><img data-src="/./../images/image-20251003171319618.png" alt="image-20251003171319618"></p>
-<p><img data-src="/./../images/image-20251003171547160.png" alt="image-20251003171547160"></p>
-<p><img data-src="/./../images/image-20251003172010239.png" alt="image-20251003172010239"></p>
-<p><img data-src="/./../images/image-20251003172058968.png" alt="image-20251003172058968"></p>
-<p><img data-src="/./../images/image-20251003172219754.png" alt="image-20251003172219754"></p>
-<p><img data-src="/./../images/image-20251003172329671.png" alt="image-20251003172329671"></p>
-<p><img data-src="/./../images/image-20251003172344771.png" alt="image-20251003172344771"></p>
-<p><img data-src="/./../images/image-20251003172445140.png" alt="image-20251003172445140"></p>
-<p><img data-src="/./../images/image-20251003172546077.png" alt="image-20251003172546077"></p>
-<p><img data-src="/./../images/image-20251003172656866.png" alt="image-20251003172656866"></p>
-<p><img data-src="/./../images/image-20251003172809240.png" alt="image-20251003172809240"></p>
-<p><img data-src="/./../images/image-20251003172927799.png" alt="image-20251003172927799"></p>
-<p><img data-src="/./../images/image-20251003172940247.png" alt="image-20251003172940247"></p>
-<h2 id="数据集与数据加载"><a href="#数据集与数据加载" class="headerlink" title="数据集与数据加载"></a>数据集与数据加载</h2><p><img data-src="/./../images/image-20251003173012074.png" alt="image-20251003173012074"></p>
-<p><img data-src="/./../images/image-20251003173435990.png" alt="image-20251003173435990"></p>
 ]]></content>
       <categories>
         <category>笔记</category>
@@ -1398,41 +1398,6 @@ x, &amp; x &gt; 0 \\
       </tags>
   </entry>
   <entry>
-    <title>对过去的一些回忆与思考</title>
-    <url>/2023/08/05/memory1/</url>
-    <content><![CDATA[<p><img data-src="/./../images/1691270729-644e6321b37f3df28c6d147fd03a111-466x1024.jpg"></p>
-<p>实际上，当我看到这一幕时，我的内心是淡然的，没有了初中时的那份焦虑与慌张，但在一个人的夜晚里，还是会想起，于是写下这篇带有回忆性质的文章。</p>
-<p>与她相识在初中，也许是天意，初一与初二我们基本上是分在南北两排，用一句比较通俗的话就是，“我们没有一点交集”，唯一的一次交流还是初一结束时，她作为英语老师的助手，为优秀小组和学生写奖状，为我特别地用绿色笔写（现已褪色为棕色），这就是基础。我对她那个时候的印象，只知道她并没有去“希望之星”研学，另外就是她的成绩很好且很稳定，一直都是第一名。</p>
-<p>不过上了初二，我的成绩也在一点点进步，所以意外的被排位排到了同一排，之后我们的交流便开始了。有一个人不能不提，就是我那个时候的同桌，现在情况如图：</p>
-<p><img data-src="/./../images/1691271622-f3bfd6b39f889d1422e6c7758e904ba-466x1024.jpg"></p>
-<p>（估计两个人是商量好的）</p>
-<p>她们俩是要好的朋友，我因此也得以与她搭话。</p>
-<p>我们互相加了联系方式，有一天她在女生那边造我的谣，于是命运的齿轮开始乱转，我第一次与她聊天聊到12点（还是1点，反正很晚就对了），之后便一发不可收拾，最晚达到了凌晨3点，她第二天11点才起，我甚至一度以为她出什么事了（乐）。</p>
-<p>琐碎的事情不必闲谈，之后她删了我两三次，第一次是为了录视频，证明要是有人这么（反正语气就是不客气）跟她说话，她就删掉那人，第二次与第三次记不太清，有一次是因为AA制没完全AA，回家后我的母亲数落我，我反问她，她跟她的好朋友商量了1h把我删掉，第二天她就发烧了（乐）。反正每逢寒暑假必删我，到开学前一两周才加回来。</p>
-<p>我们在校外以一起玩剧本杀为主，第一次一起出去还是去我们的母校（小学），顺带一提，她是唯一一个我跟她出去玩我母亲不会怀疑的女生，虽然一起聊天时我的母亲还是会阴阳我罢了。</p>
-<p>我相信“日久生情”，可是她对我没有意思，所以我们的友谊就维持在朋友（或者高一点，闺蜜）上。她找过两次男友，其一是因为冲动，而且还是在我与她处于僵持阶段时谈的，因此我没有许多详细的信息（也不能说），其二现在是我同班同学，我早已劝过她趁早放弃，他这人性格古怪，而且不想谈恋爱，但她属于那种决定好了做什么事无论怎样也要完成的人，结果最后被伤得很惨，我也有幸喜提红色感叹号。很多人不理解，为啥她要把我删掉，实际上我也不是很理解，也许她认为我过于懦弱才造成了这种局面，反正错就在我没错吧？</p>
-<p>上了高中，我们在不同的学校，所以我们的往来也就变少了。要不就是互发微信询问各校的情况，要不就是放假出去初中同学聚餐。她找上了男朋友，我也不适合与她有过多的来往。</p>
-<p>之后她分手了，这个地方可以详细地写一下（毕竟是最后一次删的原因）</p>
-<p>首先我需要先纠正一点，什么是“嗑”啊? 有什么值得嗑的啊? 开玩笑的。嗑很正常，在一中他们也说我有个有好听名字的同学很好 (原话) ，这个名字他们一是从其他实验创新的同学嘴里听说的，还有就是从我之前在教室登录微信他们看到了那个名字 (老师让我登着上网课) ，我们班其实有很多认识她的，他们认识但是并非我告诉他们的 (这里作个铺垫)</p>
-<p>她分手的事想必你已经知道了，但是我还是想再说一遍，不要嫌罗嗦，因为这个情节是综合了三个渠道的消息 (目击者、徐的朋友、她给我发的消息) ，真实性确实有待考察，但是相信你可以总结出事情背后的真相</p>
-<p>故事发生在高考+中考假结束的一天后，我还拿着手机 (一般是要上交的，包括现在这个发消息的手机还是台 2012 年的老古董，我的主力机在家里放着不让带)，晚上放学回家她给我发消息说她分手了，那我肯定着急，我问她怎么回事，她说她过生日他没给她送礼物，然后分，但是今天有复合的迹象，她跟他面部交流，但是他的组员投来鄙夷的目光(原话并不是这样，但是目光反正就是在嘲讽就是了) ，然后她就很生气，她才知道他把分手的事跟他的组员说了。晚上他的朋友就让她滚，她就把他拉到一个角落给他跪下了，这时有个目击者 (女生，正是上文中提到的)看到了。第二天我问她怎么样了，她说抱了还亲了，但是不知道是什么关系，之后因为她的农历生日到了嘛，我去实验给她放下了礼物还有一封小作文 (就是关于分手的事情啦) ，之后手机没有了，她也没给我发消息。端午假期，她给我发消息，能不能有点距离感，我以为我写的信刺激到她了 (语言过于犀利 (自评) ) 她说不是，说从徐那知道，我在一中传播他们分手的消息，徐说问了个一中的，我想起，我在一中有个性格相似的女同学，我跟她讲了这个事，但是我并没有说提到人名和学校，她的前位是个旗城的女同学据我调查跟徐相对一中的其他同学关系密切，她听出了内容，冲我笑 (不怀好意) ，我跟她说谁也别说，但是据我推测她还是说了，我跟都道歉她就是不理我，于是想着看看，果真让我猜对了 (删了)。</p>
-<p>以上内容是我端午之前了解到的，端午后，我的同学 (上文中提到的目击者的好朋友) 跟我说她分手了，在学校里整天哭，这是端午之前的事这是一点，今晚上跟我同桌提起徐，他说 (以下皆为原话，我不可能改动) ，徐的朋友，觉得徐学习好，家里有钱，但是她，长得胖 (我不认可)觉得她配不上徐，劝徐分手。另，上面的目击者还说，徐是真想分了，但是她不想，或是说没看出来，她在她们班女生的内心地位很差，好像说了个因为哭还是怎样，反正人缘不是很好。</p>
-<p>故事讲到这里就没了，其实在夜深人静之时仔细想想，我没有对不起她的地方，她删了我很多次，因为不同原因，这些都是过眼云烟，同样的，她有她实验的圈子，我有我一中的圈子，本身已经交集不大。我还是觉得就这样散场还是不是很好，不是一个完美的结局，可是天下没有不散的筵席。之前合格考试碰见了她，也只是当作了陌生人刻意回避她。也许现在真如她第二次删我时所说我们不是一路人罢了。</p>
-<p>就这样，我们如图一一样可以说彻底分道扬镳了，思来想去，我觉得我没有将她加回来的必要。首先我们在各自的高中，过着各自的生活，有着各自的小圈子，过多的交流产生的误解容易不好及时解开。自我反省，我与她来往的这三年，我真的没有亏欠过她什么，我认为我做的一些事虽然不对不合适，但我相信我可以通过语言交流化解开。她比较擅长随心所欲，而我比较适合内向保守按规矩办事。我将她看作了我16年人生里的最重要的朋友，可是她也许没这么想。我认为她比较倾向于是一个利己主义者，我的出现可以说能满足她的需要，于是她接纳我。既然我影响到了她，对她产生了不好的影响，那错确实在我，她删我也是情有可原。就这样结束我确实于心不甘，但这也是命运所安排。</p>
-<p>最后在此祝她幸福，这是我想说的，也是我真心诚意所期待的。</p>
-]]></content>
-      <categories>
-        <category>情感经历</category>
-      </categories>
-      <tags>
-        <tag>回忆</tag>
-        <tag>思考</tag>
-        <tag>情感经历</tag>
-        <tag>朋友</tag>
-        <tag>过去</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>js.org free domain</title>
     <url>/2020/11/28/js-org-free-domain/</url>
     <content><![CDATA[<h2 id="了解"><a href="#了解" class="headerlink" title="了解"></a>了解</h2><p><a href="js.org">官方链接</a></p>
@@ -1470,6 +1435,41 @@ x, &amp; x &gt; 0 \\
         <tag>域名</tag>
         <tag>js.org</tag>
         <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>对过去的一些回忆与思考</title>
+    <url>/2023/08/05/memory1/</url>
+    <content><![CDATA[<p><img data-src="/./../images/1691270729-644e6321b37f3df28c6d147fd03a111-466x1024.jpg"></p>
+<p>实际上，当我看到这一幕时，我的内心是淡然的，没有了初中时的那份焦虑与慌张，但在一个人的夜晚里，还是会想起，于是写下这篇带有回忆性质的文章。</p>
+<p>与她相识在初中，也许是天意，初一与初二我们基本上是分在南北两排，用一句比较通俗的话就是，“我们没有一点交集”，唯一的一次交流还是初一结束时，她作为英语老师的助手，为优秀小组和学生写奖状，为我特别地用绿色笔写（现已褪色为棕色），这就是基础。我对她那个时候的印象，只知道她并没有去“希望之星”研学，另外就是她的成绩很好且很稳定，一直都是第一名。</p>
+<p>不过上了初二，我的成绩也在一点点进步，所以意外的被排位排到了同一排，之后我们的交流便开始了。有一个人不能不提，就是我那个时候的同桌，现在情况如图：</p>
+<p><img data-src="/./../images/1691271622-f3bfd6b39f889d1422e6c7758e904ba-466x1024.jpg"></p>
+<p>（估计两个人是商量好的）</p>
+<p>她们俩是要好的朋友，我因此也得以与她搭话。</p>
+<p>我们互相加了联系方式，有一天她在女生那边造我的谣，于是命运的齿轮开始乱转，我第一次与她聊天聊到12点（还是1点，反正很晚就对了），之后便一发不可收拾，最晚达到了凌晨3点，她第二天11点才起，我甚至一度以为她出什么事了（乐）。</p>
+<p>琐碎的事情不必闲谈，之后她删了我两三次，第一次是为了录视频，证明要是有人这么（反正语气就是不客气）跟她说话，她就删掉那人，第二次与第三次记不太清，有一次是因为AA制没完全AA，回家后我的母亲数落我，我反问她，她跟她的好朋友商量了1h把我删掉，第二天她就发烧了（乐）。反正每逢寒暑假必删我，到开学前一两周才加回来。</p>
+<p>我们在校外以一起玩剧本杀为主，第一次一起出去还是去我们的母校（小学），顺带一提，她是唯一一个我跟她出去玩我母亲不会怀疑的女生，虽然一起聊天时我的母亲还是会阴阳我罢了。</p>
+<p>我相信“日久生情”，可是她对我没有意思，所以我们的友谊就维持在朋友（或者高一点，闺蜜）上。她找过两次男友，其一是因为冲动，而且还是在我与她处于僵持阶段时谈的，因此我没有许多详细的信息（也不能说），其二现在是我同班同学，我早已劝过她趁早放弃，他这人性格古怪，而且不想谈恋爱，但她属于那种决定好了做什么事无论怎样也要完成的人，结果最后被伤得很惨，我也有幸喜提红色感叹号。很多人不理解，为啥她要把我删掉，实际上我也不是很理解，也许她认为我过于懦弱才造成了这种局面，反正错就在我没错吧？</p>
+<p>上了高中，我们在不同的学校，所以我们的往来也就变少了。要不就是互发微信询问各校的情况，要不就是放假出去初中同学聚餐。她找上了男朋友，我也不适合与她有过多的来往。</p>
+<p>之后她分手了，这个地方可以详细地写一下（毕竟是最后一次删的原因）</p>
+<p>首先我需要先纠正一点，什么是“嗑”啊? 有什么值得嗑的啊? 开玩笑的。嗑很正常，在一中他们也说我有个有好听名字的同学很好 (原话) ，这个名字他们一是从其他实验创新的同学嘴里听说的，还有就是从我之前在教室登录微信他们看到了那个名字 (老师让我登着上网课) ，我们班其实有很多认识她的，他们认识但是并非我告诉他们的 (这里作个铺垫)</p>
+<p>她分手的事想必你已经知道了，但是我还是想再说一遍，不要嫌罗嗦，因为这个情节是综合了三个渠道的消息 (目击者、徐的朋友、她给我发的消息) ，真实性确实有待考察，但是相信你可以总结出事情背后的真相</p>
+<p>故事发生在高考+中考假结束的一天后，我还拿着手机 (一般是要上交的，包括现在这个发消息的手机还是台 2012 年的老古董，我的主力机在家里放着不让带)，晚上放学回家她给我发消息说她分手了，那我肯定着急，我问她怎么回事，她说她过生日他没给她送礼物，然后分，但是今天有复合的迹象，她跟他面部交流，但是他的组员投来鄙夷的目光(原话并不是这样，但是目光反正就是在嘲讽就是了) ，然后她就很生气，她才知道他把分手的事跟他的组员说了。晚上他的朋友就让她滚，她就把他拉到一个角落给他跪下了，这时有个目击者 (女生，正是上文中提到的)看到了。第二天我问她怎么样了，她说抱了还亲了，但是不知道是什么关系，之后因为她的农历生日到了嘛，我去实验给她放下了礼物还有一封小作文 (就是关于分手的事情啦) ，之后手机没有了，她也没给我发消息。端午假期，她给我发消息，能不能有点距离感，我以为我写的信刺激到她了 (语言过于犀利 (自评) ) 她说不是，说从徐那知道，我在一中传播他们分手的消息，徐说问了个一中的，我想起，我在一中有个性格相似的女同学，我跟她讲了这个事，但是我并没有说提到人名和学校，她的前位是个旗城的女同学据我调查跟徐相对一中的其他同学关系密切，她听出了内容，冲我笑 (不怀好意) ，我跟她说谁也别说，但是据我推测她还是说了，我跟都道歉她就是不理我，于是想着看看，果真让我猜对了 (删了)。</p>
+<p>以上内容是我端午之前了解到的，端午后，我的同学 (上文中提到的目击者的好朋友) 跟我说她分手了，在学校里整天哭，这是端午之前的事这是一点，今晚上跟我同桌提起徐，他说 (以下皆为原话，我不可能改动) ，徐的朋友，觉得徐学习好，家里有钱，但是她，长得胖 (我不认可)觉得她配不上徐，劝徐分手。另，上面的目击者还说，徐是真想分了，但是她不想，或是说没看出来，她在她们班女生的内心地位很差，好像说了个因为哭还是怎样，反正人缘不是很好。</p>
+<p>故事讲到这里就没了，其实在夜深人静之时仔细想想，我没有对不起她的地方，她删了我很多次，因为不同原因，这些都是过眼云烟，同样的，她有她实验的圈子，我有我一中的圈子，本身已经交集不大。我还是觉得就这样散场还是不是很好，不是一个完美的结局，可是天下没有不散的筵席。之前合格考试碰见了她，也只是当作了陌生人刻意回避她。也许现在真如她第二次删我时所说我们不是一路人罢了。</p>
+<p>就这样，我们如图一一样可以说彻底分道扬镳了，思来想去，我觉得我没有将她加回来的必要。首先我们在各自的高中，过着各自的生活，有着各自的小圈子，过多的交流产生的误解容易不好及时解开。自我反省，我与她来往的这三年，我真的没有亏欠过她什么，我认为我做的一些事虽然不对不合适，但我相信我可以通过语言交流化解开。她比较擅长随心所欲，而我比较适合内向保守按规矩办事。我将她看作了我16年人生里的最重要的朋友，可是她也许没这么想。我认为她比较倾向于是一个利己主义者，我的出现可以说能满足她的需要，于是她接纳我。既然我影响到了她，对她产生了不好的影响，那错确实在我，她删我也是情有可原。就这样结束我确实于心不甘，但这也是命运所安排。</p>
+<p>最后在此祝她幸福，这是我想说的，也是我真心诚意所期待的。</p>
+]]></content>
+      <categories>
+        <category>情感经历</category>
+      </categories>
+      <tags>
+        <tag>回忆</tag>
+        <tag>思考</tag>
+        <tag>情感经历</tag>
+        <tag>朋友</tag>
+        <tag>过去</tag>
       </tags>
   </entry>
   <entry>
