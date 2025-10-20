@@ -137,6 +137,25 @@
   </entry>
   
   <entry>
+    <title>Python学习笔记其一</title>
+    <link href="https://mjy.js.org/2025/10/01/Python0001/"/>
+    <id>https://mjy.js.org/2025/10/01/Python0001/</id>
+    <published>2025-10-01T00:00:00.000Z</published>
+    <updated>2025-10-18T07:04:11.258Z</updated>
+    
+    
+    <summary type="html">for与while的实战</summary>
+    
+    
+    
+    <category term="笔记" scheme="https://mjy.js.org/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="Python" scheme="https://mjy.js.org/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Windows下的Python环境配置</title>
     <link href="https://mjy.js.org/2025/10/01/Configuring-the-Python-Environment-on-Windows/"/>
     <id>https://mjy.js.org/2025/10/01/Configuring-the-Python-Environment-on-Windows/</id>
@@ -158,25 +177,6 @@
     <category term="PyCharm" scheme="https://mjy.js.org/tags/PyCharm/"/>
     
     <category term="Anaconda" scheme="https://mjy.js.org/tags/Anaconda/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python学习笔记其一</title>
-    <link href="https://mjy.js.org/2025/10/01/Python0001/"/>
-    <id>https://mjy.js.org/2025/10/01/Python0001/</id>
-    <published>2025-10-01T00:00:00.000Z</published>
-    <updated>2025-10-18T07:04:11.258Z</updated>
-    
-    
-    <summary type="html">for与while的实战</summary>
-    
-    
-    
-    <category term="笔记" scheme="https://mjy.js.org/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="Python" scheme="https://mjy.js.org/tags/Python/"/>
     
   </entry>
   
