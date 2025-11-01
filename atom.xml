@@ -6,7 +6,7 @@
   <link href="https://mjy.js.org/atom.xml" rel="self"/>
   
   <link href="https://mjy.js.org/"/>
-  <updated>2025-10-31T13:53:00.175Z</updated>
+  <updated>2025-11-01T05:18:04.411Z</updated>
   <id>https://mjy.js.org/</id>
   
   <author>
@@ -17,11 +17,32 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>【论文阅读 | 2024 ICM | Problem F | 2409949 】</title>
+    <link href="https://mjy.js.org/2025/10/31/%E3%80%90%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%20%202024%20ICM%20%20Problem%20F%20%202409949%E3%80%91/"/>
+    <id>https://mjy.js.org/2025/10/31/%E3%80%90%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%20%202024%20ICM%20%20Problem%20F%20%202409949%E3%80%91/</id>
+    <published>2025-10-31T00:00:00.000Z</published>
+    <updated>2025-11-01T05:18:04.411Z</updated>
+    
+    
+    <summary type="html">2024 ICM Problem F 数学建模美赛题目 编号2409949</summary>
+    
+    
+    
+    <category term="论文阅读" scheme="https://mjy.js.org/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/"/>
+    
+    
+    <category term="数学建模" scheme="https://mjy.js.org/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/"/>
+    
+    <category term="ICM" scheme="https://mjy.js.org/tags/ICM/"/>
+    
+  </entry>
+  
+  <entry>
     <title>【论文阅读 | Inf. Fusion 2025 | MS2Fusion：多重光谱状态空间特征融合】</title>
     <link href="https://mjy.js.org/2025/10/30/%E3%80%90%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%20%20Inf.%20Fusion%202025%20%20MS2Fusion%EF%BC%9A%E5%A4%9A%E9%87%8D%E5%85%89%E8%B0%B1%E7%8A%B6%E6%80%81%E7%A9%BA%E9%97%B4%E7%89%B9%E5%BE%81%E8%9E%8D%E5%90%88%E3%80%91/"/>
     <id>https://mjy.js.org/2025/10/30/%E3%80%90%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%20%20Inf.%20Fusion%202025%20%20MS2Fusion%EF%BC%9A%E5%A4%9A%E9%87%8D%E5%85%89%E8%B0%B1%E7%8A%B6%E6%80%81%E7%A9%BA%E9%97%B4%E7%89%B9%E5%BE%81%E8%9E%8D%E5%90%88%E3%80%91/</id>
     <published>2025-10-30T00:00:00.000Z</published>
-    <updated>2025-10-31T13:53:00.175Z</updated>
+    <updated>2025-10-31T14:10:55.913Z</updated>
     
     
     <summary type="html">MS2Fusion：多重光谱状态空间特征融合</summary>
