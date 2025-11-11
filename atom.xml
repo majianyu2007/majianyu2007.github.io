@@ -6,7 +6,7 @@
   <link href="https://mjy.js.org/atom.xml" rel="self"/>
   
   <link href="https://mjy.js.org/"/>
-  <updated>2025-11-11T13:03:07.742Z</updated>
+  <updated>2025-11-11T13:05:16.737Z</updated>
   <id>https://mjy.js.org/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>2025.11.21 C语言程序设计上机实习四</title>
-    <link href="https://mjy.js.org/2025/11/21/2025.11.11%20C%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E4%B8%8A%E6%9C%BA%E5%AE%9E%E4%B9%A0%E5%9B%9B/"/>
-    <id>https://mjy.js.org/2025/11/21/2025.11.11%20C%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E4%B8%8A%E6%9C%BA%E5%AE%9E%E4%B9%A0%E5%9B%9B/</id>
-    <published>2025-11-21T00:00:00.000Z</published>
-    <updated>2025-11-11T13:03:07.742Z</updated>
+    <title>2025.11.11 C语言程序设计上机实习四</title>
+    <link href="https://mjy.js.org/2025/11/11/2025.11.11%20C%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E4%B8%8A%E6%9C%BA%E5%AE%9E%E4%B9%A0%E5%9B%9B/"/>
+    <id>https://mjy.js.org/2025/11/11/2025.11.11%20C%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E4%B8%8A%E6%9C%BA%E5%AE%9E%E4%B9%A0%E5%9B%9B/</id>
+    <published>2025-11-11T00:00:00.000Z</published>
+    <updated>2025-11-11T13:05:16.737Z</updated>
     
     
     <summary type="html">C语言程序设计上机实习四</summary>
@@ -273,9 +273,9 @@
     <category term="教程" scheme="https://mjy.js.org/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="Windows" scheme="https://mjy.js.org/tags/Windows/"/>
-    
     <category term="Python" scheme="https://mjy.js.org/tags/Python/"/>
+    
+    <category term="Windows" scheme="https://mjy.js.org/tags/Windows/"/>
     
     <category term="PyCharm" scheme="https://mjy.js.org/tags/PyCharm/"/>
     
