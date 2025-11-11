@@ -34,27 +34,6 @@
       </tags>
   </entry>
   <entry>
-    <title>2025.11.11 C语言程序设计上机实习四</title>
-    <url>/2025/11/11/2025.11.11%20C%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E4%B8%8A%E6%9C%BA%E5%AE%9E%E4%B9%A0%E5%9B%9B/</url>
-    <content><![CDATA[<h1 id="2025-11-11-C语言程序设计上机实习四"><a href="#2025-11-11-C语言程序设计上机实习四" class="headerlink" title="2025.11.11 C语言程序设计上机实习四"></a>2025.11.11 C语言程序设计上机实习四</h1><h2 id="必做题"><a href="#必做题" class="headerlink" title="必做题"></a>必做题</h2><p><img data-src="/./../images/image-20251111190813130.png" alt="image-20251111190813130"></p>
-<h2 id="选做题"><a href="#选做题" class="headerlink" title="选做题"></a>选做题</h2><p>题目源文件<a href="./../attach/%E5%AE%9E%E9%AA%8C%E5%9B%9B.pdf">实验四.pdf</a></p>
-<p>完整源代码</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">Char2Int</span><span class="params">(<span class="type">char</span> ch)</span>; <span class="comment">// 将字符 &#x27;0&#x27;-&#x27;9&#x27;,&#x27;A&#x27;-&#x27;F&#x27; 转换为对应的整数值（0~15）</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">Strlen</span><span class="params">(<span class="type">char</span> *str)</span>; <span class="comment">// 计算字符串长度（不使用 string.h）</span></span><br><span class="line"><span class="type">char</span> <span class="title function_">Int2Char</span><span class="params">(<span class="type">int</span> d)</span>; <span class="comment">// 将 0~15 转为 &#x27;0&#x27;-&#x27;9&#x27; 或 &#x27;A&#x27;-&#x27;F&#x27;</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">Power</span><span class="params">(<span class="type">int</span> base, <span class="type">int</span> <span class="built_in">exp</span>)</span>; <span class="comment">// 计算 base^exp（exp ≥ 0）</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">Base2Dec</span><span class="params">(<span class="type">int</span> base, <span class="type">char</span> *num)</span>; <span class="comment">// 将 base 进制字符串转为十进制整数</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">Dec2Base</span><span class="params">(<span class="type">int</span> num, <span class="type">int</span> base, <span class="type">char</span> *converted)</span>; <span class="comment">// 十进制转 base 进制（低位在前）</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">Reverse</span><span class="params">(<span class="type">char</span> *str)</span>; <span class="comment">// 反转字符串（原地操作）</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">Base2Base</span><span class="params">(<span class="type">int</span> base_from, <span class="type">int</span> base_to, <span class="type">char</span> *num_from, <span class="type">char</span> *num_to)</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> base_from, base_to; <span class="comment">// base_from为原始进制，base_to为目标进制</span></span><br><span class="line">    <span class="type">char</span> num_from[<span class="number">11</span>]; <span class="comment">// 输入原始字符串，最大支持10字符，留1给&#x27;\0&#x27;</span></span><br><span class="line">    <span class="type">char</span> num_to[<span class="number">11</span>]; <span class="comment">// 输出转换后字符串，最大支持10字符，留1给&#x27;\0&#x27;</span></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d %s %d&quot;</span>, &amp;base_from, num_from, &amp;base_to); <span class="comment">// scanf格式化输入&quot;原始进制 原始字符串 目标进制&quot;</span></span><br><span class="line">    Base2Base(base_from, base_to, num_from, num_to); <span class="comment">// 调用&#x27;Base2Base进制&#x27;，传入四个参量:&quot;原始进制,目标进制,原始字符串,转换后字符串&quot;</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%s\n&quot;</span>, num_to); <span class="comment">// 格式化输出转换后字符串</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 将字符 &#x27;0&#x27;-&#x27;9&#x27;,&#x27;A&#x27;-&#x27;F&#x27; 转换为对应的整数值（0~15）</span></span><br><span class="line"><span class="comment">// 若字符非法（如 &#x27;G&#x27;, &#x27;z&#x27;），返回 -1</span></span><br><span class="line"><span class="comment">// 调用返回整型数字</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">Char2Int</span><span class="params">(<span class="type">char</span> ch)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (ch &gt;= <span class="string">&#x27;0&#x27;</span> &amp;&amp; ch &lt;= <span class="string">&#x27;9&#x27;</span>)</span><br><span class="line">    <span class="keyword">return</span> ch - <span class="string">&#x27;0&#x27;</span>; <span class="comment">// 将字符转化为数字</span></span><br><span class="line">    <span class="keyword">switch</span> (ch) <span class="comment">// 大写字母的转换</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&#x27;A&#x27;</span>: <span class="keyword">return</span> <span class="number">10</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&#x27;B&#x27;</span>: <span class="keyword">return</span> <span class="number">11</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&#x27;C&#x27;</span>: <span class="keyword">return</span> <span class="number">12</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&#x27;D&#x27;</span>: <span class="keyword">return</span> <span class="number">13</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&#x27;E&#x27;</span>: <span class="keyword">return</span> <span class="number">14</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&#x27;F&#x27;</span>: <span class="keyword">return</span> <span class="number">15</span>;</span><br><span class="line">        <span class="keyword">default</span>: <span class="keyword">return</span> <span class="number">-1</span>; <span class="comment">// 字符非法处理</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 计算字符串长度（不使用 string.h）</span></span><br><span class="line"><span class="comment">// 调用返回传入字符串数组的长度，不包含&#x27;\0&#x27;</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">Strlen</span><span class="params">(<span class="type">char</span> *str)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (str[i] != <span class="string">&#x27;\0&#x27;</span>) <span class="comment">// 使用while来遍历字符，直至到字符串终止符&#x27;\0&#x27;</span></span><br><span class="line">        i++;</span><br><span class="line">    <span class="keyword">return</span> i; <span class="comment">// 返回字符串长度</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将字符 &#x27;0&#x27;-&#x27;9&#x27;,&#x27;A&#x27;-&#x27;F&#x27; 转换为对应的整数值（0~15）</span></span><br><span class="line"><span class="comment">// 若整数非法（如 &#x27;G&#x27;, &#x27;z&#x27;），返回 -1</span></span><br><span class="line"><span class="comment">// 调用返回传入整数的对应字符</span></span><br><span class="line"><span class="type">char</span> <span class="title function_">Int2Char</span><span class="params">(<span class="type">int</span> d)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">switch</span> (d) <span class="comment">//传入整数的转换</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">0</span>: <span class="keyword">return</span> <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">1</span>: <span class="keyword">return</span> <span class="string">&#x27;1&#x27;</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">2</span>: <span class="keyword">return</span> <span class="string">&#x27;2&#x27;</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">3</span>: <span class="keyword">return</span> <span class="string">&#x27;3&#x27;</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">4</span>: <span class="keyword">return</span> <span class="string">&#x27;4&#x27;</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">5</span>: <span class="keyword">return</span> <span class="string">&#x27;5&#x27;</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">6</span>: <span class="keyword">return</span> <span class="string">&#x27;6&#x27;</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">7</span>: <span class="keyword">return</span> <span class="string">&#x27;7&#x27;</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">8</span>: <span class="keyword">return</span> <span class="string">&#x27;8&#x27;</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">9</span>: <span class="keyword">return</span> <span class="string">&#x27;9&#x27;</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">10</span>: <span class="keyword">return</span> <span class="string">&#x27;A&#x27;</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">11</span>: <span class="keyword">return</span> <span class="string">&#x27;B&#x27;</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">12</span>: <span class="keyword">return</span> <span class="string">&#x27;C&#x27;</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">13</span>: <span class="keyword">return</span> <span class="string">&#x27;D&#x27;</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">14</span>: <span class="keyword">return</span> <span class="string">&#x27;E&#x27;</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">15</span>: <span class="keyword">return</span> <span class="string">&#x27;F&#x27;</span>;</span><br><span class="line">        <span class="keyword">default</span>: <span class="keyword">return</span> <span class="number">-1</span>; <span class="comment">// 整数非法处理</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 计算 base^exp(exp ≥ 0)</span></span><br><span class="line"><span class="comment">// 若exp&lt;0，返回-1</span></span><br><span class="line"><span class="comment">// 调用返回base^exp的结果</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">Power</span><span class="params">(<span class="type">int</span> base, <span class="type">int</span> <span class="built_in">exp</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> result = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> ( <span class="built_in">exp</span> &gt;= <span class="number">0</span> )</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> ( <span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="built_in">exp</span>; i++ )</span><br><span class="line">        &#123;</span><br><span class="line">            result *= base;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;幂不能为负数!&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 将 base 进制字符串转为十进制整数</span></span><br><span class="line"><span class="comment">// 调用返回字符串对应的十进制整数</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">Base2Dec</span><span class="params">(<span class="type">int</span> base, <span class="type">char</span> *num)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> len = Strlen(num);</span><br><span class="line">    <span class="type">int</span> result;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> ( base &lt; <span class="number">2</span> || base &gt; <span class="number">16</span> )</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;本程序仅支持 2 到 16 进制 之间的相互转换!请检查输入!&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> ( <span class="type">int</span> i = <span class="number">0</span>; i &lt; len; i++ )</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> vaild = Char2Int(num[i]);</span><br><span class="line">        <span class="keyword">if</span> ( vaild &lt; <span class="number">0</span>|| vaild &gt;= base )</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;输入的字符串与初始进制不对应!&quot;</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        result += vaild * Power(base, len - i - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 十进制转 base 进制（低位在前）</span></span><br><span class="line"><span class="comment">// 调用后输出低位在前的converted数组</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">Dec2Base</span><span class="params">(<span class="type">int</span> num, <span class="type">int</span> base, <span class="type">char</span> *converted)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> temp;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> ( base &lt; <span class="number">2</span> || base &gt; <span class="number">16</span> )</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;本程序仅支持 2 到 16 进制 之间的相互转换!请检查输入!&quot;</span>);</span><br><span class="line">        converted[<span class="number">0</span>] = <span class="string">&#x27;\0&#x27;</span>;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> ( num == <span class="number">0</span> )</span><br><span class="line">    &#123;</span><br><span class="line">        converted[<span class="number">0</span>] = <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">        converted[<span class="number">1</span>] = <span class="string">&#x27;\0&#x27;</span>;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> ( num &gt; <span class="number">0</span> )</span><br><span class="line">    &#123;</span><br><span class="line">        temp = num % base;</span><br><span class="line">        converted[i++] = Int2Char(temp);</span><br><span class="line">        num /= base;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    converted[i] = <span class="string">&#x27;\0&#x27;</span>;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 反转字符串（原地操作）</span></span><br><span class="line"><span class="comment">// 使用按位异或，不会开辟新的内存空间</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">Reverse</span><span class="params">(<span class="type">char</span> *str)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> len = Strlen(str);</span><br><span class="line">    <span class="type">int</span> i = <span class="number">0</span>, j = len - <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> ( i &lt; j )</span><br><span class="line">    &#123;</span><br><span class="line">        str[i] ^= str[j];</span><br><span class="line">        str[j] ^= str[i];</span><br><span class="line">        str[i] ^= str[j];</span><br><span class="line"></span><br><span class="line">        i++;</span><br><span class="line">        j--;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 主要函数</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">Base2Base</span><span class="params">(<span class="type">int</span> base_from, <span class="type">int</span> base_to, <span class="type">char</span> *num_from, <span class="type">char</span> *num_to)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> num_Dec; <span class="comment">// 存储原始字符串转换后的十进制数</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> ( base_from &lt; <span class="number">2</span> || base_from &gt; <span class="number">16</span> || base_to &lt; <span class="number">2</span> || base_to &gt; <span class="number">16</span> )</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;本程序仅支持 2 到 16 进制 之间的相互转换!请检查输入!&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    num_Dec = Base2Dec(base_from, num_from); <span class="comment">// 赋值，调用Base2Dec函数</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> ( num_Dec &lt; <span class="number">0</span> )</span><br><span class="line">    &#123;</span><br><span class="line">        num_to[<span class="number">0</span>] = <span class="string">&#x27;\0&#x27;</span>;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Dec2Base(num_Dec, base_to, num_to); <span class="comment">// 使用Dec2Base将十进制数转换为目标进制的字符串(低位在前)</span></span><br><span class="line"></span><br><span class="line">    Reverse(num_to); <span class="comment">// 反转(高位在前)</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>编译&amp;&amp;测试</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">s13665@ubuntu:~/codes/20251111$ gcc main.c -o main</span><br><span class="line">s13665@ubuntu:~/codes/20251111$ ./main</span><br><span class="line">10 123 2</span><br><span class="line">1111011</span><br><span class="line">s13665@ubuntu:~/codes/20251111$ ./main</span><br><span class="line">2 1111 10</span><br><span class="line">15</span><br><span class="line">s13665@ubuntu:~/codes/20251111$ ./main</span><br><span class="line">16 1A 2</span><br><span class="line">11010</span><br><span class="line">s13665@ubuntu:~/codes/20251111$ ./main</span><br><span class="line">8 77 16</span><br><span class="line">3F</span><br><span class="line">s13665@ubuntu:~/codes/20251111$ ./main</span><br><span class="line">10 0 2</span><br><span class="line">0</span><br><span class="line">s13665@ubuntu:~/codes/20251111$ ./main</span><br><span class="line">2 0 16</span><br><span class="line">0</span><br><span class="line">s13665@ubuntu:~/codes/20251111$ ./main</span><br><span class="line">16 F 10</span><br><span class="line">15</span><br><span class="line">s13665@ubuntu:~/codes/20251111$ ./main</span><br><span class="line">3 222 10</span><br><span class="line">26</span><br><span class="line">s13665@ubuntu:~/codes/20251111$ ./main</span><br><span class="line">10 255 16</span><br><span class="line">FF</span><br><span class="line">s13665@ubuntu:~/codes/20251111$ ./main</span><br><span class="line">16 0 10</span><br><span class="line">0</span><br><span class="line">s13665@ubuntu:~/codes/20251111$</span><br></pre></td></tr></table></figure>
-
-<p>截图</p>
-<p><img data-src="/./../images/image-20251111204605652.png" alt="image-20251111204605652"></p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>C</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>2025.11.04 C语言程序设计上机实习三</title>
     <url>/2025/11/04/2025.11.04%20C%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E4%B8%8A%E6%9C%BA%E5%AE%9E%E4%B9%A0%E4%B8%89/</url>
     <content><![CDATA[<h1 id="2025-11-04-C语言程序设计上机实习三"><a href="#2025-11-04-C语言程序设计上机实习三" class="headerlink" title="2025.11.04 C语言程序设计上机实习三"></a>2025.11.04 C语言程序设计上机实习三</h1><h2 id="函数的基本定义与调用"><a href="#函数的基本定义与调用" class="headerlink" title="函数的基本定义与调用"></a>函数的基本定义与调用</h2><h3 id="程序的完整源代码"><a href="#程序的完整源代码" class="headerlink" title="程序的完整源代码"></a>程序的完整源代码</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;math.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义圆周率常量，通过反余弦函数计算获得精确值</span></span><br><span class="line"><span class="type">const</span> <span class="type">double</span> pi = <span class="built_in">acos</span>(<span class="number">-1</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/***</span></span><br><span class="line"><span class="comment">计算圆的面积</span></span><br><span class="line"><span class="comment">r 圆的半径</span></span><br><span class="line"><span class="comment">return 计算得到的圆的面积</span></span><br><span class="line"><span class="comment">***/</span></span><br><span class="line"><span class="type">double</span> <span class="title function_">CircleArea</span><span class="params">(<span class="type">double</span> r)</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/***</span></span><br><span class="line"><span class="comment">计算矩形的面积</span></span><br><span class="line"><span class="comment">l 矩形的长度</span></span><br><span class="line"><span class="comment">w 矩形的宽度</span></span><br><span class="line"><span class="comment">return 计算得到的矩形的面积</span></span><br><span class="line"><span class="comment">***/</span></span><br><span class="line"><span class="type">double</span> <span class="title function_">RectangleArea</span><span class="params">(<span class="type">double</span> l, <span class="type">double</span> w)</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/***</span></span><br><span class="line"><span class="comment">打印圆和矩形的面积</span></span><br><span class="line"><span class="comment">circle 圆的面积</span></span><br><span class="line"><span class="comment">rect 矩形的面积</span></span><br><span class="line"><span class="comment">return 无返回值</span></span><br><span class="line"><span class="comment">***/</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">PrintAreas</span><span class="params">(<span class="type">double</span> circle, <span class="type">double</span> rect)</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 初始化变量：圆的半径为5.0，矩形的长为4.0、宽为3.0</span></span><br><span class="line">    <span class="type">double</span> radius=<span class="number">5.0</span>, length=<span class="number">4.0</span>, width=<span class="number">3.0</span>;</span><br><span class="line">    <span class="comment">// 声明变量用于存储计算得到的面积</span></span><br><span class="line">    <span class="type">double</span> circle, rect;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 调用CircleArea函数计算圆的面积</span></span><br><span class="line">    <span class="comment">// 参数传递过程：将radius作为实参传递给形参r，函数内部使用r计算面积后返回结果赋值给circle</span></span><br><span class="line">    circle = CircleArea(radius);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 调用RectangleArea函数计算矩形的面积</span></span><br><span class="line">    <span class="comment">// 参数传递过程：将length和width作为实参分别传递给形参l和w，函数内部使用l和w计算面积后返回结果赋值给rect</span></span><br><span class="line">    rect = RectangleArea(length, width);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 调用PrintAreas函数打印面积结果</span></span><br><span class="line">    <span class="comment">// 参数传递过程：将circle和rect作为实参分别传递给形参circle和rect，函数内部使用这两个参数进行格式化输出</span></span><br><span class="line">    PrintAreas(circle, rect);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/***</span></span><br><span class="line"><span class="comment">计算圆的面积</span></span><br><span class="line"><span class="comment">r 圆的半径</span></span><br><span class="line"><span class="comment">计算得到的圆的面积，计算公式：π * r * r</span></span><br><span class="line"><span class="comment">***/</span></span><br><span class="line"><span class="type">double</span> <span class="title function_">CircleArea</span><span class="params">(<span class="type">double</span> r)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">double</span> result;       <span class="comment">// 声明变量存储计算结果</span></span><br><span class="line">    result = pi * r * r; <span class="comment">// 使用圆面积公式计算</span></span><br><span class="line">    <span class="keyword">return</span> result;       <span class="comment">// 返回计算得到的面积</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/***</span></span><br><span class="line"><span class="comment">计算矩形的面积</span></span><br><span class="line"><span class="comment">l 矩形的长度</span></span><br><span class="line"><span class="comment">w 矩形的宽度</span></span><br><span class="line"><span class="comment">return 计算得到的矩形的面积，计算公式：l * w</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="type">double</span> <span class="title function_">RectangleArea</span><span class="params">(<span class="type">double</span> l, <span class="type">double</span> w)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">double</span> result;       <span class="comment">// 声明变量存储计算结果</span></span><br><span class="line">    result = l * w;      <span class="comment">// 使用矩形面积公式计算</span></span><br><span class="line">    <span class="keyword">return</span> result;       <span class="comment">// 返回计算得到的面积</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/***</span></span><br><span class="line"><span class="comment">打印圆和矩形的面积</span></span><br><span class="line"><span class="comment">circle 圆的面积，以10位小数精度输出</span></span><br><span class="line"><span class="comment">rect 矩形的面积，以2位小数精度输出</span></span><br><span class="line"><span class="comment">return 无返回值</span></span><br><span class="line"><span class="comment">***/</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">PrintAreas</span><span class="params">(<span class="type">double</span> circle, <span class="type">double</span> rect)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 格式化输出两个面积值，圆面积保留10位小数，矩形面积保留2位小数</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Circle Area: %.10f, Rectangle Area: %.2f\n&quot;</span>, circle, rect);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -143,6 +122,110 @@
       </categories>
       <tags>
         <tag>C</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2025.11.11 C语言程序设计上机实习四</title>
+    <url>/2025/11/11/2025.11.11%20C%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E4%B8%8A%E6%9C%BA%E5%AE%9E%E4%B9%A0%E5%9B%9B/</url>
+    <content><![CDATA[<h1 id="2025-11-11-C语言程序设计上机实习四"><a href="#2025-11-11-C语言程序设计上机实习四" class="headerlink" title="2025.11.11 C语言程序设计上机实习四"></a>2025.11.11 C语言程序设计上机实习四</h1><h2 id="必做题"><a href="#必做题" class="headerlink" title="必做题"></a>必做题</h2><p><img data-src="/./../images/image-20251111190813130.png" alt="image-20251111190813130"></p>
+<h2 id="选做题"><a href="#选做题" class="headerlink" title="选做题"></a>选做题</h2><p>题目源文件<a href="https://mjy.js.org/attach/%E5%AE%9E%E9%AA%8C%E5%9B%9B.pdf">实验四.pdf</a></p>
+<p>完整源代码</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">Char2Int</span><span class="params">(<span class="type">char</span> ch)</span>; <span class="comment">// 将字符 &#x27;0&#x27;-&#x27;9&#x27;,&#x27;A&#x27;-&#x27;F&#x27; 转换为对应的整数值（0~15）</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">Strlen</span><span class="params">(<span class="type">char</span> *str)</span>; <span class="comment">// 计算字符串长度（不使用 string.h）</span></span><br><span class="line"><span class="type">char</span> <span class="title function_">Int2Char</span><span class="params">(<span class="type">int</span> d)</span>; <span class="comment">// 将 0~15 转为 &#x27;0&#x27;-&#x27;9&#x27; 或 &#x27;A&#x27;-&#x27;F&#x27;</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">Power</span><span class="params">(<span class="type">int</span> base, <span class="type">int</span> <span class="built_in">exp</span>)</span>; <span class="comment">// 计算 base^exp（exp ≥ 0）</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">Base2Dec</span><span class="params">(<span class="type">int</span> base, <span class="type">char</span> *num)</span>; <span class="comment">// 将 base 进制字符串转为十进制整数</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">Dec2Base</span><span class="params">(<span class="type">int</span> num, <span class="type">int</span> base, <span class="type">char</span> *converted)</span>; <span class="comment">// 十进制转 base 进制（低位在前）</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">Reverse</span><span class="params">(<span class="type">char</span> *str)</span>; <span class="comment">// 反转字符串（原地操作）</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">Base2Base</span><span class="params">(<span class="type">int</span> base_from, <span class="type">int</span> base_to, <span class="type">char</span> *num_from, <span class="type">char</span> *num_to)</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> base_from, base_to; <span class="comment">// base_from为原始进制，base_to为目标进制</span></span><br><span class="line">    <span class="type">char</span> num_from[<span class="number">11</span>]; <span class="comment">// 输入原始字符串，最大支持10字符，留1给&#x27;\0&#x27;</span></span><br><span class="line">    <span class="type">char</span> num_to[<span class="number">11</span>]; <span class="comment">// 输出转换后字符串，最大支持10字符，留1给&#x27;\0&#x27;</span></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d %s %d&quot;</span>, &amp;base_from, num_from, &amp;base_to); <span class="comment">// scanf格式化输入&quot;原始进制 原始字符串 目标进制&quot;</span></span><br><span class="line">    Base2Base(base_from, base_to, num_from, num_to); <span class="comment">// 调用&#x27;Base2Base进制&#x27;，传入四个参量:&quot;原始进制,目标进制,原始字符串,转换后字符串&quot;</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%s\n&quot;</span>, num_to); <span class="comment">// 格式化输出转换后字符串</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 将字符 &#x27;0&#x27;-&#x27;9&#x27;,&#x27;A&#x27;-&#x27;F&#x27; 转换为对应的整数值（0~15）</span></span><br><span class="line"><span class="comment">// 若字符非法（如 &#x27;G&#x27;, &#x27;z&#x27;），返回 -1</span></span><br><span class="line"><span class="comment">// 调用返回整型数字</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">Char2Int</span><span class="params">(<span class="type">char</span> ch)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (ch &gt;= <span class="string">&#x27;0&#x27;</span> &amp;&amp; ch &lt;= <span class="string">&#x27;9&#x27;</span>)</span><br><span class="line">    <span class="keyword">return</span> ch - <span class="string">&#x27;0&#x27;</span>; <span class="comment">// 将字符转化为数字</span></span><br><span class="line">    <span class="keyword">switch</span> (ch) <span class="comment">// 大写字母的转换</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&#x27;A&#x27;</span>: <span class="keyword">return</span> <span class="number">10</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&#x27;B&#x27;</span>: <span class="keyword">return</span> <span class="number">11</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&#x27;C&#x27;</span>: <span class="keyword">return</span> <span class="number">12</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&#x27;D&#x27;</span>: <span class="keyword">return</span> <span class="number">13</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&#x27;E&#x27;</span>: <span class="keyword">return</span> <span class="number">14</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&#x27;F&#x27;</span>: <span class="keyword">return</span> <span class="number">15</span>;</span><br><span class="line">        <span class="keyword">default</span>: <span class="keyword">return</span> <span class="number">-1</span>; <span class="comment">// 字符非法处理</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 计算字符串长度（不使用 string.h）</span></span><br><span class="line"><span class="comment">// 调用返回传入字符串数组的长度，不包含&#x27;\0&#x27;</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">Strlen</span><span class="params">(<span class="type">char</span> *str)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (str[i] != <span class="string">&#x27;\0&#x27;</span>) <span class="comment">// 使用while来遍历字符，直至到字符串终止符&#x27;\0&#x27;</span></span><br><span class="line">        i++;</span><br><span class="line">    <span class="keyword">return</span> i; <span class="comment">// 返回字符串长度</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将字符 &#x27;0&#x27;-&#x27;9&#x27;,&#x27;A&#x27;-&#x27;F&#x27; 转换为对应的整数值（0~15）</span></span><br><span class="line"><span class="comment">// 若整数非法（如 &#x27;G&#x27;, &#x27;z&#x27;），返回 -1</span></span><br><span class="line"><span class="comment">// 调用返回传入整数的对应字符</span></span><br><span class="line"><span class="type">char</span> <span class="title function_">Int2Char</span><span class="params">(<span class="type">int</span> d)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">switch</span> (d) <span class="comment">//传入整数的转换</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">0</span>: <span class="keyword">return</span> <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">1</span>: <span class="keyword">return</span> <span class="string">&#x27;1&#x27;</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">2</span>: <span class="keyword">return</span> <span class="string">&#x27;2&#x27;</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">3</span>: <span class="keyword">return</span> <span class="string">&#x27;3&#x27;</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">4</span>: <span class="keyword">return</span> <span class="string">&#x27;4&#x27;</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">5</span>: <span class="keyword">return</span> <span class="string">&#x27;5&#x27;</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">6</span>: <span class="keyword">return</span> <span class="string">&#x27;6&#x27;</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">7</span>: <span class="keyword">return</span> <span class="string">&#x27;7&#x27;</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">8</span>: <span class="keyword">return</span> <span class="string">&#x27;8&#x27;</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">9</span>: <span class="keyword">return</span> <span class="string">&#x27;9&#x27;</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">10</span>: <span class="keyword">return</span> <span class="string">&#x27;A&#x27;</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">11</span>: <span class="keyword">return</span> <span class="string">&#x27;B&#x27;</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">12</span>: <span class="keyword">return</span> <span class="string">&#x27;C&#x27;</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">13</span>: <span class="keyword">return</span> <span class="string">&#x27;D&#x27;</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">14</span>: <span class="keyword">return</span> <span class="string">&#x27;E&#x27;</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">15</span>: <span class="keyword">return</span> <span class="string">&#x27;F&#x27;</span>;</span><br><span class="line">        <span class="keyword">default</span>: <span class="keyword">return</span> <span class="number">-1</span>; <span class="comment">// 整数非法处理</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 计算 base^exp(exp ≥ 0)</span></span><br><span class="line"><span class="comment">// 若exp&lt;0，返回-1</span></span><br><span class="line"><span class="comment">// 调用返回base^exp的结果</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">Power</span><span class="params">(<span class="type">int</span> base, <span class="type">int</span> <span class="built_in">exp</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> result = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> ( <span class="built_in">exp</span> &gt;= <span class="number">0</span> )</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> ( <span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="built_in">exp</span>; i++ )</span><br><span class="line">        &#123;</span><br><span class="line">            result *= base;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;幂不能为负数!&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 将 base 进制字符串转为十进制整数</span></span><br><span class="line"><span class="comment">// 调用返回字符串对应的十进制整数</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">Base2Dec</span><span class="params">(<span class="type">int</span> base, <span class="type">char</span> *num)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> len = Strlen(num);</span><br><span class="line">    <span class="type">int</span> result;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> ( base &lt; <span class="number">2</span> || base &gt; <span class="number">16</span> )</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;本程序仅支持 2 到 16 进制 之间的相互转换!请检查输入!&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> ( <span class="type">int</span> i = <span class="number">0</span>; i &lt; len; i++ )</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> vaild = Char2Int(num[i]);</span><br><span class="line">        <span class="keyword">if</span> ( vaild &lt; <span class="number">0</span>|| vaild &gt;= base )</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;输入的字符串与初始进制不对应!&quot;</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        result += vaild * Power(base, len - i - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 十进制转 base 进制（低位在前）</span></span><br><span class="line"><span class="comment">// 调用后输出低位在前的converted数组</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">Dec2Base</span><span class="params">(<span class="type">int</span> num, <span class="type">int</span> base, <span class="type">char</span> *converted)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> temp;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> ( base &lt; <span class="number">2</span> || base &gt; <span class="number">16</span> )</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;本程序仅支持 2 到 16 进制 之间的相互转换!请检查输入!&quot;</span>);</span><br><span class="line">        converted[<span class="number">0</span>] = <span class="string">&#x27;\0&#x27;</span>;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> ( num == <span class="number">0</span> )</span><br><span class="line">    &#123;</span><br><span class="line">        converted[<span class="number">0</span>] = <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">        converted[<span class="number">1</span>] = <span class="string">&#x27;\0&#x27;</span>;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> ( num &gt; <span class="number">0</span> )</span><br><span class="line">    &#123;</span><br><span class="line">        temp = num % base;</span><br><span class="line">        converted[i++] = Int2Char(temp);</span><br><span class="line">        num /= base;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    converted[i] = <span class="string">&#x27;\0&#x27;</span>;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 反转字符串（原地操作）</span></span><br><span class="line"><span class="comment">// 使用按位异或，不会开辟新的内存空间</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">Reverse</span><span class="params">(<span class="type">char</span> *str)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> len = Strlen(str);</span><br><span class="line">    <span class="type">int</span> i = <span class="number">0</span>, j = len - <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> ( i &lt; j )</span><br><span class="line">    &#123;</span><br><span class="line">        str[i] ^= str[j];</span><br><span class="line">        str[j] ^= str[i];</span><br><span class="line">        str[i] ^= str[j];</span><br><span class="line"></span><br><span class="line">        i++;</span><br><span class="line">        j--;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 主要函数</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">Base2Base</span><span class="params">(<span class="type">int</span> base_from, <span class="type">int</span> base_to, <span class="type">char</span> *num_from, <span class="type">char</span> *num_to)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> num_Dec; <span class="comment">// 存储原始字符串转换后的十进制数</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> ( base_from &lt; <span class="number">2</span> || base_from &gt; <span class="number">16</span> || base_to &lt; <span class="number">2</span> || base_to &gt; <span class="number">16</span> )</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;本程序仅支持 2 到 16 进制 之间的相互转换!请检查输入!&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    num_Dec = Base2Dec(base_from, num_from); <span class="comment">// 赋值，调用Base2Dec函数</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> ( num_Dec &lt; <span class="number">0</span> )</span><br><span class="line">    &#123;</span><br><span class="line">        num_to[<span class="number">0</span>] = <span class="string">&#x27;\0&#x27;</span>;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Dec2Base(num_Dec, base_to, num_to); <span class="comment">// 使用Dec2Base将十进制数转换为目标进制的字符串(低位在前)</span></span><br><span class="line"></span><br><span class="line">    Reverse(num_to); <span class="comment">// 反转(高位在前)</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>编译&amp;&amp;测试</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">s13665@ubuntu:~/codes/20251111$ gcc main.c -o main</span><br><span class="line">s13665@ubuntu:~/codes/20251111$ ./main</span><br><span class="line">10 123 2</span><br><span class="line">1111011</span><br><span class="line">s13665@ubuntu:~/codes/20251111$ ./main</span><br><span class="line">2 1111 10</span><br><span class="line">15</span><br><span class="line">s13665@ubuntu:~/codes/20251111$ ./main</span><br><span class="line">16 1A 2</span><br><span class="line">11010</span><br><span class="line">s13665@ubuntu:~/codes/20251111$ ./main</span><br><span class="line">8 77 16</span><br><span class="line">3F</span><br><span class="line">s13665@ubuntu:~/codes/20251111$ ./main</span><br><span class="line">10 0 2</span><br><span class="line">0</span><br><span class="line">s13665@ubuntu:~/codes/20251111$ ./main</span><br><span class="line">2 0 16</span><br><span class="line">0</span><br><span class="line">s13665@ubuntu:~/codes/20251111$ ./main</span><br><span class="line">16 F 10</span><br><span class="line">15</span><br><span class="line">s13665@ubuntu:~/codes/20251111$ ./main</span><br><span class="line">3 222 10</span><br><span class="line">26</span><br><span class="line">s13665@ubuntu:~/codes/20251111$ ./main</span><br><span class="line">10 255 16</span><br><span class="line">FF</span><br><span class="line">s13665@ubuntu:~/codes/20251111$ ./main</span><br><span class="line">16 0 10</span><br><span class="line">0</span><br><span class="line">s13665@ubuntu:~/codes/20251111$</span><br></pre></td></tr></table></figure>
+
+<p>截图</p>
+<p><img data-src="/./../images/image-20251111204605652.png" alt="image-20251111204605652"></p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>C</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>将Windows中文用户主文件夹修改为英文</title>
+    <url>/2025/10/03/Change-the-Windows-Chinese-user-home-folder-to-English/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在Windows下，部分软件对于中文目录的适配性并不完整，导致程序无法正常运行或是出现一堆奇奇怪怪的报错。大部分软件会要求你选择一个非中文目录，但是由于部分软件的用户配置数据存储在了用户文件夹下，而用户文件夹的名字一般由Windows自动配置，若我们在OOBE阶段设置了中文名，则用户主文件夹也将是中文名，不利于后续操作。因此本教程将向您介绍在不重装系统、不创建新用户的情况下修改用户主文件夹名。</p>
+<h2 id="判断"><a href="#判断" class="headerlink" title="判断"></a>判断</h2><p>如何判断自己的用户主文件夹名是否为中文？<br>若您在Windows的OOBE阶段（激活）使用了Microsoft账户登录，那么您的用户主文件夹应该为邮箱前缀。您无需继续浏览本教程。<br>若您在Windows的OOBE阶段（激活）使用了<strong>oobe\bypassnro</strong>跳过联网而创建本地用户，并为账户起了中文名，那么您将会拥有一个中文用户主文件夹，正如下图所示：</p>
+<p><img data-src="/./../images/image-20251003084919376.png" alt="image-20251003084919376"></p>
+<p>如果您已经忘记了自己如何激活的Windows，那么您可以转到<strong>C:\Users</strong>文件夹下进行判断。在文件资源管理器中，<strong>User</strong>文件夹一般显示为中文<strong>用户</strong>。如下图所示：</p>
+<p><img data-src="/./../images/image-20251003085747561.png" alt="image-20251003085747561"></p>
+<p>图示“姓名”不合规的中文主文件夹，现在我们将对其进行修改，使之变为英文文件夹</p>
+<p><strong>注意！以下操作存在极大风险！可能导致部分软件无法使用需要重装！</strong></p>
+<h2 id="创建还原点"><a href="#创建还原点" class="headerlink" title="创建还原点"></a>创建还原点</h2><p>对系统做这么大手术，当然需要创建一个还原点了，方便恢复修改前状态。在Windows开始菜单搜索框中搜索<strong>还原点</strong></p>
+<p><img data-src="/./../images/image-20251003090032036.png" alt="image-20251003090032036"></p>
+<p>即可找到创建还原点选项。</p>
+<p>首先先点击<strong>配置</strong>启用系统保护（若已启用则忽略）</p>
+<p><img data-src="/./../images/image-20251003090225081.png" alt="image-20251003090225081"></p>
+<p>然后点击<strong>创建</strong>，名字随意，创建一个还原点。</p>
+<p><img data-src="/./../images/image-20251003090322343.png" alt="image-20251003090322343"></p>
+<p>耐心等待还原点创建完成，然后点击<strong>确定</strong>关闭所有窗口。</p>
+<h2 id="启用Administrator账户"><a href="#启用Administrator账户" class="headerlink" title="启用Administrator账户"></a>启用Administrator账户</h2><p>右键开始菜单的微软徽标，点击<strong>终端管理员</strong></p>
+<p><img data-src="/./../images/image-20251003090715686.png" alt="image-20251003090715686"></p>
+<p>在出现的终端中输入命令并回车</p>
+ <figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="built_in">net</span> user administrator /active:yes</span><br></pre></td></tr></table></figure>
+
+<p>执行后，屏幕会提示“命令成功完成”，说明Administrator账号已启用。如下图所示：</p>
+<p><img data-src="/./../images/image-20251003090912298.png" alt="image-20251003090912298"></p>
+<h2 id="切换Administrator账户并注销原账户"><a href="#切换Administrator账户并注销原账户" class="headerlink" title="切换Administrator账户并注销原账户"></a>切换Administrator账户并注销原账户</h2><p><img data-src="/./../images/202510030001.gif" alt="202510030001"></p>
+<p>将所有选项取消勾选</p>
+<p><img data-src="/./../images/image-20251003091504362.png" alt="image-20251003091504362"></p>
+<p>进入桌面后，切回原用户，注销后再登录Administrator账户。</p>
+<p><img data-src="/./../images/202510030002.gif" alt="202510030002"></p>
+<h2 id="重命名用户主文件夹"><a href="#重命名用户主文件夹" class="headerlink" title="重命名用户主文件夹"></a>重命名用户主文件夹</h2><p>现在转到<strong>C:\Users</strong>，修改原来的中文用户主文件夹文件名为英文，可能会提示“操作无法完成，因为文件或文件夹已在其他程序中打开”。</p>
+<h2 id="处理文件夹占用"><a href="#处理文件夹占用" class="headerlink" title="处理文件夹占用"></a>处理文件夹占用</h2><p>Win + R打开cmd，执行以下命令（替换“用户名”为你实际的用户名）</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> /f &quot;skip=<span class="number">1</span> tokens=<span class="number">3</span>&quot; %s <span class="keyword">in</span> (&#x27;query user 用户名&#x27;) <span class="keyword">do</span> <span class="built_in">taskkill</span> /f /fi &quot;sessionname eq %s&quot;</span><br></pre></td></tr></table></figure>
+
+<p>杀死进程后再次修改。</p>
+<h2 id="修改注册表"><a href="#修改注册表" class="headerlink" title="修改注册表"></a>修改注册表</h2><p>按Win + R输入regedit并回车打开注册表编辑器</p>
+<p>在上方输入框中输入</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\ProfileList</span><br></pre></td></tr></table></figure>
+
+<p>在此路径下还有很多以S开头的目录，挨个排查，直到找到右边的<strong>ProfileImagePath</strong>为中文的目录，如下图</p>
+<p><img data-src="/./../images/image-20251003093307131.png" alt="image-20251003093307131"></p>
+<p>双击<strong>ProfileImagePath</strong>条目修改，将中文替换为您刚修改的英文文件夹名称。</p>
+<p>在上方输入框中输入</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\UserManager\Users</span><br></pre></td></tr></table></figure>
+
+<p>找到包含中文用户名的数字项(<strong>UserPicture</strong>)，双击对应的键值，将中文用户名改为英文全拼，点击“确定”</p>
+<h2 id="关闭Administrator账户"><a href="#关闭Administrator账户" class="headerlink" title="关闭Administrator账户"></a>关闭Administrator账户</h2><p>按Win + R打开终端，输入命令并回车，关闭Administrator账户</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="built_in">net</span> user administrator /active:no</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="/./../images/image-20251003093749028.png" alt="image-20251003093749028"></p>
+<p>提示“命令成功完成”后，注销Administrator账号，回到登录页面。</p>
+<h2 id="更新环境变量"><a href="#更新环境变量" class="headerlink" title="更新环境变量"></a><strong>更新环境变量</strong></h2><p>登录回原用户后，搜索<strong>环境变量</strong>，编辑<strong>用户</strong>环境变量</p>
+<p><img data-src="/./../images/image-20251003093857619.png" alt="image-20251003093857619"></p>
+<p>接下来要对<strong>用户变量</strong>进行操作，首先把OneDrive的变量进行修改，将原来的中文文件夹名改为你原来的英文文件夹名。</p>
+<p>然后单击<strong>Path</strong>条目，点击<strong>编辑</strong>，检查所有包含中文用户名的路径，将条目中原来的中文文件夹名改为你原来的英文文件夹名。</p>
+<p>连续点击三个<strong>确定</strong>，完成环境变量编辑。</p>
+<h2 id="更新用户账户信息（可选）"><a href="#更新用户账户信息（可选）" class="headerlink" title="更新用户账户信息（可选）"></a>更新用户账户信息（可选）</h2><p>如果你想一并把显示的用户信息进行修改，请完成以下操作。</p>
+<p>按Win + R，输入</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">control userpasswords2</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="/./../images/image-20251003094407027.png" alt="image-20251003094407027"></p>
+<p>对其进行修改，点两次<strong>确定</strong>退出即可。</p>
+<h2 id="创建符号链接"><a href="#创建符号链接" class="headerlink" title="创建符号链接"></a>创建符号链接</h2><p>部分软件可能认死理，这时我们要照顾这些软件的情绪，想办法让它们读到文件。</p>
+<p>右键开始菜单的微软徽标，点击<strong>终端管理员</strong></p>
+<p>对下方命令按照实际情况进行修改后，在出现的终端中输入命令并回车</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cmd</span></span><br><span class="line"></span><br><span class="line">mklink /d &quot;C:\Users\用户&quot; &quot;C:\Users\User&quot;</span><br></pre></td></tr></table></figure>
+
+<p>这会将旧用户名路径链接到新路径，解决软件路径报错问题。</p>
+<h2 id="重启"><a href="#重启" class="headerlink" title="重启"></a>重启</h2><p>确保全部操作完成后重启计算机，如果正常进入桌面，那么基本没有什么问题了</p>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><ul>
+<li>备份重要数据：修改用户名涉及注册表操作，建议提前备份重要文件，以防万一。单纯仅仅创建还原点是不够的，还原点只可备份当前系统配置文件</li>
+<li>谨慎操作注册表：确保按照步骤修改，避免误删关键项。</li>
+<li>软件路径问题：部分软件可能仍需重新安装，确保路径正确。</li>
+<li>桌面文件丢失：如果重启后桌面只剩“此电脑”和“回收站”，用符号链接方法即可恢复。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>Windows</tag>
       </tags>
   </entry>
   <entry>
@@ -400,93 +483,10 @@
         <category>教程</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>Windows</tag>
+        <tag>Python</tag>
         <tag>PyCharm</tag>
         <tag>Anaconda</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>将Windows中文用户主文件夹修改为英文</title>
-    <url>/2025/10/03/Change-the-Windows-Chinese-user-home-folder-to-English/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在Windows下，部分软件对于中文目录的适配性并不完整，导致程序无法正常运行或是出现一堆奇奇怪怪的报错。大部分软件会要求你选择一个非中文目录，但是由于部分软件的用户配置数据存储在了用户文件夹下，而用户文件夹的名字一般由Windows自动配置，若我们在OOBE阶段设置了中文名，则用户主文件夹也将是中文名，不利于后续操作。因此本教程将向您介绍在不重装系统、不创建新用户的情况下修改用户主文件夹名。</p>
-<h2 id="判断"><a href="#判断" class="headerlink" title="判断"></a>判断</h2><p>如何判断自己的用户主文件夹名是否为中文？<br>若您在Windows的OOBE阶段（激活）使用了Microsoft账户登录，那么您的用户主文件夹应该为邮箱前缀。您无需继续浏览本教程。<br>若您在Windows的OOBE阶段（激活）使用了<strong>oobe\bypassnro</strong>跳过联网而创建本地用户，并为账户起了中文名，那么您将会拥有一个中文用户主文件夹，正如下图所示：</p>
-<p><img data-src="/./../images/image-20251003084919376.png" alt="image-20251003084919376"></p>
-<p>如果您已经忘记了自己如何激活的Windows，那么您可以转到<strong>C:\Users</strong>文件夹下进行判断。在文件资源管理器中，<strong>User</strong>文件夹一般显示为中文<strong>用户</strong>。如下图所示：</p>
-<p><img data-src="/./../images/image-20251003085747561.png" alt="image-20251003085747561"></p>
-<p>图示“姓名”不合规的中文主文件夹，现在我们将对其进行修改，使之变为英文文件夹</p>
-<p><strong>注意！以下操作存在极大风险！可能导致部分软件无法使用需要重装！</strong></p>
-<h2 id="创建还原点"><a href="#创建还原点" class="headerlink" title="创建还原点"></a>创建还原点</h2><p>对系统做这么大手术，当然需要创建一个还原点了，方便恢复修改前状态。在Windows开始菜单搜索框中搜索<strong>还原点</strong></p>
-<p><img data-src="/./../images/image-20251003090032036.png" alt="image-20251003090032036"></p>
-<p>即可找到创建还原点选项。</p>
-<p>首先先点击<strong>配置</strong>启用系统保护（若已启用则忽略）</p>
-<p><img data-src="/./../images/image-20251003090225081.png" alt="image-20251003090225081"></p>
-<p>然后点击<strong>创建</strong>，名字随意，创建一个还原点。</p>
-<p><img data-src="/./../images/image-20251003090322343.png" alt="image-20251003090322343"></p>
-<p>耐心等待还原点创建完成，然后点击<strong>确定</strong>关闭所有窗口。</p>
-<h2 id="启用Administrator账户"><a href="#启用Administrator账户" class="headerlink" title="启用Administrator账户"></a>启用Administrator账户</h2><p>右键开始菜单的微软徽标，点击<strong>终端管理员</strong></p>
-<p><img data-src="/./../images/image-20251003090715686.png" alt="image-20251003090715686"></p>
-<p>在出现的终端中输入命令并回车</p>
- <figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="built_in">net</span> user administrator /active:yes</span><br></pre></td></tr></table></figure>
-
-<p>执行后，屏幕会提示“命令成功完成”，说明Administrator账号已启用。如下图所示：</p>
-<p><img data-src="/./../images/image-20251003090912298.png" alt="image-20251003090912298"></p>
-<h2 id="切换Administrator账户并注销原账户"><a href="#切换Administrator账户并注销原账户" class="headerlink" title="切换Administrator账户并注销原账户"></a>切换Administrator账户并注销原账户</h2><p><img data-src="/./../images/202510030001.gif" alt="202510030001"></p>
-<p>将所有选项取消勾选</p>
-<p><img data-src="/./../images/image-20251003091504362.png" alt="image-20251003091504362"></p>
-<p>进入桌面后，切回原用户，注销后再登录Administrator账户。</p>
-<p><img data-src="/./../images/202510030002.gif" alt="202510030002"></p>
-<h2 id="重命名用户主文件夹"><a href="#重命名用户主文件夹" class="headerlink" title="重命名用户主文件夹"></a>重命名用户主文件夹</h2><p>现在转到<strong>C:\Users</strong>，修改原来的中文用户主文件夹文件名为英文，可能会提示“操作无法完成，因为文件或文件夹已在其他程序中打开”。</p>
-<h2 id="处理文件夹占用"><a href="#处理文件夹占用" class="headerlink" title="处理文件夹占用"></a>处理文件夹占用</h2><p>Win + R打开cmd，执行以下命令（替换“用户名”为你实际的用户名）</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> /f &quot;skip=<span class="number">1</span> tokens=<span class="number">3</span>&quot; %s <span class="keyword">in</span> (&#x27;query user 用户名&#x27;) <span class="keyword">do</span> <span class="built_in">taskkill</span> /f /fi &quot;sessionname eq %s&quot;</span><br></pre></td></tr></table></figure>
-
-<p>杀死进程后再次修改。</p>
-<h2 id="修改注册表"><a href="#修改注册表" class="headerlink" title="修改注册表"></a>修改注册表</h2><p>按Win + R输入regedit并回车打开注册表编辑器</p>
-<p>在上方输入框中输入</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\ProfileList</span><br></pre></td></tr></table></figure>
-
-<p>在此路径下还有很多以S开头的目录，挨个排查，直到找到右边的<strong>ProfileImagePath</strong>为中文的目录，如下图</p>
-<p><img data-src="/./../images/image-20251003093307131.png" alt="image-20251003093307131"></p>
-<p>双击<strong>ProfileImagePath</strong>条目修改，将中文替换为您刚修改的英文文件夹名称。</p>
-<p>在上方输入框中输入</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\UserManager\Users</span><br></pre></td></tr></table></figure>
-
-<p>找到包含中文用户名的数字项(<strong>UserPicture</strong>)，双击对应的键值，将中文用户名改为英文全拼，点击“确定”</p>
-<h2 id="关闭Administrator账户"><a href="#关闭Administrator账户" class="headerlink" title="关闭Administrator账户"></a>关闭Administrator账户</h2><p>按Win + R打开终端，输入命令并回车，关闭Administrator账户</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="built_in">net</span> user administrator /active:no</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="/./../images/image-20251003093749028.png" alt="image-20251003093749028"></p>
-<p>提示“命令成功完成”后，注销Administrator账号，回到登录页面。</p>
-<h2 id="更新环境变量"><a href="#更新环境变量" class="headerlink" title="更新环境变量"></a><strong>更新环境变量</strong></h2><p>登录回原用户后，搜索<strong>环境变量</strong>，编辑<strong>用户</strong>环境变量</p>
-<p><img data-src="/./../images/image-20251003093857619.png" alt="image-20251003093857619"></p>
-<p>接下来要对<strong>用户变量</strong>进行操作，首先把OneDrive的变量进行修改，将原来的中文文件夹名改为你原来的英文文件夹名。</p>
-<p>然后单击<strong>Path</strong>条目，点击<strong>编辑</strong>，检查所有包含中文用户名的路径，将条目中原来的中文文件夹名改为你原来的英文文件夹名。</p>
-<p>连续点击三个<strong>确定</strong>，完成环境变量编辑。</p>
-<h2 id="更新用户账户信息（可选）"><a href="#更新用户账户信息（可选）" class="headerlink" title="更新用户账户信息（可选）"></a>更新用户账户信息（可选）</h2><p>如果你想一并把显示的用户信息进行修改，请完成以下操作。</p>
-<p>按Win + R，输入</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">control userpasswords2</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="/./../images/image-20251003094407027.png" alt="image-20251003094407027"></p>
-<p>对其进行修改，点两次<strong>确定</strong>退出即可。</p>
-<h2 id="创建符号链接"><a href="#创建符号链接" class="headerlink" title="创建符号链接"></a>创建符号链接</h2><p>部分软件可能认死理，这时我们要照顾这些软件的情绪，想办法让它们读到文件。</p>
-<p>右键开始菜单的微软徽标，点击<strong>终端管理员</strong></p>
-<p>对下方命令按照实际情况进行修改后，在出现的终端中输入命令并回车</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cmd</span></span><br><span class="line"></span><br><span class="line">mklink /d &quot;C:\Users\用户&quot; &quot;C:\Users\User&quot;</span><br></pre></td></tr></table></figure>
-
-<p>这会将旧用户名路径链接到新路径，解决软件路径报错问题。</p>
-<h2 id="重启"><a href="#重启" class="headerlink" title="重启"></a>重启</h2><p>确保全部操作完成后重启计算机，如果正常进入桌面，那么基本没有什么问题了</p>
-<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><ul>
-<li>备份重要数据：修改用户名涉及注册表操作，建议提前备份重要文件，以防万一。单纯仅仅创建还原点是不够的，还原点只可备份当前系统配置文件</li>
-<li>谨慎操作注册表：确保按照步骤修改，避免误删关键项。</li>
-<li>软件路径问题：部分软件可能仍需重新安装，确保路径正确。</li>
-<li>桌面文件丢失：如果重启后桌面只剩“此电脑”和“回收站”，用符号链接方法即可恢复。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>Windows</tag>
       </tags>
   </entry>
   <entry>
@@ -621,6 +621,41 @@ x_1 - 2x_2 + 4x_3 = -5 \\
       </tags>
   </entry>
   <entry>
+    <title>Python学习笔记其一</title>
+    <url>/2025/10/01/Python0001/</url>
+    <content><![CDATA[<p>相关教程：</p>
+<p><a href="https://www.runoob.com/python3/python3-conditional-statements.html">Python3 条件控制 | 菜鸟教程</a></p>
+<p><a href="https://www.runoob.com/python3/python3-loop.html">Python3 循环语句 | 菜鸟教程</a></p>
+<p>使用for求1-100的和：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="built_in">sum</span> = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">101</span>):</span><br><span class="line">    <span class="built_in">sum</span> += i</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">sum</span>)</span><br></pre></td></tr></table></figure>
+
+<p>使用while求1-100的和：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="built_in">sum</span> = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> i &lt; <span class="number">101</span>:</span><br><span class="line">    <span class="built_in">sum</span> += i</span><br><span class="line">    i += <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<p>排除1-100中含有“7”的数并求和：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="built_in">sum</span> = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">101</span>):</span><br><span class="line">    <span class="keyword">if</span> i // <span class="number">10</span> == <span class="number">7</span> <span class="keyword">or</span> i % <span class="number">10</span> == <span class="number">7</span>:</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">sum</span> += i</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">sum</span>)</span><br></pre></td></tr></table></figure>
+
+<p>亦可通过while实现：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="built_in">sum</span> = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> i &lt; <span class="number">101</span>:</span><br><span class="line">    <span class="keyword">if</span> i // <span class="number">10</span> == <span class="number">7</span> <span class="keyword">or</span> i % <span class="number">10</span> == <span class="number">7</span>:</span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">sum</span> += i</span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">sum</span>)</span><br></pre></td></tr></table></figure>
+
+<p>亦可通过将i转化为字符串排除实现：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="built_in">sum</span> = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">101</span>):</span><br><span class="line">    a = <span class="built_in">str</span>(i)</span><br><span class="line">    <span class="keyword">if</span> <span class="string">&quot;7&quot;</span> <span class="keyword">not</span> <span class="keyword">in</span> a:</span><br><span class="line">        <span class="built_in">sum</span> += i</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">sum</span>)</span><br></pre></td></tr></table></figure>
+
+<p>遇到的坑：</p>
+<ul>
+<li>for、if、elif、else、while语句要加:（冒号）</li>
+<li>在for或者while进行完if判断后需要对i进行自增，否则进入死循环</li>
+<li>continue为略过，break为中断，pass仅占位（debug用）</li>
+</ul>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Markdown学习笔记</title>
     <url>/2021/01/01/Markdown/</url>
     <content><![CDATA[<h2 id="后缀"><a href="#后缀" class="headerlink" title="后缀"></a>后缀</h2><p>.md</p>
@@ -719,41 +754,6 @@ x_1 - 2x_2 + 4x_3 = -5 \\
         <tag>Markdown</tag>
         <tag>笔记</tag>
         <tag>notes</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Python学习笔记其一</title>
-    <url>/2025/10/01/Python0001/</url>
-    <content><![CDATA[<p>相关教程：</p>
-<p><a href="https://www.runoob.com/python3/python3-conditional-statements.html">Python3 条件控制 | 菜鸟教程</a></p>
-<p><a href="https://www.runoob.com/python3/python3-loop.html">Python3 循环语句 | 菜鸟教程</a></p>
-<p>使用for求1-100的和：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="built_in">sum</span> = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">101</span>):</span><br><span class="line">    <span class="built_in">sum</span> += i</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">sum</span>)</span><br></pre></td></tr></table></figure>
-
-<p>使用while求1-100的和：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="built_in">sum</span> = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> i &lt; <span class="number">101</span>:</span><br><span class="line">    <span class="built_in">sum</span> += i</span><br><span class="line">    i += <span class="number">1</span></span><br></pre></td></tr></table></figure>
-
-<p>排除1-100中含有“7”的数并求和：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="built_in">sum</span> = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">101</span>):</span><br><span class="line">    <span class="keyword">if</span> i // <span class="number">10</span> == <span class="number">7</span> <span class="keyword">or</span> i % <span class="number">10</span> == <span class="number">7</span>:</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">sum</span> += i</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">sum</span>)</span><br></pre></td></tr></table></figure>
-
-<p>亦可通过while实现：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="built_in">sum</span> = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> i &lt; <span class="number">101</span>:</span><br><span class="line">    <span class="keyword">if</span> i // <span class="number">10</span> == <span class="number">7</span> <span class="keyword">or</span> i % <span class="number">10</span> == <span class="number">7</span>:</span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">sum</span> += i</span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">sum</span>)</span><br></pre></td></tr></table></figure>
-
-<p>亦可通过将i转化为字符串排除实现：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="built_in">sum</span> = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">101</span>):</span><br><span class="line">    a = <span class="built_in">str</span>(i)</span><br><span class="line">    <span class="keyword">if</span> <span class="string">&quot;7&quot;</span> <span class="keyword">not</span> <span class="keyword">in</span> a:</span><br><span class="line">        <span class="built_in">sum</span> += i</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">sum</span>)</span><br></pre></td></tr></table></figure>
-
-<p>遇到的坑：</p>
-<ul>
-<li>for、if、elif、else、while语句要加:（冒号）</li>
-<li>在for或者while进行完if判断后需要对i进行自增，否则进入死循环</li>
-<li>continue为略过，break为中断，pass仅占位（debug用）</li>
-</ul>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -2364,7 +2364,7 @@ Score _{i}=\left(W_{1} × OI_{i} + W_{2} × CI_{i} + W_{3} × SI_{i}\right) × 1
 </ol>
 <p>得益于双分支SSM的设计，MS2Fusion<strong>同时继承了计算效率和全局感受野</strong>，显著提升了多光谱目标检测的性能。实验表明，MS2Fusion在强大的基线模型上持续表现更优：</p>
 <ul>
-<li>在目标检测（FLIR）中，<a href="mailto:&#x6d;&#x41;&#x50;&#x40;&#x30;&#x2e;&#x35;">mAP@0.5</a>提升了3.3%；</li>
+<li>在目标检测（FLIR）中，<a href="mailto:&#109;&#65;&#80;&#64;&#x30;&#46;&#53;">mAP@0.5</a>提升了3.3%；</li>
 <li>在RGB-T语义分割（MFNet）中，mIoU提高了2.8%；</li>
 <li>在显著目标检测（VT5000）中，MAE降低了0.7%。</li>
 </ul>
@@ -2463,8 +2463,8 @@ Score _{i}=\left(W_{1} × OI_{i} + W_{2} × CI_{i} + W_{3} × SI_{i}\right) × 1
 <th align="center">GFLOPs</th>
 <th align="center">Params (M)</th>
 <th align="center">FPS</th>
-<th align="center"><a href="mailto:&#x6d;&#65;&#x50;&#64;&#48;&#46;&#x35;">mAP@0.5</a></th>
-<th align="center"><a href="mailto:&#x6d;&#x41;&#80;&#x40;&#48;&#46;&#x37;&#53;">mAP@0.75</a></th>
+<th align="center"><a href="mailto:&#109;&#65;&#x50;&#x40;&#48;&#46;&#53;">mAP@0.5</a></th>
+<th align="center"><a href="mailto:&#109;&#65;&#x50;&#x40;&#48;&#x2e;&#55;&#x35;">mAP@0.75</a></th>
 <th align="center">mAP</th>
 </tr>
 </thead>
@@ -2810,7 +2810,7 @@ c-1 5-5 9-11 9h-2L532 67 19 159h-2c-5 0-9-4-11-9l-5-22c-1-6 2-12 8-13z"/></svg><
 <p><strong>评估指标：</strong></p>
 <ul>
 <li><strong>AP (Average Precision)</strong>: 标源于精确率-召回率（PR）曲线下的面积，该曲线以召回率为横轴、精确率为纵轴</li>
-<li><strong>mAP (mean Average Precision)</strong>: 所有类别的AP加权平均值。实验中，<a href="mailto:&#x6d;&#65;&#x50;&#64;&#48;&#x2e;&#53;">mAP@0.5</a>（IoU阈值为0.5）是主要指标。该指标的值越高，表明性能越好</li>
+<li><strong>mAP (mean Average Precision)</strong>: 所有类别的AP加权平均值。实验中，<a href="mailto:&#x6d;&#65;&#80;&#64;&#48;&#46;&#x35;">mAP@0.5</a>（IoU阈值为0.5）是主要指标。该指标的值越高，表明性能越好</li>
 </ul>
 <h3 id="实验设置"><a href="#实验设置" class="headerlink" title="实验设置"></a>实验设置</h3><ul>
 <li><strong>硬件</strong>: Intel i7-9700 CPU, 64GB RAM, Nvidia RTX 3090 GPU (24GB)</li>
@@ -2825,7 +2825,7 @@ c-1 5-5 9-11 9h-2L532 67 19 159h-2c-5 0-9-4-11-9l-5-22c-1-6 2-12 8-13z"/></svg><
 <thead>
 <tr>
 <th align="center">方法</th>
-<th align="center"><a href="mailto:&#x6d;&#x41;&#x50;&#64;&#x30;&#46;&#53;">mAP@0.5</a></th>
+<th align="center"><a href="mailto:&#x6d;&#x41;&#80;&#x40;&#48;&#46;&#x35;">mAP@0.5</a></th>
 <th align="center">mAP</th>
 <th align="center">自行车</th>
 <th align="center">汽车</th>
@@ -3033,13 +3033,13 @@ c-1 5-5 9-11 9h-2L532 67 19 159h-2c-5 0-9-4-11-9l-5-22c-1-6 2-12 8-13z"/></svg><
 <td align="center">90.2</td>
 </tr>
 </tbody></table>
-<p><strong>分析</strong>: 如表2所示，MS2Fusion在YOLOv5框架下达到83.3%的<a href="mailto:&#109;&#x41;&#x50;&#64;&#48;&#46;&#53;">mAP@0.5</a>，在CoDetr框架下达到87.8%的<a href="mailto:&#109;&#65;&#80;&#64;&#x30;&#46;&#53;">mAP@0.5</a>，均取得了SOTA性能，分别比当前最优方法提升了2.2%和6.7%。尤其在“人”和“自行车”这两个非热源和小目标类别上增益明显。</p>
+<p><strong>分析</strong>: 如表2所示，MS2Fusion在YOLOv5框架下达到83.3%的<a href="mailto:&#109;&#65;&#80;&#x40;&#48;&#x2e;&#53;">mAP@0.5</a>，在CoDetr框架下达到87.8%的<a href="mailto:&#x6d;&#x41;&#x50;&#x40;&#48;&#46;&#53;">mAP@0.5</a>，均取得了SOTA性能，分别比当前最优方法提升了2.2%和6.7%。尤其在“人”和“自行车”这两个非热源和小目标类别上增益明显。</p>
 <h4 id="LLVIP-数据集比较"><a href="#LLVIP-数据集比较" class="headerlink" title="LLVIP 数据集比较"></a>LLVIP 数据集比较</h4><p><strong>表3: LLVIP 数据集比较</strong></p>
 <table>
 <thead>
 <tr>
 <th align="center">方法</th>
-<th align="center"><a href="mailto:&#x6d;&#x41;&#80;&#x40;&#48;&#x2e;&#53;">mAP@0.5</a></th>
+<th align="center"><a href="mailto:&#x6d;&#x41;&#x50;&#x40;&#x30;&#46;&#53;">mAP@0.5</a></th>
 <th align="center">mAP</th>
 </tr>
 </thead>
@@ -3129,13 +3129,13 @@ c-1 5-5 9-11 9h-2L532 67 19 159h-2c-5 0-9-4-11-9l-5-22c-1-6 2-12 8-13z"/></svg><
 <td align="center">70.6</td>
 </tr>
 </tbody></table>
-<p><strong>分析</strong>: 如表3所示，MS2Fusion在LLVIP数据集上同样表现出色，YOLOv5框架下<a href="mailto:&#109;&#x41;&#80;&#x40;&#48;&#x2e;&#53;">mAP@0.5</a>达到97.5%，CoDetr框架下达到98.4%，优于传统的CNN和Transformer方法。</p>
+<p><strong>分析</strong>: 如表3所示，MS2Fusion在LLVIP数据集上同样表现出色，YOLOv5框架下<a href="mailto:&#x6d;&#65;&#80;&#64;&#48;&#x2e;&#x35;">mAP@0.5</a>达到97.5%，CoDetr框架下达到98.4%，优于传统的CNN和Transformer方法。</p>
 <h4 id="M3FD-数据集比较"><a href="#M3FD-数据集比较" class="headerlink" title="M3FD 数据集比较"></a>M3FD 数据集比较</h4><p><strong>表4: M3FD 数据集比较</strong></p>
 <table>
 <thead>
 <tr>
 <th align="center">方法</th>
-<th align="center"><a href="mailto:&#109;&#x41;&#x50;&#64;&#x30;&#x2e;&#53;">mAP@0.5</a></th>
+<th align="center"><a href="mailto:&#x6d;&#65;&#x50;&#x40;&#48;&#x2e;&#x35;">mAP@0.5</a></th>
 <th align="center">mAP</th>
 <th align="center">People</th>
 <th align="center">Bus</th>
@@ -3322,13 +3322,13 @@ c-1 5-5 9-11 9h-2L532 67 19 159h-2c-5 0-9-4-11-9l-5-22c-1-6 2-12 8-13z"/></svg><
 <td align="center">92.4</td>
 </tr>
 </tbody></table>
-<p><strong>分析</strong>: 如表4所示，MS2Fusion在M3FD数据集上表现出显著优势，YOLOv5框架提升3.2% (<a href="mailto:&#109;&#x41;&#x50;&#x40;&#x30;&#x2e;&#x35;">mAP@0.5</a>)，CoDetr框架提升5.2% (<a href="mailto:&#x6d;&#65;&#x50;&#64;&#48;&#46;&#53;">mAP@0.5</a>)。特别是在摩托车等高热源物体上提升明显，显示了其有效融合热成像特征的能力。</p>
+<p><strong>分析</strong>: 如表4所示，MS2Fusion在M3FD数据集上表现出显著优势，YOLOv5框架提升3.2% (<a href="mailto:&#x6d;&#65;&#x50;&#64;&#48;&#x2e;&#53;">mAP@0.5</a>)，CoDetr框架提升5.2% (<a href="mailto:&#x6d;&#65;&#x50;&#64;&#48;&#46;&#x35;">mAP@0.5</a>)。特别是在摩托车等高热源物体上提升明显，显示了其有效融合热成像特征的能力。</p>
 <h4 id="VEDAI-数据集比较"><a href="#VEDAI-数据集比较" class="headerlink" title="VEDAI 数据集比较"></a>VEDAI 数据集比较</h4><p><strong>表5: VEDAI 数据集比较</strong></p>
 <table>
 <thead>
 <tr>
 <th align="center">方法</th>
-<th align="center"><a href="mailto:&#x6d;&#65;&#80;&#x40;&#x30;&#x2e;&#53;">mAP@0.5</a></th>
+<th align="center"><a href="mailto:&#109;&#x41;&#80;&#64;&#48;&#46;&#53;">mAP@0.5</a></th>
 <th align="center">Car</th>
 <th align="center">Truck</th>
 <th align="center">Pickup</th>
@@ -3436,7 +3436,7 @@ c-1 5-5 9-11 9h-2L532 67 19 159h-2c-5 0-9-4-11-9l-5-22c-1-6 2-12 8-13z"/></svg><
 <td align="center">97.1</td>
 </tr>
 </tbody></table>
-<p><strong>分析</strong>: 如表5所示，在VEDAI（航拍）数据集上，MS2Fusion (CoDetr) 达到了84.2%的<a href="mailto:&#109;&#x41;&#80;&#x40;&#48;&#x2e;&#x35;">mAP@0.5</a>，取得了SOTA性能。这表明模型即使没有针对小目标检测进行专门优化，该模型依然能有效关注小目标的多模态特征，在无人机图像应用中表现出鲁棒性。</p>
+<p><strong>分析</strong>: 如表5所示，在VEDAI（航拍）数据集上，MS2Fusion (CoDetr) 达到了84.2%的<a href="mailto:&#109;&#65;&#80;&#64;&#48;&#x2e;&#53;">mAP@0.5</a>，取得了SOTA性能。这表明模型即使没有针对小目标检测进行专门优化，该模型依然能有效关注小目标的多模态特征，在无人机图像应用中表现出鲁棒性。</p>
 <h3 id="泛化到其他多模态任务"><a href="#泛化到其他多模态任务" class="headerlink" title="泛化到其他多模态任务"></a>泛化到其他多模态任务</h3><h4 id="RGB-T-语义分割"><a href="#RGB-T-语义分割" class="headerlink" title="RGB-T 语义分割"></a>RGB-T 语义分割</h4><ul>
 <li><strong>评估指标</strong>: 平均交并比 mIoU (Mean Intersection over Union)，是语义分割模型常用的评估指标，它通过计算预测分割与真实分割的交并比来衡量模型性能</li>
 <li><strong>数据集</strong>: MFNet (1,569对图像, 8类) 和 SemanticRT (11,371对图像, 13类)</li>
@@ -4070,7 +4070,7 @@ c-1 5-5 9-11 9h-2L532 67 19 159h-2c-5 0-9-4-11-9l-5-22c-1-6 2-12 8-13z"/></svg><
 <th align="center">人</th>
 <th align="center">汽车</th>
 <th align="center">自行车</th>
-<th align="center"><a href="mailto:&#109;&#x41;&#x50;&#64;&#48;&#x2e;&#x35;">mAP@0.5</a></th>
+<th align="center"><a href="mailto:&#x6d;&#x41;&#80;&#x40;&#48;&#x2e;&#53;">mAP@0.5</a></th>
 <th align="center">FPS</th>
 </tr>
 </thead>
@@ -4115,7 +4115,7 @@ c-1 5-5 9-11 9h-2L532 67 19 159h-2c-5 0-9-4-11-9l-5-22c-1-6 2-12 8-13z"/></svg><
 <td align="center">4.8</td>
 </tr>
 </tbody></table>
-<p><strong>分析</strong>: 如表9所示，MS2Fusion模块在YOLOv5和CoDetr两个主流检测框架上，均比基线（add fusion）带来了**3.3%**的<a href="mailto:&#x6d;&#x41;&#x50;&#64;&#x30;&#x2e;&#53;">mAP@0.5</a>提升。这证明了MS2Fusion具有出色的“即插即用”特性和强大的泛化能力。</p>
+<p><strong>分析</strong>: 如表9所示，MS2Fusion模块在YOLOv5和CoDetr两个主流检测框架上，均比基线（add fusion）带来了**3.3%**的<a href="mailto:&#109;&#65;&#x50;&#x40;&#48;&#46;&#x35;">mAP@0.5</a>提升。这证明了MS2Fusion具有出色的“即插即用”特性和强大的泛化能力。</p>
 <h4 id="不同骨干网络的影响"><a href="#不同骨干网络的影响" class="headerlink" title="不同骨干网络的影响"></a>不同骨干网络的影响</h4><p><strong>表10: 不同骨干网络的影响</strong></p>
 <table>
 <thead>
@@ -4126,7 +4126,7 @@ c-1 5-5 9-11 9h-2L532 67 19 159h-2c-5 0-9-4-11-9l-5-22c-1-6 2-12 8-13z"/></svg><
 <th align="center">人</th>
 <th align="center">汽车</th>
 <th align="center">自行车</th>
-<th align="center"><a href="mailto:&#109;&#x41;&#80;&#64;&#x30;&#x2e;&#53;">mAP@0.5</a></th>
+<th align="center"><a href="mailto:&#x6d;&#x41;&#80;&#64;&#x30;&#x2e;&#x35;">mAP@0.5</a></th>
 </tr>
 </thead>
 <tbody><tr>
@@ -4184,7 +4184,7 @@ c-1 5-5 9-11 9h-2L532 67 19 159h-2c-5 0-9-4-11-9l-5-22c-1-6 2-12 8-13z"/></svg><
 <td align="center">83.3 (+3.3)</td>
 </tr>
 </tbody></table>
-<p><strong>分析</strong>: 如表10所示，MS2Fusion在VGG16、ResNet50和CSPDarkNet53三种不同骨干网络上均实现了一致的性能增益，分别提升了1.0%、4.8%和3.3% (<a href="mailto:&#109;&#65;&#80;&#x40;&#x30;&#46;&#53;">mAP@0.5</a>)。这进一步证实了MS2Fusion模块对不同骨干架构的强大泛化能力和兼容性。</p>
+<p><strong>分析</strong>: 如表10所示，MS2Fusion在VGG16、ResNet50和CSPDarkNet53三种不同骨干网络上均实现了一致的性能增益，分别提升了1.0%、4.8%和3.3% (<a href="mailto:&#x6d;&#65;&#x50;&#64;&#x30;&#x2e;&#53;">mAP@0.5</a>)。这进一步证实了MS2Fusion模块对不同骨干架构的强大泛化能力和兼容性。</p>
 <h4 id="不同模块的影响"><a href="#不同模块的影响" class="headerlink" title="不同模块的影响"></a>不同模块的影响</h4><p><strong>表11: 不同融合模块的影响</strong></p>
 <table>
 <thead>
@@ -4196,7 +4196,7 @@ c-1 5-5 9-11 9h-2L532 67 19 159h-2c-5 0-9-4-11-9l-5-22c-1-6 2-12 8-13z"/></svg><
 <th align="center">人</th>
 <th align="center">汽车</th>
 <th align="center">自行车</th>
-<th align="center"><a href="mailto:&#x6d;&#65;&#80;&#64;&#x30;&#x2e;&#53;">mAP@0.5</a></th>
+<th align="center"><a href="mailto:&#109;&#x41;&#80;&#64;&#x30;&#46;&#x35;">mAP@0.5</a></th>
 <th align="center">Params(M)</th>
 </tr>
 </thead>
@@ -4308,7 +4308,7 @@ c-1 5-5 9-11 9h-2L532 67 19 159h-2c-5 0-9-4-11-9l-5-22c-1-6 2-12 8-13z"/></svg><
 <th align="center">人</th>
 <th align="center">汽车</th>
 <th align="center">自行车</th>
-<th align="center"><a href="mailto:&#x6d;&#65;&#x50;&#x40;&#48;&#46;&#x35;">mAP@0.5</a></th>
+<th align="center"><a href="mailto:&#x6d;&#x41;&#80;&#64;&#x30;&#x2e;&#x35;">mAP@0.5</a></th>
 </tr>
 </thead>
 <tbody><tr>
@@ -4356,7 +4356,7 @@ c-1 5-5 9-11 9h-2L532 67 19 159h-2c-5 0-9-4-11-9l-5-22c-1-6 2-12 8-13z"/></svg><
 <ul>
 <li>仅在P3（浅层）融合（第2行），“自行车”AP大幅提升5.7%，但“人”和“车”略降，总mAP升至81.1%</li>
 <li>在P3和P4融合（第3行），“人”和“车”的AP反弹，总mAP升至82.0%</li>
-<li>在P3、P4和P5（深层）全部融合（第4行），达到了最佳平衡，<a href="mailto:&#109;&#x41;&#x50;&#x40;&#48;&#x2e;&#53;">mAP@0.5</a>达到83.3%，并且“自行车”的AP达到74.9%，为所有配置中最高</li>
+<li>在P3、P4和P5（深层）全部融合（第4行），达到了最佳平衡，<a href="mailto:&#x6d;&#65;&#x50;&#x40;&#x30;&#x2e;&#x35;">mAP@0.5</a>达到83.3%，并且“自行车”的AP达到74.9%，为所有配置中最高</li>
 <li>这表明多层次特征融合（浅层细节+深层语义）对于跨模态特征集成至关重要，特别是对“自行车”等挑战性类别</li>
 </ul>
 <h4 id="CP-SSM-的讨论"><a href="#CP-SSM-的讨论" class="headerlink" title="CP-SSM 的讨论"></a>CP-SSM 的讨论</h4><p><strong>表13: CP-SSM 的微调</strong></p>
@@ -4368,7 +4368,7 @@ c-1 5-5 9-11 9h-2L532 67 19 159h-2c-5 0-9-4-11-9l-5-22c-1-6 2-12 8-13z"/></svg><
 <th align="center">人</th>
 <th align="center">汽车</th>
 <th align="center">自行车</th>
-<th align="center"><a href="mailto:&#109;&#x41;&#x50;&#64;&#48;&#x2e;&#53;">mAP@0.5</a></th>
+<th align="center"><a href="mailto:&#x6d;&#65;&#80;&#x40;&#x30;&#46;&#x35;">mAP@0.5</a></th>
 </tr>
 </thead>
 <tbody><tr>
@@ -4424,7 +4424,7 @@ c-1 5-5 9-11 9h-2L532 67 19 159h-2c-5 0-9-4-11-9l-5-22c-1-6 2-12 8-13z"/></svg><
 <th align="center">编号</th>
 <th align="center">模型</th>
 <th align="center">输入</th>
-<th align="center"><a href="mailto:&#x6d;&#65;&#x50;&#64;&#x30;&#46;&#53;">mAP@0.5</a></th>
+<th align="center"><a href="mailto:&#109;&#x41;&#80;&#x40;&#x30;&#46;&#x35;">mAP@0.5</a></th>
 </tr>
 </thead>
 <tbody><tr>
@@ -4487,7 +4487,7 @@ c-1 5-5 9-11 9h-2L532 67 19 159h-2c-5 0-9-4-11-9l-5-22c-1-6 2-12 8-13z"/></svg><
 <thead>
 <tr>
 <th align="center">FF-SSM input</th>
-<th align="center"><a href="mailto:&#109;&#x41;&#x50;&#64;&#48;&#x2e;&#53;">mAP@0.5</a></th>
+<th align="center"><a href="mailto:&#109;&#65;&#80;&#x40;&#48;&#46;&#x35;">mAP@0.5</a></th>
 <th align="center">person</th>
 <th align="center">car</th>
 <th align="center">bicycle</th>
@@ -4536,7 +4536,7 @@ c-1 5-5 9-11 9h-2L532 67 19 159h-2c-5 0-9-4-11-9l-5-22c-1-6 2-12 8-13z"/></svg><
 </thead>
 <tbody><tr>
 <td align="center"></td>
-<td align="center"><a href="mailto:&#109;&#65;&#x50;&#x40;&#x30;&#46;&#x35;">mAP@0.5</a></td>
+<td align="center"><a href="mailto:&#x6d;&#x41;&#x50;&#64;&#48;&#x2e;&#x35;">mAP@0.5</a></td>
 <td align="center">mAP</td>
 <td align="center"><a href="mailto:&#109;&#x41;&#x50;&#x40;&#48;&#46;&#x35;">mAP@0.5</a></td>
 <td align="center">mAP</td>
@@ -4563,7 +4563,7 @@ c-1 5-5 9-11 9h-2L532 67 19 159h-2c-5 0-9-4-11-9l-5-22c-1-6 2-12 8-13z"/></svg><
 <td align="center">0.42</td>
 </tr>
 </tbody></table>
-<p><strong>分析</strong>: 如表16所示，通过10次随机种子实验，MS2Fusion表现出极高的稳定性。在FLIR上<a href="mailto:&#109;&#x41;&#80;&#64;&#48;&#x2e;&#53;">mAP@0.5</a>方差仅为0.15%，在LLVIP上方差低至0.03%。这表明模型对初始条件变化具有很强的抵抗力，在不同数据分布上保持一致性能。</p>
+<p><strong>分析</strong>: 如表16所示，通过10次随机种子实验，MS2Fusion表现出极高的稳定性。在FLIR上<a href="mailto:&#109;&#65;&#80;&#64;&#x30;&#x2e;&#53;">mAP@0.5</a>方差仅为0.15%，在LLVIP上方差低至0.03%。这表明模型对初始条件变化具有很强的抵抗力，在不同数据分布上保持一致性能。</p>
 <h4 id="热图可视化-图10"><a href="#热图可视化-图10" class="headerlink" title="热图可视化 (图10)"></a>热图可视化 (图10)</h4><p>对比Baseline、ICAFusion和MS2Fusion：</p>
 <ul>
 <li>在停车场（第一行）、夜间街道（第二行）和道路（第三行）等多种场景下，MS2Fusion均表现最佳。</li>
@@ -4609,7 +4609,7 @@ c-1 5-5 9-11 9h-2L532 67 19 159h-2c-5 0-9-4-11-9l-5-22c-1-6 2-12 8-13z"/></svg><
 <p>这两种路径在一个统一的框架内通过SSM进行联合优化，使MS2Fusion能够同时享有功能互补性和共享语义空间。得益于这种双分支SSM设计，本方法同时继承了<strong>计算效率</strong>和<strong>全局感受野</strong>的优点，显著提高了多光谱目标检测的性能。</p>
 <p>实验结果表明，MS2Fusion持续优于现有强大的基线方法：</p>
 <ul>
-<li>在目标检测（FLIR）任务中，<a href="mailto:&#x6d;&#65;&#80;&#64;&#x30;&#46;&#53;">mAP@0.5</a>提高了3.3%。</li>
+<li>在目标检测（FLIR）任务中，<a href="mailto:&#109;&#65;&#x50;&#x40;&#48;&#x2e;&#53;">mAP@0.5</a>提高了3.3%。</li>
 <li>在RGB-T语义分割（MFNet）任务中，mIoU提升了2.8%。</li>
 <li>在显著性目标检测（VT5000）任务中，MAE降低了0.7%。</li>
 </ul>
