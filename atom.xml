@@ -99,7 +99,7 @@
     <link href="https://mjy.js.org/2025/10/30/%E3%80%90%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%20%20Inf.%20Fusion%202025%20%20MS2Fusion%EF%BC%9A%E5%A4%9A%E9%87%8D%E5%85%89%E8%B0%B1%E7%8A%B6%E6%80%81%E7%A9%BA%E9%97%B4%E7%89%B9%E5%BE%81%E8%9E%8D%E5%90%88%E3%80%91/"/>
     <id>https://mjy.js.org/2025/10/30/%E3%80%90%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%20%20Inf.%20Fusion%202025%20%20MS2Fusion%EF%BC%9A%E5%A4%9A%E9%87%8D%E5%85%89%E8%B0%B1%E7%8A%B6%E6%80%81%E7%A9%BA%E9%97%B4%E7%89%B9%E5%BE%81%E8%9E%8D%E5%90%88%E3%80%91/</id>
     <published>2025-10-30T00:00:00.000Z</published>
-    <updated>2025-11-09T08:11:50.418Z</updated>
+    <updated>2025-11-14T11:53:10.065Z</updated>
     
     
     <summary type="html">MS2Fusion：多重光谱状态空间特征融合</summary>
@@ -259,6 +259,25 @@
   </entry>
   
   <entry>
+    <title>Python学习笔记其一</title>
+    <link href="https://mjy.js.org/2025/10/01/Python0001/"/>
+    <id>https://mjy.js.org/2025/10/01/Python0001/</id>
+    <published>2025-10-01T00:00:00.000Z</published>
+    <updated>2025-10-26T10:01:59.931Z</updated>
+    
+    
+    <summary type="html">for与while的实战</summary>
+    
+    
+    
+    <category term="笔记" scheme="https://mjy.js.org/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="Python" scheme="https://mjy.js.org/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Windows下的Python环境配置</title>
     <link href="https://mjy.js.org/2025/10/01/Configuring-the-Python-Environment-on-Windows/"/>
     <id>https://mjy.js.org/2025/10/01/Configuring-the-Python-Environment-on-Windows/</id>
@@ -280,25 +299,6 @@
     <category term="PyCharm" scheme="https://mjy.js.org/tags/PyCharm/"/>
     
     <category term="Anaconda" scheme="https://mjy.js.org/tags/Anaconda/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python学习笔记其一</title>
-    <link href="https://mjy.js.org/2025/10/01/Python0001/"/>
-    <id>https://mjy.js.org/2025/10/01/Python0001/</id>
-    <published>2025-10-01T00:00:00.000Z</published>
-    <updated>2025-10-26T10:01:59.931Z</updated>
-    
-    
-    <summary type="html">for与while的实战</summary>
-    
-    
-    
-    <category term="笔记" scheme="https://mjy.js.org/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="Python" scheme="https://mjy.js.org/tags/Python/"/>
     
   </entry>
   
