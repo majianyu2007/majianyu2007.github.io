@@ -6,7 +6,7 @@
   <link href="https://mjy.js.org/atom.xml" rel="self"/>
   
   <link href="https://mjy.js.org/"/>
-  <updated>2025-11-30T02:40:24.792Z</updated>
+  <updated>2025-12-02T13:16:56.824Z</updated>
   <id>https://mjy.js.org/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2025.12.02 C语言程序设计上机实习五</title>
+    <link href="https://mjy.js.org/2025/12/02/2025.12.02%20C%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E4%B8%8A%E6%9C%BA%E5%AE%9E%E4%B9%A0%E4%BA%94/"/>
+    <id>https://mjy.js.org/2025/12/02/2025.12.02%20C%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E4%B8%8A%E6%9C%BA%E5%AE%9E%E4%B9%A0%E4%BA%94/</id>
+    <published>2025-12-02T00:00:00.000Z</published>
+    <updated>2025-12-02T13:16:56.824Z</updated>
+    
+    
+    <summary type="html">C语言程序设计上机实习五</summary>
+    
+    
+    
+    <category term="笔记" scheme="https://mjy.js.org/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="C" scheme="https://mjy.js.org/tags/C/"/>
+    
+  </entry>
   
   <entry>
     <title>【论文阅读 | TPAMI | IVIF任务进展和应用概述：从数据兼容性到任务适配性】</title>
@@ -294,9 +313,9 @@
     <category term="教程" scheme="https://mjy.js.org/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="Windows" scheme="https://mjy.js.org/tags/Windows/"/>
-    
     <category term="Python" scheme="https://mjy.js.org/tags/Python/"/>
+    
+    <category term="Windows" scheme="https://mjy.js.org/tags/Windows/"/>
     
     <category term="PyCharm" scheme="https://mjy.js.org/tags/PyCharm/"/>
     
@@ -430,25 +449,6 @@
     <category term="js.org" scheme="https://mjy.js.org/tags/js-org/"/>
     
     <category term="js" scheme="https://mjy.js.org/tags/js/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Usage of Structure Block in Minecraft PE</title>
-    <link href="https://mjy.js.org/2020/11/22/Usage-of-structure-block-in-Minecraft-PE/"/>
-    <id>https://mjy.js.org/2020/11/22/Usage-of-structure-block-in-Minecraft-PE/</id>
-    <published>2020-11-21T19:31:46.000Z</published>
-    <updated>2025-10-18T07:05:53.246Z</updated>
-    
-    
-    <summary type="html">Minecraft之结构方块</summary>
-    
-    
-    
-    <category term="Games" scheme="https://mjy.js.org/categories/Games/"/>
-    
-    
-    <category term="Minecarft" scheme="https://mjy.js.org/tags/Minecarft/"/>
     
   </entry>
   
