@@ -6,7 +6,7 @@
   <link href="https://mjy.js.org/atom.xml" rel="self"/>
   
   <link href="https://mjy.js.org/"/>
-  <updated>2025-12-03T08:48:07.373Z</updated>
+  <updated>2025-12-06T10:25:49.171Z</updated>
   <id>https://mjy.js.org/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【论文阅读  CVPR 2024  RSDet_去除再选择：一种用于 RGB - 红外目标检测的由粗到精融合视角】</title>
+    <link href="https://mjy.js.org/2025/12/06/%E3%80%90%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%20%20CVPR%202024%20%20RSDet_%E5%8E%BB%E9%99%A4%E5%86%8D%E9%80%89%E6%8B%A9%EF%BC%9A%E4%B8%80%E7%A7%8D%E7%94%A8%E4%BA%8E%20RGB%20-%20%E7%BA%A2%E5%A4%96%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E7%9A%84%E7%94%B1%E7%B2%97%E5%88%B0%E7%B2%BE%E8%9E%8D%E5%90%88%E8%A7%86%E8%A7%92%E3%80%91/"/>
+    <id>https://mjy.js.org/2025/12/06/%E3%80%90%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%20%20CVPR%202024%20%20RSDet_%E5%8E%BB%E9%99%A4%E5%86%8D%E9%80%89%E6%8B%A9%EF%BC%9A%E4%B8%80%E7%A7%8D%E7%94%A8%E4%BA%8E%20RGB%20-%20%E7%BA%A2%E5%A4%96%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E7%9A%84%E7%94%B1%E7%B2%97%E5%88%B0%E7%B2%BE%E8%9E%8D%E5%90%88%E8%A7%86%E8%A7%92%E3%80%91/</id>
+    <published>2025-12-06T00:00:00.000Z</published>
+    <updated>2025-12-06T10:25:49.171Z</updated>
+    
+    
+    <summary type="html">RSDet_去除再选择：一种用于 RGB - 红外目标检测的由粗到精融合视角</summary>
+    
+    
+    
+    <category term="论文阅读" scheme="https://mjy.js.org/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/"/>
+    
+    
+    <category term="多光谱目标检测" scheme="https://mjy.js.org/tags/%E5%A4%9A%E5%85%89%E8%B0%B1%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/"/>
+    
+    <category term="多模态融合" scheme="https://mjy.js.org/tags/%E5%A4%9A%E6%A8%A1%E6%80%81%E8%9E%8D%E5%90%88/"/>
+    
+    <category term="图像融合" scheme="https://mjy.js.org/tags/%E5%9B%BE%E5%83%8F%E8%9E%8D%E5%90%88/"/>
+    
+  </entry>
   
   <entry>
     <title>2025.12.02 C语言程序设计上机实习五</title>
@@ -40,7 +63,7 @@
     <link href="https://mjy.js.org/2025/11/29/%E3%80%90%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%20%20TPAMI%202024%20%20IVIF%E4%BB%BB%E5%8A%A1%E8%BF%9B%E5%B1%95%E5%92%8C%E5%BA%94%E7%94%A8%E6%A6%82%E8%BF%B0%EF%BC%9A%E4%BB%8E%E6%95%B0%E6%8D%AE%E5%85%BC%E5%AE%B9%E6%80%A7%E5%88%B0%E4%BB%BB%E5%8A%A1%E9%80%82%E9%85%8D%E6%80%A7%E3%80%91/"/>
     <id>https://mjy.js.org/2025/11/29/%E3%80%90%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%20%20TPAMI%202024%20%20IVIF%E4%BB%BB%E5%8A%A1%E8%BF%9B%E5%B1%95%E5%92%8C%E5%BA%94%E7%94%A8%E6%A6%82%E8%BF%B0%EF%BC%9A%E4%BB%8E%E6%95%B0%E6%8D%AE%E5%85%BC%E5%AE%B9%E6%80%A7%E5%88%B0%E4%BB%BB%E5%8A%A1%E9%80%82%E9%85%8D%E6%80%A7%E3%80%91/</id>
     <published>2025-11-29T00:00:00.000Z</published>
-    <updated>2025-11-30T02:40:24.792Z</updated>
+    <updated>2025-12-06T09:29:18.837Z</updated>
     
     
     <summary type="html">IVIF任务进展和应用概述：从数据兼容性到任务适配性</summary>
@@ -418,37 +441,6 @@
     <category term="笔记" scheme="https://mjy.js.org/tags/%E7%AC%94%E8%AE%B0/"/>
     
     <category term="notes" scheme="https://mjy.js.org/tags/notes/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>js.org free domain</title>
-    <link href="https://mjy.js.org/2020/11/28/js-org-free-domain/"/>
-    <id>https://mjy.js.org/2020/11/28/js-org-free-domain/</id>
-    <published>2020-11-28T02:12:19.000Z</published>
-    <updated>2025-10-18T07:03:17.052Z</updated>
-    
-    
-    <summary type="html">面向JavaScript开发者与开发项目的二级域名</summary>
-    
-    
-    
-    <category term="Domain" scheme="https://mjy.js.org/categories/Domain/"/>
-    
-    
-    <category term="free" scheme="https://mjy.js.org/tags/free/"/>
-    
-    <category term="domain" scheme="https://mjy.js.org/tags/domain/"/>
-    
-    <category term="免费" scheme="https://mjy.js.org/tags/%E5%85%8D%E8%B4%B9/"/>
-    
-    <category term="二级域名" scheme="https://mjy.js.org/tags/%E4%BA%8C%E7%BA%A7%E5%9F%9F%E5%90%8D/"/>
-    
-    <category term="域名" scheme="https://mjy.js.org/tags/%E5%9F%9F%E5%90%8D/"/>
-    
-    <category term="js.org" scheme="https://mjy.js.org/tags/js-org/"/>
-    
-    <category term="js" scheme="https://mjy.js.org/tags/js/"/>
     
   </entry>
   
