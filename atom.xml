@@ -6,7 +6,7 @@
   <link href="https://mjy.js.org/atom.xml" rel="self"/>
   
   <link href="https://mjy.js.org/"/>
-  <updated>2025-12-16T11:54:27.204Z</updated>
+  <updated>2025-12-17T10:31:23.388Z</updated>
   <id>https://mjy.js.org/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>英语口语测试备考</title>
+    <link href="https://mjy.js.org/2025/12/17/oral-english-test/"/>
+    <id>https://mjy.js.org/2025/12/17/oral-english-test/</id>
+    <published>2025-12-17T00:00:00.000Z</published>
+    <updated>2025-12-17T10:31:23.388Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;Unit-1-Youth-on-the-rise&quot;&gt;&lt;a href=&quot;#Unit-1-Youth-on-the-rise&quot; class=&quot;headerlink&quot; title=&quot;Unit 1: Youth on the rise&quot;&gt;&lt;/a&gt;Unit 1: Youth</summary>
+      
+    
+    
+    
+    <category term="笔记" scheme="https://mjy.js.org/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="英语" scheme="https://mjy.js.org/tags/%E8%8B%B1%E8%AF%AD/"/>
+    
+    <category term="备考" scheme="https://mjy.js.org/tags/%E5%A4%87%E8%80%83/"/>
+    
+  </entry>
   
   <entry>
     <title>2025.12.16 C语言程序设计上机实习七</title>
@@ -402,31 +426,6 @@
     
     
     <category term="Python" scheme="https://mjy.js.org/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Windows下的Python环境配置</title>
-    <link href="https://mjy.js.org/2025/10/01/Configuring-the-Python-Environment-on-Windows/"/>
-    <id>https://mjy.js.org/2025/10/01/Configuring-the-Python-Environment-on-Windows/</id>
-    <published>2025-10-01T00:00:00.000Z</published>
-    <updated>2025-10-18T07:02:39.964Z</updated>
-    
-    
-    <summary type="html">使用Anaconda来进行Python环境管理</summary>
-    
-    
-    
-    <category term="教程" scheme="https://mjy.js.org/categories/%E6%95%99%E7%A8%8B/"/>
-    
-    
-    <category term="Windows" scheme="https://mjy.js.org/tags/Windows/"/>
-    
-    <category term="Python" scheme="https://mjy.js.org/tags/Python/"/>
-    
-    <category term="PyCharm" scheme="https://mjy.js.org/tags/PyCharm/"/>
-    
-    <category term="Anaconda" scheme="https://mjy.js.org/tags/Anaconda/"/>
     
   </entry>
   
