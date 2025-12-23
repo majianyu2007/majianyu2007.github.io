@@ -6,7 +6,7 @@
   <link href="https://mjy.js.org/atom.xml" rel="self"/>
   
   <link href="https://mjy.js.org/"/>
-  <updated>2025-12-22T01:50:07.022Z</updated>
+  <updated>2025-12-23T12:31:53.143Z</updated>
   <id>https://mjy.js.org/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2025.12.23 C语言程序设计上机实习八</title>
+    <link href="https://mjy.js.org/2025/12/23/2025.12.23%20C%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E4%B8%8A%E6%9C%BA%E5%AE%9E%E4%B9%A0%E5%85%AB/"/>
+    <id>https://mjy.js.org/2025/12/23/2025.12.23%20C%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E4%B8%8A%E6%9C%BA%E5%AE%9E%E4%B9%A0%E5%85%AB/</id>
+    <published>2025-12-23T00:00:00.000Z</published>
+    <updated>2025-12-23T12:31:53.143Z</updated>
+    
+    
+    <summary type="html">C语言程序设计上机实习八</summary>
+    
+    
+    
+    <category term="笔记" scheme="https://mjy.js.org/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="C" scheme="https://mjy.js.org/tags/C/"/>
+    
+  </entry>
   
   <entry>
     <title>【论文阅读 | TCSVT 2025 | T²EA：目标感知泰勒展开近似网络】</title>
@@ -69,7 +88,7 @@
     <link href="https://mjy.js.org/2025/12/16/2025.12.16%20C%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E4%B8%8A%E6%9C%BA%E5%AE%9E%E4%B9%A0%E4%B8%83/"/>
     <id>https://mjy.js.org/2025/12/16/2025.12.16%20C%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E4%B8%8A%E6%9C%BA%E5%AE%9E%E4%B9%A0%E4%B8%83/</id>
     <published>2025-12-16T00:00:00.000Z</published>
-    <updated>2025-12-16T11:54:27.204Z</updated>
+    <updated>2025-12-23T09:36:03.992Z</updated>
     
     
     <summary type="html">C语言程序设计上机实习七</summary>
@@ -113,7 +132,7 @@
     <link href="https://mjy.js.org/2025/12/09/2025.12.09%20C%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E4%B8%8A%E6%9C%BA%E5%AE%9E%E4%B9%A0%E5%85%AD/"/>
     <id>https://mjy.js.org/2025/12/09/2025.12.09%20C%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E4%B8%8A%E6%9C%BA%E5%AE%9E%E4%B9%A0%E5%85%AD/</id>
     <published>2025-12-09T00:00:00.000Z</published>
-    <updated>2025-12-09T12:56:20.297Z</updated>
+    <updated>2025-12-23T09:36:12.333Z</updated>
     
     
     <summary type="html">C语言程序设计上机实习六</summary>
@@ -176,7 +195,7 @@
     <link href="https://mjy.js.org/2025/12/02/2025.12.02%20C%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E4%B8%8A%E6%9C%BA%E5%AE%9E%E4%B9%A0%E4%BA%94/"/>
     <id>https://mjy.js.org/2025/12/02/2025.12.02%20C%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E4%B8%8A%E6%9C%BA%E5%AE%9E%E4%B9%A0%E4%BA%94/</id>
     <published>2025-12-02T00:00:00.000Z</published>
-    <updated>2025-12-09T06:48:22.840Z</updated>
+    <updated>2025-12-23T09:36:19.808Z</updated>
     
     
     <summary type="html">C语言程序设计上机实习五</summary>
@@ -412,25 +431,6 @@
     
     
     <category term="Windows" scheme="https://mjy.js.org/tags/Windows/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python学习笔记其三</title>
-    <link href="https://mjy.js.org/2025/10/03/Python0003/"/>
-    <id>https://mjy.js.org/2025/10/03/Python0003/</id>
-    <published>2025-10-03T00:00:00.000Z</published>
-    <updated>2025-10-18T07:04:55.265Z</updated>
-    
-    
-    <summary type="html">PyTorch教程</summary>
-    
-    
-    
-    <category term="笔记" scheme="https://mjy.js.org/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="Python" scheme="https://mjy.js.org/tags/Python/"/>
     
   </entry>
   
