@@ -1,0 +1,675 @@
+<!DOCTYPE html><html dir="ltr" lang="zh-CN" class="overflow-y-scroll scroll-smooth"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="preload" href="/_astro/excalifont-latin.DBEDukyo.woff2" as="font" type="font/woff2" crossorigin="anonymous"><link rel="preload" href="/_astro/fonts/xiaolai-ui.f313e2d30fe461d7.woff2" as="font" type="font/woff2" crossorigin="anonymous"><link rel="icon" href="/favicon.ico"><link rel="canonical" href="https://mjy.js.org/posts/windows-python-environment-setup/"><meta name="generator" content="Astro v7.0.3"><!-- Primary meta --><title>Windows下的Python环境配置 | TranquilYu&#39;s Blog</title><meta name="title" content="Windows下的Python环境配置 | TranquilYu's Blog"><meta name="description" content="使用Anaconda来进行Python环境管理"><meta name="author" content="MaJianyu"><meta name="keywords" content="Blog, Personal, 技术博客, 论文阅读, 数学建模, Python, Windows, 开发环境, 教程, 入门, PyCharm, Anaconda"><link rel="sitemap" href="/sitemap-index.xml"><!-- Open Graph --><meta property="og:type" content="website"><meta property="og:site_name" content="TranquilYu's Blog"><meta property="og:title" content="Windows下的Python环境配置 | TranquilYu's Blog"><meta property="og:description" content="使用Anaconda来进行Python环境管理"><meta property="og:url" content="https://mjy.js.org/posts/windows-python-environment-setup/"><meta property="og:image" content="https://mjy.js.org/og/windows-python-environment-setup.png"><!-- Twitter / X --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://mjy.js.org/posts/windows-python-environment-setup/"><meta property="twitter:title" content="Windows下的Python环境配置 | TranquilYu's Blog"><meta property="twitter:description" content="使用Anaconda来进行Python环境管理"><meta property="twitter:image" content="https://mjy.js.org/og/windows-python-environment-setup.png"><!-- RSS autodiscovery --><link rel="alternate" type="application/rss+xml" title="TranquilYu's Blog" href="https://mjy.js.org/rss.xml/"><!-- Filled at runtime by theme.ts to match the current background colour --><meta name="theme-color" content=""><script>
+      {
+        const hasFragment = Boolean(location.hash);
+        document.documentElement.toggleAttribute(
+          "data-fragment-navigation",
+          hasFragment
+        );
+        document.documentElement.toggleAttribute(
+          "data-fragment-font-pending",
+          hasFragment
+        );
+      }
+    </script><!-- Extra head content injected by child layouts (e.g. JSON-LD, article meta) --><meta property="og:type" content="article"><meta property="article:published_time" content="2025-10-01T00:00:00.000Z"><meta property="article:tag" content="Python"><meta property="article:tag" content="Windows"><meta property="article:tag" content="开发环境"><meta property="article:tag" content="教程"><meta property="article:tag" content="入门"><meta property="article:tag" content="PyCharm"><meta property="article:tag" content="Anaconda"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Windows下的Python环境配置 | TranquilYu's Blog","description":"使用Anaconda来进行Python环境管理","image":"https://mjy.js.org/og/windows-python-environment-setup.png","keywords":["Python","Windows","开发环境","教程","入门","PyCharm","Anaconda"],"inLanguage":"zh-CN","url":"https://mjy.js.org/posts/windows-python-environment-setup/","mainEntityOfPage":{"@type":"WebPage","@id":"https://mjy.js.org/posts/windows-python-environment-setup/"},"datePublished":"2025-10-01T00:00:00.000Z","author":[{"@type":"Person","name":"MaJianyu","url":"https://github.com/majianyu2007"}]}</script><script>
+      (() => {
+        const applyOutboundTracking = () => {
+          document.querySelectorAll("a[href]").forEach(link => {
+            if (
+              link instanceof HTMLAnchorElement &&
+              link.host !== window.location.host &&
+              !link.dataset.umamiEvent
+            ) {
+              link.dataset.umamiEvent = "outbound-link-click";
+              link.dataset.umamiEventUrl = link.href;
+            }
+          });
+        };
+
+        const loadThirdPartyScripts = () => {
+          if (!document.querySelector('script[data-site-analytics="umami"]')) {
+            const analytics = document.createElement("script");
+            analytics.defer = true;
+            analytics.src = "https://umami.715654.xyz/script.js";
+            analytics.dataset.siteAnalytics = "umami";
+            analytics.dataset.websiteId =
+              "6bc518c3-c5f9-4afd-8edf-fe258aba7432";
+            analytics.dataset.domains = "mjy.js.org";
+            document.head.appendChild(analytics);
+          }
+
+          if (!document.querySelector('script[data-site-ads="adsense"]')) {
+            const ads = document.createElement("script");
+            ads.async = true;
+            ads.crossOrigin = "anonymous";
+            ads.src =
+              "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9101785228583606";
+            ads.dataset.siteAds = "adsense";
+            document.head.appendChild(ads);
+          }
+        };
+
+        if (document.prerendering) {
+          document.addEventListener(
+            "prerenderingchange",
+            loadThirdPartyScripts,
+            { once: true }
+          );
+        } else {
+          loadThirdPartyScripts();
+        }
+
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", applyOutboundTracking, {
+            once: true,
+          });
+        } else {
+          applyOutboundTracking();
+        }
+        document.addEventListener("astro:page-load", applyOutboundTracking);
+      })();
+    </script><!--
+      Inline FOUC-prevention script: sets data-theme on <html> before
+      the browser paints. Runs synchronously, no defer/async.
+    --><script>
+      (function () {
+        const stored = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
+        const theme = stored ?? (prefersDark ? "dark" : "light");
+        const root = document.firstElementChild;
+        root?.setAttribute("data-theme", theme);
+        root?.classList.toggle("dark", theme === "dark");
+        // Expose value so theme.ts can skip re-detection.
+        window.__theme = { value: theme };
+      })();
+    </script><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.DpL340e7.js"></script><link rel="stylesheet" href="/_astro/Footer.DSVCgsPW.css"><style>@keyframes astroFadeInOut{0%{opacity:1}to{opacity:0}}@keyframes astroFadeIn{0%{opacity:0;mix-blend-mode:plus-lighter}to{opacity:1;mix-blend-mode:plus-lighter}}@keyframes astroFadeOut{0%{opacity:1;mix-blend-mode:plus-lighter}to{opacity:0;mix-blend-mode:plus-lighter}}@keyframes astroSlideFromRight{0%{transform:translate(100%)}}@keyframes astroSlideFromLeft{0%{transform:translate(-100%)}}@keyframes astroSlideToRight{to{transform:translate(100%)}}@keyframes astroSlideToLeft{to{transform:translate(-100%)}}@media (prefers-reduced-motion){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*),[data-astro-transition-scope]{animation:none!important}}
+</style><link rel="stylesheet" href="/_astro/index.Box75lNT.css"><style>[data-astro-transition-scope="astro-bztu2lml-1"] { view-transition-name: python; }@layer astro { ::view-transition-old(python) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(python) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(python) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(python) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-1"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-1"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-bztu2lml-2"] { view-transition-name: windows; }@layer astro { ::view-transition-old(windows) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(windows) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(windows) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(windows) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-2"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-2"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-2"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-2"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-bztu2lml-3"] { view-transition-name: \5F00\53D1\73AF\5883; }@layer astro { ::view-transition-old(\5F00\53D1\73AF\5883) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(\5F00\53D1\73AF\5883) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(\5F00\53D1\73AF\5883) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(\5F00\53D1\73AF\5883) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-3"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-3"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-3"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-3"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-bztu2lml-4"] { view-transition-name: \6559\7A0B; }@layer astro { ::view-transition-old(\6559\7A0B) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(\6559\7A0B) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(\6559\7A0B) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(\6559\7A0B) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-4"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-4"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-4"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-4"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-4"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-4"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-4"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-4"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-bztu2lml-5"] { view-transition-name: \5165\95E8; }@layer astro { ::view-transition-old(\5165\95E8) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(\5165\95E8) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(\5165\95E8) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(\5165\95E8) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-5"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-5"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-5"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-5"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-5"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-5"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-5"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-5"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-bztu2lml-6"] { view-transition-name: pycharm; }@layer astro { ::view-transition-old(pycharm) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(pycharm) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(pycharm) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(pycharm) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-6"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-6"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-6"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-6"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-6"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-6"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-6"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-6"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-bztu2lml-7"] { view-transition-name: anaconda; }@layer astro { ::view-transition-old(anaconda) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(anaconda) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(anaconda) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(anaconda) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-7"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-7"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-7"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-7"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-7"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-7"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-7"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-7"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style></head><body class="bg-background font-app text-foreground selection:bg-accent/75 selection:text-accent-foreground flex min-h-svh flex-col"><div id="navigation-progress" aria-hidden="true"></div><div id="reading-progress" aria-hidden="true"></div><script type="module">var e,t,n,r,i=null,a=()=>document.getElementById(`navigation-progress`),o=()=>document.documentElement,s=()=>{i?.removeAttribute(`data-navigation-target`),i=null},c=()=>{window.clearTimeout(e),window.clearTimeout(t),window.clearTimeout(n),r!==void 0&&(window.cancelAnimationFrame(r),r=void 0)},l=()=>{c(),o().removeAttribute(`data-navigation-state`),a()?.removeAttribute(`data-state`),s()},u=e=>{let t=e.target;if(!(t instanceof Element)||e instanceof MouseEvent&&(e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey))return;let r=t.closest(`a[href]`);!r||r.origin!==location.origin||r.target===`_blank`||r.hasAttribute(`download`)||r.pathname===location.pathname&&r.search===location.search&&r.hash!==``||(s(),i=r,i.setAttribute(`data-navigation-target`,``),o().setAttribute(`data-navigation-state`,`pressing`),window.clearTimeout(n),n=window.setTimeout(()=>{o().dataset.navigationState===`pressing`&&l()},420))};document.addEventListener(`pointerdown`,u,{capture:!0,passive:!0}),document.addEventListener(`click`,u,{capture:!0}),document.addEventListener(`pointercancel`,l,{capture:!0}),document.addEventListener(`astro:before-preparation`,e=>{c(),o().setAttribute(`data-navigation-state`,`preparing`),a()?.setAttribute(`data-state`,`loading`),e.signal.addEventListener(`abort`,l,{once:!0})}),document.addEventListener(`astro:after-swap`,()=>{let n=o(),i=a();c(),s(),n.setAttribute(`data-navigation-state`,`arriving`),i?.setAttribute(`data-state`,`done`),e=window.setTimeout(()=>{i?.removeAttribute(`data-state`)},220),r=window.requestAnimationFrame(()=>{r=window.requestAnimationFrame(()=>{n.setAttribute(`data-navigation-state`,`settling`),r=void 0})}),t=window.setTimeout(()=>{n.removeAttribute(`data-navigation-state`)},520)});</script><script type="module">var e=[`.post-card`,`.taxonomy-list > li`,`.tag-cloud-item`,`#article > h2`,`#article > h3`,`#article > figure`,`#article > blockquote`,`#article > .callout`,`.reader-nav-link`,`.reader-related-link`].join(`,`),t,n,r,i=()=>{t?.abort(),n?.disconnect(),r!==void 0&&(cancelAnimationFrame(r),r=void 0)},a=e=>{let t=document.getElementById(`reading-progress`),n=document.getElementById(`article`);if(!t||!n){t?.removeAttribute(`data-active`),t?.style.removeProperty(`--reading-progress`);return}t.setAttribute(`data-active`,``);let i=()=>{r=void 0;let e=document.documentElement,n=e.scrollHeight-e.clientHeight,i=n>0?Math.min(1,Math.max(0,e.scrollTop/n)):0;t.style.setProperty(`--reading-progress`,i.toFixed(4))},a=()=>{r===void 0&&(r=requestAnimationFrame(i))};window.addEventListener(`scroll`,a,{passive:!0,signal:e}),window.addEventListener(`resize`,a,{passive:!0,signal:e}),a()},o=t=>{let r=[...document.querySelectorAll(e)];if(r.forEach(e=>{e.removeAttribute(`data-motion-reveal`),e.style.removeProperty(`--motion-delay`)}),t||!(`IntersectionObserver`in window))return;n=new IntersectionObserver(e=>{e.forEach(e=>{if(!e.isIntersecting)return;let t=e.target;t.setAttribute(`data-motion-reveal`,`visible`),n?.unobserve(t)})},{rootMargin:`0px 0px -7% 0px`,threshold:.04});let i=window.innerHeight*.88;r.forEach((e,t)=>{let r=e.getBoundingClientRect();r.top<=i||r.bottom<=0||(e.setAttribute(`data-motion-reveal`,`pending`),e.style.setProperty(`--motion-delay`,`${t%5*22}ms`),n?.observe(e))})};document.addEventListener(`astro:page-load`,()=>{i(),t=new AbortController;let{signal:e}=t,n=window.matchMedia(`(prefers-reduced-motion: reduce)`).matches;a(e),o(n)}),document.addEventListener(`astro:before-swap`,i);</script><a id="skip-to-content" href="#main-content" class="bg-background text-accent absolute inset-s-16 -top-full z-50 px-3 py-2 backdrop-blur-lg transition-all focus:top-4">跳到正文</a><header class="app-layout flex flex-col items-center justify-between sm:flex-row"><div class="border-border bg-background relative flex w-full items-baseline justify-between border-b py-4 sm:items-center sm:py-6"><a href="/" class="absolute py-1 text-xl leading-8 font-semibold whitespace-nowrap sm:static sm:my-auto sm:text-2xl sm:leading-none">TranquilYu&#39;s Blog</a><nav id="nav-menu" class="flex w-full flex-col items-center sm:ms-2 sm:flex-row sm:justify-end sm:space-x-4 sm:py-0"><button id="menu-btn" class="focus-outline self-end p-2 sm:hidden" aria-label="打开菜单" aria-expanded="false" aria-controls="menu-items" data-label-open="打开菜单" data-label-close="关闭菜单"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="hidden" viewBox="0 0 24 24" id="close-icon"><path stroke="none" d="M0 0h24v24H0z" /><path d="M18 6 6 18M6 6l12 12" /></svg><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="icon icon-tabler icons-tabler-outline icon-tabler-menu-deep" viewBox="0 0 24 24" id="menu-icon"><path stroke="none" d="M0 0h24v24H0z" /><path d="M4 6h16M7 12h13M10 18h10" /></svg></button><ul id="menu-items" class="border-border bg-background/96 [&amp;&gt;li&gt;a]:hover:text-accent absolute end-0 top-[calc(100%+0.4rem)] z-50 hidden w-[min(11rem,calc(100vw-2rem))] grid-cols-2 gap-0.5 border p-2.5 shadow-lg backdrop-blur-xl sm:static sm:mt-0 sm:flex sm:w-auto sm:gap-x-5 sm:gap-y-0 sm:border-0 sm:bg-transparent sm:p-0 sm:shadow-none sm:backdrop-blur-none sm:[&amp;&gt;li]:h-8 [&amp;&gt;li&gt;a]:block [&amp;&gt;li&gt;a]:px-3 [&amp;&gt;li&gt;a]:py-2 [&amp;&gt;li&gt;a]:text-center [&amp;&gt;li&gt;a]:font-medium sm:[&amp;&gt;li&gt;a]:px-2 sm:[&amp;&gt;li&gt;a]:py-1"><li class="col-span-2"><a href="/posts/" class="active-nav">文章</a></li><li class="col-span-2"><a href="/categories/">分类</a></li><li class="col-span-2"><a href="/tags/">标签</a></li><li class="col-span-2"><a href="/about/">关于</a></li><li class="col-span-2"><a href="/archive/" title="归档" aria-label="归档" class="group inline-flex items-center gap-1 hover:text-accent focus-outline flex size-full justify-center p-2 sm:relative sm:size-8 sm:p-0"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="hidden sm:absolute sm:top-1/2 sm:left-1/2 sm:block sm:size-6 sm:-translate-x-1/2 sm:-translate-y-1/2" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" /><path d="M3 6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v0a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8M10 12h4" /></svg><span class="sm:sr-only">归档</span></a></li><li class="col-span-1 flex items-center justify-center"><a href="/search/" title="搜索" aria-label="搜索" class="group inline-flex items-center gap-1 hover:text-accent focus-outline relative size-10 sm:size-8"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="absolute top-1/2 left-1/2 size-6 -translate-x-1/2 -translate-y-1/2" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" /><path d="M3 10a7 7 0 1 0 14 0 7 7 0 1 0-14 0M21 21l-6-6" /></svg><span class="sr-only">搜索</span></a></li><li class="col-span-1 flex items-center justify-center"><button id="theme-btn" class="focus-outline hover:[&amp;&gt;svg]:stroke-accent relative size-10 p-3 sm:size-8" title="切换深浅主题" aria-label="auto" aria-live="polite"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="absolute top-[50%] left-[50%] translate-[-50%] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" /><path d="M12 3h.393a7.5 7.5 0 0 0 7.92 12.446A9 9 0 1 1 12 2.992z" /></svg><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="absolute top-[50%] left-[50%] translate-[-50%] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" /><path d="M14.828 14.828a4 4 0 1 0-5.656-5.656 4 4 0 0 0 5.656 5.656M6.343 17.657l-1.414 1.414M6.343 6.343 4.929 4.929M17.657 6.343l1.414-1.414M17.657 17.657l1.414 1.414M4 12H2M12 4V2M20 12h2M12 20v2" /></svg></button></li></ul></nav></div></header><script type="module">var e;function t(){e?.abort();let t=document.querySelector(`#menu-btn`),n=document.querySelector(`#menu-items`),r=document.querySelector(`#menu-icon`),i=document.querySelector(`#close-icon`);if(!t||!n||!r||!i)return;e=new AbortController;let{signal:a}=e,o=t.dataset.labelOpen??`Open menu`,s=t.dataset.labelClose??`Close menu`,c=()=>window.matchMedia(`(prefers-reduced-motion: reduce)`).matches,l=e=>{t.setAttribute(`aria-expanded`,String(e)),t.setAttribute(`aria-label`,e?s:o),n.getAnimations().forEach(e=>e.cancel()),r.classList.toggle(`hidden`,e),i.classList.toggle(`hidden`,!e)},u=()=>{l(!0),n.classList.remove(`hidden`),n.classList.add(`grid`),n.animate([{opacity:0,transform:`translateY(-8px) scale(0.975)`,transformOrigin:`top right`},{opacity:1,transform:`none`,transformOrigin:`top right`}],{duration:c()?1:320,easing:`cubic-bezier(0.22, 1, 0.36, 1)`})},d=async(e=!1)=>{t.getAttribute(`aria-expanded`)===`true`&&(l(!1),await n.animate([{opacity:1,transform:`none`,transformOrigin:`top right`},{opacity:0,transform:`translateY(-5px) scale(0.985)`,transformOrigin:`top right`}],{duration:c()?1:150,easing:`cubic-bezier(0.4, 0, 1, 1)`}).finished.catch(()=>void 0),t.getAttribute(`aria-expanded`)===`false`&&(n.classList.add(`hidden`),n.classList.remove(`grid`),e&&t.focus()))};t.addEventListener(`click`,()=>{t.getAttribute(`aria-expanded`)===`true`?d():u()},{signal:a}),document.addEventListener(`keydown`,e=>{e.key===`Escape`&&d(!0)},{signal:a}),document.addEventListener(`pointerdown`,e=>{t.getAttribute(`aria-expanded`)===`true`&&e.target instanceof Node&&!n.contains(e.target)&&!t.contains(e.target)&&d()},{signal:a,passive:!0})}t(),document.addEventListener(`astro:after-swap`,t);</script><div class="app-layout flex items-center justify-start"><a id="back-button" href="/" class="group inline-flex items-center gap-1 hover:text-accent reader-back-link focus-outline hover:text-foreground/75 -ms-2 mt-8 mb-2"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="inline-block size-6 rtl:rotate-180" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" /><path d="m15 6-6 6 6 6" /></svg><span>返回</span></a></div><script type="module">function e(){let e=document.querySelector(`#back-button`),t=sessionStorage.getItem(`backUrl`);t&&e&&(e.href=t)}document.addEventListener(`astro:page-load`,e),e();</script><main id="main-content" class="app-layout" data-pagefind-body><h1 style="view-transition-name:windowsu004e0bu007684-pythonu0073afu005883u00914du007f6e" class="text-accent inline-block text-2xl font-bold sm:text-3xl">Windows下的Python环境配置</h1><div class="my-2 flex flex-wrap items-center gap-x-2 gap-y-1"><div class="text-muted-foreground flex items-center gap-x-2"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="inline-block size-6 min-w-5.5" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" /><path d="M4 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zM16 3v4M8 3v4M4 11h16M7 14h.013M10.01 14h.005M13.01 14h.005M16.015 14h.005M13.015 17h.005M7.01 17h.005M10.01 17h.005" /></svg><time class="text-sm sm:text-base" datetime="2025-10-01T00:00:00.000Z">1 Oct, 2025</time></div><span aria-hidden="true" class="text-muted-foreground">·</span><span class="text-muted-foreground text-sm" data-reading-stats title="正文约 1,479 字，其中 22 行代码">约 5 分钟 · 1,479 字</span><span aria-hidden="true" class="text-muted-foreground max-sm:hidden hidden">|</span></div><a class="text-muted-foreground text-sm underline decoration-dashed underline-offset-4" href="/categories/教程/">教程</a><details class="mobile-toc bg-background/96 mt-8 max-h-[55vh] overflow-y-auto px-3 py-2.5 backdrop-blur-md xl:hidden" data-pagefind-ignore="all" data-mobile-toc data-astro-cid-p33bl5ka><summary class="focus-outline flex cursor-pointer items-center justify-between gap-4 py-1 font-medium" data-astro-cid-p33bl5ka><span data-astro-cid-p33bl5ka>文章目录</span><span class="toc-count text-muted-foreground text-xs" data-astro-cid-p33bl5ka>19 节</span></summary><ol class="toc-list mt-2 text-sm" data-astro-cid-p33bl5ka><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="在开始之前" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#在开始之前" data-toc-link data-heading-id="在开始之前" data-astro-cid-p33bl5ka>在开始之前</a></li><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="anaconda的安装" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#anaconda的安装" data-toc-link data-heading-id="anaconda的安装" data-astro-cid-p33bl5ka>Anaconda的安装</a></li><li class="toc-item" data-toc-item data-toc-depth="3" data-toc-section="anaconda的安装" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#1-核心定义与定位" data-toc-link data-heading-id="1-核心定义与定位" data-astro-cid-p33bl5ka>1. 核心定义与定位</a></li><li class="toc-item" data-toc-item data-toc-depth="3" data-toc-section="anaconda的安装" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#2-关键区别对比" data-toc-link data-heading-id="2-关键区别对比" data-astro-cid-p33bl5ka>2. 关键区别对比</a></li><li class="toc-item" data-toc-item data-toc-depth="3" data-toc-section="anaconda的安装" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#3那python的库又是什么呢" data-toc-link data-heading-id="3那python的库又是什么呢" data-astro-cid-p33bl5ka>3.那Python的“库”又是什么呢</a></li><li class="toc-item" data-toc-item data-toc-depth="3" data-toc-section="anaconda的安装" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#1官网下载不推荐" data-toc-link data-heading-id="1官网下载不推荐" data-astro-cid-p33bl5ka>1.官网下载（不推荐）</a></li><li class="toc-item" data-toc-item data-toc-depth="3" data-toc-section="anaconda的安装" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#2从清华大学开源软件镜像站下载" data-toc-link data-heading-id="2从清华大学开源软件镜像站下载" data-astro-cid-p33bl5ka>2.从清华大学开源软件镜像站下载</a></li><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="anaconda的配置" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#anaconda的配置" data-toc-link data-heading-id="anaconda的配置" data-astro-cid-p33bl5ka>Anaconda的配置</a></li><li class="toc-item" data-toc-item data-toc-depth="3" data-toc-section="anaconda的配置" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#修改系统变量" data-toc-link data-heading-id="修改系统变量" data-astro-cid-p33bl5ka>修改系统变量</a></li><li class="toc-item" data-toc-item data-toc-depth="3" data-toc-section="anaconda的配置" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#换源" data-toc-link data-heading-id="换源" data-astro-cid-p33bl5ka>换源</a></li><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="conda命令介绍" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#conda命令介绍" data-toc-link data-heading-id="conda命令介绍" data-astro-cid-p33bl5ka>Conda命令介绍</a></li><li class="toc-item" data-toc-item data-toc-depth="3" data-toc-section="conda命令介绍" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#1-解决依赖版本冲突" data-toc-link data-heading-id="1-解决依赖版本冲突" data-astro-cid-p33bl5ka>1. 解决依赖版本冲突</a></li><li class="toc-item" data-toc-item data-toc-depth="3" data-toc-section="conda命令介绍" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#2-保持系统环境干净" data-toc-link data-heading-id="2-保持系统环境干净" data-astro-cid-p33bl5ka>2. 保持系统环境干净</a></li><li class="toc-item" data-toc-item data-toc-depth="3" data-toc-section="conda命令介绍" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#3-方便项目迁移与协作" data-toc-link data-heading-id="3-方便项目迁移与协作" data-astro-cid-p33bl5ka>3. 方便项目迁移与协作</a></li><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="pip换源" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#pip换源" data-toc-link data-heading-id="pip换源" data-astro-cid-p33bl5ka>pip换源</a></li><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="pycharm的安装" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#pycharm的安装" data-toc-link data-heading-id="pycharm的安装" data-astro-cid-p33bl5ka>PyCharm的安装</a></li><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="pycharm的界面说明及使用方法" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#pycharm的界面说明及使用方法" data-toc-link data-heading-id="pycharm的界面说明及使用方法" data-astro-cid-p33bl5ka>PyCharm的界面说明及使用方法</a></li><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="pycharm的python解释器配置" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#pycharm的python解释器配置" data-toc-link data-heading-id="pycharm的python解释器配置" data-astro-cid-p33bl5ka>PyCharm的Python解释器配置</a></li><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="python的学习" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#python的学习" data-toc-link data-heading-id="python的学习" data-astro-cid-p33bl5ka>Python的学习</a></li></ol></details><button type="button" class="mobile-toc-trigger bg-background/92 text-foreground fixed end-4 bottom-[5.25rem] z-50 flex min-h-11 items-center gap-2 border px-3 py-2 backdrop-blur-md xl:hidden" aria-label="打开文章目录" aria-controls="mobile-toc-dialog" aria-expanded="false" aria-haspopup="dialog" data-pagefind-ignore="all" data-mobile-toc-trigger data-astro-cid-p33bl5ka><span class="mobile-toc-trigger-icon" aria-hidden="true" data-astro-cid-p33bl5ka><i data-astro-cid-p33bl5ka></i><i data-astro-cid-p33bl5ka></i><i data-astro-cid-p33bl5ka></i></span><span class="font-sketch text-sm font-medium" data-astro-cid-p33bl5ka>目录</span></button><dialog id="mobile-toc-dialog" class="mobile-toc-dialog" aria-labelledby="mobile-toc-dialog-title" data-pagefind-ignore="all" data-mobile-toc-dialog data-astro-cid-p33bl5ka><div class="mobile-toc-dialog-header" data-astro-cid-p33bl5ka><div class="flex items-baseline gap-2" data-astro-cid-p33bl5ka><span id="mobile-toc-dialog-title" class="font-sketch text-lg font-semibold" data-astro-cid-p33bl5ka>文章目录</span><span class="toc-count text-muted-foreground" data-astro-cid-p33bl5ka>19 节</span></div><button type="button" class="mobile-toc-dialog-close focus-outline" aria-label="关闭文章目录" data-mobile-toc-close data-astro-cid-p33bl5ka><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="icon icon-tabler icons-tabler-outline icon-tabler-x" viewBox="0 0 24 24" aria-hidden="true" data-astro-cid-p33bl5ka="true"><path stroke="none" d="M0 0h24v24H0z" /><path d="M18 6 6 18M6 6l12 12" /></svg></button></div><div class="mobile-toc-dialog-scroll" data-mobile-toc-dialog-scroll data-astro-cid-p33bl5ka><ol class="toc-list text-sm" data-astro-cid-p33bl5ka><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="在开始之前" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#在开始之前" data-toc-link data-heading-id="在开始之前" data-astro-cid-p33bl5ka>在开始之前</a></li><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="anaconda的安装" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#anaconda的安装" data-toc-link data-heading-id="anaconda的安装" data-astro-cid-p33bl5ka>Anaconda的安装</a></li><li class="toc-item" data-toc-item data-toc-depth="3" data-toc-section="anaconda的安装" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#1-核心定义与定位" data-toc-link data-heading-id="1-核心定义与定位" data-astro-cid-p33bl5ka>1. 核心定义与定位</a></li><li class="toc-item" data-toc-item data-toc-depth="3" data-toc-section="anaconda的安装" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#2-关键区别对比" data-toc-link data-heading-id="2-关键区别对比" data-astro-cid-p33bl5ka>2. 关键区别对比</a></li><li class="toc-item" data-toc-item data-toc-depth="3" data-toc-section="anaconda的安装" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#3那python的库又是什么呢" data-toc-link data-heading-id="3那python的库又是什么呢" data-astro-cid-p33bl5ka>3.那Python的“库”又是什么呢</a></li><li class="toc-item" data-toc-item data-toc-depth="3" data-toc-section="anaconda的安装" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#1官网下载不推荐" data-toc-link data-heading-id="1官网下载不推荐" data-astro-cid-p33bl5ka>1.官网下载（不推荐）</a></li><li class="toc-item" data-toc-item data-toc-depth="3" data-toc-section="anaconda的安装" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#2从清华大学开源软件镜像站下载" data-toc-link data-heading-id="2从清华大学开源软件镜像站下载" data-astro-cid-p33bl5ka>2.从清华大学开源软件镜像站下载</a></li><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="anaconda的配置" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#anaconda的配置" data-toc-link data-heading-id="anaconda的配置" data-astro-cid-p33bl5ka>Anaconda的配置</a></li><li class="toc-item" data-toc-item data-toc-depth="3" data-toc-section="anaconda的配置" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#修改系统变量" data-toc-link data-heading-id="修改系统变量" data-astro-cid-p33bl5ka>修改系统变量</a></li><li class="toc-item" data-toc-item data-toc-depth="3" data-toc-section="anaconda的配置" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#换源" data-toc-link data-heading-id="换源" data-astro-cid-p33bl5ka>换源</a></li><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="conda命令介绍" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#conda命令介绍" data-toc-link data-heading-id="conda命令介绍" data-astro-cid-p33bl5ka>Conda命令介绍</a></li><li class="toc-item" data-toc-item data-toc-depth="3" data-toc-section="conda命令介绍" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#1-解决依赖版本冲突" data-toc-link data-heading-id="1-解决依赖版本冲突" data-astro-cid-p33bl5ka>1. 解决依赖版本冲突</a></li><li class="toc-item" data-toc-item data-toc-depth="3" data-toc-section="conda命令介绍" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#2-保持系统环境干净" data-toc-link data-heading-id="2-保持系统环境干净" data-astro-cid-p33bl5ka>2. 保持系统环境干净</a></li><li class="toc-item" data-toc-item data-toc-depth="3" data-toc-section="conda命令介绍" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#3-方便项目迁移与协作" data-toc-link data-heading-id="3-方便项目迁移与协作" data-astro-cid-p33bl5ka>3. 方便项目迁移与协作</a></li><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="pip换源" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#pip换源" data-toc-link data-heading-id="pip换源" data-astro-cid-p33bl5ka>pip换源</a></li><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="pycharm的安装" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#pycharm的安装" data-toc-link data-heading-id="pycharm的安装" data-astro-cid-p33bl5ka>PyCharm的安装</a></li><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="pycharm的界面说明及使用方法" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#pycharm的界面说明及使用方法" data-toc-link data-heading-id="pycharm的界面说明及使用方法" data-astro-cid-p33bl5ka>PyCharm的界面说明及使用方法</a></li><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="pycharm的python解释器配置" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#pycharm的python解释器配置" data-toc-link data-heading-id="pycharm的python解释器配置" data-astro-cid-p33bl5ka>PyCharm的Python解释器配置</a></li><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="python的学习" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#python的学习" data-toc-link data-heading-id="python的学习" data-astro-cid-p33bl5ka>Python的学习</a></li></ol></div></dialog><aside class="fixed end-4 top-24 hidden max-h-[calc(100vh-11rem)] w-48 overflow-y-auto pe-1 xl:block 2xl:end-[calc(50%-43rem)] 2xl:w-52" aria-label="文章目录" data-pagefind-ignore="all" data-toc data-astro-cid-p33bl5ka><div class="toc-heading mb-2 flex items-center justify-between gap-3" data-astro-cid-p33bl5ka><span data-astro-cid-p33bl5ka>文章目录</span><span class="toc-count text-muted-foreground" data-astro-cid-p33bl5ka>19 节</span></div><ol class="toc-list text-sm" data-astro-cid-p33bl5ka><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="在开始之前" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#在开始之前" data-toc-link data-heading-id="在开始之前" data-astro-cid-p33bl5ka>在开始之前</a></li><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="anaconda的安装" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#anaconda的安装" data-toc-link data-heading-id="anaconda的安装" data-astro-cid-p33bl5ka>Anaconda的安装</a></li><li class="toc-item" data-toc-item data-toc-depth="3" data-toc-section="anaconda的安装" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#1-核心定义与定位" data-toc-link data-heading-id="1-核心定义与定位" data-astro-cid-p33bl5ka>1. 核心定义与定位</a></li><li class="toc-item" data-toc-item data-toc-depth="3" data-toc-section="anaconda的安装" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#2-关键区别对比" data-toc-link data-heading-id="2-关键区别对比" data-astro-cid-p33bl5ka>2. 关键区别对比</a></li><li class="toc-item" data-toc-item data-toc-depth="3" data-toc-section="anaconda的安装" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#3那python的库又是什么呢" data-toc-link data-heading-id="3那python的库又是什么呢" data-astro-cid-p33bl5ka>3.那Python的“库”又是什么呢</a></li><li class="toc-item" data-toc-item data-toc-depth="3" data-toc-section="anaconda的安装" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#1官网下载不推荐" data-toc-link data-heading-id="1官网下载不推荐" data-astro-cid-p33bl5ka>1.官网下载（不推荐）</a></li><li class="toc-item" data-toc-item data-toc-depth="3" data-toc-section="anaconda的安装" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#2从清华大学开源软件镜像站下载" data-toc-link data-heading-id="2从清华大学开源软件镜像站下载" data-astro-cid-p33bl5ka>2.从清华大学开源软件镜像站下载</a></li><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="anaconda的配置" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#anaconda的配置" data-toc-link data-heading-id="anaconda的配置" data-astro-cid-p33bl5ka>Anaconda的配置</a></li><li class="toc-item" data-toc-item data-toc-depth="3" data-toc-section="anaconda的配置" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#修改系统变量" data-toc-link data-heading-id="修改系统变量" data-astro-cid-p33bl5ka>修改系统变量</a></li><li class="toc-item" data-toc-item data-toc-depth="3" data-toc-section="anaconda的配置" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#换源" data-toc-link data-heading-id="换源" data-astro-cid-p33bl5ka>换源</a></li><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="conda命令介绍" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#conda命令介绍" data-toc-link data-heading-id="conda命令介绍" data-astro-cid-p33bl5ka>Conda命令介绍</a></li><li class="toc-item" data-toc-item data-toc-depth="3" data-toc-section="conda命令介绍" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#1-解决依赖版本冲突" data-toc-link data-heading-id="1-解决依赖版本冲突" data-astro-cid-p33bl5ka>1. 解决依赖版本冲突</a></li><li class="toc-item" data-toc-item data-toc-depth="3" data-toc-section="conda命令介绍" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#2-保持系统环境干净" data-toc-link data-heading-id="2-保持系统环境干净" data-astro-cid-p33bl5ka>2. 保持系统环境干净</a></li><li class="toc-item" data-toc-item data-toc-depth="3" data-toc-section="conda命令介绍" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#3-方便项目迁移与协作" data-toc-link data-heading-id="3-方便项目迁移与协作" data-astro-cid-p33bl5ka>3. 方便项目迁移与协作</a></li><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="pip换源" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#pip换源" data-toc-link data-heading-id="pip换源" data-astro-cid-p33bl5ka>pip换源</a></li><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="pycharm的安装" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#pycharm的安装" data-toc-link data-heading-id="pycharm的安装" data-astro-cid-p33bl5ka>PyCharm的安装</a></li><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="pycharm的界面说明及使用方法" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#pycharm的界面说明及使用方法" data-toc-link data-heading-id="pycharm的界面说明及使用方法" data-astro-cid-p33bl5ka>PyCharm的界面说明及使用方法</a></li><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="pycharm的python解释器配置" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#pycharm的python解释器配置" data-toc-link data-heading-id="pycharm的python解释器配置" data-astro-cid-p33bl5ka>PyCharm的Python解释器配置</a></li><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="python的学习" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#python的学习" data-toc-link data-heading-id="python的学习" data-astro-cid-p33bl5ka>Python的学习</a></li></ol></aside><script type="module" src="/_astro/TableOfContents.astro_astro_type_script_index_0_lang.Ckx0ik07.js"></script><article id="article" class="mt-8 w-full app-prose max-w-app prose-pre:bg-(--shiki-light-bg) dark:prose-pre:bg-(--shiki-dark-bg)"><h2 id="在开始之前">在开始之前</h2>
+<ul>
+<li>
+<p>保证你的用户文件夹不要存在中文，且在任何情况下不要把项目文件/文件夹放在中文目录下。</p>
+<p>例如<img alt="" style="--image-placeholder:linear-gradient(135deg, #f6f6f6, #f7f7f7 50%, #fdfcfd)" loading="lazy" decoding="async" sizes="(min-width: 1578px) 1578px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="1578" height="1190" src="/_astro/image-20251001200303183.twQYE6CT_Z1f8zJn.webp" srcset="/_astro/image-20251001200303183.twQYE6CT_Qqg8U.webp 480w, /_astro/image-20251001200303183.twQYE6CT_t9Vmi.webp 768w, /_astro/image-20251001200303183.twQYE6CT_Z2lMERy.webp 1280w, /_astro/image-20251001200303183.twQYE6CT_Z1f8zJn.webp 1578w"></p>
+</li>
+</ul>
+<p>你的用户主文件夹不能为中文，否则在后续操作中会出现许多未知错误，导致安装或运行程序无法继续进行。图中用户主文件夹名为“TranquilYu”，符合要求。若采用邮箱登录，其用户主文件夹一般为邮箱的开头5位数字，同样是符合要求的。如果发现自己用户主文件夹为中文，请创建一个新本地用户（权限应为管理员权限，账户名字应不包含中文），然后继续按照教程操作。</p>
+<ul>
+<li>
+<p>保证良好的网络连接</p>
+</li>
+<li>
+<p>拥有充足的硬盘空间</p>
+</li>
+</ul>
+<h2 id="anaconda的安装">Anaconda的安装</h2>
+<p>很多刚接触Python环境管理的人都会混淆Anaconda和conda。简单说，<strong>Anaconda是一个集成的Python数据科学平台，而conda是平台内置的包与环境管理工具</strong>，二者是“平台”与“工具”的包含关系。也就是说，conda是Python的一个库，Anaconda是一个整合包，整合了包含conda在内的其他Python库。</p>
+<h3 id="1-核心定义与定位">1. 核心定义与定位</h3>
+<ul>
+<li><strong>Anaconda</strong>：全称Anaconda Individual Edition，是一个免费开源的Python/R数据科学发行版。它不仅包含Python解释器，还预装了NumPy、Pandas、Matplotlib等数百个常用数据科学包，同时内置了conda工具，旨在让用户“开箱即用”，无需手动配置复杂环境。</li>
+<li><strong>conda</strong>：是一个跨平台的包管理器和环境管理器，核心功能是安装、卸载、更新软件包，以及创建隔离的Python环境（避免不同项目依赖冲突）。它不依赖Python，甚至可以管理非Python语言的包（如R语言包）。</li>
+</ul>
+<h3 id="2-关键区别对比">2. 关键区别对比</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>对比维度</th><th>Anaconda</th><th>conda</th></tr></thead><tbody><tr><td><strong>本质</strong></td><td>集成平台（含Python、工具、预装包）</td><td>包与环境管理工具</td></tr><tr><td><strong>包含关系</strong></td><td>内置conda，是conda的“载体”之一</td><td>是Anaconda的核心组件，也可独立安装</td></tr><tr><td><strong>核心功能</strong></td><td>提供完整的数据科学开发环境（一键启动）</td><td>管理包（安装/卸载）、管理环境（创建/切换）</td></tr><tr><td><strong>独立使用</strong></td><td>无法拆分，是完整的安装包</td><td>可单独安装（如Miniconda，仅含conda和Python）</td></tr></tbody></table>
+<h3 id="3那python的库又是什么呢">3.那Python的“库”又是什么呢</h3>
+<p>在Python中，“库”（Library）是一系列预先编写好的代码集合，包含了函数、类、变量等，用于实现特定功能，方便开发者直接调用，无需重复编写基础代码。</p>
+<p>简单说，库就像一个“工具包”：</p>
+<ul>
+<li>比如处理数据的<code>pandas</code>库，封装了表格处理、数据分析的常用功能</li>
+<li>用于绘图的<code>matplotlib</code>库，提供了各种图表绘制的现成方法</li>
+<li>网络请求的<code>requests</code>库，简化了网页数据获取的过程</li>
+</ul>
+<p>这些库由Python社区或开发者团队维护，通过<code>pip install 库名</code>或<code>conda install 库名</code>等命令安装后，就能在代码中用<code>import</code>导入并使用，极大提高开发效率。这两个命令在本文后面还会讲到。</p>
+<p>库可以理解为Python生态的“积木”，开发者通过组合不同库，快速搭建复杂应用，而不必从零开始编写每一行代码。</p>
+<p>这也就是为什么Python越来越火，因为使用Python实现一个功能不要求你从0开始编写代码，你只需要在互联网上找到你想调用的库，简要学习一下如何调用，便可整合到你的程序中去。</p>
+<p>安装Anaconda有两个下载途径</p>
+<h3 id="1官网下载不推荐">1.官网下载（不推荐）</h3>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #efefef, #ebf2ee 50%, #f8f8f8)" loading="lazy" decoding="async" sizes="(min-width: 2560px) 2560px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="2560" height="1600" src="/_astro/image-20251001201513671.ysMUlO8q_1Uc81A.webp" srcset="/_astro/image-20251001201513671.ysMUlO8q_Z3faF.webp 480w, /_astro/image-20251001201513671.ysMUlO8q_2vk4CQ.webp 768w, /_astro/image-20251001201513671.ysMUlO8q_Z11M9Ph.webp 1280w, /_astro/image-20251001201513671.ysMUlO8q_1Uc81A.webp 2560w"></p>
+<p>官方下载链接为<a href="https://www.anaconda.com/download" target="_blank" rel="noopener noreferrer" data-external-link="">Download Anaconda Distribution | Anaconda</a></p>
+<p>理论上点击Get Started便可以开始下载，但是事实并非如此。在点击Get Started之后，你需要注册账户，且下载源来自国外，在国内下载速度不稳定，因为相对繁琐，所以不推荐此方法。</p>
+<h3 id="2从清华大学开源软件镜像站下载">2.从清华大学开源软件镜像站下载</h3>
+<p>首先先解答一个问题：何为镜像站？</p>
+<p>这类镜像站的核心作用是<strong>缓存并分发开源软件资源</strong>，让用户能更快速、稳定地获取所需文件。</p>
+<p>这类站点在开发者和高校用户中非常常用。它的存在主要解决了三个核心问题：</p>
+<ol>
+<li><strong>提升下载速度</strong>：很多开源软件的官方服务器位于国外，国内用户直接访问会受网络链路影响，速度很慢。镜像站将这些资源同步到国内服务器，用户从国内站点下载，速度会提升数倍甚至数十倍。</li>
+<li><strong>保障访问稳定性</strong>：官方服务器可能因地域、带宽或维护等原因出现宕机或访问不稳定的情况。国内部分镜像站多采用多节点部署，能有效避免一个服务器故障导致下载出现问题，确保用户随时能获取资源。</li>
+<li><strong>降低官方服务器压力</strong>：全球大量用户同时从官方服务器下载，会对其造成巨大带宽压力。镜像站通过分担下载请求，帮助官方服务器减轻负载，保障其核心服务的稳定。</li>
+</ol>
+<p>简单来说，镜像站就像一个“本地仓库”。它定期从“总仓库”（官方服务器）进货，当你需要时，不用再去遥远的“总仓库”，直接在“本地仓库”就能快速拿到一样的东西。</p>
+<p>在Linux中，包管理器类似apt，yum，pacman都需要我们手动换源以加快下载速度。</p>
+<p>点击下面链接即可访问镜像站：</p>
+<p><a href="https://mirrors.tuna.tsinghua.edu.cn/" target="_blank" rel="noopener noreferrer" data-external-link="">清华大学开源软件镜像站 | Tsinghua Open Source Mirror</a></p>
+<p>在镜像站首页，可以看到有很多仓库，这里我们需要找到并点击anaconda，进入achieve目录，按日期排序，找到符合我们系统（Windows）和架构（x86_64）的最新版本，点击就可以进行下载了。下面是个简单的动图，展示了如何找到我们所需的发行版安装包：</p>
+<figure class="article-figure"><img src="/images/0001.webp" alt="0001" style="--image-placeholder:linear-gradient(135deg, #eff1f0, #f6f8f9 50%, #ecf1f1)"><figcaption class="article-figcaption">0001</figcaption></figure>
+<p>在本文编辑完成之前，对于Windows系统而言，最新版本的软件包是“Anaconda3-2025.06-1-Windows-x86_64.exe”，如果您是通过电脑阅读本文，也可点击下面链接下载安装程序：<a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/Anaconda3-2025.06-1-Windows-x86_64.exe" target="_blank" rel="noopener noreferrer" data-external-link="">https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/Anaconda3-2025.06-1-Windows-x86_64.exe</a></p>
+<p>下载完成，自然是要进行安装。不过，安装并不是无脑地点击Next和Agree，有些选项也是需要进行选择的。</p>
+<p>运行安装程序（双击Anaconda3-2025.06-1-Windows-x86_64.exe），等待安装程序加载完成后，您会看到下面画面：</p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #eaedec, #eaeaea 50%, #f9f8f9)" loading="lazy" decoding="async" sizes="(min-width: 998px) 998px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="998" height="776" src="/_astro/image-20251001203216213.BZVuXRQn_ZAwWrx.webp" srcset="/_astro/image-20251001203216213.BZVuXRQn_1rvd7G.webp 480w, /_astro/image-20251001203216213.BZVuXRQn_2mo82s.webp 768w, /_astro/image-20251001203216213.BZVuXRQn_ZAwWrx.webp 998w"></p>
+<p>这里点击“Next >”，进行下一步</p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #e7e8e9, #f0f0ef 50%, #f0f0f0)" loading="lazy" decoding="async" sizes="(min-width: 998px) 998px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="998" height="776" src="/_astro/image-20251001203243953.DsPNEqx3_Z1iQg5t.webp" srcset="/_astro/image-20251001203243953.DsPNEqx3_JbTtK.webp 480w, /_astro/image-20251001203243953.DsPNEqx3_1E4Oow.webp 768w, /_astro/image-20251001203243953.DsPNEqx3_Z1iQg5t.webp 998w"></p>
+<p>“I Agree”</p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #e7e9e9, #eeeeee 50%, #edecec)" loading="lazy" decoding="async" sizes="(min-width: 998px) 998px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="998" height="776" src="/_astro/image-20251001203311320.HGKNFAJJ_Z17IQI0.webp" srcset="/_astro/image-20251001203311320.HGKNFAJJ_UjiQe.webp 480w, /_astro/image-20251001203311320.HGKNFAJJ_1PcdL0.webp 768w, /_astro/image-20251001203311320.HGKNFAJJ_Z17IQI0.webp 998w"></p>
+<p>这里默认是“Just Me”，不过我们要把它改成“All Users”，然后点击“Next >”，这里也许会弹出UAC弹窗，选择“是”即可。</p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #e5e6e6, #ececec 50%, #edeeef)" loading="lazy" decoding="async" sizes="(min-width: 998px) 998px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="998" height="776" src="/_astro/image-20251001203428718.D8V3tWal_1mdk8I.webp" srcset="/_astro/image-20251001203428718.D8V3tWal_Z1EUD5Y.webp 480w, /_astro/image-20251001203428718.D8V3tWal_ZK2Ibd.webp 768w, /_astro/image-20251001203428718.D8V3tWal_1mdk8I.webp 998w"></p>
+<p>这一步让我们选择安装目录。我们可以看到，安装Anaconda需要5.2GB的空间，图示电脑C盘还剩余106.1GB，这里我们可以按照默认安装位置安装，如果你的C盘空间紧张或是对于存储空间有所规划，可以选择安装到其他盘。如果要安装到其他盘，建议目标文件夹是<code>D:\anaconda3</code>。不允许安装到含有中文的目录中，例如<code>D:\软件\anaconda3</code>，大多数程序对于中文路径的处理并不完善，极易出现bug甚至程序崩溃。本文中安装文件夹将以<code>C:\ProgramData\anaconda3</code>为例。需要注意的是，<strong>你需要记住这个安装目录</strong>，后续操作会用到此安装目录。选择好安装目录后点击“Next >”继续。</p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #dbdadb, #eaebeb 50%, #ececec)" loading="lazy" decoding="async" sizes="(min-width: 998px) 998px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="998" height="776" src="/_astro/image-20251001204116315.JRycWQmM_1YGG19.webp" srcset="/_astro/image-20251001204116315.JRycWQmM_Z12rhdy.webp 480w, /_astro/image-20251001204116315.JRycWQmM_Z7ymiM.webp 768w, /_astro/image-20251001204116315.JRycWQmM_1YGG19.webp 998w"></p>
+<p>此处默认只有第一个复选框被选中，我们要把三个都勾选上，然后点击“Install”</p>
+<p>由于释放文件较多，安装时间略长，耐心等待即可……</p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #d6ded7, #e0e8e1 50%, #f2f2f2)" loading="lazy" decoding="async" sizes="(min-width: 998px) 998px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="998" height="776" src="/_astro/image-20251001204611527.BpwLBaOv_IW5jP.webp" srcset="/_astro/image-20251001204611527.BpwLBaOv_Z2ibRTR.webp 480w, /_astro/image-20251001204611527.BpwLBaOv_Z1niX06.webp 768w, /_astro/image-20251001204611527.BpwLBaOv_IW5jP.webp 998w"></p>
+<p>出现Completed代表安装结束，此时点击“Next >”</p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #e3e5e4, #eeeeee 50%, #e0e1e3)" loading="lazy" decoding="async" sizes="(min-width: 998px) 998px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="998" height="776" src="/_astro/image-20251001204656068.COSQHA9m_18VLvM.webp" srcset="/_astro/image-20251001204656068.COSQHA9m_Z1ScbHU.webp 480w, /_astro/image-20251001204656068.COSQHA9m_ZXjgN9.webp 768w, /_astro/image-20251001204656068.COSQHA9m_18VLvM.webp 998w"></p>
+<p>会出现以下界面，点击“Next >”进行下一步。</p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #eaeceb, #ebeaeb 50%, #f8f8f8)" loading="lazy" decoding="async" sizes="(min-width: 998px) 998px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="998" height="776" src="/_astro/image-20251001204731723.AFZRCK1A_1iXwaq.webp" srcset="/_astro/image-20251001204731723.AFZRCK1A_Z1Iar4h.webp 480w, /_astro/image-20251001204731723.AFZRCK1A_ZNhw9v.webp 768w, /_astro/image-20251001204731723.AFZRCK1A_1iXwaq.webp 998w"></p>
+<p>到了最后一步，将这两个默认勾选的复选框取消勾选（用不到），然后点击退出。</p>
+<p>至此我们Anaconda的安装告一段落了，但是接下来我们还要对其进行配置，否则我们无法正常使用。</p>
+<h2 id="anaconda的配置">Anaconda的配置</h2>
+<h3 id="修改系统变量">修改系统变量</h3>
+<p>此时安装完成的Anaconda并没有加入系统的环境变量中，这将导致我们没法在终端（命令提示符即cmd）直接调用，于是我们需要对其进行配置。</p>
+<ul>
+<li>
+<p><strong>打开系统属性</strong> 在 Windows 系统中，右键点击“此电脑”或“我的电脑”，选择“属性”。然后点击“高级系统设置”，进入“环境变量”设置界面。（或者直接在开始菜单的搜索框中搜索“<strong>系统变量</strong>”（其实完整名字是“编辑系统环境变量”））</p>
+</li>
+<li>
+<p><strong>编辑系统变量中的 Path</strong> 在“系统变量”部分找到 <em>Path</em>，点击“编辑”。在弹出的窗口中，点击“新建”，添加以下路径（假设 Anaconda 安装在 <em>C:\ProgramData\anaconda3</em>）：</p>
+</li>
+</ul>
+<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>C:\ProgramData\anaconda3</span></span>
+<span class="line"><span>C:\ProgramData\anaconda3\Scripts</span></span>
+<span class="line"><span>C:\ProgramData\anaconda3\Library\bin</span></span>
+<span class="line"><span>C:\ProgramData\anaconda3\Library\mingw-w64\bin</span></span></code></pre>
+<p>当然，如果你安装在了D:\anaconda3，那么路径应该是这样的</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>D:\anaconda3</span></span>
+<span class="line"><span>D:\anaconda3\Scripts</span></span>
+<span class="line"><span>D:\anaconda3\Library\bin</span></span>
+<span class="line"><span>D:\anaconda3\Library\mingw-w64\bin</span></span></code></pre>
+<p>关于如何添加，下面有个动图进行演示：</p>
+<figure class="article-figure"><img src="/images/0002.webp" alt="0002" style="--image-placeholder:linear-gradient(135deg, #f4f3f4, #a6bcce 50%, #597f95)"><figcaption class="article-figcaption">0002</figcaption></figure>
+<p>需要注意的关键点：</p>
+<ul>
+<li>
+<p>编辑的是“系统变量”而非“用户变量”</p>
+</li>
+<li>
+<p>编辑完成一定要点三次确定，确保窗口完全关闭！</p>
+</li>
+</ul>
+<p>如何确定自己已经正确配置了环境变量？</p>
+<figure class="article-figure"><img src="/images/0003.webp" alt="0003" style="--image-placeholder:linear-gradient(135deg, #969ab4, #617e9f 50%, #2c5c7a)"><figcaption class="article-figcaption">0003</figcaption></figure>
+<p>按Win + R键（或者右键开始菜单图标点击“运行”），在弹出的“运行”对话框中输入cmd并回车，在弹出的命令提示符中输入（V要大写）</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>conda -V</span></span></code></pre>
+<p>若如下图所示输出则环境变量配置成功。</p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #141414, #101010 50%, #0c0c0c)" loading="lazy" decoding="async" sizes="(min-width: 2350px) 2350px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="2350" height="1286" src="/_astro/image-20251001210033489.C0_SI3Ps_Z1fHP60.webp" srcset="/_astro/image-20251001210033489.C0_SI3Ps_F33pG.webp 480w, /_astro/image-20251001210033489.C0_SI3Ps_Z29kULO.webp 768w, /_astro/image-20251001210033489.C0_SI3Ps_1US73w.webp 1280w, /_astro/image-20251001210033489.C0_SI3Ps_Z1fHP60.webp 2350w"></p>
+<p>如图，conda输出了它的版本号：25.5.1</p>
+<p>这代表Anaconda已经安装完成，恭喜！</p>
+<h3 id="换源">换源</h3>
+<p>没错，还是更换镜像源，具体优点与好处上文已经提及，不再赘述。</p>
+<p>将以下代码复制到上一步骤所示命令提示符中执行，便可更换镜像源为清华源</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</span></span>
+<span class="line"><span>conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/</span></span>
+<span class="line"><span>conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/</span></span>
+<span class="line"><span>conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/linux-64/</span></span>
+<span class="line"><span>conda config --set show_channel_urls yes</span></span></code></pre>
+<p>如下图所示：</p>
+<figure class="article-figure"><img src="/images/0004.webp" alt="0004" style="--image-placeholder:linear-gradient(135deg, #131315, #10191f 50%, #253138)"><figcaption class="article-figcaption">0004</figcaption></figure>
+<p>验证配置是否成功，可以使用命令</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>conda info</span></span></code></pre>
+<p>查看。在channel URLs一项中出现了很多清华源，则配置成功！</p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #222222, #1b1b1b 50%, #111111)" loading="lazy" decoding="async" sizes="(min-width: 2350px) 2350px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="2350" height="1286" src="/_astro/image-20251001210512992.Gbm4LsDq_Z1SvtnJ.webp" srcset="/_astro/image-20251001210512992.Gbm4LsDq_ZOfNAB.webp 480w, /_astro/image-20251001210512992.Gbm4LsDq_1qxl0O.webp 768w, /_astro/image-20251001210512992.Gbm4LsDq_1i5sKM.webp 1280w, /_astro/image-20251001210512992.Gbm4LsDq_Z1SvtnJ.webp 2350w"></p>
+<p>至此，Anaconda配置结束。</p>
+<h2 id="conda命令介绍">Conda命令介绍</h2>
+<p>在实际使用conda之前，我们首先要进入<strong>Anaconda Prompt</strong>环境。注意这个程序不会直接在你的桌面上创建快捷方式，你需要在开始菜单——A字母开头——Anaconda3文件夹中找到它。你也可以在开始菜单的搜索框中直接搜索<strong>Anaconda Prompt</strong>打开它。打开它应该是这样的：</p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #101010, #101010 50%, #0c0c0c)" loading="lazy" decoding="async" sizes="(min-width: 2350px) 2350px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="2350" height="1286" src="/_astro/image-20251001212237025.DmVYdK4x_Z1mcfAj.webp" srcset="/_astro/image-20251001212237025.DmVYdK4x_ZXdBCC.webp 480w, /_astro/image-20251001212237025.DmVYdK4x_1hzwXN.webp 768w, /_astro/image-20251001212237025.DmVYdK4x_1OoGyd.webp 1280w, /_astro/image-20251001212237025.DmVYdK4x_Z1mcfAj.webp 2350w"></p>
+<p>注意到与平常使用的命令提示符存在不同——最前面有个（base）！这个其实是在提醒你当前是在默认的环境中。接下来我们便需要创建一个新的环境。在控制台中执行：</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>conda create -n name python=3.13</span></span></code></pre>
+<p>create便是”创建“，意味着我们要创建一个环境了。</p>
+<p><strong>-n</strong>其实是**—name**的缩写，使用哪个都可以，但要在其后加上参数即环境名称。这条指令便可创建一个Python环境。</p>
+<p>这时你可能要问了：为什么我要创建一个Python环境呢？</p>
+<p>用conda创建Python环境，核心是为了解决不同项目间的<strong>依赖冲突</strong>，让每个项目都能在独立、干净的环境中运行。</p>
+<p>这个问题提得很实用，很多Python初学者都会因为环境问题踩坑。conda创建环境的必要性，主要体现在以下3点：</p>
+<h3 id="1-解决依赖版本冲突">1. 解决依赖版本冲突</h3>
+<p>不同Python项目可能需要同一库的不同版本。</p>
+<ul>
+<li>例如，项目A需要<code>numpy 1.20</code>版本，而项目B必须用<code>numpy 1.18</code>版本。</li>
+<li>如果不隔离环境，安装高版本会导致低版本项目报错，反之亦然。</li>
+<li>conda能为每个项目单独安装所需版本的库，互不干扰。</li>
+</ul>
+<h3 id="2-保持系统环境干净">2. 保持系统环境干净</h3>
+<p>直接在系统默认Python环境安装库，会导致：</p>
+<ul>
+<li>安装的库越来越多，难以管理。</li>
+<li>误删或升级某个库，可能影响系统自带程序（部分系统工具依赖Python）。</li>
+<li>conda创建的环境是独立目录，删除环境时能彻底清理所有相关文件，不残留垃圾。</li>
+</ul>
+<h3 id="3-方便项目迁移与协作">3. 方便项目迁移与协作</h3>
+<p>当需要和他人协作或在新电脑上运行项目时：</p>
+<ul>
+<li>可以用conda导出当前环境的依赖列表（<code>environment.yml</code>文件）。</li>
+<li>他人只需通过该文件，就能一键复现完全相同的环境，避免“我这能跑，你那报错”的问题。</li>
+</ul>
+<p>简而言之，创建不同的Python本质上就是为了“隔离”，你可能有很多个Python项目要跑，而这些项目对于库与依赖的要求各不相同，甚至会起冲突，于是你便需要创建不同的环境把它们隔离开咯~</p>
+<p>话说回来，起什么名字还是需要自己依照实际需求起。这里为了演示方便，我便起名“test”了。后面的<strong>python=3.13</strong>是为了指定这个环境所使用的Python版本。输入完成后，敲击回车便开始创建环境了。</p>
+<p>（tips：如果你的用户主文件夹是中文的话在这一步会创建不了环境哦（回收开头））</p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #1f1f1f, #171717 50%, #141414)" loading="lazy" decoding="async" sizes="(min-width: 2350px) 2350px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="2350" height="1286" src="/_astro/image-20251001211623674.BiBD3f_G_Ygibl.webp" srcset="/_astro/image-20251001211623674.BiBD3f_G_2dw8dc.webp 480w, /_astro/image-20251001211623674.BiBD3f_G_ZAQPYj.webp 768w, /_astro/image-20251001211623674.BiBD3f_G_ZTjSt4.webp 1280w, /_astro/image-20251001211623674.BiBD3f_G_Ygibl.webp 2350w"></p>
+<p>出现此提示，输入<strong>y</strong>之后回车或者直接回车确认安装这些软件包。</p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #141414, #101010 50%, #0d0d0d)" loading="lazy" decoding="async" sizes="(min-width: 2350px) 2350px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="2350" height="1286" src="/_astro/image-20251001212512068.CCud8bwX_ZH1FbV.webp" srcset="/_astro/image-20251001212512068.CCud8bwX_1vaiVa.webp 480w, /_astro/image-20251001212512068.CCud8bwX_Z1jdFgl.webp 768w, /_astro/image-20251001212512068.CCud8bwX_2tzgWA.webp 1280w, /_astro/image-20251001212512068.CCud8bwX_ZH1FbV.webp 2350w"></p>
+<p>创建完成！左上角提示<strong>done</strong>便是最好的证明。conda也贴心地为我们贴出来了两条指令。我们便接着这两条指令说下去：</p>
+<p>首先是</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>conda activate &#x3C;你的环境名></span></span></code></pre>
+<p>activate不必多说，激活嘛。我们输入这行命令并回车，便出现了以下变化：</p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #171616, #101010 50%, #0c0c0c)" loading="lazy" decoding="async" sizes="(min-width: 2350px) 2350px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="2350" height="1286" src="/_astro/image-20251001212747620.DzprFuzH_1pb4bA.webp" srcset="/_astro/image-20251001212747620.DzprFuzH_UiYzJ.webp 480w, /_astro/image-20251001212747620.DzprFuzH_Z1T4YBL.webp 768w, /_astro/image-20251001212747620.DzprFuzH_Ztp7sO.webp 1280w, /_astro/image-20251001212747620.DzprFuzH_1pb4bA.webp 2350w"></p>
+<p>注意到前面的标志换了！这表明我们已经切换到test环境下了！</p>
+<p>要想从test环境回到默认的base环境，只需输入</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>conda deactivate</span></span></code></pre>
+<p>并回车即可回到base环境。</p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #171717, #101010 50%, #0c0c0c)" loading="lazy" decoding="async" sizes="(min-width: 2350px) 2350px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="2350" height="1286" src="/_astro/image-20251001212935407.m6lxarUj_2Xkbo.webp" srcset="/_astro/image-20251001212935407.m6lxarUj_12CDJd.webp 480w, /_astro/image-20251001212935407.m6lxarUj_Z1LKksi.webp 768w, /_astro/image-20251001212935407.m6lxarUj_Z1PBQt1.webp 1280w, /_astro/image-20251001212935407.m6lxarUj_2Xkbo.webp 2350w"></p>
+<p>使用</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>conda env list</span></span></code></pre>
+<p>便可列出当前存在的所有环境。</p>
+<p>使用</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>conda env remove -n &#x3C;你的环境名></span></span></code></pre>
+<p>便可移除你创建的环境。-n也可写作—name</p>
+<p>在你想使用的环境中（例如刚创建的test环境），使用</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>conda install &#x3C;库名></span></span></code></pre>
+<p>来安装你想要安装的库，例如安装numpy库，见下图：</p>
+<figure class="article-figure"><img src="/images/0005.webp" alt="0005" style="--image-placeholder:linear-gradient(135deg, #181d22, #111a22 50%, #232b30)"><figcaption class="article-figcaption">0005</figcaption></figure>
+<p>同样的，程序会询问你是否安装，输入y并回车或者直接回车就可以安装。</p>
+<p>以上仅说明了基本的conda命令，如果想了解更多命令，请访问：</p>
+<p><a href="https://www.runoob.com/python-qt/anaconda-tutorial.html" target="_blank" rel="noopener noreferrer" data-external-link="">Anaconda 教程 | 菜鸟教程</a></p>
+<h2 id="pip换源">pip换源</h2>
+<p>pip同样也是一个Python包管理器。为了加速下载速度，我们同样可以换源来加速下载。</p>
+<p>按Win + R打开cmd（命令提示符），右键输入下面代码并回车即可完成换源。</p>
+<figure class="article-figure"><img src="/images/0006.webp" alt="0006" style="--image-placeholder:linear-gradient(135deg, #9398b2, #5f7d9e 50%, #34627e)"><figcaption class="article-figcaption">0006</figcaption></figure>
+<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>mkdir %APPDATA%\pip &#x26;&#x26; (echo [global] &#x26; echo index-url = https://pypi.tuna.tsinghua.edu.cn/simple/ &#x26; echo trusted-host = pypi.tuna.tsinghua.edu.cn) > %APPDATA%\pip\pip.ini</span></span></code></pre>
+<h2 id="pycharm的安装">PyCharm的安装</h2>
+<p>PyCharm 是 JetBrains 公司开发的一款专业 Python 集成开发环境（IDE），主要特点如下：</p>
+<ol>
+<li>
+<p><strong>功能全面</strong>：集成代码编辑、调试、测试、版本控制（Git 等）、数据库工具等，一站式满足 Python 开发需求。</p>
+</li>
+<li>
+<p><strong>智能辅助</strong>：提供代码自动补全、语法高亮、错误提示、重构建议等功能，大幅提升编码效率。</p>
+</li>
+<li>
+<p><strong>环境兼容</strong>：完美支持虚拟环境（如 conda、venv），可快速切换不同项目的运行环境。</p>
+</li>
+<li>
+<p><strong>扩展性强</strong>：通过插件市场支持 Django、Flask 等框架开发，以及 JavaScript、HTML 等多语言混合编程。</p>
+</li>
+<li>
+<p><strong>跨平台</strong>：支持 Windows、macOS、Linux 系统，适合不同操作系统的开发者。</p>
+</li>
+</ol>
+<p>适合从入门到专业的各类 Python 开发场景，是目前最流行的 Python IDE 之一。</p>
+<p>在这里，我们使用PyCharm的社区版而非专业版。</p>
+<p>在下载页面<a href="https://www.jetbrains.com/zh-cn/pycharm/download/other.html" target="_blank" rel="noopener noreferrer" data-external-link="">其他版本 - PyCharm</a>中找到<strong>PyCharm Community Edition</strong>一栏，找到**<a href="https://download.jetbrains.com/python/pycharm-community-2025.2.2.exe" target="_blank" rel="noopener noreferrer" data-external-link="">2025.2.2 - Windows (exe)</a>**一项并点击下载。如果您使用电脑阅读本文，可直接点击链接下载。本文编辑完成前，PyCharm版本为2025.2.2。</p>
+<p>等待其下载完成后，双击安装程序进行安装。等待安装程序加载完成后，应该向您询问UAC权限，选”是“即可。</p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #a0ddd5, #fbf3f4 50%, #fffbfa)" loading="lazy" decoding="async" sizes="(min-width: 998px) 998px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="998" height="716" src="/_astro/image-20251001215019891.EOiDZv53_Z2ub4bT.webp" srcset="/_astro/image-20251001215019891.EOiDZv53_Z1ihiOc.webp 480w, /_astro/image-20251001215019891.EOiDZv53_Z2w73Kf.webp 768w, /_astro/image-20251001215019891.EOiDZv53_Z2ub4bT.webp 998w"></p>
+<p>”下一步“</p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #d4e3dd, #f1eff0 50%, #e7ecef)" loading="lazy" decoding="async" sizes="(min-width: 998px) 998px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="998" height="716" src="/_astro/image-20251001215036969.BwzQxXFJ_Z9JMvs.webp" srcset="/_astro/image-20251001215036969.BwzQxXFJ_128WQf.webp 480w, /_astro/image-20251001215036969.BwzQxXFJ_ZbFM4N.webp 768w, /_astro/image-20251001215036969.BwzQxXFJ_Z9JMvs.webp 998w"></p>
+<p>可以选择更改一个你喜欢的位置，这里我仍然选择不做修改，如果你要修改，切记不要装在有中文的目录下，最保险的做法就是把这串安装路径的“C:\”改为“D:\”。</p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #d3e2db, #f2f0f1 50%, #efefef)" loading="lazy" decoding="async" sizes="(min-width: 998px) 998px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="998" height="716" src="/_astro/image-20251001215229683.Csl2sBWt_Z1DIB2v.webp" srcset="/_astro/image-20251001215229683.Csl2sBWt_ZrOPEN.webp 480w, /_astro/image-20251001215229683.Csl2sBWt_Z1FEAAQ.webp 768w, /_astro/image-20251001215229683.Csl2sBWt_Z1DIB2v.webp 998w"></p>
+<p>这一页默认所有复选框都没被勾选，按图示勾选这三个即可。点击两次下一步后即可开始安装。安装完成后启动PyCharm。</p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #333539, #323438 50%, #2d3440)" loading="lazy" decoding="async" sizes="(min-width: 1282px) 1282px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="1282" height="1022" src="/_astro/image-20251001215632715.DY6PwPlD_KQdNs.webp" srcset="/_astro/image-20251001215632715.DY6PwPlD_Z7v3LG.webp 480w, /_astro/image-20251001215632715.DY6PwPlD_Z24MSFJ.webp 768w, /_astro/image-20251001215632715.DY6PwPlD_ZKTDia.webp 1280w, /_astro/image-20251001215632715.DY6PwPlD_KQdNs.webp 1282w"></p>
+<p>中文就非常不错，直接下一个！</p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #3d3e42, #323337 50%, #343740)" loading="lazy" decoding="async" sizes="(min-width: 1178px) 1178px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="1178" height="910" src="/_astro/image-20251001215659091.Lo67a34H_Z48wbl.webp" srcset="/_astro/image-20251001215659091.Lo67a34H_ZJWVHx.webp 480w, /_astro/image-20251001215659091.Lo67a34H_2gL4GQ.webp 768w, /_astro/image-20251001215659091.Lo67a34H_Z48wbl.webp 1178w"></p>
+<p>同意条款后继续</p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #38393d, #303236 50%, #2f323c)" loading="lazy" decoding="async" sizes="(min-width: 1178px) 1178px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="1178" height="910" src="/_astro/image-20251001215716667.Cfdg2mQF_Z1oD9QA.webp" srcset="/_astro/image-20251001215716667.Cfdg2mQF_vrNyU.webp 480w, /_astro/image-20251001215716667.Cfdg2mQF_Z1x0iOC.webp 768w, /_astro/image-20251001215716667.Cfdg2mQF_Z1oD9QA.webp 1178w"></p>
+<p>不发送</p>
+<p>如果你之前安装过其他编辑器，会询问你是否导入，选择不导入即可。</p>
+<h2 id="pycharm的界面说明及使用方法">PyCharm的界面说明及使用方法</h2>
+<p>此内容实在复杂，请移步菜鸟教程查看（doge），但在查看之前，请先配置好Python解释器（下一节内容）</p>
+<p><a href="https://www.runoob.com/pycharm/pycharm-tutorial.html" target="_blank" rel="noopener noreferrer" data-external-link="">PyCharm 教程 | 菜鸟教程</a></p>
+<p><a href="https://www.runoob.com/pycharm/pycharm-first-python-project.html" target="_blank" rel="noopener noreferrer" data-external-link="">PyCharm 创建第一个 Python 项目 | 菜鸟教程</a></p>
+<p><a href="https://www.runoob.com/pycharm/pycharm-start-intro.html" target="_blank" rel="noopener noreferrer" data-external-link="">PyCharm 界面说明 | 菜鸟教程</a></p>
+<p><a href="https://www.runoob.com/pycharm/pycharm-run-debug.html" target="_blank" rel="noopener noreferrer" data-external-link="">PyCharm 运行与调试 | 菜鸟教程</a></p>
+<h2 id="pycharm的python解释器配置">PyCharm的Python解释器配置</h2>
+<p>点击PyCharm主界面左下角的小齿轮图标，在弹出的二级菜单中点击设置，找到页面最上方的<strong>Python</strong>（注：不需要点”>“使之展开，在右边的页面中点击“解释器”</p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #33343a, #2d2f33 50%, #2a2d31)" loading="lazy" decoding="async" sizes="(min-width: 1966px) 1966px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="1966" height="1470" src="/_astro/image-20251001220009405.CpvEYPi5_1LM6zc.webp" srcset="/_astro/image-20251001220009405.CpvEYPi5_qio9x.webp 480w, /_astro/image-20251001220009405.CpvEYPi5_2tN8H1.webp 768w, /_astro/image-20251001220009405.CpvEYPi5_QTDon.webp 1280w, /_astro/image-20251001220009405.CpvEYPi5_1LM6zc.webp 1966w"></p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #2f3135, #3d3f47 50%, #2e3843)" loading="lazy" decoding="async" sizes="(min-width: 1663px) 1663px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="1663" height="377" src="/_astro/image-20251001220049389.DO4wcyyl_1khawO.webp" srcset="/_astro/image-20251001220049389.DO4wcyyl_xPcEJ.webp 480w, /_astro/image-20251001220049389.DO4wcyyl_Sm0US.webp 768w, /_astro/image-20251001220049389.DO4wcyyl_1kzxmI.webp 1280w, /_astro/image-20251001220049389.DO4wcyyl_1khawO.webp 1663w"></p>
+<p>点击<strong>添加解释器</strong>——<strong>添加本地解释器</strong></p>
+<p>环境——<strong>选择现有</strong></p>
+<p>类型——选<strong>Conda</strong></p>
+<p>如果你在安装Anaconda时没有改变安装目录，那么你的PyCharm可能已经默认认到了解释器，更改一下环境即可点击确定退出。假如你将Anaconda安装在了D:\anaconda3，那么你需要在conda的路径一栏填写D:\anaconda3\condabin\conda.bat，然后点击蓝色的<strong>重新加载环境</strong>，便可正常识别环境。</p>
+<h2 id="python的学习">Python的学习</h2>
+<p>可以选择观看视频（耗时较长），建议可以先看文字教程了解基本语法，然后使用AI辅助生成代码</p>
+<p><a href="https://www.runoob.com/python3/python3-tutorial.html" target="_blank" rel="noopener noreferrer" data-external-link="">Python3 教程 | 菜鸟教程</a></p></article><script>
+  (() => {
+    const SELECTOR = ".asciinema-player[data-cast]";
+
+    function ensureCss() {
+      if (document.querySelector('link[data-asciinema-player="1"]')) return;
+      const link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.href = "/assets/css/asciinema-player.css";
+      link.dataset.asciinemaPlayer = "1";
+      document.head.appendChild(link);
+    }
+
+    function ensureScript() {
+      if (window.AsciinemaPlayer?.create) {
+        return Promise.resolve(window.AsciinemaPlayer);
+      }
+      if (window.__asciinemaPlayerPromise) {
+        return window.__asciinemaPlayerPromise;
+      }
+      window.__asciinemaPlayerPromise = new Promise((resolve, reject) => {
+        const script = document.createElement("script");
+        script.src = "/assets/js/asciinema-player.min.js";
+        script.async = true;
+        script.dataset.asciinemaPlayer = "1";
+        script.addEventListener("load", () => resolve(window.AsciinemaPlayer));
+        script.addEventListener("error", reject);
+        document.body.appendChild(script);
+      });
+      return window.__asciinemaPlayerPromise;
+    }
+
+    async function initAsciinema() {
+      const elements = [...document.querySelectorAll(SELECTOR)];
+      if (elements.length === 0) return;
+      ensureCss();
+      const player = await ensureScript();
+      if (!player?.create) return;
+
+      for (const element of elements) {
+        if (element.dataset.asciinemaInitialized === "1") continue;
+        const source = element.dataset.cast;
+        if (!source) continue;
+        player.create(source, element, {
+          preload: element.dataset.preload === "true",
+          theme: element.dataset.theme || "asciinema",
+        });
+        element.dataset.asciinemaInitialized = "1";
+      }
+    }
+
+    initAsciinema().catch(() => undefined);
+    document.addEventListener("astro:page-load", () => {
+      initAsciinema().catch(() => undefined);
+    });
+    document.addEventListener("password:decrypted", () => {
+      initAsciinema().catch(() => undefined);
+    });
+  })();
+</script><aside class="border-border text-muted-foreground mt-8 border-y py-4 text-sm"><p>许可： <a class="underline underline-offset-4" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p></aside><hr class="my-8 border-dashed"><div id="btt-btn-container" class="fixed inset-e-4 bottom-5 z-50 sm:inset-e-6 sm:bottom-6 translate-y-4 opacity-0 transition duration-300"><button data-button="back-to-top" aria-label="返回顶部" title="返回顶部" class="bg-background/92 text-foreground relative grid size-12 place-items-center border p-0 shadow-sm backdrop-blur-md"><span id="progress-indicator" class="absolute -inset-1 -z-10 block bg-transparent"></span><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="size-5" viewBox="0 0 24 24" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" /><path d="M12 5v14M16 9l-4-4M8 9l4-4" /></svg><span class="sr-only">返回顶部</span></button></div><script type="module">function e(){let e=document.querySelector(`[data-button='back-to-top']`);if(!e||e.hasAttribute(`data-enhanced`)||(e.setAttribute(`data-enhanced`,``),e.addEventListener(`click`,()=>{window.scrollTo({top:0,left:0,behavior:window.matchMedia(`(prefers-reduced-motion: reduce)`).matches?`instant`:`smooth`})}),window.__backToTopScrollBound))return;window.__backToTopScrollBound=!0;let t=null;function n(){let e=document.documentElement,n=document.querySelector(`#btt-btn-container`),r=document.querySelector(`#progress-indicator`);if(!n||!r)return;let i=e.scrollHeight-e.clientHeight,a=e.scrollTop,o=i>0?Math.floor(a/i*100):0;r.style.setProperty(`background-image`,`conic-gradient(var(--accent), var(--accent) ${o}%, transparent ${o}%)`);let s=Math.min(480,e.clientHeight*.6),c=i>0&&a>s;c!==t&&(n.classList.toggle(`opacity-100`,c),n.classList.toggle(`translate-y-0`,c),n.classList.toggle(`opacity-0`,!c),n.classList.toggle(`translate-y-4`,!c),t=c)}let r=!1;document.addEventListener(`scroll`,()=>{r||=(window.requestAnimationFrame(()=>{n(),r=!1}),!0)},{passive:!0}),n()}e(),document.addEventListener(`astro:page-load`,e);</script><ul class="mt-4 mb-8 flex flex-wrap gap-4 sm:my-8"><li><a data-astro-transition-scope="astro-bztu2lml-1" href="/tags/python/" class="tag-link flex items-center gap-0.5 border-foreground border-b-2 border-dashed hover:border-accent hover:text-accent hover:-translate-y-0.5 focus-visible:text-accent focus-visible:border-none text-sm"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="opacity-80 size-4" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" /><path d="M5 9h14M5 15h14M11 4 7 20M17 4l-4 16" /></svg>Python</a></li><li><a data-astro-transition-scope="astro-bztu2lml-2" href="/tags/windows/" class="tag-link flex items-center gap-0.5 border-foreground border-b-2 border-dashed hover:border-accent hover:text-accent hover:-translate-y-0.5 focus-visible:text-accent focus-visible:border-none text-sm"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="opacity-80 size-4" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" /><path d="M5 9h14M5 15h14M11 4 7 20M17 4l-4 16" /></svg>Windows</a></li><li><a data-astro-transition-scope="astro-bztu2lml-3" href="/tags/开发环境/" class="tag-link flex items-center gap-0.5 border-foreground border-b-2 border-dashed hover:border-accent hover:text-accent hover:-translate-y-0.5 focus-visible:text-accent focus-visible:border-none text-sm"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="opacity-80 size-4" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" /><path d="M5 9h14M5 15h14M11 4 7 20M17 4l-4 16" /></svg>开发环境</a></li><li><a data-astro-transition-scope="astro-bztu2lml-4" href="/tags/教程/" class="tag-link flex items-center gap-0.5 border-foreground border-b-2 border-dashed hover:border-accent hover:text-accent hover:-translate-y-0.5 focus-visible:text-accent focus-visible:border-none text-sm"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="opacity-80 size-4" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" /><path d="M5 9h14M5 15h14M11 4 7 20M17 4l-4 16" /></svg>教程</a></li><li><a data-astro-transition-scope="astro-bztu2lml-5" href="/tags/入门/" class="tag-link flex items-center gap-0.5 border-foreground border-b-2 border-dashed hover:border-accent hover:text-accent hover:-translate-y-0.5 focus-visible:text-accent focus-visible:border-none text-sm"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="opacity-80 size-4" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" /><path d="M5 9h14M5 15h14M11 4 7 20M17 4l-4 16" /></svg>入门</a></li><li><a data-astro-transition-scope="astro-bztu2lml-6" href="/tags/pycharm/" class="tag-link flex items-center gap-0.5 border-foreground border-b-2 border-dashed hover:border-accent hover:text-accent hover:-translate-y-0.5 focus-visible:text-accent focus-visible:border-none text-sm"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="opacity-80 size-4" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" /><path d="M5 9h14M5 15h14M11 4 7 20M17 4l-4 16" /></svg>PyCharm</a></li><li><a data-astro-transition-scope="astro-bztu2lml-7" href="/tags/anaconda/" class="tag-link flex items-center gap-0.5 border-foreground border-b-2 border-dashed hover:border-accent hover:text-accent hover:-translate-y-0.5 focus-visible:text-accent focus-visible:border-none text-sm"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="opacity-80 size-4" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" /><path d="M5 9h14M5 15h14M11 4 7 20M17 4l-4 16" /></svg>Anaconda</a></li></ul><div class="flex flex-none flex-col items-center justify-center gap-1 md:items-start"><span class="font-sketch">分享文章：</span><div class="text-center"><a href="https://t.me/share/url?url=https://mjy.js.org/posts/windows-python-environment-setup/" title="分享到 Telegram" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-1 hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" /><path d="m15 10-4 4 6 6 4-16-18 7 4 2 2 6 3-4" /></svg><span class="sr-only">分享到 Telegram</span></a><a href="mailto:?subject=See%20this%20post&amp;body=https://mjy.js.org/posts/windows-python-environment-setup/" title="通过邮件分享" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-1 hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" /><path d="M3 7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><path d="m3 7 9 6 9-6" /></svg><span class="sr-only">通过邮件分享</span></a></div></div><hr class="my-8 border-dashed"><section class="border-border my-8 border-y py-6" aria-labelledby="related-posts-title" data-related-posts data-pagefind-ignore="all"><h2 id="related-posts-title" class="mb-4 text-lg font-semibold tracking-wide">继续阅读</h2><ol class="space-y-4"><li><a class="reader-related-link group block" href="/posts/python-notes-0004-pytorch/"><span class="group-hover:text-accent font-medium">Python学习笔记其四</span><span class="font-sketch text-muted-foreground mt-1 block text-sm">笔记 · Pytorch教程</span></a></li><li><a class="reader-related-link group block" href="/posts/slurm-job-submission-queue-management/"><span class="group-hover:text-accent font-medium">Slurm 使用入门教程</span><span class="font-sketch text-muted-foreground mt-1 block text-sm">教程 · Slurm 使用入门教程：作业脚本编写、任务提交与队列管理指南</span></a></li><li><a class="reader-related-link group block" href="/posts/windows-rename-chinese-user-home-folder/"><span class="group-hover:text-accent font-medium">将Windows中文用户主文件夹修改为英文</span><span class="font-sketch text-muted-foreground mt-1 block text-sm">教程 · 一种无需重装系统解决用户主文件夹名为中文的方法</span></a></li></ol></section><div data-pagefind-ignore class="my-8 grid grid-cols-1 gap-6 sm:grid-cols-2"><a href="/posts/python-notes-0001/" class="reader-nav-link group flex w-full gap-1 hover:opacity-75"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="inline-block flex-none rtl:rotate-180" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" /><path d="M5 12h14M5 12l6 6M5 12l6-6" /></svg><div><span>上一篇</span><div class="text-accent/85 text-sm">Python学习笔记其一</div></div></a><a href="/posts/shandong-comprehensive-quality-evaluation-guide/" class="reader-nav-link group flex w-full justify-end gap-1 text-end hover:opacity-75 sm:col-start-2"><div><span>下一篇</span><div class="text-accent/85 text-sm">山东省综合素质评价填报指北</div></div><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="inline-block flex-none rtl:rotate-180" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" /><path d="M5 12h14M13 18l6-6M13 6l6 6" /></svg></a></div></main><footer class="app-layout mt-auto"><div class="border-border flex flex-col items-center justify-between border-t py-6 sm:flex-row-reverse sm:py-4"><div class="flex flex-wrap items-center gap-1"><a href="https://github.com/majianyu2007" title="MaJianyu 的 GitHub" class="group inline-flex items-center gap-1 hover:text-accent p-2 hover:-translate-y-0.5 hover:rotate-3 sm:p-1"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" /><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21" /></svg><span class="sr-only">MaJianyu 的 GitHub</span></a><a href="https://space.bilibili.com/600064036" title="MaJianyu 的 BiliBili" class="group inline-flex items-center gap-1 hover:text-accent p-2 hover:-translate-y-0.5 hover:rotate-3 sm:p-1"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewBox="0 0 24 24" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path d="m8.5 3 2 2.5m5-2.5-2 2.5" /><rect width="18" height="14" x="3" y="6" rx="3" /><path d="M8 11v4m8-4v4" /></svg><span class="sr-only">MaJianyu 的 BiliBili</span></a></div><div class="my-2 flex flex-col items-center gap-1"><div class="flex flex-col items-center justify-center gap-x-1 gap-y-0.5 text-center sm:flex-row"><span class="whitespace-nowrap">版权所有 &#169; 2026 MaJianyu</span><span class="flex items-center gap-x-1 whitespace-nowrap"><span aria-hidden="true" class="hidden sm:inline">·</span><a href="/rss.xml" type="application/rss+xml" title="RSS 订阅源" class="hover:underline">RSS</a><span aria-hidden="true">·</span><a href="https://icp.gov.moe/?keyword=20216556" target="_blank" rel="noopener noreferrer" class="hover:underline">萌ICP备20216556号</a></span></div><span class="text-muted-foreground text-xs">本站已运行 <span data-site-runtime data-start="2020-12-11T16:00:00.000Z" aria-live="off">2,089</span> 天<span class="journal-footer-mark ms-1" aria-hidden="true">( •̀ᴗ•́ )و</span></span></div></div></footer><script type="module">function e(){document.querySelectorAll(`[data-site-runtime]`).forEach(e=>{let t=Date.parse(e.dataset.start??``);Number.isFinite(t)&&(e.textContent=Math.max(0,Math.floor((Date.now()-t)/864e5)).toLocaleString(`zh-CN`))})}e(),document.addEventListener(`astro:page-load`,e);</script><script type="module">var e=`theme`,t=`light`,n=`dark`;function r(){return localStorage.getItem(e)||(window.matchMedia(`(prefers-color-scheme: dark)`).matches?n:t)}var i=window.__theme?.value??r();function a(){localStorage.setItem(e,i),o()}function o(){let e=document.firstElementChild;e?.setAttribute(`data-theme`,i),e?.classList.toggle(`dark`,i===n),document.querySelector(`#theme-btn`)?.setAttribute(`aria-label`,i);let t=window.getComputedStyle(document.body).backgroundColor;document.querySelector(`meta[name='theme-color']`)?.setAttribute(`content`,t)}function s(){o(),document.querySelector(`#theme-btn`)?.addEventListener(`click`,()=>{i=i===t?n:t,a()})}s(),document.addEventListener(`astro:after-swap`,s),document.addEventListener(`astro:before-swap`,e=>{let t=document.querySelector(`meta[name='theme-color']`)?.getAttribute(`content`);t&&e.newDocument.querySelector(`meta[name='theme-color']`)?.setAttribute(`content`,t)}),window.matchMedia(`(prefers-color-scheme: dark)`).addEventListener(`change`,({matches:e})=>{i=e?n:t,a()}),document.addEventListener(`astro:page-load`,()=>{let e=!!location.hash;document.documentElement.toggleAttribute(`data-fragment-navigation`,e),document.documentElement.toggleAttribute(`data-fragment-font-pending`,e),e&&document.fonts.ready.then(()=>{document.documentElement.removeAttribute(`data-fragment-font-pending`)})});</script></body></html><script type="module" src="/_astro/index.astro_astro_type_script_index_0_lang.DtqqC1rV.js"></script>

@@ -1,0 +1,429 @@
+<!DOCTYPE html><html dir="ltr" lang="zh-CN" class="overflow-y-scroll scroll-smooth"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="preload" href="/_astro/excalifont-latin.DBEDukyo.woff2" as="font" type="font/woff2" crossorigin="anonymous"><link rel="preload" href="/_astro/fonts/xiaolai-ui.f313e2d30fe461d7.woff2" as="font" type="font/woff2" crossorigin="anonymous"><link rel="icon" href="/favicon.ico"><link rel="canonical" href="https://mjy.js.org/posts/python-notes-0003/"><meta name="generator" content="Astro v7.0.3"><!-- Primary meta --><title>Python学习笔记其三 | TranquilYu&#39;s Blog</title><meta name="title" content="Python学习笔记其三 | TranquilYu's Blog"><meta name="description" content="PyTorch教程"><meta name="author" content="MaJianyu"><meta name="keywords" content="Blog, Personal, 技术博客, 论文阅读, 数学建模, Python, 编程基础, 学习笔记, 入门, 实践"><link rel="sitemap" href="/sitemap-index.xml"><!-- Open Graph --><meta property="og:type" content="website"><meta property="og:site_name" content="TranquilYu's Blog"><meta property="og:title" content="Python学习笔记其三 | TranquilYu's Blog"><meta property="og:description" content="PyTorch教程"><meta property="og:url" content="https://mjy.js.org/posts/python-notes-0003/"><meta property="og:image" content="https://mjy.js.org/og/python-notes-0003.png"><!-- Twitter / X --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://mjy.js.org/posts/python-notes-0003/"><meta property="twitter:title" content="Python学习笔记其三 | TranquilYu's Blog"><meta property="twitter:description" content="PyTorch教程"><meta property="twitter:image" content="https://mjy.js.org/og/python-notes-0003.png"><!-- RSS autodiscovery --><link rel="alternate" type="application/rss+xml" title="TranquilYu's Blog" href="https://mjy.js.org/rss.xml/"><!-- Filled at runtime by theme.ts to match the current background colour --><meta name="theme-color" content=""><script>
+      {
+        const hasFragment = Boolean(location.hash);
+        document.documentElement.toggleAttribute(
+          "data-fragment-navigation",
+          hasFragment
+        );
+        document.documentElement.toggleAttribute(
+          "data-fragment-font-pending",
+          hasFragment
+        );
+      }
+    </script><!-- Extra head content injected by child layouts (e.g. JSON-LD, article meta) --><meta property="og:type" content="article"><meta property="article:published_time" content="2025-10-03T00:00:00.000Z"><meta property="article:tag" content="Python"><meta property="article:tag" content="编程基础"><meta property="article:tag" content="学习笔记"><meta property="article:tag" content="入门"><meta property="article:tag" content="实践"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Python学习笔记其三 | TranquilYu's Blog","description":"PyTorch教程","image":"https://mjy.js.org/og/python-notes-0003.png","keywords":["Python","编程基础","学习笔记","入门","实践"],"inLanguage":"zh-CN","url":"https://mjy.js.org/posts/python-notes-0003/","mainEntityOfPage":{"@type":"WebPage","@id":"https://mjy.js.org/posts/python-notes-0003/"},"datePublished":"2025-10-03T00:00:00.000Z","author":[{"@type":"Person","name":"MaJianyu","url":"https://github.com/majianyu2007"}]}</script><script>
+      (() => {
+        const applyOutboundTracking = () => {
+          document.querySelectorAll("a[href]").forEach(link => {
+            if (
+              link instanceof HTMLAnchorElement &&
+              link.host !== window.location.host &&
+              !link.dataset.umamiEvent
+            ) {
+              link.dataset.umamiEvent = "outbound-link-click";
+              link.dataset.umamiEventUrl = link.href;
+            }
+          });
+        };
+
+        const loadThirdPartyScripts = () => {
+          if (!document.querySelector('script[data-site-analytics="umami"]')) {
+            const analytics = document.createElement("script");
+            analytics.defer = true;
+            analytics.src = "https://umami.715654.xyz/script.js";
+            analytics.dataset.siteAnalytics = "umami";
+            analytics.dataset.websiteId =
+              "6bc518c3-c5f9-4afd-8edf-fe258aba7432";
+            analytics.dataset.domains = "mjy.js.org";
+            document.head.appendChild(analytics);
+          }
+
+          if (!document.querySelector('script[data-site-ads="adsense"]')) {
+            const ads = document.createElement("script");
+            ads.async = true;
+            ads.crossOrigin = "anonymous";
+            ads.src =
+              "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9101785228583606";
+            ads.dataset.siteAds = "adsense";
+            document.head.appendChild(ads);
+          }
+        };
+
+        if (document.prerendering) {
+          document.addEventListener(
+            "prerenderingchange",
+            loadThirdPartyScripts,
+            { once: true }
+          );
+        } else {
+          loadThirdPartyScripts();
+        }
+
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", applyOutboundTracking, {
+            once: true,
+          });
+        } else {
+          applyOutboundTracking();
+        }
+        document.addEventListener("astro:page-load", applyOutboundTracking);
+      })();
+    </script><!--
+      Inline FOUC-prevention script: sets data-theme on <html> before
+      the browser paints. Runs synchronously, no defer/async.
+    --><script>
+      (function () {
+        const stored = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
+        const theme = stored ?? (prefersDark ? "dark" : "light");
+        const root = document.firstElementChild;
+        root?.setAttribute("data-theme", theme);
+        root?.classList.toggle("dark", theme === "dark");
+        // Expose value so theme.ts can skip re-detection.
+        window.__theme = { value: theme };
+      })();
+    </script><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.DpL340e7.js"></script><link rel="stylesheet" href="/_astro/Footer.DSVCgsPW.css"><style>@keyframes astroFadeInOut{0%{opacity:1}to{opacity:0}}@keyframes astroFadeIn{0%{opacity:0;mix-blend-mode:plus-lighter}to{opacity:1;mix-blend-mode:plus-lighter}}@keyframes astroFadeOut{0%{opacity:1;mix-blend-mode:plus-lighter}to{opacity:0;mix-blend-mode:plus-lighter}}@keyframes astroSlideFromRight{0%{transform:translate(100%)}}@keyframes astroSlideFromLeft{0%{transform:translate(-100%)}}@keyframes astroSlideToRight{to{transform:translate(100%)}}@keyframes astroSlideToLeft{to{transform:translate(-100%)}}@media (prefers-reduced-motion){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*),[data-astro-transition-scope]{animation:none!important}}
+</style><link rel="stylesheet" href="/_astro/index.Box75lNT.css"><style>[data-astro-transition-scope="astro-bztu2lml-1"] { view-transition-name: python; }@layer astro { ::view-transition-old(python) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(python) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(python) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(python) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-1"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-1"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-bztu2lml-2"] { view-transition-name: \7F16\7A0B\57FA\7840; }@layer astro { ::view-transition-old(\7F16\7A0B\57FA\7840) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(\7F16\7A0B\57FA\7840) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(\7F16\7A0B\57FA\7840) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(\7F16\7A0B\57FA\7840) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-2"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-2"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-2"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-2"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-bztu2lml-3"] { view-transition-name: \5B66\4E60\7B14\8BB0; }@layer astro { ::view-transition-old(\5B66\4E60\7B14\8BB0) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(\5B66\4E60\7B14\8BB0) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(\5B66\4E60\7B14\8BB0) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(\5B66\4E60\7B14\8BB0) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-3"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-3"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-3"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-3"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-bztu2lml-4"] { view-transition-name: \5165\95E8; }@layer astro { ::view-transition-old(\5165\95E8) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(\5165\95E8) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(\5165\95E8) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(\5165\95E8) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-4"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-4"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-4"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-4"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-4"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-4"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-4"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-4"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-bztu2lml-5"] { view-transition-name: \5B9E\8DF5; }@layer astro { ::view-transition-old(\5B9E\8DF5) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(\5B9E\8DF5) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(\5B9E\8DF5) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(\5B9E\8DF5) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-5"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-5"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-5"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-5"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-5"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-5"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-5"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-5"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style></head><body class="bg-background font-app text-foreground selection:bg-accent/75 selection:text-accent-foreground flex min-h-svh flex-col"><div id="navigation-progress" aria-hidden="true"></div><div id="reading-progress" aria-hidden="true"></div><script type="module">var e,t,n,r,i=null,a=()=>document.getElementById(`navigation-progress`),o=()=>document.documentElement,s=()=>{i?.removeAttribute(`data-navigation-target`),i=null},c=()=>{window.clearTimeout(e),window.clearTimeout(t),window.clearTimeout(n),r!==void 0&&(window.cancelAnimationFrame(r),r=void 0)},l=()=>{c(),o().removeAttribute(`data-navigation-state`),a()?.removeAttribute(`data-state`),s()},u=e=>{let t=e.target;if(!(t instanceof Element)||e instanceof MouseEvent&&(e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey))return;let r=t.closest(`a[href]`);!r||r.origin!==location.origin||r.target===`_blank`||r.hasAttribute(`download`)||r.pathname===location.pathname&&r.search===location.search&&r.hash!==``||(s(),i=r,i.setAttribute(`data-navigation-target`,``),o().setAttribute(`data-navigation-state`,`pressing`),window.clearTimeout(n),n=window.setTimeout(()=>{o().dataset.navigationState===`pressing`&&l()},420))};document.addEventListener(`pointerdown`,u,{capture:!0,passive:!0}),document.addEventListener(`click`,u,{capture:!0}),document.addEventListener(`pointercancel`,l,{capture:!0}),document.addEventListener(`astro:before-preparation`,e=>{c(),o().setAttribute(`data-navigation-state`,`preparing`),a()?.setAttribute(`data-state`,`loading`),e.signal.addEventListener(`abort`,l,{once:!0})}),document.addEventListener(`astro:after-swap`,()=>{let n=o(),i=a();c(),s(),n.setAttribute(`data-navigation-state`,`arriving`),i?.setAttribute(`data-state`,`done`),e=window.setTimeout(()=>{i?.removeAttribute(`data-state`)},220),r=window.requestAnimationFrame(()=>{r=window.requestAnimationFrame(()=>{n.setAttribute(`data-navigation-state`,`settling`),r=void 0})}),t=window.setTimeout(()=>{n.removeAttribute(`data-navigation-state`)},520)});</script><script type="module">var e=[`.post-card`,`.taxonomy-list > li`,`.tag-cloud-item`,`#article > h2`,`#article > h3`,`#article > figure`,`#article > blockquote`,`#article > .callout`,`.reader-nav-link`,`.reader-related-link`].join(`,`),t,n,r,i=()=>{t?.abort(),n?.disconnect(),r!==void 0&&(cancelAnimationFrame(r),r=void 0)},a=e=>{let t=document.getElementById(`reading-progress`),n=document.getElementById(`article`);if(!t||!n){t?.removeAttribute(`data-active`),t?.style.removeProperty(`--reading-progress`);return}t.setAttribute(`data-active`,``);let i=()=>{r=void 0;let e=document.documentElement,n=e.scrollHeight-e.clientHeight,i=n>0?Math.min(1,Math.max(0,e.scrollTop/n)):0;t.style.setProperty(`--reading-progress`,i.toFixed(4))},a=()=>{r===void 0&&(r=requestAnimationFrame(i))};window.addEventListener(`scroll`,a,{passive:!0,signal:e}),window.addEventListener(`resize`,a,{passive:!0,signal:e}),a()},o=t=>{let r=[...document.querySelectorAll(e)];if(r.forEach(e=>{e.removeAttribute(`data-motion-reveal`),e.style.removeProperty(`--motion-delay`)}),t||!(`IntersectionObserver`in window))return;n=new IntersectionObserver(e=>{e.forEach(e=>{if(!e.isIntersecting)return;let t=e.target;t.setAttribute(`data-motion-reveal`,`visible`),n?.unobserve(t)})},{rootMargin:`0px 0px -7% 0px`,threshold:.04});let i=window.innerHeight*.88;r.forEach((e,t)=>{let r=e.getBoundingClientRect();r.top<=i||r.bottom<=0||(e.setAttribute(`data-motion-reveal`,`pending`),e.style.setProperty(`--motion-delay`,`${t%5*22}ms`),n?.observe(e))})};document.addEventListener(`astro:page-load`,()=>{i(),t=new AbortController;let{signal:e}=t,n=window.matchMedia(`(prefers-reduced-motion: reduce)`).matches;a(e),o(n)}),document.addEventListener(`astro:before-swap`,i);</script><a id="skip-to-content" href="#main-content" class="bg-background text-accent absolute inset-s-16 -top-full z-50 px-3 py-2 backdrop-blur-lg transition-all focus:top-4">跳到正文</a><header class="app-layout flex flex-col items-center justify-between sm:flex-row"><div class="border-border bg-background relative flex w-full items-baseline justify-between border-b py-4 sm:items-center sm:py-6"><a href="/" class="absolute py-1 text-xl leading-8 font-semibold whitespace-nowrap sm:static sm:my-auto sm:text-2xl sm:leading-none">TranquilYu&#39;s Blog</a><nav id="nav-menu" class="flex w-full flex-col items-center sm:ms-2 sm:flex-row sm:justify-end sm:space-x-4 sm:py-0"><button id="menu-btn" class="focus-outline self-end p-2 sm:hidden" aria-label="打开菜单" aria-expanded="false" aria-controls="menu-items" data-label-open="打开菜单" data-label-close="关闭菜单"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="hidden" viewBox="0 0 24 24" id="close-icon"><path stroke="none" d="M0 0h24v24H0z" /><path d="M18 6 6 18M6 6l12 12" /></svg><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="icon icon-tabler icons-tabler-outline icon-tabler-menu-deep" viewBox="0 0 24 24" id="menu-icon"><path stroke="none" d="M0 0h24v24H0z" /><path d="M4 6h16M7 12h13M10 18h10" /></svg></button><ul id="menu-items" class="border-border bg-background/96 [&amp;&gt;li&gt;a]:hover:text-accent absolute end-0 top-[calc(100%+0.4rem)] z-50 hidden w-[min(11rem,calc(100vw-2rem))] grid-cols-2 gap-0.5 border p-2.5 shadow-lg backdrop-blur-xl sm:static sm:mt-0 sm:flex sm:w-auto sm:gap-x-5 sm:gap-y-0 sm:border-0 sm:bg-transparent sm:p-0 sm:shadow-none sm:backdrop-blur-none sm:[&amp;&gt;li]:h-8 [&amp;&gt;li&gt;a]:block [&amp;&gt;li&gt;a]:px-3 [&amp;&gt;li&gt;a]:py-2 [&amp;&gt;li&gt;a]:text-center [&amp;&gt;li&gt;a]:font-medium sm:[&amp;&gt;li&gt;a]:px-2 sm:[&amp;&gt;li&gt;a]:py-1"><li class="col-span-2"><a href="/posts/" class="active-nav">文章</a></li><li class="col-span-2"><a href="/categories/">分类</a></li><li class="col-span-2"><a href="/tags/">标签</a></li><li class="col-span-2"><a href="/about/">关于</a></li><li class="col-span-2"><a href="/archive/" title="归档" aria-label="归档" class="group inline-flex items-center gap-1 hover:text-accent focus-outline flex size-full justify-center p-2 sm:relative sm:size-8 sm:p-0"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="hidden sm:absolute sm:top-1/2 sm:left-1/2 sm:block sm:size-6 sm:-translate-x-1/2 sm:-translate-y-1/2" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" /><path d="M3 6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v0a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8M10 12h4" /></svg><span class="sm:sr-only">归档</span></a></li><li class="col-span-1 flex items-center justify-center"><a href="/search/" title="搜索" aria-label="搜索" class="group inline-flex items-center gap-1 hover:text-accent focus-outline relative size-10 sm:size-8"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="absolute top-1/2 left-1/2 size-6 -translate-x-1/2 -translate-y-1/2" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" /><path d="M3 10a7 7 0 1 0 14 0 7 7 0 1 0-14 0M21 21l-6-6" /></svg><span class="sr-only">搜索</span></a></li><li class="col-span-1 flex items-center justify-center"><button id="theme-btn" class="focus-outline hover:[&amp;&gt;svg]:stroke-accent relative size-10 p-3 sm:size-8" title="切换深浅主题" aria-label="auto" aria-live="polite"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="absolute top-[50%] left-[50%] translate-[-50%] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" /><path d="M12 3h.393a7.5 7.5 0 0 0 7.92 12.446A9 9 0 1 1 12 2.992z" /></svg><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="absolute top-[50%] left-[50%] translate-[-50%] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" /><path d="M14.828 14.828a4 4 0 1 0-5.656-5.656 4 4 0 0 0 5.656 5.656M6.343 17.657l-1.414 1.414M6.343 6.343 4.929 4.929M17.657 6.343l1.414-1.414M17.657 17.657l1.414 1.414M4 12H2M12 4V2M20 12h2M12 20v2" /></svg></button></li></ul></nav></div></header><script type="module">var e;function t(){e?.abort();let t=document.querySelector(`#menu-btn`),n=document.querySelector(`#menu-items`),r=document.querySelector(`#menu-icon`),i=document.querySelector(`#close-icon`);if(!t||!n||!r||!i)return;e=new AbortController;let{signal:a}=e,o=t.dataset.labelOpen??`Open menu`,s=t.dataset.labelClose??`Close menu`,c=()=>window.matchMedia(`(prefers-reduced-motion: reduce)`).matches,l=e=>{t.setAttribute(`aria-expanded`,String(e)),t.setAttribute(`aria-label`,e?s:o),n.getAnimations().forEach(e=>e.cancel()),r.classList.toggle(`hidden`,e),i.classList.toggle(`hidden`,!e)},u=()=>{l(!0),n.classList.remove(`hidden`),n.classList.add(`grid`),n.animate([{opacity:0,transform:`translateY(-8px) scale(0.975)`,transformOrigin:`top right`},{opacity:1,transform:`none`,transformOrigin:`top right`}],{duration:c()?1:320,easing:`cubic-bezier(0.22, 1, 0.36, 1)`})},d=async(e=!1)=>{t.getAttribute(`aria-expanded`)===`true`&&(l(!1),await n.animate([{opacity:1,transform:`none`,transformOrigin:`top right`},{opacity:0,transform:`translateY(-5px) scale(0.985)`,transformOrigin:`top right`}],{duration:c()?1:150,easing:`cubic-bezier(0.4, 0, 1, 1)`}).finished.catch(()=>void 0),t.getAttribute(`aria-expanded`)===`false`&&(n.classList.add(`hidden`),n.classList.remove(`grid`),e&&t.focus()))};t.addEventListener(`click`,()=>{t.getAttribute(`aria-expanded`)===`true`?d():u()},{signal:a}),document.addEventListener(`keydown`,e=>{e.key===`Escape`&&d(!0)},{signal:a}),document.addEventListener(`pointerdown`,e=>{t.getAttribute(`aria-expanded`)===`true`&&e.target instanceof Node&&!n.contains(e.target)&&!t.contains(e.target)&&d()},{signal:a,passive:!0})}t(),document.addEventListener(`astro:after-swap`,t);</script><div class="app-layout flex items-center justify-start"><a id="back-button" href="/" class="group inline-flex items-center gap-1 hover:text-accent reader-back-link focus-outline hover:text-foreground/75 -ms-2 mt-8 mb-2"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="inline-block size-6 rtl:rotate-180" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" /><path d="m15 6-6 6 6 6" /></svg><span>返回</span></a></div><script type="module">function e(){let e=document.querySelector(`#back-button`),t=sessionStorage.getItem(`backUrl`);t&&e&&(e.href=t)}document.addEventListener(`astro:page-load`,e),e();</script><main id="main-content" class="app-layout" data-pagefind-body><h1 style="view-transition-name:pythonu005b66u004e60u007b14u008bb0u005176u004e09" class="text-accent inline-block text-2xl font-bold sm:text-3xl">Python学习笔记其三</h1><div class="my-2 flex flex-wrap items-center gap-x-2 gap-y-1"><div class="text-muted-foreground flex items-center gap-x-2"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="inline-block size-6 min-w-5.5" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" /><path d="M4 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zM16 3v4M8 3v4M4 11h16M7 14h.013M10.01 14h.005M13.01 14h.005M16.015 14h.005M13.015 17h.005M7.01 17h.005M10.01 17h.005" /></svg><time class="text-sm sm:text-base" datetime="2025-10-03T00:00:00.000Z">3 Oct, 2025</time></div><span aria-hidden="true" class="text-muted-foreground">·</span><span class="text-muted-foreground text-sm" data-reading-stats title="正文约 687 字，其中 9 行代码">约 3 分钟 · 687 字</span><span aria-hidden="true" class="text-muted-foreground max-sm:hidden hidden">|</span></div><a class="text-muted-foreground text-sm underline decoration-dashed underline-offset-4" href="/categories/笔记/">笔记</a><details class="mobile-toc bg-background/96 mt-8 max-h-[55vh] overflow-y-auto px-3 py-2.5 backdrop-blur-md xl:hidden" data-pagefind-ignore="all" data-mobile-toc data-astro-cid-p33bl5ka><summary class="focus-outline flex cursor-pointer items-center justify-between gap-4 py-1 font-medium" data-astro-cid-p33bl5ka><span data-astro-cid-p33bl5ka>文章目录</span><span class="toc-count text-muted-foreground text-xs" data-astro-cid-p33bl5ka>4 节</span></summary><ol class="toc-list mt-2 text-sm" data-astro-cid-p33bl5ka><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="pytorch简介" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#pytorch简介" data-toc-link data-heading-id="pytorch简介" data-astro-cid-p33bl5ka>PyTorch简介</a></li><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="pytorch安装" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#pytorch安装" data-toc-link data-heading-id="pytorch安装" data-astro-cid-p33bl5ka>PyTorch安装</a></li><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="神经网络介绍" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#神经网络介绍" data-toc-link data-heading-id="神经网络介绍" data-astro-cid-p33bl5ka>神经网络介绍</a></li><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="数据集与数据加载" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#数据集与数据加载" data-toc-link data-heading-id="数据集与数据加载" data-astro-cid-p33bl5ka>数据集与数据加载</a></li></ol></details><button type="button" class="mobile-toc-trigger bg-background/92 text-foreground fixed end-4 bottom-[5.25rem] z-50 flex min-h-11 items-center gap-2 border px-3 py-2 backdrop-blur-md xl:hidden" aria-label="打开文章目录" aria-controls="mobile-toc-dialog" aria-expanded="false" aria-haspopup="dialog" data-pagefind-ignore="all" data-mobile-toc-trigger data-astro-cid-p33bl5ka><span class="mobile-toc-trigger-icon" aria-hidden="true" data-astro-cid-p33bl5ka><i data-astro-cid-p33bl5ka></i><i data-astro-cid-p33bl5ka></i><i data-astro-cid-p33bl5ka></i></span><span class="font-sketch text-sm font-medium" data-astro-cid-p33bl5ka>目录</span></button><dialog id="mobile-toc-dialog" class="mobile-toc-dialog" aria-labelledby="mobile-toc-dialog-title" data-pagefind-ignore="all" data-mobile-toc-dialog data-astro-cid-p33bl5ka><div class="mobile-toc-dialog-header" data-astro-cid-p33bl5ka><div class="flex items-baseline gap-2" data-astro-cid-p33bl5ka><span id="mobile-toc-dialog-title" class="font-sketch text-lg font-semibold" data-astro-cid-p33bl5ka>文章目录</span><span class="toc-count text-muted-foreground" data-astro-cid-p33bl5ka>4 节</span></div><button type="button" class="mobile-toc-dialog-close focus-outline" aria-label="关闭文章目录" data-mobile-toc-close data-astro-cid-p33bl5ka><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="icon icon-tabler icons-tabler-outline icon-tabler-x" viewBox="0 0 24 24" aria-hidden="true" data-astro-cid-p33bl5ka="true"><path stroke="none" d="M0 0h24v24H0z" /><path d="M18 6 6 18M6 6l12 12" /></svg></button></div><div class="mobile-toc-dialog-scroll" data-mobile-toc-dialog-scroll data-astro-cid-p33bl5ka><ol class="toc-list text-sm" data-astro-cid-p33bl5ka><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="pytorch简介" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#pytorch简介" data-toc-link data-heading-id="pytorch简介" data-astro-cid-p33bl5ka>PyTorch简介</a></li><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="pytorch安装" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#pytorch安装" data-toc-link data-heading-id="pytorch安装" data-astro-cid-p33bl5ka>PyTorch安装</a></li><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="神经网络介绍" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#神经网络介绍" data-toc-link data-heading-id="神经网络介绍" data-astro-cid-p33bl5ka>神经网络介绍</a></li><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="数据集与数据加载" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#数据集与数据加载" data-toc-link data-heading-id="数据集与数据加载" data-astro-cid-p33bl5ka>数据集与数据加载</a></li></ol></div></dialog><aside class="fixed end-4 top-24 hidden max-h-[calc(100vh-11rem)] w-48 overflow-y-auto pe-1 xl:block 2xl:end-[calc(50%-43rem)] 2xl:w-52" aria-label="文章目录" data-pagefind-ignore="all" data-toc data-astro-cid-p33bl5ka><div class="toc-heading mb-2 flex items-center justify-between gap-3" data-astro-cid-p33bl5ka><span data-astro-cid-p33bl5ka>文章目录</span><span class="toc-count text-muted-foreground" data-astro-cid-p33bl5ka>4 节</span></div><ol class="toc-list text-sm" data-astro-cid-p33bl5ka><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="pytorch简介" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#pytorch简介" data-toc-link data-heading-id="pytorch简介" data-astro-cid-p33bl5ka>PyTorch简介</a></li><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="pytorch安装" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#pytorch安装" data-toc-link data-heading-id="pytorch安装" data-astro-cid-p33bl5ka>PyTorch安装</a></li><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="神经网络介绍" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#神经网络介绍" data-toc-link data-heading-id="神经网络介绍" data-astro-cid-p33bl5ka>神经网络介绍</a></li><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="数据集与数据加载" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#数据集与数据加载" data-toc-link data-heading-id="数据集与数据加载" data-astro-cid-p33bl5ka>数据集与数据加载</a></li></ol></aside><script type="module" src="/_astro/TableOfContents.astro_astro_type_script_index_0_lang.Ckx0ik07.js"></script><article id="article" class="mt-8 w-full app-prose max-w-app prose-pre:bg-(--shiki-light-bg) dark:prose-pre:bg-(--shiki-dark-bg)"><h1 id="pytorch教程">PyTorch教程</h1>
+<p>在开始学习本教程之前，你应具备以下基础知识，以便更好地理解和应用 PyTorch</p>
+<ul>
+<li>编程基础:熟悉至少一种编程语言，尤其是 Python，这是 PyTorch 的主要开发语言。</li>
+<li>数学基础:掌握线性代数、概率论与统计学、微积分等基础数学知识，为理解机器学习算法打下坚实基础。</li>
+<li>机器学习基础:了解监督学习、无监督学习、强化学习等基本概念，以及常用的模型评估指标(如准确率、召回率、F1 分数等)</li>
+<li>深度学习基础:熟悉神经网络的基本结构和原理，如前馈神经网络、CNN、RNN、LSTM 等</li>
+<li>领域知识:若计划将 PyTorch 应用于计算机视觉或自然语言处理，了解相关领
+域的基础知识将大有裨益。</li>
+</ul>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #e6f1f0, #ebf4f2 50%, #f3faf9)" loading="lazy" decoding="async" sizes="(min-width: 928px) 928px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="928" height="718" src="/_astro/image-20251003140242783.C0zW0Tqf_Z1Ay8Sl.webp" srcset="/_astro/image-20251003140242783.C0zW0Tqf_2nzJqh.webp 480w, /_astro/image-20251003140242783.C0zW0Tqf_2aIdkp.webp 768w, /_astro/image-20251003140242783.C0zW0Tqf_Z1Ay8Sl.webp 928w"></p>
+<p>有关pytorch，请见<a href="https://docs.pytorch.ac.cn/docs/stable/index.html" target="_blank" rel="noopener noreferrer" data-external-link="">PyTorch 文档 — PyTorch 2.8 文档 - PyTorch 文档</a></p>
+<h2 id="pytorch简介">PyTorch简介</h2>
+<p>PyTorch 是一个开源的 Python 机器学习库,基于 Torch 库，底层由 C++实现，应用于人工智能领域，如计算机视觉和自然语言处理。</p>
+<p>PyTorch 最初由 Meta Platforms 的人工智能研究团队开发，现在属于Linux 基金会的一部分。</p>
+<p>PyTorch 主要有两大特征:</p>
+<ul>
+<li>类似于 NumPy 的张量计算，能在 GPU 等硬件加速器上加速。</li>
+<li>基于带自动微分系统的深度神经网络。</li>
+</ul>
+<blockquote><p>注:基于自动微分系统的深度神经网络是 PyTorch 核心能力之一，其通过autograd模块自动追踪张量运算过程，可在反向传播阶段无需人工推导，直接计算损失函数对模型参数的梯度，为网络训练提供关键的梯度信息支撑。
+NumPy是Python语言的一个扩展程序库。支持高阶大规模的多维数组与矩阵运算，此外也针对数组运算提供大量的数学</p></blockquote>
+<p>PyTorch 特性</p>
+<ul>
+<li>
+<p>动态计算图(Dynamic Computation Graphs): PyTorch 的计算图是动态的，这意味着它们在运行时构建，并且可以随时改变。这为实验和调试提供了极大的灵活性，因为开发者可以逐行
+执行代码，查看中间结果。</p>
+</li>
+<li>
+<p>自动微分(Automatic Differentiation): PyTorch 的自动微分系统允许开发者轻松地计算梯度这对于训练深度学习模型至关重要。它通过反向传播算法自动计算出损失函数对模型参数的梯度。</p>
+</li>
+<li>
+<p>张量计算(Tensor Computation): PyTorch 提供了类似于 NumPy 的张量操作，这些操作可以在 CPU 和 GPU 上执行，从而加速计算过程。张量是 PyTorch 中的基本数据结构，用于存储和操作数据。</p>
+</li>
+</ul>
+<p>动态计算图(Dynamic Computation Graph.
+PyTorch 最显著的特点之一是其动态计算图的机制。PyTorch 在执行时构建计算图，这意味着在每次计算时，图都会根据输入数据的形状自动变化。</p>
+<p>动态计算图的优点:
+计算图(Computation Graph)是深度学习中一个非常核心的概念，可以把它理解成:
+拿一张用“节点”和“边”表示数学运算流程的“流程图”，它描述了数据(张量)是如何通过系列运算一步步变换、最终得到输出结果的。</p>
+<ul>
+<li>
+<p>更加灵活，特别适用于需要条件判断或递归的场景。</p>
+</li>
+<li>
+<p>方便调试和修改，能够直接查看中间结果·更接近 Python 编程的风格，易于上手。</p>
+</li>
+</ul>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #f3f3f3, #f6f6f6 50%, #f4f4f4)" loading="lazy" decoding="async" sizes="(min-width: 2028px) 2028px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="2028" height="922" src="/_astro/image-20251003140819157.mpeVGgkh_5YJcr.webp" srcset="/_astro/image-20251003140819157.mpeVGgkh_Zg016o.webp 480w, /_astro/image-20251003140819157.mpeVGgkh_2vI9yt.webp 768w, /_astro/image-20251003140819157.mpeVGgkh_1ija2q.webp 1280w, /_astro/image-20251003140819157.mpeVGgkh_5YJcr.webp 2028w"></p>
+<blockquote><p>(+)位置可以看到张量</p></blockquote>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #ebebf0, #f6f6f9 50%, #ececec)" loading="lazy" decoding="async" sizes="(min-width: 1964px) 1964px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="1964" height="888" src="/_astro/image-20251003140914863.CU9Ech_6_22WBm7.webp" srcset="/_astro/image-20251003140914863.CU9Ech_6_Zrjzyx.webp 480w, /_astro/image-20251003140914863.CU9Ech_6_Z25ugiS.webp 768w, /_astro/image-20251003140914863.CU9Ech_6_Z1fdcBO.webp 1280w, /_astro/image-20251003140914863.CU9Ech_6_22WBm7.webp 1964w"></p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #e7e8f0, #eef0f9 50%, #f9f9f9)" loading="lazy" decoding="async" sizes="(min-width: 1588px) 1588px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="1588" height="704" src="/_astro/image-20251003140925476.D9uxO69X_ZdTG5f.webp" srcset="/_astro/image-20251003140925476.D9uxO69X_Jeg4G.webp 480w, /_astro/image-20251003140925476.D9uxO69X_14Wqxv.webp 768w, /_astro/image-20251003140925476.D9uxO69X_Z11dmQ7.webp 1280w, /_astro/image-20251003140925476.D9uxO69X_ZdTG5f.webp 1588w"></p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #e9e9f1, #f1f0f7 50%, #fdfdfd)" loading="lazy" decoding="async" sizes="(min-width: 1732px) 1732px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="1732" height="740" src="/_astro/image-20251003140959558.Dehi1m1J_MaSJG.webp" srcset="/_astro/image-20251003140959558.Dehi1m1J_ZfLzet.webp 480w, /_astro/image-20251003140959558.Dehi1m1J_1kPhTz.webp 768w, /_astro/image-20251003140959558.Dehi1m1J_Z20gTWX.webp 1280w, /_astro/image-20251003140959558.Dehi1m1J_MaSJG.webp 1732w"></p>
+<h2 id="pytorch安装">PyTorch安装</h2>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #d0d2d1, #727176 50%, #3f3f3f)" loading="lazy" decoding="async" sizes="(min-width: 2022px) 2022px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="2022" height="972" src="/_astro/image-20251003141107206.B5vX3Aix_xDxSB.webp" srcset="/_astro/image-20251003141107206.B5vX3Aix_Z1KKG2D.webp 480w, /_astro/image-20251003141107206.B5vX3Aix_1t3CB7.webp 768w, /_astro/image-20251003141107206.B5vX3Aix_ENBVS.webp 1280w, /_astro/image-20251003141107206.B5vX3Aix_xDxSB.webp 2022w"></p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #eff2ef, #f8faf7 50%, #ecf3ec)" loading="lazy" decoding="async" sizes="(min-width: 1598px) 1598px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="1598" height="712" src="/_astro/image-20251003141216897.DOZiuwKb_Z1B06Eu.webp" srcset="/_astro/image-20251003141216897.DOZiuwKb_2ibmqd.webp 480w, /_astro/image-20251003141216897.DOZiuwKb_1XBfuj.webp 768w, /_astro/image-20251003141216897.DOZiuwKb_Z1ISzUA.webp 1280w, /_astro/image-20251003141216897.DOZiuwKb_Z1B06Eu.webp 1598w"></p>
+<blockquote><p>建议使用Python3.9</p></blockquote>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #eef0f4, #fcfdfd 50%, #f3f7f2)" loading="lazy" decoding="async" sizes="(min-width: 2028px) 2028px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="2028" height="980" src="/_astro/image-20251003141302556.BJsCAaFP_nIYKq.webp" srcset="/_astro/image-20251003141302556.BJsCAaFP_ZamkLy.webp 480w, /_astro/image-20251003141302556.BJsCAaFP_Z1hJ0oN.webp 768w, /_astro/image-20251003141302556.BJsCAaFP_Z16hNUM.webp 1280w, /_astro/image-20251003141302556.BJsCAaFP_nIYKq.webp 2028w"></p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #eaeeeb, #fcfdfc 50%, #fdfefe)" loading="lazy" decoding="async" sizes="(min-width: 2022px) 2022px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="2022" height="978" src="/_astro/image-20251003141332954.C5deinPh_Z10P1XA.webp" srcset="/_astro/image-20251003141332954.C5deinPh_Z18rpEk.webp 480w, /_astro/image-20251003141332954.C5deinPh_Z2fO5hz.webp 768w, /_astro/image-20251003141332954.C5deinPh_ZBFql4.webp 1280w, /_astro/image-20251003141332954.C5deinPh_Z10P1XA.webp 2022w"></p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #c2bcc9, #6d607a 50%, #f3f3f3)" loading="lazy" decoding="async" sizes="(min-width: 2024px) 2024px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="2024" height="910" src="/_astro/image-20251003141356803.DTYvyOQv_ZLgdaH.webp" srcset="/_astro/image-20251003141356803.DTYvyOQv_nOo0x.webp 480w, /_astro/image-20251003141356803.DTYvyOQv_ZA30k5.webp 768w, /_astro/image-20251003141356803.DTYvyOQv_Zg9Q15.webp 1280w, /_astro/image-20251003141356803.DTYvyOQv_ZLgdaH.webp 2024w"></p>
+<p><a href="https://pytorch.org/" target="_blank" rel="noopener noreferrer" data-external-link="">PyTorch</a></p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #edeef0, #fafafb 50%, #f2f0ee)" loading="lazy" decoding="async" sizes="(min-width: 2024px) 2024px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="2024" height="960" src="/_astro/image-20251003142043338.Dat-4icf_Z29JJQ1.webp" srcset="/_astro/image-20251003142043338.Dat-4icf_Z1yy5K7.webp 480w, /_astro/image-20251003142043338.Dat-4icf_ZH1Tac.webp 768w, /_astro/image-20251003142043338.Dat-4icf_2tuftk.webp 1280w, /_astro/image-20251003142043338.Dat-4icf_Z29JJQ1.webp 2024w"></p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #d7d7d7, #96989a 50%, #ececec)" loading="lazy" decoding="async" sizes="(min-width: 2026px) 2026px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="2026" height="1144" src="/_astro/image-20251003142405066.BIGWTmHR_1BQWwk.webp" srcset="/_astro/image-20251003142405066.BIGWTmHR_Z1lCIow.webp 480w, /_astro/image-20251003142405066.BIGWTmHR_4bOta.webp 768w, /_astro/image-20251003142405066.BIGWTmHR_2it1jS.webp 1280w, /_astro/image-20251003142405066.BIGWTmHR_1BQWwk.webp 2026w"></p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #eff1ef, #f0f2f7 50%, #c1c1c7)" loading="lazy" decoding="async" sizes="(min-width: 2028px) 2028px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="2028" height="1138" src="/_astro/image-20251003144017338.CKSNSnJB_21pmMv.webp" srcset="/_astro/image-20251003144017338.CKSNSnJB_Z14MMy4.webp 480w, /_astro/image-20251003144017338.CKSNSnJB_Z2qSzrP.webp 768w, /_astro/image-20251003144017338.CKSNSnJB_Z1BtXJC.webp 1280w, /_astro/image-20251003144017338.CKSNSnJB_21pmMv.webp 2028w"></p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="python"><code><span class="line"><span style="--shiki-light:#D32F2F;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">import</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB"> torch</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#C2C3C5;--shiki-light-font-style:inherit;--shiki-dark:#637777;--shiki-dark-font-style:italic"># 当前安装的 PyTorch 库的版本</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#C5E478">print</span><span style="--shiki-light:#212121;--shiki-dark:#D6DEEB">(</span><span style="--shiki-light:#212121;--shiki-dark:#82AAFF">torch.</span><span style="--shiki-light:#1976D2;--shiki-dark:#82AAFF">__version__</span><span style="--shiki-light:#212121;--shiki-dark:#D6DEEB">)</span></span>
+<span class="line"><span style="--shiki-light:#C2C3C5;--shiki-light-font-style:inherit;--shiki-dark:#637777;--shiki-dark-font-style:italic"># 检查 CUDA 是否可用，即你的系统有 NVIDIA 的 GPU</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#C5E478">print</span><span style="--shiki-light:#212121;--shiki-dark:#D6DEEB">(</span><span style="--shiki-light:#212121;--shiki-dark:#82AAFF">torch.cuda.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B2CCD6">is_available</span><span style="--shiki-light:#212121;--shiki-dark:#D6DEEB">())</span></span></code></pre>
+<p><a href="https://www.runoob.com/pytorch/pytorch-install.html#:~:text=torch%20torchvision%20torchaudio-,%E9%AA%8C%E8%AF%81%E5%AE%89%E8%A3%85,-%E4%B8%BA%E4%BA%86%E7%A1%AE%E4%BF%9D%20PyTorch" target="_blank" rel="noopener noreferrer" data-external-link="">PyTorch 安装 | 菜鸟教程</a></p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #f0f1ef, #bebebe 50%, #d6d6d6)" loading="lazy" decoding="async" sizes="(min-width: 2024px) 2024px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="2024" height="912" src="/_astro/image-20251003144552271.D6U7zLJQ_2o2Kdb.webp" srcset="/_astro/image-20251003144552271.D6U7zLJQ_Z9plnF.webp 480w, /_astro/image-20251003144552271.D6U7zLJQ_Z1MA281.webp 768w, /_astro/image-20251003144552271.D6U7zLJQ_Z2b31r8.webp 1280w, /_astro/image-20251003144552271.D6U7zLJQ_2o2Kdb.webp 2024w"></p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="python"><code><span class="line"><span style="--shiki-light:#D32F2F;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">import</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB"> torch</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">x </span><span style="--shiki-light:#D32F2F;--shiki-dark:#C792EA">=</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB"> torch</span><span style="--shiki-light:#212121;--shiki-dark:#D6DEEB">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B2CCD6">rand</span><span style="--shiki-light:#212121;--shiki-dark:#D6DEEB">(</span><span style="--shiki-light:#1976D2;--shiki-dark:#F78C6C">5</span><span style="--shiki-light:#212121;--shiki-dark:#D9F5DD">,</span><span style="--shiki-light:#1976D2;--shiki-dark:#F78C6C"> 3</span><span style="--shiki-light:#212121;--shiki-dark:#D6DEEB">)</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#C5E478">print</span><span style="--shiki-light:#212121;--shiki-dark:#D6DEEB">(</span><span style="--shiki-light:#212121;--shiki-dark:#82AAFF">x</span><span style="--shiki-light:#212121;--shiki-dark:#D6DEEB">)</span></span></code></pre>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #eeeef1, #f3f3f7 50%, #f3f2f6)" loading="lazy" decoding="async" sizes="(min-width: 1762px) 1762px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="1762" height="838" src="/_astro/image-20251003145225620.BO1aM7Tg_mMqST.webp" srcset="/_astro/image-20251003145225620.BO1aM7Tg_mkurb.webp 480w, /_astro/image-20251003145225620.BO1aM7Tg_yyoCn.webp 768w, /_astro/image-20251003145225620.BO1aM7Tg_15Qnk1.webp 1280w, /_astro/image-20251003145225620.BO1aM7Tg_mMqST.webp 1762w"></p>
+<p><a href="https://www.runoob.com/pytorch/pytorch-basic.html" target="_blank" rel="noopener noreferrer" data-external-link="">PyTorch 基础 | 菜鸟教程</a></p>
+<p><a href="https://www.runoob.com/pytorch/pytorch-tensor.html" target="_blank" rel="noopener noreferrer" data-external-link="">PyTorch 张量（Tensor） | 菜鸟教程</a></p>
+<h1 id="神经网络">神经网络</h1>
+<h2 id="神经网络介绍">神经网络介绍</h2>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #dee1e4, #f4f5f2 50%, #eff0ed)" loading="lazy" decoding="async" sizes="(min-width: 1728px) 1728px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="1728" height="682" src="/_astro/image-20251003170121375.CPQ7aBIa_ZkNWN3.webp" srcset="/_astro/image-20251003170121375.CPQ7aBIa_Lzl9b.webp 480w, /_astro/image-20251003170121375.CPQ7aBIa_jh23H.webp 768w, /_astro/image-20251003170121375.CPQ7aBIa_Z9pubt.webp 1280w, /_astro/image-20251003170121375.CPQ7aBIa_ZkNWN3.webp 1728w"></p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #050505, #050707 50%, #303231)" loading="lazy" decoding="async" sizes="(min-width: 1298px) 1298px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="1298" height="806" src="/_astro/image-20251003170146520.C4jvOSYf_Z2oLUty.webp" srcset="/_astro/image-20251003170146520.C4jvOSYf_vwS2K.webp 480w, /_astro/image-20251003170146520.C4jvOSYf_YWG0R.webp 768w, /_astro/image-20251003170146520.C4jvOSYf_18UaCf.webp 1280w, /_astro/image-20251003170146520.C4jvOSYf_Z2oLUty.webp 1298w"></p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #201d1c, #716d6d 50%, #878483)" loading="lazy" decoding="async" sizes="(min-width: 1748px) 1748px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="1748" height="774" src="/_astro/image-20251003170308804.DF88GLdM_jNyBC.webp" srcset="/_astro/image-20251003170308804.DF88GLdM_2jW4Ik.webp 480w, /_astro/image-20251003170308804.DF88GLdM_Z2pvSBM.webp 768w, /_astro/image-20251003170308804.DF88GLdM_2mfxUi.webp 1280w, /_astro/image-20251003170308804.DF88GLdM_jNyBC.webp 1748w"></p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #848586, #a1a1a1 50%, #eaeaea)" loading="lazy" decoding="async" sizes="(min-width: 1754px) 1754px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="1754" height="832" src="/_astro/image-20251003170316205.Lb742MdP_ZzgPR4.webp" srcset="/_astro/image-20251003170316205.Lb742MdP_Zb8rgT.webp 480w, /_astro/image-20251003170316205.Lb742MdP_FnJj1.webp 768w, /_astro/image-20251003170316205.Lb742MdP_ZnfY2t.webp 1280w, /_astro/image-20251003170316205.Lb742MdP_ZzgPR4.webp 1754w"></p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #666666, #727272 50%, #c1c1c1)" loading="lazy" decoding="async" sizes="(min-width: 1666px) 1666px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="1666" height="874" src="/_astro/image-20251003170531497.Du1-3xlt_DD1gq.webp" srcset="/_astro/image-20251003170531497.Du1-3xlt_Z154WFv.webp 480w, /_astro/image-20251003170531497.Du1-3xlt_Z1uKUDX.webp 768w, /_astro/image-20251003170531497.Du1-3xlt_3gXHg.webp 1280w, /_astro/image-20251003170531497.Du1-3xlt_DD1gq.webp 1666w"></p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #282929, #d0d1da 50%, #e3e2e6)" loading="lazy" decoding="async" sizes="(min-width: 1712px) 1712px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="1712" height="882" src="/_astro/image-20251003170715586.KWHdk1BB_1uVtDM.webp" srcset="/_astro/image-20251003170715586.KWHdk1BB_X1v6T.webp 480w, /_astro/image-20251003170715586.KWHdk1BB_ZhPpMX.webp 768w, /_astro/image-20251003170715586.KWHdk1BB_1ymt2S.webp 1280w, /_astro/image-20251003170715586.KWHdk1BB_1uVtDM.webp 1712w"></p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #4f5152, #53565b 50%, #878787)" loading="lazy" decoding="async" sizes="(min-width: 1788px) 1788px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="1788" height="866" src="/_astro/image-20251003170752551.D6pNYLYx_Z2jXw7q.webp" srcset="/_astro/image-20251003170752551.D6pNYLYx_13XUPI.webp 480w, /_astro/image-20251003170752551.D6pNYLYx_ZHG1bf.webp 768w, /_astro/image-20251003170752551.D6pNYLYx_Z1sMfyo.webp 1280w, /_astro/image-20251003170752551.D6pNYLYx_Z2jXw7q.webp 1788w"></p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #616260, #5d5d5c 50%, #969696)" loading="lazy" decoding="async" sizes="(min-width: 1736px) 1736px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="1736" height="774" src="/_astro/image-20251003170933461.CFtp07VP_Z1ovDLi.webp" srcset="/_astro/image-20251003170933461.CFtp07VP_ChuX0.webp 480w, /_astro/image-20251003170933461.CFtp07VP_iHo26.webp 768w, /_astro/image-20251003170933461.CFtp07VP_2gU4rs.webp 1280w, /_astro/image-20251003170933461.CFtp07VP_Z1ovDLi.webp 1736w"></p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #0d0d0c, #060605 50%, #3e3e3e)" loading="lazy" decoding="async" sizes="(min-width: 1194px) 1194px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="1194" height="764" src="/_astro/image-20251003171319618.BpiRrugJ_Z2pdSJh.webp" srcset="/_astro/image-20251003171319618.BpiRrugJ_Z1yO1dT.webp 480w, /_astro/image-20251003171319618.BpiRrugJ_Z5aAgE.webp 768w, /_astro/image-20251003171319618.BpiRrugJ_Z2pdSJh.webp 1194w"></p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #30312f, #373735 50%, #787978)" loading="lazy" decoding="async" sizes="(min-width: 1198px) 1198px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="1198" height="748" src="/_astro/image-20251003171547160.CMEktEmU_Z1rmEE3.webp" srcset="/_astro/image-20251003171547160.CMEktEmU_Z25U90e.webp 480w, /_astro/image-20251003171547160.CMEktEmU_DBXCf.webp 768w, /_astro/image-20251003171547160.CMEktEmU_Z1rmEE3.webp 1198w"></p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #85888a, #868a8e 50%, #abacad)" loading="lazy" decoding="async" sizes="(min-width: 1748px) 1748px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="1748" height="974" src="/_astro/image-20251003172010239.CtZ7IbWs_Cu58p.webp" srcset="/_astro/image-20251003172010239.CtZ7IbWs_flhsq.webp 480w, /_astro/image-20251003172010239.CtZ7IbWs_ZiOVME.webp 768w, /_astro/image-20251003172010239.CtZ7IbWs_ZBabHx.webp 1280w, /_astro/image-20251003172010239.CtZ7IbWs_Cu58p.webp 1748w"></p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #515253, #606161 50%, #8d8d8d)" loading="lazy" decoding="async" sizes="(min-width: 1700px) 1700px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="1700" height="802" src="/_astro/image-20251003172058968.DN-X8heF_Az3my.webp" srcset="/_astro/image-20251003172058968.DN-X8heF_Z21t5aT.webp 480w, /_astro/image-20251003172058968.DN-X8heF_Z19VSzY.webp 768w, /_astro/image-20251003172058968.DN-X8heF_Z1o3SGz.webp 1280w, /_astro/image-20251003172058968.DN-X8heF_Az3my.webp 1700w"></p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #5c5c5c, #515151 50%, #a5a5a5)" loading="lazy" decoding="async" sizes="(min-width: 1714px) 1714px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="1714" height="858" src="/_astro/image-20251003172219754.DLKzncP9_Z2fTnqa.webp" srcset="/_astro/image-20251003172219754.DLKzncP9_1CIeEE.webp 480w, /_astro/image-20251003172219754.DLKzncP9_2i3hOJ.webp 768w, /_astro/image-20251003172219754.DLKzncP9_1gWVlw.webp 1280w, /_astro/image-20251003172219754.DLKzncP9_Z2fTnqa.webp 1714w"></p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #6b6b6d, #5d5b5c 50%, #979796)" loading="lazy" decoding="async" sizes="(min-width: 1716px) 1716px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="1716" height="788" src="/_astro/image-20251003172329671.BwBYgHHR_1ipwDG.webp" srcset="/_astro/image-20251003172329671.BwBYgHHR_Z1x9wQQ.webp 480w, /_astro/image-20251003172329671.BwBYgHHR_Z51V0q.webp 768w, /_astro/image-20251003172329671.BwBYgHHR_ZrGpUF.webp 1280w, /_astro/image-20251003172329671.BwBYgHHR_1ipwDG.webp 1716w"></p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #626261, #3b3939 50%, #545352)" loading="lazy" decoding="async" sizes="(min-width: 1592px) 1592px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="1592" height="744" src="/_astro/image-20251003172344771.TYqrdVp8_2n0Rg4.webp" srcset="/_astro/image-20251003172344771.TYqrdVp8_Z2mBOmB.webp 480w, /_astro/image-20251003172344771.TYqrdVp8_Z2e5MjC.webp 768w, /_astro/image-20251003172344771.TYqrdVp8_DIkxJ.webp 1280w, /_astro/image-20251003172344771.TYqrdVp8_2n0Rg4.webp 1592w"></p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #585756, #464646 50%, #646464)" loading="lazy" decoding="async" sizes="(min-width: 1678px) 1678px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="1678" height="748" src="/_astro/image-20251003172445140.D86Oe4i0_SmeCb.webp" srcset="/_astro/image-20251003172445140.D86Oe4i0_OdAJv.webp 480w, /_astro/image-20251003172445140.D86Oe4i0_uDtNB.webp 768w, /_astro/image-20251003172445140.D86Oe4i0_Z1Osh2E.webp 1280w, /_astro/image-20251003172445140.D86Oe4i0_SmeCb.webp 1678w"></p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #4f4f4f, #6d6d6d 50%, #b0b0b0)" loading="lazy" decoding="async" sizes="(min-width: 1694px) 1694px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="1694" height="836" src="/_astro/image-20251003172546077.fw4nsSjb_1JKG3p.webp" srcset="/_astro/image-20251003172546077.fw4nsSjb_W9Xxk.webp 480w, /_astro/image-20251003172546077.fw4nsSjb_Z296xi5.webp 768w, /_astro/image-20251003172546077.fw4nsSjb_1kjUCP.webp 1280w, /_astro/image-20251003172546077.fw4nsSjb_1JKG3p.webp 1694w"></p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #4d4d4d, #5c5c5c 50%, #858585)" loading="lazy" decoding="async" sizes="(min-width: 1686px) 1686px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="1686" height="802" src="/_astro/image-20251003172656866.CaFUmjem_Z1ckXWt.webp" srcset="/_astro/image-20251003172656866.CaFUmjem_ZzYu94.webp 480w, /_astro/image-20251003172656866.CaFUmjem_ZnKzWR.webp 768w, /_astro/image-20251003172656866.CaFUmjem_1WSrO0.webp 1280w, /_astro/image-20251003172656866.CaFUmjem_Z1ckXWt.webp 1686w"></p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #4d4d4d, #515151 50%, #868686)" loading="lazy" decoding="async" sizes="(min-width: 1688px) 1688px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="1688" height="790" src="/_astro/image-20251003172809240.BgQH2ZZL_ZbFmji.webp" srcset="/_astro/image-20251003172809240.BgQH2ZZL_Z1DyR2u.webp 480w, /_astro/image-20251003172809240.BgQH2ZZL_ZPJxzM.webp 768w, /_astro/image-20251003172809240.BgQH2ZZL_Z2nKJjn.webp 1280w, /_astro/image-20251003172809240.BgQH2ZZL_ZbFmji.webp 1688w"></p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #363636, #666666 50%, #9f9f9f)" loading="lazy" decoding="async" sizes="(min-width: 1698px) 1698px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="1698" height="858" src="/_astro/image-20251003172927799.C8qumi1B_1kJK4F.webp" srcset="/_astro/image-20251003172927799.C8qumi1B_1quzQb.webp 480w, /_astro/image-20251003172927799.C8qumi1B_1qwlBx.webp 768w, /_astro/image-20251003172927799.C8qumi1B_ZgfVP9.webp 1280w, /_astro/image-20251003172927799.C8qumi1B_1kJK4F.webp 1698w"></p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #8a8a8a, #696969 50%, #868686)" loading="lazy" decoding="async" sizes="(min-width: 1492px) 1492px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="1492" height="742" src="/_astro/image-20251003172940247.B3u84vIx_Z15SyyL.webp" srcset="/_astro/image-20251003172940247.B3u84vIx_ZXJ3lA.webp 480w, /_astro/image-20251003172940247.B3u84vIx_1IbI9R.webp 768w, /_astro/image-20251003172940247.B3u84vIx_21fSFI.webp 1280w, /_astro/image-20251003172940247.B3u84vIx_Z15SyyL.webp 1492w"></p>
+<h2 id="数据集与数据加载">数据集与数据加载</h2>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #e6e6e6, #efefef 50%, #dfdfdd)" loading="lazy" decoding="async" sizes="(min-width: 1594px) 1594px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="1594" height="854" src="/_astro/image-20251003173012074.B8qqpDsl_Z25RjJe.webp" srcset="/_astro/image-20251003173012074.B8qqpDsl_ZrVaD3.webp 480w, /_astro/image-20251003173012074.B8qqpDsl_Z1tdxS1.webp 768w, /_astro/image-20251003173012074.B8qqpDsl_fVP0.webp 1280w, /_astro/image-20251003173012074.B8qqpDsl_Z25RjJe.webp 1594w"></p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #e9e9e9, #f3f3f3 50%, #ededed)" loading="lazy" decoding="async" sizes="(min-width: 1442px) 1442px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="1442" height="608" src="/_astro/image-20251003173435990.DQr7BlKh_Z17FyP8.webp" srcset="/_astro/image-20251003173435990.DQr7BlKh_cqRXV.webp 480w, /_astro/image-20251003173435990.DQr7BlKh_2sm2wH.webp 768w, /_astro/image-20251003173435990.DQr7BlKh_Z2m2Vrz.webp 1280w, /_astro/image-20251003173435990.DQr7BlKh_Z17FyP8.webp 1442w"></p></article><script>
+  (() => {
+    const SELECTOR = ".asciinema-player[data-cast]";
+
+    function ensureCss() {
+      if (document.querySelector('link[data-asciinema-player="1"]')) return;
+      const link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.href = "/assets/css/asciinema-player.css";
+      link.dataset.asciinemaPlayer = "1";
+      document.head.appendChild(link);
+    }
+
+    function ensureScript() {
+      if (window.AsciinemaPlayer?.create) {
+        return Promise.resolve(window.AsciinemaPlayer);
+      }
+      if (window.__asciinemaPlayerPromise) {
+        return window.__asciinemaPlayerPromise;
+      }
+      window.__asciinemaPlayerPromise = new Promise((resolve, reject) => {
+        const script = document.createElement("script");
+        script.src = "/assets/js/asciinema-player.min.js";
+        script.async = true;
+        script.dataset.asciinemaPlayer = "1";
+        script.addEventListener("load", () => resolve(window.AsciinemaPlayer));
+        script.addEventListener("error", reject);
+        document.body.appendChild(script);
+      });
+      return window.__asciinemaPlayerPromise;
+    }
+
+    async function initAsciinema() {
+      const elements = [...document.querySelectorAll(SELECTOR)];
+      if (elements.length === 0) return;
+      ensureCss();
+      const player = await ensureScript();
+      if (!player?.create) return;
+
+      for (const element of elements) {
+        if (element.dataset.asciinemaInitialized === "1") continue;
+        const source = element.dataset.cast;
+        if (!source) continue;
+        player.create(source, element, {
+          preload: element.dataset.preload === "true",
+          theme: element.dataset.theme || "asciinema",
+        });
+        element.dataset.asciinemaInitialized = "1";
+      }
+    }
+
+    initAsciinema().catch(() => undefined);
+    document.addEventListener("astro:page-load", () => {
+      initAsciinema().catch(() => undefined);
+    });
+    document.addEventListener("password:decrypted", () => {
+      initAsciinema().catch(() => undefined);
+    });
+  })();
+</script><aside class="border-border text-muted-foreground mt-8 border-y py-4 text-sm"><p>许可： <a class="underline underline-offset-4" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p></aside><hr class="my-8 border-dashed"><div id="btt-btn-container" class="fixed inset-e-4 bottom-5 z-50 sm:inset-e-6 sm:bottom-6 translate-y-4 opacity-0 transition duration-300"><button data-button="back-to-top" aria-label="返回顶部" title="返回顶部" class="bg-background/92 text-foreground relative grid size-12 place-items-center border p-0 shadow-sm backdrop-blur-md"><span id="progress-indicator" class="absolute -inset-1 -z-10 block bg-transparent"></span><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="size-5" viewBox="0 0 24 24" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" /><path d="M12 5v14M16 9l-4-4M8 9l4-4" /></svg><span class="sr-only">返回顶部</span></button></div><script type="module">function e(){let e=document.querySelector(`[data-button='back-to-top']`);if(!e||e.hasAttribute(`data-enhanced`)||(e.setAttribute(`data-enhanced`,``),e.addEventListener(`click`,()=>{window.scrollTo({top:0,left:0,behavior:window.matchMedia(`(prefers-reduced-motion: reduce)`).matches?`instant`:`smooth`})}),window.__backToTopScrollBound))return;window.__backToTopScrollBound=!0;let t=null;function n(){let e=document.documentElement,n=document.querySelector(`#btt-btn-container`),r=document.querySelector(`#progress-indicator`);if(!n||!r)return;let i=e.scrollHeight-e.clientHeight,a=e.scrollTop,o=i>0?Math.floor(a/i*100):0;r.style.setProperty(`background-image`,`conic-gradient(var(--accent), var(--accent) ${o}%, transparent ${o}%)`);let s=Math.min(480,e.clientHeight*.6),c=i>0&&a>s;c!==t&&(n.classList.toggle(`opacity-100`,c),n.classList.toggle(`translate-y-0`,c),n.classList.toggle(`opacity-0`,!c),n.classList.toggle(`translate-y-4`,!c),t=c)}let r=!1;document.addEventListener(`scroll`,()=>{r||=(window.requestAnimationFrame(()=>{n(),r=!1}),!0)},{passive:!0}),n()}e(),document.addEventListener(`astro:page-load`,e);</script><ul class="mt-4 mb-8 flex flex-wrap gap-4 sm:my-8"><li><a data-astro-transition-scope="astro-bztu2lml-1" href="/tags/python/" class="tag-link flex items-center gap-0.5 border-foreground border-b-2 border-dashed hover:border-accent hover:text-accent hover:-translate-y-0.5 focus-visible:text-accent focus-visible:border-none text-sm"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="opacity-80 size-4" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" /><path d="M5 9h14M5 15h14M11 4 7 20M17 4l-4 16" /></svg>Python</a></li><li><a data-astro-transition-scope="astro-bztu2lml-2" href="/tags/编程基础/" class="tag-link flex items-center gap-0.5 border-foreground border-b-2 border-dashed hover:border-accent hover:text-accent hover:-translate-y-0.5 focus-visible:text-accent focus-visible:border-none text-sm"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="opacity-80 size-4" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" /><path d="M5 9h14M5 15h14M11 4 7 20M17 4l-4 16" /></svg>编程基础</a></li><li><a data-astro-transition-scope="astro-bztu2lml-3" href="/tags/学习笔记/" class="tag-link flex items-center gap-0.5 border-foreground border-b-2 border-dashed hover:border-accent hover:text-accent hover:-translate-y-0.5 focus-visible:text-accent focus-visible:border-none text-sm"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="opacity-80 size-4" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" /><path d="M5 9h14M5 15h14M11 4 7 20M17 4l-4 16" /></svg>学习笔记</a></li><li><a data-astro-transition-scope="astro-bztu2lml-4" href="/tags/入门/" class="tag-link flex items-center gap-0.5 border-foreground border-b-2 border-dashed hover:border-accent hover:text-accent hover:-translate-y-0.5 focus-visible:text-accent focus-visible:border-none text-sm"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="opacity-80 size-4" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" /><path d="M5 9h14M5 15h14M11 4 7 20M17 4l-4 16" /></svg>入门</a></li><li><a data-astro-transition-scope="astro-bztu2lml-5" href="/tags/实践/" class="tag-link flex items-center gap-0.5 border-foreground border-b-2 border-dashed hover:border-accent hover:text-accent hover:-translate-y-0.5 focus-visible:text-accent focus-visible:border-none text-sm"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="opacity-80 size-4" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" /><path d="M5 9h14M5 15h14M11 4 7 20M17 4l-4 16" /></svg>实践</a></li></ul><div class="flex flex-none flex-col items-center justify-center gap-1 md:items-start"><span class="font-sketch">分享文章：</span><div class="text-center"><a href="https://t.me/share/url?url=https://mjy.js.org/posts/python-notes-0003/" title="分享到 Telegram" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-1 hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" /><path d="m15 10-4 4 6 6 4-16-18 7 4 2 2 6 3-4" /></svg><span class="sr-only">分享到 Telegram</span></a><a href="mailto:?subject=See%20this%20post&amp;body=https://mjy.js.org/posts/python-notes-0003/" title="通过邮件分享" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-1 hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" /><path d="M3 7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><path d="m3 7 9 6 9-6" /></svg><span class="sr-only">通过邮件分享</span></a></div></div><hr class="my-8 border-dashed"><section class="border-border my-8 border-y py-6" aria-labelledby="related-posts-title" data-related-posts data-pagefind-ignore="all"><h2 id="related-posts-title" class="mb-4 text-lg font-semibold tracking-wide">继续阅读</h2><ol class="space-y-4"><li><a class="reader-related-link group block" href="/posts/python-notes-0002/"><span class="group-hover:text-accent font-medium">Python学习笔记其二</span><span class="font-sketch text-muted-foreground mt-1 block text-sm">笔记 · Python相关语法</span></a></li><li><a class="reader-related-link group block" href="/posts/python-notes-0001/"><span class="group-hover:text-accent font-medium">Python学习笔记其一</span><span class="font-sketch text-muted-foreground mt-1 block text-sm">笔记 · for与while的实战</span></a></li><li><a class="reader-related-link group block" href="/posts/python-notes-0004-pytorch/"><span class="group-hover:text-accent font-medium">Python学习笔记其四</span><span class="font-sketch text-muted-foreground mt-1 block text-sm">笔记 · Pytorch教程</span></a></li></ol></section><div data-pagefind-ignore class="my-8 grid grid-cols-1 gap-6 sm:grid-cols-2"><a href="/posts/python-notes-0004-pytorch/" class="reader-nav-link group flex w-full gap-1 hover:opacity-75"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="inline-block flex-none rtl:rotate-180" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" /><path d="M5 12h14M5 12l6 6M5 12l6-6" /></svg><div><span>上一篇</span><div class="text-accent/85 text-sm">Python学习笔记其四</div></div></a><a href="/posts/windows-rename-chinese-user-home-folder/" class="reader-nav-link group flex w-full justify-end gap-1 text-end hover:opacity-75 sm:col-start-2"><div><span>下一篇</span><div class="text-accent/85 text-sm">将Windows中文用户主文件夹修改为英文</div></div><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="inline-block flex-none rtl:rotate-180" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" /><path d="M5 12h14M13 18l6-6M13 6l6 6" /></svg></a></div></main><footer class="app-layout mt-auto"><div class="border-border flex flex-col items-center justify-between border-t py-6 sm:flex-row-reverse sm:py-4"><div class="flex flex-wrap items-center gap-1"><a href="https://github.com/majianyu2007" title="MaJianyu 的 GitHub" class="group inline-flex items-center gap-1 hover:text-accent p-2 hover:-translate-y-0.5 hover:rotate-3 sm:p-1"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" /><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21" /></svg><span class="sr-only">MaJianyu 的 GitHub</span></a><a href="https://space.bilibili.com/600064036" title="MaJianyu 的 BiliBili" class="group inline-flex items-center gap-1 hover:text-accent p-2 hover:-translate-y-0.5 hover:rotate-3 sm:p-1"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewBox="0 0 24 24" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path d="m8.5 3 2 2.5m5-2.5-2 2.5" /><rect width="18" height="14" x="3" y="6" rx="3" /><path d="M8 11v4m8-4v4" /></svg><span class="sr-only">MaJianyu 的 BiliBili</span></a></div><div class="my-2 flex flex-col items-center gap-1"><div class="flex flex-col items-center justify-center gap-x-1 gap-y-0.5 text-center sm:flex-row"><span class="whitespace-nowrap">版权所有 &#169; 2026 MaJianyu</span><span class="flex items-center gap-x-1 whitespace-nowrap"><span aria-hidden="true" class="hidden sm:inline">·</span><a href="/rss.xml" type="application/rss+xml" title="RSS 订阅源" class="hover:underline">RSS</a><span aria-hidden="true">·</span><a href="https://icp.gov.moe/?keyword=20216556" target="_blank" rel="noopener noreferrer" class="hover:underline">萌ICP备20216556号</a></span></div><span class="text-muted-foreground text-xs">本站已运行 <span data-site-runtime data-start="2020-12-11T16:00:00.000Z" aria-live="off">2,089</span> 天<span class="journal-footer-mark ms-1" aria-hidden="true">( •̀ᴗ•́ )و</span></span></div></div></footer><script type="module">function e(){document.querySelectorAll(`[data-site-runtime]`).forEach(e=>{let t=Date.parse(e.dataset.start??``);Number.isFinite(t)&&(e.textContent=Math.max(0,Math.floor((Date.now()-t)/864e5)).toLocaleString(`zh-CN`))})}e(),document.addEventListener(`astro:page-load`,e);</script><script type="module">var e=`theme`,t=`light`,n=`dark`;function r(){return localStorage.getItem(e)||(window.matchMedia(`(prefers-color-scheme: dark)`).matches?n:t)}var i=window.__theme?.value??r();function a(){localStorage.setItem(e,i),o()}function o(){let e=document.firstElementChild;e?.setAttribute(`data-theme`,i),e?.classList.toggle(`dark`,i===n),document.querySelector(`#theme-btn`)?.setAttribute(`aria-label`,i);let t=window.getComputedStyle(document.body).backgroundColor;document.querySelector(`meta[name='theme-color']`)?.setAttribute(`content`,t)}function s(){o(),document.querySelector(`#theme-btn`)?.addEventListener(`click`,()=>{i=i===t?n:t,a()})}s(),document.addEventListener(`astro:after-swap`,s),document.addEventListener(`astro:before-swap`,e=>{let t=document.querySelector(`meta[name='theme-color']`)?.getAttribute(`content`);t&&e.newDocument.querySelector(`meta[name='theme-color']`)?.setAttribute(`content`,t)}),window.matchMedia(`(prefers-color-scheme: dark)`).addEventListener(`change`,({matches:e})=>{i=e?n:t,a()}),document.addEventListener(`astro:page-load`,()=>{let e=!!location.hash;document.documentElement.toggleAttribute(`data-fragment-navigation`,e),document.documentElement.toggleAttribute(`data-fragment-font-pending`,e),e&&document.fonts.ready.then(()=>{document.documentElement.removeAttribute(`data-fragment-font-pending`)})});</script></body></html><script type="module" src="/_astro/index.astro_astro_type_script_index_0_lang.DtqqC1rV.js"></script>

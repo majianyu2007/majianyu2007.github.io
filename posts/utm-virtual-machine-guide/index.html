@@ -1,0 +1,425 @@
+<!DOCTYPE html><html dir="ltr" lang="zh-CN" class="overflow-y-scroll scroll-smooth"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="preload" href="/_astro/excalifont-latin.DBEDukyo.woff2" as="font" type="font/woff2" crossorigin="anonymous"><link rel="preload" href="/_astro/fonts/xiaolai-ui.f313e2d30fe461d7.woff2" as="font" type="font/woff2" crossorigin="anonymous"><link rel="icon" href="/favicon.ico"><link rel="canonical" href="https://mjy.js.org/posts/utm-virtual-machine-guide/"><meta name="generator" content="Astro v7.0.3"><!-- Primary meta --><title>UTM Virtual Machine | TranquilYu&#39;s Blog</title><meta name="title" content="UTM Virtual Machine | TranquilYu's Blog"><meta name="description" content="UTM——ios上的虚拟机"><meta name="author" content="MaJianyu"><meta name="keywords" content="Blog, Personal, 技术博客, 论文阅读, 数学建模, UTM, 虚拟机, macOS, 教程, 安装配置, 最佳实践"><link rel="sitemap" href="/sitemap-index.xml"><!-- Open Graph --><meta property="og:type" content="website"><meta property="og:site_name" content="TranquilYu's Blog"><meta property="og:title" content="UTM Virtual Machine | TranquilYu's Blog"><meta property="og:description" content="UTM——ios上的虚拟机"><meta property="og:url" content="https://mjy.js.org/posts/utm-virtual-machine-guide/"><meta property="og:image" content="https://mjy.js.org/og/utm-virtual-machine-guide.png"><!-- Twitter / X --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://mjy.js.org/posts/utm-virtual-machine-guide/"><meta property="twitter:title" content="UTM Virtual Machine | TranquilYu's Blog"><meta property="twitter:description" content="UTM——ios上的虚拟机"><meta property="twitter:image" content="https://mjy.js.org/og/utm-virtual-machine-guide.png"><!-- RSS autodiscovery --><link rel="alternate" type="application/rss+xml" title="TranquilYu's Blog" href="https://mjy.js.org/rss.xml/"><!-- Filled at runtime by theme.ts to match the current background colour --><meta name="theme-color" content=""><script>
+      {
+        const hasFragment = Boolean(location.hash);
+        document.documentElement.toggleAttribute(
+          "data-fragment-navigation",
+          hasFragment
+        );
+        document.documentElement.toggleAttribute(
+          "data-fragment-font-pending",
+          hasFragment
+        );
+      }
+    </script><!-- Extra head content injected by child layouts (e.g. JSON-LD, article meta) --><meta property="og:type" content="article"><meta property="article:published_time" content="2020-11-12T00:00:00.000Z"><meta property="article:tag" content="UTM"><meta property="article:tag" content="虚拟机"><meta property="article:tag" content="macOS"><meta property="article:tag" content="教程"><meta property="article:tag" content="安装配置"><meta property="article:tag" content="最佳实践"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"UTM Virtual Machine | TranquilYu's Blog","description":"UTM——ios上的虚拟机","image":"https://mjy.js.org/og/utm-virtual-machine-guide.png","keywords":["UTM","虚拟机","macOS","教程","安装配置","最佳实践"],"inLanguage":"zh-CN","url":"https://mjy.js.org/posts/utm-virtual-machine-guide/","mainEntityOfPage":{"@type":"WebPage","@id":"https://mjy.js.org/posts/utm-virtual-machine-guide/"},"datePublished":"2020-11-12T00:00:00.000Z","author":[{"@type":"Person","name":"MaJianyu","url":"https://github.com/majianyu2007"}]}</script><script>
+      (() => {
+        const applyOutboundTracking = () => {
+          document.querySelectorAll("a[href]").forEach(link => {
+            if (
+              link instanceof HTMLAnchorElement &&
+              link.host !== window.location.host &&
+              !link.dataset.umamiEvent
+            ) {
+              link.dataset.umamiEvent = "outbound-link-click";
+              link.dataset.umamiEventUrl = link.href;
+            }
+          });
+        };
+
+        const loadThirdPartyScripts = () => {
+          if (!document.querySelector('script[data-site-analytics="umami"]')) {
+            const analytics = document.createElement("script");
+            analytics.defer = true;
+            analytics.src = "https://umami.715654.xyz/script.js";
+            analytics.dataset.siteAnalytics = "umami";
+            analytics.dataset.websiteId =
+              "6bc518c3-c5f9-4afd-8edf-fe258aba7432";
+            analytics.dataset.domains = "mjy.js.org";
+            document.head.appendChild(analytics);
+          }
+
+          if (!document.querySelector('script[data-site-ads="adsense"]')) {
+            const ads = document.createElement("script");
+            ads.async = true;
+            ads.crossOrigin = "anonymous";
+            ads.src =
+              "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9101785228583606";
+            ads.dataset.siteAds = "adsense";
+            document.head.appendChild(ads);
+          }
+        };
+
+        if (document.prerendering) {
+          document.addEventListener(
+            "prerenderingchange",
+            loadThirdPartyScripts,
+            { once: true }
+          );
+        } else {
+          loadThirdPartyScripts();
+        }
+
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", applyOutboundTracking, {
+            once: true,
+          });
+        } else {
+          applyOutboundTracking();
+        }
+        document.addEventListener("astro:page-load", applyOutboundTracking);
+      })();
+    </script><!--
+      Inline FOUC-prevention script: sets data-theme on <html> before
+      the browser paints. Runs synchronously, no defer/async.
+    --><script>
+      (function () {
+        const stored = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
+        const theme = stored ?? (prefersDark ? "dark" : "light");
+        const root = document.firstElementChild;
+        root?.setAttribute("data-theme", theme);
+        root?.classList.toggle("dark", theme === "dark");
+        // Expose value so theme.ts can skip re-detection.
+        window.__theme = { value: theme };
+      })();
+    </script><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.DpL340e7.js"></script><link rel="stylesheet" href="/_astro/Footer.DSVCgsPW.css"><style>@keyframes astroFadeInOut{0%{opacity:1}to{opacity:0}}@keyframes astroFadeIn{0%{opacity:0;mix-blend-mode:plus-lighter}to{opacity:1;mix-blend-mode:plus-lighter}}@keyframes astroFadeOut{0%{opacity:1;mix-blend-mode:plus-lighter}to{opacity:0;mix-blend-mode:plus-lighter}}@keyframes astroSlideFromRight{0%{transform:translate(100%)}}@keyframes astroSlideFromLeft{0%{transform:translate(-100%)}}@keyframes astroSlideToRight{to{transform:translate(100%)}}@keyframes astroSlideToLeft{to{transform:translate(-100%)}}@media (prefers-reduced-motion){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*),[data-astro-transition-scope]{animation:none!important}}
+</style><link rel="stylesheet" href="/_astro/index.Box75lNT.css"><style>[data-astro-transition-scope="astro-bztu2lml-1"] { view-transition-name: utm; }@layer astro { ::view-transition-old(utm) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(utm) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(utm) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(utm) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-1"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-1"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-bztu2lml-2"] { view-transition-name: \865A\62DF\673A; }@layer astro { ::view-transition-old(\865A\62DF\673A) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(\865A\62DF\673A) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(\865A\62DF\673A) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(\865A\62DF\673A) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-2"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-2"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-2"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-2"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-bztu2lml-3"] { view-transition-name: macos; }@layer astro { ::view-transition-old(macos) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(macos) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(macos) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(macos) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-3"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-3"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-3"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-3"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-bztu2lml-4"] { view-transition-name: \6559\7A0B; }@layer astro { ::view-transition-old(\6559\7A0B) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(\6559\7A0B) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(\6559\7A0B) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(\6559\7A0B) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-4"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-4"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-4"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-4"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-4"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-4"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-4"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-4"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-bztu2lml-5"] { view-transition-name: \5B89\88C5\914D\7F6E; }@layer astro { ::view-transition-old(\5B89\88C5\914D\7F6E) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(\5B89\88C5\914D\7F6E) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(\5B89\88C5\914D\7F6E) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(\5B89\88C5\914D\7F6E) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-5"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-5"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-5"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-5"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-5"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-5"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-5"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-5"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-bztu2lml-6"] { view-transition-name: \6700\4F73\5B9E\8DF5; }@layer astro { ::view-transition-old(\6700\4F73\5B9E\8DF5) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(\6700\4F73\5B9E\8DF5) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(\6700\4F73\5B9E\8DF5) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(\6700\4F73\5B9E\8DF5) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-6"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-6"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-6"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-6"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-6"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-6"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-6"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-6"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style></head><body class="bg-background font-app text-foreground selection:bg-accent/75 selection:text-accent-foreground flex min-h-svh flex-col"><div id="navigation-progress" aria-hidden="true"></div><div id="reading-progress" aria-hidden="true"></div><script type="module">var e,t,n,r,i=null,a=()=>document.getElementById(`navigation-progress`),o=()=>document.documentElement,s=()=>{i?.removeAttribute(`data-navigation-target`),i=null},c=()=>{window.clearTimeout(e),window.clearTimeout(t),window.clearTimeout(n),r!==void 0&&(window.cancelAnimationFrame(r),r=void 0)},l=()=>{c(),o().removeAttribute(`data-navigation-state`),a()?.removeAttribute(`data-state`),s()},u=e=>{let t=e.target;if(!(t instanceof Element)||e instanceof MouseEvent&&(e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey))return;let r=t.closest(`a[href]`);!r||r.origin!==location.origin||r.target===`_blank`||r.hasAttribute(`download`)||r.pathname===location.pathname&&r.search===location.search&&r.hash!==``||(s(),i=r,i.setAttribute(`data-navigation-target`,``),o().setAttribute(`data-navigation-state`,`pressing`),window.clearTimeout(n),n=window.setTimeout(()=>{o().dataset.navigationState===`pressing`&&l()},420))};document.addEventListener(`pointerdown`,u,{capture:!0,passive:!0}),document.addEventListener(`click`,u,{capture:!0}),document.addEventListener(`pointercancel`,l,{capture:!0}),document.addEventListener(`astro:before-preparation`,e=>{c(),o().setAttribute(`data-navigation-state`,`preparing`),a()?.setAttribute(`data-state`,`loading`),e.signal.addEventListener(`abort`,l,{once:!0})}),document.addEventListener(`astro:after-swap`,()=>{let n=o(),i=a();c(),s(),n.setAttribute(`data-navigation-state`,`arriving`),i?.setAttribute(`data-state`,`done`),e=window.setTimeout(()=>{i?.removeAttribute(`data-state`)},220),r=window.requestAnimationFrame(()=>{r=window.requestAnimationFrame(()=>{n.setAttribute(`data-navigation-state`,`settling`),r=void 0})}),t=window.setTimeout(()=>{n.removeAttribute(`data-navigation-state`)},520)});</script><script type="module">var e=[`.post-card`,`.taxonomy-list > li`,`.tag-cloud-item`,`#article > h2`,`#article > h3`,`#article > figure`,`#article > blockquote`,`#article > .callout`,`.reader-nav-link`,`.reader-related-link`].join(`,`),t,n,r,i=()=>{t?.abort(),n?.disconnect(),r!==void 0&&(cancelAnimationFrame(r),r=void 0)},a=e=>{let t=document.getElementById(`reading-progress`),n=document.getElementById(`article`);if(!t||!n){t?.removeAttribute(`data-active`),t?.style.removeProperty(`--reading-progress`);return}t.setAttribute(`data-active`,``);let i=()=>{r=void 0;let e=document.documentElement,n=e.scrollHeight-e.clientHeight,i=n>0?Math.min(1,Math.max(0,e.scrollTop/n)):0;t.style.setProperty(`--reading-progress`,i.toFixed(4))},a=()=>{r===void 0&&(r=requestAnimationFrame(i))};window.addEventListener(`scroll`,a,{passive:!0,signal:e}),window.addEventListener(`resize`,a,{passive:!0,signal:e}),a()},o=t=>{let r=[...document.querySelectorAll(e)];if(r.forEach(e=>{e.removeAttribute(`data-motion-reveal`),e.style.removeProperty(`--motion-delay`)}),t||!(`IntersectionObserver`in window))return;n=new IntersectionObserver(e=>{e.forEach(e=>{if(!e.isIntersecting)return;let t=e.target;t.setAttribute(`data-motion-reveal`,`visible`),n?.unobserve(t)})},{rootMargin:`0px 0px -7% 0px`,threshold:.04});let i=window.innerHeight*.88;r.forEach((e,t)=>{let r=e.getBoundingClientRect();r.top<=i||r.bottom<=0||(e.setAttribute(`data-motion-reveal`,`pending`),e.style.setProperty(`--motion-delay`,`${t%5*22}ms`),n?.observe(e))})};document.addEventListener(`astro:page-load`,()=>{i(),t=new AbortController;let{signal:e}=t,n=window.matchMedia(`(prefers-reduced-motion: reduce)`).matches;a(e),o(n)}),document.addEventListener(`astro:before-swap`,i);</script><a id="skip-to-content" href="#main-content" class="bg-background text-accent absolute inset-s-16 -top-full z-50 px-3 py-2 backdrop-blur-lg transition-all focus:top-4">跳到正文</a><header class="app-layout flex flex-col items-center justify-between sm:flex-row"><div class="border-border bg-background relative flex w-full items-baseline justify-between border-b py-4 sm:items-center sm:py-6"><a href="/" class="absolute py-1 text-xl leading-8 font-semibold whitespace-nowrap sm:static sm:my-auto sm:text-2xl sm:leading-none">TranquilYu&#39;s Blog</a><nav id="nav-menu" class="flex w-full flex-col items-center sm:ms-2 sm:flex-row sm:justify-end sm:space-x-4 sm:py-0"><button id="menu-btn" class="focus-outline self-end p-2 sm:hidden" aria-label="打开菜单" aria-expanded="false" aria-controls="menu-items" data-label-open="打开菜单" data-label-close="关闭菜单"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="hidden" viewBox="0 0 24 24" id="close-icon"><path stroke="none" d="M0 0h24v24H0z" /><path d="M18 6 6 18M6 6l12 12" /></svg><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="icon icon-tabler icons-tabler-outline icon-tabler-menu-deep" viewBox="0 0 24 24" id="menu-icon"><path stroke="none" d="M0 0h24v24H0z" /><path d="M4 6h16M7 12h13M10 18h10" /></svg></button><ul id="menu-items" class="border-border bg-background/96 [&amp;&gt;li&gt;a]:hover:text-accent absolute end-0 top-[calc(100%+0.4rem)] z-50 hidden w-[min(11rem,calc(100vw-2rem))] grid-cols-2 gap-0.5 border p-2.5 shadow-lg backdrop-blur-xl sm:static sm:mt-0 sm:flex sm:w-auto sm:gap-x-5 sm:gap-y-0 sm:border-0 sm:bg-transparent sm:p-0 sm:shadow-none sm:backdrop-blur-none sm:[&amp;&gt;li]:h-8 [&amp;&gt;li&gt;a]:block [&amp;&gt;li&gt;a]:px-3 [&amp;&gt;li&gt;a]:py-2 [&amp;&gt;li&gt;a]:text-center [&amp;&gt;li&gt;a]:font-medium sm:[&amp;&gt;li&gt;a]:px-2 sm:[&amp;&gt;li&gt;a]:py-1"><li class="col-span-2"><a href="/posts/" class="active-nav">文章</a></li><li class="col-span-2"><a href="/categories/">分类</a></li><li class="col-span-2"><a href="/tags/">标签</a></li><li class="col-span-2"><a href="/about/">关于</a></li><li class="col-span-2"><a href="/archive/" title="归档" aria-label="归档" class="group inline-flex items-center gap-1 hover:text-accent focus-outline flex size-full justify-center p-2 sm:relative sm:size-8 sm:p-0"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="hidden sm:absolute sm:top-1/2 sm:left-1/2 sm:block sm:size-6 sm:-translate-x-1/2 sm:-translate-y-1/2" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" /><path d="M3 6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v0a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8M10 12h4" /></svg><span class="sm:sr-only">归档</span></a></li><li class="col-span-1 flex items-center justify-center"><a href="/search/" title="搜索" aria-label="搜索" class="group inline-flex items-center gap-1 hover:text-accent focus-outline relative size-10 sm:size-8"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="absolute top-1/2 left-1/2 size-6 -translate-x-1/2 -translate-y-1/2" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" /><path d="M3 10a7 7 0 1 0 14 0 7 7 0 1 0-14 0M21 21l-6-6" /></svg><span class="sr-only">搜索</span></a></li><li class="col-span-1 flex items-center justify-center"><button id="theme-btn" class="focus-outline hover:[&amp;&gt;svg]:stroke-accent relative size-10 p-3 sm:size-8" title="切换深浅主题" aria-label="auto" aria-live="polite"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="absolute top-[50%] left-[50%] translate-[-50%] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" /><path d="M12 3h.393a7.5 7.5 0 0 0 7.92 12.446A9 9 0 1 1 12 2.992z" /></svg><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="absolute top-[50%] left-[50%] translate-[-50%] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" /><path d="M14.828 14.828a4 4 0 1 0-5.656-5.656 4 4 0 0 0 5.656 5.656M6.343 17.657l-1.414 1.414M6.343 6.343 4.929 4.929M17.657 6.343l1.414-1.414M17.657 17.657l1.414 1.414M4 12H2M12 4V2M20 12h2M12 20v2" /></svg></button></li></ul></nav></div></header><script type="module">var e;function t(){e?.abort();let t=document.querySelector(`#menu-btn`),n=document.querySelector(`#menu-items`),r=document.querySelector(`#menu-icon`),i=document.querySelector(`#close-icon`);if(!t||!n||!r||!i)return;e=new AbortController;let{signal:a}=e,o=t.dataset.labelOpen??`Open menu`,s=t.dataset.labelClose??`Close menu`,c=()=>window.matchMedia(`(prefers-reduced-motion: reduce)`).matches,l=e=>{t.setAttribute(`aria-expanded`,String(e)),t.setAttribute(`aria-label`,e?s:o),n.getAnimations().forEach(e=>e.cancel()),r.classList.toggle(`hidden`,e),i.classList.toggle(`hidden`,!e)},u=()=>{l(!0),n.classList.remove(`hidden`),n.classList.add(`grid`),n.animate([{opacity:0,transform:`translateY(-8px) scale(0.975)`,transformOrigin:`top right`},{opacity:1,transform:`none`,transformOrigin:`top right`}],{duration:c()?1:320,easing:`cubic-bezier(0.22, 1, 0.36, 1)`})},d=async(e=!1)=>{t.getAttribute(`aria-expanded`)===`true`&&(l(!1),await n.animate([{opacity:1,transform:`none`,transformOrigin:`top right`},{opacity:0,transform:`translateY(-5px) scale(0.985)`,transformOrigin:`top right`}],{duration:c()?1:150,easing:`cubic-bezier(0.4, 0, 1, 1)`}).finished.catch(()=>void 0),t.getAttribute(`aria-expanded`)===`false`&&(n.classList.add(`hidden`),n.classList.remove(`grid`),e&&t.focus()))};t.addEventListener(`click`,()=>{t.getAttribute(`aria-expanded`)===`true`?d():u()},{signal:a}),document.addEventListener(`keydown`,e=>{e.key===`Escape`&&d(!0)},{signal:a}),document.addEventListener(`pointerdown`,e=>{t.getAttribute(`aria-expanded`)===`true`&&e.target instanceof Node&&!n.contains(e.target)&&!t.contains(e.target)&&d()},{signal:a,passive:!0})}t(),document.addEventListener(`astro:after-swap`,t);</script><div class="app-layout flex items-center justify-start"><a id="back-button" href="/" class="group inline-flex items-center gap-1 hover:text-accent reader-back-link focus-outline hover:text-foreground/75 -ms-2 mt-8 mb-2"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="inline-block size-6 rtl:rotate-180" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" /><path d="m15 6-6 6 6 6" /></svg><span>返回</span></a></div><script type="module">function e(){let e=document.querySelector(`#back-button`),t=sessionStorage.getItem(`backUrl`);t&&e&&(e.href=t)}document.addEventListener(`astro:page-load`,e),e();</script><main id="main-content" class="app-layout" data-pagefind-body><h1 style="view-transition-name:utm-virtual-machine" class="text-accent inline-block text-2xl font-bold sm:text-3xl">UTM Virtual Machine</h1><div class="my-2 flex flex-wrap items-center gap-x-2 gap-y-1"><div class="text-muted-foreground flex items-center gap-x-2"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="inline-block size-6 min-w-5.5" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" /><path d="M4 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zM16 3v4M8 3v4M4 11h16M7 14h.013M10.01 14h.005M13.01 14h.005M16.015 14h.005M13.015 17h.005M7.01 17h.005M10.01 17h.005" /></svg><time class="text-sm sm:text-base" datetime="2020-11-12T00:00:00.000Z">12 Nov, 2020</time></div><span aria-hidden="true" class="text-muted-foreground">·</span><span class="text-muted-foreground text-sm" data-reading-stats title="正文约 1,664 字，其中 0 行代码">约 5 分钟 · 1,664 字</span><span aria-hidden="true" class="text-muted-foreground max-sm:hidden hidden">|</span></div><a class="text-muted-foreground text-sm underline decoration-dashed underline-offset-4" href="/categories/教程/">教程</a><script type="module" src="/_astro/TableOfContents.astro_astro_type_script_index_0_lang.Ckx0ik07.js"></script><article id="article" class="mt-8 w-full app-prose max-w-app prose-pre:bg-(--shiki-light-bg) dark:prose-pre:bg-(--shiki-dark-bg)"><p>写在前面：手里有台iPhone7，不知干什么好，没有Android的可玩性，即使Android不root，也会有像termux的容器。9-11岁时，我还在玩limbo，bochs，lbochs，APQ。这些都是一些模拟器。bochs和lbochs是基于bochs的，而limbo和APQ是基于qemu的。要我给他们排序的话，bochs是最简单的，我记得我最早用过的镜像是andows.img，用起来简单，把sdl和镜像放在指定位置就行了。点击app启动，音量键控制左右键，滑动屏幕控制鼠标。点击左下角（还是右下角，我忘了）呼出键盘。就是在朋友同学面前装B用的。lbochs支持更多扩展，limbo有各种版本，对于X86的安卓兼容较好，一般在Android上我首选limbo。APQ比较稳定，但是前提是要Root，仅支持VNC，得自己去改配置。就这样。我接触到了qemu。</p>
+<p>在qemu的世界，我只做了XP的镜像，当年我家的电脑配置不高，仅仅有2G而已，一般开个虚拟机就要处在死机的边缘。但我还是经常用它来做镜像，传到手机上。那段时间，我只是从贴吧收藏大佬分享的镜像，大多都是XP和98，再高的就是7，8，10，不过开个机都要等几个小时。</p>
+<p>以前我有一台iPhone 4，完美越狱，用的盘古越狱工具。唯一能装B的，也就是一个叫Bochs的应用。在百度上，我勉勉强强找到了安装方法，但是打开就闪退，并且教程都是用的iPhone1或3，后来，我在威锋源上找到了一个writeful的源，但是后来威锋源关闭，新版的Bochs出来，但是仅仅支持iOS10以下，也就是32位系统，这时，我已经用着iPhone7了。</p>
+<p>对于iPhone7而言，可以用三种方式运行Windows。一种叫Idos2，在iOS10以前，是Idos，是用来运行dos游戏的，idos2用的dosbox，但是仅能在越狱后浏览其目录，放上教程里提供的镜像，输入“win95”启动，虽然麻烦，却异常稳定，只是显卡没有驱动。</p>
+<p>再后来，国外大神开发了iBox，基于Bochs，国外大神演示时用的iPhone7，跑起了Windows，但是却花屏。我把Windows3.11，Windows95，Windows98的镜像放在里面，却异常好用！其实就是能在64位设备上运行的Bochs而已。</p>
+<p>第三个，就是今天说的UTM虚拟机，基于qemu，能跑起Windows XP，貌似能跑起Windows7，10。也能跑起Android x86，Linux。以下是详细步骤。项目主页：<a href="https://getutm.app/" target="_blank" rel="noopener noreferrer" data-external-link="">https://getutm.app/</a> GitHub：<a href="https://github.com/utmapp/UTM" target="_blank" rel="noopener noreferrer" data-external-link="">https://github.com/utmapp/UTM</a></p>
+<p>1.建议越狱。</p>
+<p>为什么呢？说白了——便于续签。没错，便于续签！要不然你忍心7天装一次吗？iPhone X以下设备可以使用checkra1n越狱，可以的话我可以出一期教程。</p>
+<p>2.安装UTM</p>
+<p>如果你越狱了，直接从爱思助手拖放ipa文件即可，要没有越狱（像是iPhone11），可以用altstore。</p>
+<p>altstore教程：</p>
+<p>1.打开<a href="https://altstore.io/%E4%B8%8B%E8%BD%BD%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E3%80%82Windows%E7%89%88%E4%BB%85%E6%94%AF%E6%8C%81Windows10" target="_blank" rel="noopener noreferrer" data-external-link="">https://altstore.io/下载应用程序。Windows版仅支持Windows10</a> 。</p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #f8fbfe, #fefefe 50%, #fdfcfc)" loading="lazy" decoding="async" sizes="(min-width: 229px) 229px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="229" height="50" src="/_astro/T8IZQbfJkzdXLF3-1759458037861-31.CJTYP0xV_ZDMJ0h.webp" srcset="/_astro/T8IZQbfJkzdXLF3-1759458037861-31.CJTYP0xV_ZDMJ0h.webp 229w">
+解压后点击AltInstaller.msi，进行安装，根据需求安装即可。</p>
+<p>在安装的目录下，像D:\Program Files (x86)\ 找到AltServer，打开，点击AltServer.exe，启动，在右下角图标左键。</p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #dde0e3, #e8e8e8 50%, #d7dadd)" loading="lazy" decoding="async" sizes="(min-width: 283px) 283px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="283" height="121" src="/_astro/dhubM5rGjWx1tke-1759458037861-32.AOVFm8v8_Z1d8ElO.webp" srcset="/_astro/dhubM5rGjWx1tke-1759458037861-32.AOVFm8v8_Z1d8ElO.webp 283w">
+选择“Install AltStore”选择你的设备。</p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #dfdfdf, #eaeaea 50%, #e9eaec)" loading="lazy" decoding="async" sizes="(min-width: 405px) 405px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="405" height="211" src="/_astro/72XT5dHIsqPaYt3-1759458037861-33.Bm10iyDP_M0CF2.webp" srcset="/_astro/72XT5dHIsqPaYt3-1759458037861-33.Bm10iyDP_M0CF2.webp 405w">
+如实填写你的Apple ID和密码，要进行签名，不是盗号！注意，要下载官网的iTunes，不是Windows10自带的应用商店里的！要不然会报错！也不能不安装！</p>
+<p>安装完成后，添加源：<a href="https://alt.getutm.app" target="_blank" rel="noopener noreferrer" data-external-link="">https://alt.getutm.app</a></p>
+<p>然后搜索并下载即可。</p>
+<p>下载完成了，就该玩了。准备好一个镜像，ISO文件，Windows的可以从这里下载：<a href="http://msdn.itellyou.cn/" target="_blank" rel="noopener noreferrer" data-external-link="">http://msdn.itellyou.cn/</a></p>
+<p>ed2k连接用迅雷下载即可。打开iTunes，找到左上角的小手机，点一下，如果是灰色，无法点击，那就等一会。点进去找到文件共享，在App找到“UTM”，这时里面是空的，添加你下载的镜像进去。接下来就是手机操作了（温馨提示：iPhone7建议用XP，iPhoneX以上最好不要用8.1或10，其他随意~）</p>
+<p>下载好的应用是这样子的</p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #a8774b, #aa5b32 50%, #936469)" loading="lazy" decoding="async" sizes="(min-width: 750px) 750px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="750" height="1334" src="/_astro/e3TKP4DdCQ1lSWm-1759458037861-34.BsZS8UdY_RE4Pn.webp" srcset="/_astro/e3TKP4DdCQ1lSWm-1759458037861-34.BsZS8UdY_ZcwFvr.webp 480w, /_astro/e3TKP4DdCQ1lSWm-1759458037861-34.BsZS8UdY_RE4Pn.webp 750w">
+加载很慢，截图截到3M
+打开后。会出现一段提示，大概是不能强制关闭UTM，要点左上面的小X号</p>
+<p>打开后，是这样的</p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #e6eef8, #dfe6fa 50%, #ffffff)" loading="lazy" decoding="async" sizes="(min-width: 750px) 750px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="750" height="1334" src="/_astro/jV8Lr3ZmGNOl9eo-1759458037861-35.D_omZZ_2_ZQnGzm.webp" srcset="/_astro/jV8Lr3ZmGNOl9eo-1759458037861-35.D_omZZ_2_Z1VzrVb.webp 480w, /_astro/jV8Lr3ZmGNOl9eo-1759458037861-35.D_omZZ_2_ZQnGzm.webp 750w">
+那两个是我提前创建好的。点击右上角的+，会这样：</p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #dcddde, #dfdfe1 50%, #fbfafd)" loading="lazy" decoding="async" sizes="(min-width: 750px) 750px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="750" height="1334" src="/_astro/fwsHnUy79YTtA4J-1759458037861-36.SoqCWlZk_ZwUIff.webp" srcset="/_astro/fwsHnUy79YTtA4J-1759458037861-36.SoqCWlZk_Z1C7tB4.webp 480w, /_astro/fwsHnUy79YTtA4J-1759458037861-36.SoqCWlZk_ZwUIff.webp 750w">
+内存，iPhone7设置到768差不多，最高的应该是1015吧，点击加载镜像，如下</p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #e4e5e4, #e3e4e3 50%, #ffffff)" loading="lazy" decoding="async" sizes="(min-width: 750px) 750px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="750" height="1334" src="/_astro/oYZSMsv8i2T5dk6-1759458037861-37.CD_Ey_RJ_1L1tPX.webp" srcset="/_astro/oYZSMsv8i2T5dk6-1759458037861-37.CD_Ey_RJ_FOIu9.webp 480w, /_astro/oYZSMsv8i2T5dk6-1759458037861-37.CD_Ey_RJ_1L1tPX.webp 750w">
+点击右上角的+，创建一个驱动器，如图</p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #dcdddd, #dfdee0 50%, #f6f5fa)" loading="lazy" decoding="async" sizes="(min-width: 750px) 750px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="750" height="1334" src="/_astro/8qfijOIHSLBuXEF-1759458037861-38.BFWB3JBo_bOCfq.webp" srcset="/_astro/8qfijOIHSLBuXEF-1759458037861-38.BFWB3JBo_ZSm86o.webp 480w, /_astro/8qfijOIHSLBuXEF-1759458037861-38.BFWB3JBo_bOCfq.webp 750w">
+镜像类型，硬盘就是disk，光驱就是cd/dvd，如图</p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #dddede, #e0e0e1 50%, #f9f9fc)" loading="lazy" decoding="async" sizes="(min-width: 750px) 750px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="750" height="1334" src="/_astro/3nhPlu6W1KtxTJV-1759458037861-39.DTc28oNQ_Z1YdqAj.webp" srcset="/_astro/3nhPlu6W1KtxTJV-1759458037861-39.DTc28oNQ_20LVQN.webp 480w, /_astro/3nhPlu6W1KtxTJV-1759458037861-39.DTc28oNQ_Z1YdqAj.webp 750w">
+先选cd/dvd，点击文件路径，点击右上角的+，如图</p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #dbdcdf, #dbdbdf 50%, #f6f5fa)" loading="lazy" decoding="async" sizes="(min-width: 750px) 750px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="750" height="1334" src="/_astro/vnLVM6Sblpe5AkB-1759458037861-40.BWrQIwqD_23YfMM.webp" srcset="/_astro/vnLVM6Sblpe5AkB-1759458037861-40.BWrQIwqD_XMuqX.webp 480w, /_astro/vnLVM6Sblpe5AkB-1759458037861-40.BWrQIwqD_23YfMM.webp 750w">
+会这样</p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #adaeb0, #adadb1 50%, #dfe0e3)" loading="lazy" decoding="async" sizes="(min-width: 750px) 750px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="750" height="1334" src="/_astro/1kNJEcW2Hf6LhUe-1759458037861-41.LTkx5fdK_Z3WycX.webp" srcset="/_astro/1kNJEcW2Hf6LhUe-1759458037861-41.LTkx5fdK_Z199jyM.webp 480w, /_astro/1kNJEcW2Hf6LhUe-1759458037861-41.LTkx5fdK_Z3WycX.webp 750w">
+如果选的cd/dvd，选“导入”，会这样</p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #dfe0e0, #dededf 50%, #f7f8fd)" loading="lazy" decoding="async" sizes="(min-width: 750px) 750px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="750" height="1334" src="/_astro/Wevqyri87jakPOQ-1759458037861-42.CLY7A4A__2cOKij.webp" srcset="/_astro/Wevqyri87jakPOQ-1759458037861-42.CLY7A4A__17CYVu.webp 480w, /_astro/Wevqyri87jakPOQ-1759458037861-42.CLY7A4A__2cOKij.webp 750w">
+这是我已经打开utm文件夹，具体可以点击“我的iPhone”找到“UTM”文件夹，选择你复制的镜像ISO文件，如图</p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #dadbdd, #dcdde0 50%, #f6f4fa)" loading="lazy" decoding="async" sizes="(min-width: 750px) 750px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="750" height="1334" src="/_astro/zYtWGIiEkJRs146-1759458037861-43.B0G3Lavk_plpqM.webp" srcset="/_astro/zYtWGIiEkJRs146-1759458037861-43.B0G3Lavk_ZEPkU2.webp 480w, /_astro/zYtWGIiEkJRs146-1759458037861-43.B0G3Lavk_plpqM.webp 750w">
+再点一次镜像，加载，重复第（调整disk或cd/dvd）步选择disk，不要选导入，如果你有现成的，那就选导入，一般是xxx.img，创建，一般填hda.img，第二行看系统大小来定，XP可以是10G，win7可以是20G，10G填10240，20G填20480，以此类推。</p>
+<p>创建完成后，点击播放建，开机，正常安装系统即可。来了电话回自动暂停，来了微信，就点击上面的暂停键，暂停。如图（会加载缓慢）</p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #6a7691, #6f81a2 50%, #89a6b6)" loading="lazy" decoding="async" sizes="(min-width: 1334px) 1334px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="1334" height="750" src="/_astro/Xl1ow2tg3qPU7xf-1759458037861-44.C2eK-F3P_15jp3H.webp" srcset="/_astro/Xl1ow2tg3qPU7xf-1759458037861-44.C2eK-F3P_ZKx8V.webp 480w, /_astro/Xl1ow2tg3qPU7xf-1759458037861-44.C2eK-F3P_2qBgk.webp 768w, /_astro/Xl1ow2tg3qPU7xf-1759458037861-44.C2eK-F3P_Z1raS65.webp 1280w, /_astro/Xl1ow2tg3qPU7xf-1759458037861-44.C2eK-F3P_15jp3H.webp 1334w">
+<img alt="" style="--image-placeholder:linear-gradient(135deg, #6a7691, #6f81a2 50%, #89a6b6)" loading="lazy" decoding="async" sizes="(min-width: 1334px) 1334px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="1334" height="750" src="/_astro/Xl1ow2tg3qPU7xf-1759458037861-44.C2eK-F3P_15jp3H.webp" srcset="/_astro/Xl1ow2tg3qPU7xf-1759458037861-44.C2eK-F3P_ZKx8V.webp 480w, /_astro/Xl1ow2tg3qPU7xf-1759458037861-44.C2eK-F3P_2qBgk.webp 768w, /_astro/Xl1ow2tg3qPU7xf-1759458037861-44.C2eK-F3P_Z1raS65.webp 1280w, /_astro/Xl1ow2tg3qPU7xf-1759458037861-44.C2eK-F3P_15jp3H.webp 1334w">
+继续运行点击中间即可。退出点击X，如果开着机，相当于强制关机。</p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #3b404b, #3c4351 50%, #3b474d)" loading="lazy" decoding="async" sizes="(min-width: 1334px) 1334px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="1334" height="750" src="/_astro/BDYJa1RFfnIX4Qt-1759458037861-45.CBfUePhI_28EoX8.webp" srcset="/_astro/BDYJa1RFfnIX4Qt-1759458037861-45.CBfUePhI_Z1LKeCD.webp 480w, /_astro/BDYJa1RFfnIX4Qt-1759458037861-45.CBfUePhI_Z1Iy5dn.webp 768w, /_astro/BDYJa1RFfnIX4Qt-1759458037861-45.CBfUePhI_ZnOSbE.webp 1280w, /_astro/BDYJa1RFfnIX4Qt-1759458037861-45.CBfUePhI_28EoX8.webp 1334w"></p>
+<hr>
+<p>Q&#x26;A：</p>
+<p>Q：为什么安装AltStore会出现签名错误？</p>
+<p>A：13.3.1有此问题，建议越狱后使用，或用爱思助手安装。</p>
+<p>Q：为什么7天后提示我验证应用？</p>
+<p>A：普遍问题，建议越狱后安装续签插件。免费开发者账户需要7天一签，付费的一年一签。</p>
+<p>Q：越狱后如何在手机上直接安装UTM.ipa？</p>
+<p>A：下载Filza，在里面点选ipa文件安装。</p>
+<p>Q：为什么我在一些云上续签了，但是启动VM时会崩溃？</p>
+<p>A：许多“云”签名服务（包括AppCake）不能与UTM一起使用，因为它们使用了错误的签名证书。如果尝试启动VM时发生崩溃，则可能是您的签名证书无效。</p>
+<p>Q：有什么免费的续签方法吗？</p>
+<p>A：如果您运行的是普通iOS，则使用iOS App Signer 可以免费，轻松地重新签名IPA 。然后，您可以使用iTunes，音乐应用程序或Xcode安装它。</p>
+<p>注：图片加载于sm.ms图床，部分资料参考与UTM官网。</p></article><script>
+  (() => {
+    const SELECTOR = ".asciinema-player[data-cast]";
+
+    function ensureCss() {
+      if (document.querySelector('link[data-asciinema-player="1"]')) return;
+      const link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.href = "/assets/css/asciinema-player.css";
+      link.dataset.asciinemaPlayer = "1";
+      document.head.appendChild(link);
+    }
+
+    function ensureScript() {
+      if (window.AsciinemaPlayer?.create) {
+        return Promise.resolve(window.AsciinemaPlayer);
+      }
+      if (window.__asciinemaPlayerPromise) {
+        return window.__asciinemaPlayerPromise;
+      }
+      window.__asciinemaPlayerPromise = new Promise((resolve, reject) => {
+        const script = document.createElement("script");
+        script.src = "/assets/js/asciinema-player.min.js";
+        script.async = true;
+        script.dataset.asciinemaPlayer = "1";
+        script.addEventListener("load", () => resolve(window.AsciinemaPlayer));
+        script.addEventListener("error", reject);
+        document.body.appendChild(script);
+      });
+      return window.__asciinemaPlayerPromise;
+    }
+
+    async function initAsciinema() {
+      const elements = [...document.querySelectorAll(SELECTOR)];
+      if (elements.length === 0) return;
+      ensureCss();
+      const player = await ensureScript();
+      if (!player?.create) return;
+
+      for (const element of elements) {
+        if (element.dataset.asciinemaInitialized === "1") continue;
+        const source = element.dataset.cast;
+        if (!source) continue;
+        player.create(source, element, {
+          preload: element.dataset.preload === "true",
+          theme: element.dataset.theme || "asciinema",
+        });
+        element.dataset.asciinemaInitialized = "1";
+      }
+    }
+
+    initAsciinema().catch(() => undefined);
+    document.addEventListener("astro:page-load", () => {
+      initAsciinema().catch(() => undefined);
+    });
+    document.addEventListener("password:decrypted", () => {
+      initAsciinema().catch(() => undefined);
+    });
+  })();
+</script><aside class="border-border text-muted-foreground mt-8 border-y py-4 text-sm"><p>许可： <a class="underline underline-offset-4" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p></aside><hr class="my-8 border-dashed"><div id="btt-btn-container" class="fixed inset-e-4 bottom-5 z-50 sm:inset-e-6 sm:bottom-6 translate-y-4 opacity-0 transition duration-300"><button data-button="back-to-top" aria-label="返回顶部" title="返回顶部" class="bg-background/92 text-foreground relative grid size-12 place-items-center border p-0 shadow-sm backdrop-blur-md"><span id="progress-indicator" class="absolute -inset-1 -z-10 block bg-transparent"></span><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="size-5" viewBox="0 0 24 24" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" /><path d="M12 5v14M16 9l-4-4M8 9l4-4" /></svg><span class="sr-only">返回顶部</span></button></div><script type="module">function e(){let e=document.querySelector(`[data-button='back-to-top']`);if(!e||e.hasAttribute(`data-enhanced`)||(e.setAttribute(`data-enhanced`,``),e.addEventListener(`click`,()=>{window.scrollTo({top:0,left:0,behavior:window.matchMedia(`(prefers-reduced-motion: reduce)`).matches?`instant`:`smooth`})}),window.__backToTopScrollBound))return;window.__backToTopScrollBound=!0;let t=null;function n(){let e=document.documentElement,n=document.querySelector(`#btt-btn-container`),r=document.querySelector(`#progress-indicator`);if(!n||!r)return;let i=e.scrollHeight-e.clientHeight,a=e.scrollTop,o=i>0?Math.floor(a/i*100):0;r.style.setProperty(`background-image`,`conic-gradient(var(--accent), var(--accent) ${o}%, transparent ${o}%)`);let s=Math.min(480,e.clientHeight*.6),c=i>0&&a>s;c!==t&&(n.classList.toggle(`opacity-100`,c),n.classList.toggle(`translate-y-0`,c),n.classList.toggle(`opacity-0`,!c),n.classList.toggle(`translate-y-4`,!c),t=c)}let r=!1;document.addEventListener(`scroll`,()=>{r||=(window.requestAnimationFrame(()=>{n(),r=!1}),!0)},{passive:!0}),n()}e(),document.addEventListener(`astro:page-load`,e);</script><ul class="mt-4 mb-8 flex flex-wrap gap-4 sm:my-8"><li><a data-astro-transition-scope="astro-bztu2lml-1" href="/tags/utm/" class="tag-link flex items-center gap-0.5 border-foreground border-b-2 border-dashed hover:border-accent hover:text-accent hover:-translate-y-0.5 focus-visible:text-accent focus-visible:border-none text-sm"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="opacity-80 size-4" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" /><path d="M5 9h14M5 15h14M11 4 7 20M17 4l-4 16" /></svg>UTM</a></li><li><a data-astro-transition-scope="astro-bztu2lml-2" href="/tags/虚拟机/" class="tag-link flex items-center gap-0.5 border-foreground border-b-2 border-dashed hover:border-accent hover:text-accent hover:-translate-y-0.5 focus-visible:text-accent focus-visible:border-none text-sm"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="opacity-80 size-4" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" /><path d="M5 9h14M5 15h14M11 4 7 20M17 4l-4 16" /></svg>虚拟机</a></li><li><a data-astro-transition-scope="astro-bztu2lml-3" href="/tags/macos/" class="tag-link flex items-center gap-0.5 border-foreground border-b-2 border-dashed hover:border-accent hover:text-accent hover:-translate-y-0.5 focus-visible:text-accent focus-visible:border-none text-sm"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="opacity-80 size-4" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" /><path d="M5 9h14M5 15h14M11 4 7 20M17 4l-4 16" /></svg>macOS</a></li><li><a data-astro-transition-scope="astro-bztu2lml-4" href="/tags/教程/" class="tag-link flex items-center gap-0.5 border-foreground border-b-2 border-dashed hover:border-accent hover:text-accent hover:-translate-y-0.5 focus-visible:text-accent focus-visible:border-none text-sm"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="opacity-80 size-4" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" /><path d="M5 9h14M5 15h14M11 4 7 20M17 4l-4 16" /></svg>教程</a></li><li><a data-astro-transition-scope="astro-bztu2lml-5" href="/tags/安装配置/" class="tag-link flex items-center gap-0.5 border-foreground border-b-2 border-dashed hover:border-accent hover:text-accent hover:-translate-y-0.5 focus-visible:text-accent focus-visible:border-none text-sm"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="opacity-80 size-4" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" /><path d="M5 9h14M5 15h14M11 4 7 20M17 4l-4 16" /></svg>安装配置</a></li><li><a data-astro-transition-scope="astro-bztu2lml-6" href="/tags/最佳实践/" class="tag-link flex items-center gap-0.5 border-foreground border-b-2 border-dashed hover:border-accent hover:text-accent hover:-translate-y-0.5 focus-visible:text-accent focus-visible:border-none text-sm"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="opacity-80 size-4" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" /><path d="M5 9h14M5 15h14M11 4 7 20M17 4l-4 16" /></svg>最佳实践</a></li></ul><div class="flex flex-none flex-col items-center justify-center gap-1 md:items-start"><span class="font-sketch">分享文章：</span><div class="text-center"><a href="https://t.me/share/url?url=https://mjy.js.org/posts/utm-virtual-machine-guide/" title="分享到 Telegram" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-1 hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" /><path d="m15 10-4 4 6 6 4-16-18 7 4 2 2 6 3-4" /></svg><span class="sr-only">分享到 Telegram</span></a><a href="mailto:?subject=See%20this%20post&amp;body=https://mjy.js.org/posts/utm-virtual-machine-guide/" title="通过邮件分享" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-1 hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" /><path d="M3 7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><path d="m3 7 9 6 9-6" /></svg><span class="sr-only">通过邮件分享</span></a></div></div><hr class="my-8 border-dashed"><section class="border-border my-8 border-y py-6" aria-labelledby="related-posts-title" data-related-posts data-pagefind-ignore="all"><h2 id="related-posts-title" class="mb-4 text-lg font-semibold tracking-wide">继续阅读</h2><ol class="space-y-4"><li><a class="reader-related-link group block" href="/posts/windows-rename-chinese-user-home-folder/"><span class="group-hover:text-accent font-medium">将Windows中文用户主文件夹修改为英文</span><span class="font-sketch text-muted-foreground mt-1 block text-sm">教程 · 一种无需重装系统解决用户主文件夹名为中文的方法</span></a></li><li><a class="reader-related-link group block" href="/posts/js-org-free-domain-setup/"><span class="group-hover:text-accent font-medium">js.org free domain</span><span class="font-sketch text-muted-foreground mt-1 block text-sm">教程 · 面向JavaScript开发者与开发项目的二级域名</span></a></li><li><a class="reader-related-link group block" href="/posts/markdown-syntax-notes/"><span class="group-hover:text-accent font-medium">Markdown学习笔记</span><span class="font-sketch text-muted-foreground mt-1 block text-sm">笔记 · Markdown学习笔记</span></a></li></ol></section><div data-pagefind-ignore class="my-8 grid grid-cols-1 gap-6 sm:grid-cols-2"><a href="/posts/minecraft-pe-structure-block-guide/" class="reader-nav-link group flex w-full gap-1 hover:opacity-75"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="inline-block flex-none rtl:rotate-180" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" /><path d="M5 12h14M5 12l6 6M5 12l6-6" /></svg><div><span>上一篇</span><div class="text-accent/85 text-sm">Usage of Structure Block in Minecraft PE</div></div></a></div></main><footer class="app-layout mt-auto"><div class="border-border flex flex-col items-center justify-between border-t py-6 sm:flex-row-reverse sm:py-4"><div class="flex flex-wrap items-center gap-1"><a href="https://github.com/majianyu2007" title="MaJianyu 的 GitHub" class="group inline-flex items-center gap-1 hover:text-accent p-2 hover:-translate-y-0.5 hover:rotate-3 sm:p-1"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" /><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21" /></svg><span class="sr-only">MaJianyu 的 GitHub</span></a><a href="https://space.bilibili.com/600064036" title="MaJianyu 的 BiliBili" class="group inline-flex items-center gap-1 hover:text-accent p-2 hover:-translate-y-0.5 hover:rotate-3 sm:p-1"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewBox="0 0 24 24" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path d="m8.5 3 2 2.5m5-2.5-2 2.5" /><rect width="18" height="14" x="3" y="6" rx="3" /><path d="M8 11v4m8-4v4" /></svg><span class="sr-only">MaJianyu 的 BiliBili</span></a></div><div class="my-2 flex flex-col items-center gap-1"><div class="flex flex-col items-center justify-center gap-x-1 gap-y-0.5 text-center sm:flex-row"><span class="whitespace-nowrap">版权所有 &#169; 2026 MaJianyu</span><span class="flex items-center gap-x-1 whitespace-nowrap"><span aria-hidden="true" class="hidden sm:inline">·</span><a href="/rss.xml" type="application/rss+xml" title="RSS 订阅源" class="hover:underline">RSS</a><span aria-hidden="true">·</span><a href="https://icp.gov.moe/?keyword=20216556" target="_blank" rel="noopener noreferrer" class="hover:underline">萌ICP备20216556号</a></span></div><span class="text-muted-foreground text-xs">本站已运行 <span data-site-runtime data-start="2020-12-11T16:00:00.000Z" aria-live="off">2,089</span> 天<span class="journal-footer-mark ms-1" aria-hidden="true">( •̀ᴗ•́ )و</span></span></div></div></footer><script type="module">function e(){document.querySelectorAll(`[data-site-runtime]`).forEach(e=>{let t=Date.parse(e.dataset.start??``);Number.isFinite(t)&&(e.textContent=Math.max(0,Math.floor((Date.now()-t)/864e5)).toLocaleString(`zh-CN`))})}e(),document.addEventListener(`astro:page-load`,e);</script><script type="module">var e=`theme`,t=`light`,n=`dark`;function r(){return localStorage.getItem(e)||(window.matchMedia(`(prefers-color-scheme: dark)`).matches?n:t)}var i=window.__theme?.value??r();function a(){localStorage.setItem(e,i),o()}function o(){let e=document.firstElementChild;e?.setAttribute(`data-theme`,i),e?.classList.toggle(`dark`,i===n),document.querySelector(`#theme-btn`)?.setAttribute(`aria-label`,i);let t=window.getComputedStyle(document.body).backgroundColor;document.querySelector(`meta[name='theme-color']`)?.setAttribute(`content`,t)}function s(){o(),document.querySelector(`#theme-btn`)?.addEventListener(`click`,()=>{i=i===t?n:t,a()})}s(),document.addEventListener(`astro:after-swap`,s),document.addEventListener(`astro:before-swap`,e=>{let t=document.querySelector(`meta[name='theme-color']`)?.getAttribute(`content`);t&&e.newDocument.querySelector(`meta[name='theme-color']`)?.setAttribute(`content`,t)}),window.matchMedia(`(prefers-color-scheme: dark)`).addEventListener(`change`,({matches:e})=>{i=e?n:t,a()}),document.addEventListener(`astro:page-load`,()=>{let e=!!location.hash;document.documentElement.toggleAttribute(`data-fragment-navigation`,e),document.documentElement.toggleAttribute(`data-fragment-font-pending`,e),e&&document.fonts.ready.then(()=>{document.documentElement.removeAttribute(`data-fragment-font-pending`)})});</script></body></html><script type="module" src="/_astro/index.astro_astro_type_script_index_0_lang.DtqqC1rV.js"></script>

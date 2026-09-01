@@ -1,0 +1,444 @@
+<!DOCTYPE html><html dir="ltr" lang="zh-CN" class="overflow-y-scroll scroll-smooth"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="preload" href="/_astro/excalifont-latin.DBEDukyo.woff2" as="font" type="font/woff2" crossorigin="anonymous"><link rel="preload" href="/_astro/fonts/xiaolai-ui.f313e2d30fe461d7.woff2" as="font" type="font/woff2" crossorigin="anonymous"><link rel="icon" href="/favicon.ico"><link rel="canonical" href="https://mjy.js.org/posts/windows-rename-chinese-user-home-folder/"><meta name="generator" content="Astro v7.0.3"><!-- Primary meta --><title>将Windows中文用户主文件夹修改为英文 | TranquilYu&#39;s Blog</title><meta name="title" content="将Windows中文用户主文件夹修改为英文 | TranquilYu's Blog"><meta name="description" content="一种无需重装系统解决用户主文件夹名为中文的方法"><meta name="author" content="MaJianyu"><meta name="keywords" content="Blog, Personal, 技术博客, 论文阅读, 数学建模, Windows, 用户目录, 系统配置, 教程, 排错, 最佳实践"><link rel="sitemap" href="/sitemap-index.xml"><!-- Open Graph --><meta property="og:type" content="website"><meta property="og:site_name" content="TranquilYu's Blog"><meta property="og:title" content="将Windows中文用户主文件夹修改为英文 | TranquilYu's Blog"><meta property="og:description" content="一种无需重装系统解决用户主文件夹名为中文的方法"><meta property="og:url" content="https://mjy.js.org/posts/windows-rename-chinese-user-home-folder/"><meta property="og:image" content="https://mjy.js.org/og/windows-rename-chinese-user-home-folder.png"><!-- Twitter / X --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://mjy.js.org/posts/windows-rename-chinese-user-home-folder/"><meta property="twitter:title" content="将Windows中文用户主文件夹修改为英文 | TranquilYu's Blog"><meta property="twitter:description" content="一种无需重装系统解决用户主文件夹名为中文的方法"><meta property="twitter:image" content="https://mjy.js.org/og/windows-rename-chinese-user-home-folder.png"><!-- RSS autodiscovery --><link rel="alternate" type="application/rss+xml" title="TranquilYu's Blog" href="https://mjy.js.org/rss.xml/"><!-- Filled at runtime by theme.ts to match the current background colour --><meta name="theme-color" content=""><script>
+      {
+        const hasFragment = Boolean(location.hash);
+        document.documentElement.toggleAttribute(
+          "data-fragment-navigation",
+          hasFragment
+        );
+        document.documentElement.toggleAttribute(
+          "data-fragment-font-pending",
+          hasFragment
+        );
+      }
+    </script><!-- Extra head content injected by child layouts (e.g. JSON-LD, article meta) --><meta property="og:type" content="article"><meta property="article:published_time" content="2025-10-03T00:00:00.000Z"><meta property="article:tag" content="Windows"><meta property="article:tag" content="用户目录"><meta property="article:tag" content="系统配置"><meta property="article:tag" content="教程"><meta property="article:tag" content="排错"><meta property="article:tag" content="最佳实践"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"将Windows中文用户主文件夹修改为英文 | TranquilYu's Blog","description":"一种无需重装系统解决用户主文件夹名为中文的方法","image":"https://mjy.js.org/og/windows-rename-chinese-user-home-folder.png","keywords":["Windows","用户目录","系统配置","教程","排错","最佳实践"],"inLanguage":"zh-CN","url":"https://mjy.js.org/posts/windows-rename-chinese-user-home-folder/","mainEntityOfPage":{"@type":"WebPage","@id":"https://mjy.js.org/posts/windows-rename-chinese-user-home-folder/"},"datePublished":"2025-10-03T00:00:00.000Z","author":[{"@type":"Person","name":"MaJianyu","url":"https://github.com/majianyu2007"}]}</script><script>
+      (() => {
+        const applyOutboundTracking = () => {
+          document.querySelectorAll("a[href]").forEach(link => {
+            if (
+              link instanceof HTMLAnchorElement &&
+              link.host !== window.location.host &&
+              !link.dataset.umamiEvent
+            ) {
+              link.dataset.umamiEvent = "outbound-link-click";
+              link.dataset.umamiEventUrl = link.href;
+            }
+          });
+        };
+
+        const loadThirdPartyScripts = () => {
+          if (!document.querySelector('script[data-site-analytics="umami"]')) {
+            const analytics = document.createElement("script");
+            analytics.defer = true;
+            analytics.src = "https://umami.715654.xyz/script.js";
+            analytics.dataset.siteAnalytics = "umami";
+            analytics.dataset.websiteId =
+              "6bc518c3-c5f9-4afd-8edf-fe258aba7432";
+            analytics.dataset.domains = "mjy.js.org";
+            document.head.appendChild(analytics);
+          }
+
+          if (!document.querySelector('script[data-site-ads="adsense"]')) {
+            const ads = document.createElement("script");
+            ads.async = true;
+            ads.crossOrigin = "anonymous";
+            ads.src =
+              "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9101785228583606";
+            ads.dataset.siteAds = "adsense";
+            document.head.appendChild(ads);
+          }
+        };
+
+        if (document.prerendering) {
+          document.addEventListener(
+            "prerenderingchange",
+            loadThirdPartyScripts,
+            { once: true }
+          );
+        } else {
+          loadThirdPartyScripts();
+        }
+
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", applyOutboundTracking, {
+            once: true,
+          });
+        } else {
+          applyOutboundTracking();
+        }
+        document.addEventListener("astro:page-load", applyOutboundTracking);
+      })();
+    </script><!--
+      Inline FOUC-prevention script: sets data-theme on <html> before
+      the browser paints. Runs synchronously, no defer/async.
+    --><script>
+      (function () {
+        const stored = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
+        const theme = stored ?? (prefersDark ? "dark" : "light");
+        const root = document.firstElementChild;
+        root?.setAttribute("data-theme", theme);
+        root?.classList.toggle("dark", theme === "dark");
+        // Expose value so theme.ts can skip re-detection.
+        window.__theme = { value: theme };
+      })();
+    </script><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.DpL340e7.js"></script><link rel="stylesheet" href="/_astro/Footer.DSVCgsPW.css"><style>@keyframes astroFadeInOut{0%{opacity:1}to{opacity:0}}@keyframes astroFadeIn{0%{opacity:0;mix-blend-mode:plus-lighter}to{opacity:1;mix-blend-mode:plus-lighter}}@keyframes astroFadeOut{0%{opacity:1;mix-blend-mode:plus-lighter}to{opacity:0;mix-blend-mode:plus-lighter}}@keyframes astroSlideFromRight{0%{transform:translate(100%)}}@keyframes astroSlideFromLeft{0%{transform:translate(-100%)}}@keyframes astroSlideToRight{to{transform:translate(100%)}}@keyframes astroSlideToLeft{to{transform:translate(-100%)}}@media (prefers-reduced-motion){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*),[data-astro-transition-scope]{animation:none!important}}
+</style><link rel="stylesheet" href="/_astro/index.Box75lNT.css"><style>[data-astro-transition-scope="astro-bztu2lml-1"] { view-transition-name: windows; }@layer astro { ::view-transition-old(windows) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(windows) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(windows) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(windows) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-1"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-1"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-bztu2lml-2"] { view-transition-name: \7528\6237\76EE\5F55; }@layer astro { ::view-transition-old(\7528\6237\76EE\5F55) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(\7528\6237\76EE\5F55) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(\7528\6237\76EE\5F55) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(\7528\6237\76EE\5F55) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-2"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-2"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-2"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-2"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-bztu2lml-3"] { view-transition-name: \7CFB\7EDF\914D\7F6E; }@layer astro { ::view-transition-old(\7CFB\7EDF\914D\7F6E) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(\7CFB\7EDF\914D\7F6E) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(\7CFB\7EDF\914D\7F6E) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(\7CFB\7EDF\914D\7F6E) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-3"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-3"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-3"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-3"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-bztu2lml-4"] { view-transition-name: \6559\7A0B; }@layer astro { ::view-transition-old(\6559\7A0B) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(\6559\7A0B) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(\6559\7A0B) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(\6559\7A0B) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-4"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-4"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-4"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-4"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-4"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-4"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-4"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-4"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-bztu2lml-5"] { view-transition-name: \6392\9519; }@layer astro { ::view-transition-old(\6392\9519) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(\6392\9519) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(\6392\9519) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(\6392\9519) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-5"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-5"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-5"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-5"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-5"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-5"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-5"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-5"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-bztu2lml-6"] { view-transition-name: \6700\4F73\5B9E\8DF5; }@layer astro { ::view-transition-old(\6700\4F73\5B9E\8DF5) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(\6700\4F73\5B9E\8DF5) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(\6700\4F73\5B9E\8DF5) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(\6700\4F73\5B9E\8DF5) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-6"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-6"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-6"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-6"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-6"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-6"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-6"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-6"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style></head><body class="bg-background font-app text-foreground selection:bg-accent/75 selection:text-accent-foreground flex min-h-svh flex-col"><div id="navigation-progress" aria-hidden="true"></div><div id="reading-progress" aria-hidden="true"></div><script type="module">var e,t,n,r,i=null,a=()=>document.getElementById(`navigation-progress`),o=()=>document.documentElement,s=()=>{i?.removeAttribute(`data-navigation-target`),i=null},c=()=>{window.clearTimeout(e),window.clearTimeout(t),window.clearTimeout(n),r!==void 0&&(window.cancelAnimationFrame(r),r=void 0)},l=()=>{c(),o().removeAttribute(`data-navigation-state`),a()?.removeAttribute(`data-state`),s()},u=e=>{let t=e.target;if(!(t instanceof Element)||e instanceof MouseEvent&&(e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey))return;let r=t.closest(`a[href]`);!r||r.origin!==location.origin||r.target===`_blank`||r.hasAttribute(`download`)||r.pathname===location.pathname&&r.search===location.search&&r.hash!==``||(s(),i=r,i.setAttribute(`data-navigation-target`,``),o().setAttribute(`data-navigation-state`,`pressing`),window.clearTimeout(n),n=window.setTimeout(()=>{o().dataset.navigationState===`pressing`&&l()},420))};document.addEventListener(`pointerdown`,u,{capture:!0,passive:!0}),document.addEventListener(`click`,u,{capture:!0}),document.addEventListener(`pointercancel`,l,{capture:!0}),document.addEventListener(`astro:before-preparation`,e=>{c(),o().setAttribute(`data-navigation-state`,`preparing`),a()?.setAttribute(`data-state`,`loading`),e.signal.addEventListener(`abort`,l,{once:!0})}),document.addEventListener(`astro:after-swap`,()=>{let n=o(),i=a();c(),s(),n.setAttribute(`data-navigation-state`,`arriving`),i?.setAttribute(`data-state`,`done`),e=window.setTimeout(()=>{i?.removeAttribute(`data-state`)},220),r=window.requestAnimationFrame(()=>{r=window.requestAnimationFrame(()=>{n.setAttribute(`data-navigation-state`,`settling`),r=void 0})}),t=window.setTimeout(()=>{n.removeAttribute(`data-navigation-state`)},520)});</script><script type="module">var e=[`.post-card`,`.taxonomy-list > li`,`.tag-cloud-item`,`#article > h2`,`#article > h3`,`#article > figure`,`#article > blockquote`,`#article > .callout`,`.reader-nav-link`,`.reader-related-link`].join(`,`),t,n,r,i=()=>{t?.abort(),n?.disconnect(),r!==void 0&&(cancelAnimationFrame(r),r=void 0)},a=e=>{let t=document.getElementById(`reading-progress`),n=document.getElementById(`article`);if(!t||!n){t?.removeAttribute(`data-active`),t?.style.removeProperty(`--reading-progress`);return}t.setAttribute(`data-active`,``);let i=()=>{r=void 0;let e=document.documentElement,n=e.scrollHeight-e.clientHeight,i=n>0?Math.min(1,Math.max(0,e.scrollTop/n)):0;t.style.setProperty(`--reading-progress`,i.toFixed(4))},a=()=>{r===void 0&&(r=requestAnimationFrame(i))};window.addEventListener(`scroll`,a,{passive:!0,signal:e}),window.addEventListener(`resize`,a,{passive:!0,signal:e}),a()},o=t=>{let r=[...document.querySelectorAll(e)];if(r.forEach(e=>{e.removeAttribute(`data-motion-reveal`),e.style.removeProperty(`--motion-delay`)}),t||!(`IntersectionObserver`in window))return;n=new IntersectionObserver(e=>{e.forEach(e=>{if(!e.isIntersecting)return;let t=e.target;t.setAttribute(`data-motion-reveal`,`visible`),n?.unobserve(t)})},{rootMargin:`0px 0px -7% 0px`,threshold:.04});let i=window.innerHeight*.88;r.forEach((e,t)=>{let r=e.getBoundingClientRect();r.top<=i||r.bottom<=0||(e.setAttribute(`data-motion-reveal`,`pending`),e.style.setProperty(`--motion-delay`,`${t%5*22}ms`),n?.observe(e))})};document.addEventListener(`astro:page-load`,()=>{i(),t=new AbortController;let{signal:e}=t,n=window.matchMedia(`(prefers-reduced-motion: reduce)`).matches;a(e),o(n)}),document.addEventListener(`astro:before-swap`,i);</script><a id="skip-to-content" href="#main-content" class="bg-background text-accent absolute inset-s-16 -top-full z-50 px-3 py-2 backdrop-blur-lg transition-all focus:top-4">跳到正文</a><header class="app-layout flex flex-col items-center justify-between sm:flex-row"><div class="border-border bg-background relative flex w-full items-baseline justify-between border-b py-4 sm:items-center sm:py-6"><a href="/" class="absolute py-1 text-xl leading-8 font-semibold whitespace-nowrap sm:static sm:my-auto sm:text-2xl sm:leading-none">TranquilYu&#39;s Blog</a><nav id="nav-menu" class="flex w-full flex-col items-center sm:ms-2 sm:flex-row sm:justify-end sm:space-x-4 sm:py-0"><button id="menu-btn" class="focus-outline self-end p-2 sm:hidden" aria-label="打开菜单" aria-expanded="false" aria-controls="menu-items" data-label-open="打开菜单" data-label-close="关闭菜单"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="hidden" viewBox="0 0 24 24" id="close-icon"><path stroke="none" d="M0 0h24v24H0z" /><path d="M18 6 6 18M6 6l12 12" /></svg><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="icon icon-tabler icons-tabler-outline icon-tabler-menu-deep" viewBox="0 0 24 24" id="menu-icon"><path stroke="none" d="M0 0h24v24H0z" /><path d="M4 6h16M7 12h13M10 18h10" /></svg></button><ul id="menu-items" class="border-border bg-background/96 [&amp;&gt;li&gt;a]:hover:text-accent absolute end-0 top-[calc(100%+0.4rem)] z-50 hidden w-[min(11rem,calc(100vw-2rem))] grid-cols-2 gap-0.5 border p-2.5 shadow-lg backdrop-blur-xl sm:static sm:mt-0 sm:flex sm:w-auto sm:gap-x-5 sm:gap-y-0 sm:border-0 sm:bg-transparent sm:p-0 sm:shadow-none sm:backdrop-blur-none sm:[&amp;&gt;li]:h-8 [&amp;&gt;li&gt;a]:block [&amp;&gt;li&gt;a]:px-3 [&amp;&gt;li&gt;a]:py-2 [&amp;&gt;li&gt;a]:text-center [&amp;&gt;li&gt;a]:font-medium sm:[&amp;&gt;li&gt;a]:px-2 sm:[&amp;&gt;li&gt;a]:py-1"><li class="col-span-2"><a href="/posts/" class="active-nav">文章</a></li><li class="col-span-2"><a href="/categories/">分类</a></li><li class="col-span-2"><a href="/tags/">标签</a></li><li class="col-span-2"><a href="/about/">关于</a></li><li class="col-span-2"><a href="/archive/" title="归档" aria-label="归档" class="group inline-flex items-center gap-1 hover:text-accent focus-outline flex size-full justify-center p-2 sm:relative sm:size-8 sm:p-0"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="hidden sm:absolute sm:top-1/2 sm:left-1/2 sm:block sm:size-6 sm:-translate-x-1/2 sm:-translate-y-1/2" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" /><path d="M3 6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v0a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8M10 12h4" /></svg><span class="sm:sr-only">归档</span></a></li><li class="col-span-1 flex items-center justify-center"><a href="/search/" title="搜索" aria-label="搜索" class="group inline-flex items-center gap-1 hover:text-accent focus-outline relative size-10 sm:size-8"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="absolute top-1/2 left-1/2 size-6 -translate-x-1/2 -translate-y-1/2" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" /><path d="M3 10a7 7 0 1 0 14 0 7 7 0 1 0-14 0M21 21l-6-6" /></svg><span class="sr-only">搜索</span></a></li><li class="col-span-1 flex items-center justify-center"><button id="theme-btn" class="focus-outline hover:[&amp;&gt;svg]:stroke-accent relative size-10 p-3 sm:size-8" title="切换深浅主题" aria-label="auto" aria-live="polite"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="absolute top-[50%] left-[50%] translate-[-50%] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" /><path d="M12 3h.393a7.5 7.5 0 0 0 7.92 12.446A9 9 0 1 1 12 2.992z" /></svg><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="absolute top-[50%] left-[50%] translate-[-50%] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" /><path d="M14.828 14.828a4 4 0 1 0-5.656-5.656 4 4 0 0 0 5.656 5.656M6.343 17.657l-1.414 1.414M6.343 6.343 4.929 4.929M17.657 6.343l1.414-1.414M17.657 17.657l1.414 1.414M4 12H2M12 4V2M20 12h2M12 20v2" /></svg></button></li></ul></nav></div></header><script type="module">var e;function t(){e?.abort();let t=document.querySelector(`#menu-btn`),n=document.querySelector(`#menu-items`),r=document.querySelector(`#menu-icon`),i=document.querySelector(`#close-icon`);if(!t||!n||!r||!i)return;e=new AbortController;let{signal:a}=e,o=t.dataset.labelOpen??`Open menu`,s=t.dataset.labelClose??`Close menu`,c=()=>window.matchMedia(`(prefers-reduced-motion: reduce)`).matches,l=e=>{t.setAttribute(`aria-expanded`,String(e)),t.setAttribute(`aria-label`,e?s:o),n.getAnimations().forEach(e=>e.cancel()),r.classList.toggle(`hidden`,e),i.classList.toggle(`hidden`,!e)},u=()=>{l(!0),n.classList.remove(`hidden`),n.classList.add(`grid`),n.animate([{opacity:0,transform:`translateY(-8px) scale(0.975)`,transformOrigin:`top right`},{opacity:1,transform:`none`,transformOrigin:`top right`}],{duration:c()?1:320,easing:`cubic-bezier(0.22, 1, 0.36, 1)`})},d=async(e=!1)=>{t.getAttribute(`aria-expanded`)===`true`&&(l(!1),await n.animate([{opacity:1,transform:`none`,transformOrigin:`top right`},{opacity:0,transform:`translateY(-5px) scale(0.985)`,transformOrigin:`top right`}],{duration:c()?1:150,easing:`cubic-bezier(0.4, 0, 1, 1)`}).finished.catch(()=>void 0),t.getAttribute(`aria-expanded`)===`false`&&(n.classList.add(`hidden`),n.classList.remove(`grid`),e&&t.focus()))};t.addEventListener(`click`,()=>{t.getAttribute(`aria-expanded`)===`true`?d():u()},{signal:a}),document.addEventListener(`keydown`,e=>{e.key===`Escape`&&d(!0)},{signal:a}),document.addEventListener(`pointerdown`,e=>{t.getAttribute(`aria-expanded`)===`true`&&e.target instanceof Node&&!n.contains(e.target)&&!t.contains(e.target)&&d()},{signal:a,passive:!0})}t(),document.addEventListener(`astro:after-swap`,t);</script><div class="app-layout flex items-center justify-start"><a id="back-button" href="/" class="group inline-flex items-center gap-1 hover:text-accent reader-back-link focus-outline hover:text-foreground/75 -ms-2 mt-8 mb-2"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="inline-block size-6 rtl:rotate-180" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" /><path d="m15 6-6 6 6 6" /></svg><span>返回</span></a></div><script type="module">function e(){let e=document.querySelector(`#back-button`),t=sessionStorage.getItem(`backUrl`);t&&e&&(e.href=t)}document.addEventListener(`astro:page-load`,e),e();</script><main id="main-content" class="app-layout" data-pagefind-body><h1 style="view-transition-name:u005c06-windowsu004e2du006587u007528u006237u004e3bu006587u004ef6u005939u004feeu006539u004e3au0082f1u006587" class="text-accent inline-block text-2xl font-bold sm:text-3xl">将Windows中文用户主文件夹修改为英文</h1><div class="my-2 flex flex-wrap items-center gap-x-2 gap-y-1"><div class="text-muted-foreground flex items-center gap-x-2"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="inline-block size-6 min-w-5.5" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" /><path d="M4 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zM16 3v4M8 3v4M4 11h16M7 14h.013M10.01 14h.005M13.01 14h.005M16.015 14h.005M13.015 17h.005M7.01 17h.005M10.01 17h.005" /></svg><time class="text-sm sm:text-base" datetime="2025-10-03T00:00:00.000Z">3 Oct, 2025</time></div><span aria-hidden="true" class="text-muted-foreground">·</span><span class="text-muted-foreground text-sm" data-reading-stats title="正文约 1,413 字，其中 10 行代码">约 4 分钟 · 1,413 字</span><span aria-hidden="true" class="text-muted-foreground max-sm:hidden hidden">|</span></div><a class="text-muted-foreground text-sm underline decoration-dashed underline-offset-4" href="/categories/教程/">教程</a><details class="mobile-toc bg-background/96 mt-8 max-h-[55vh] overflow-y-auto px-3 py-2.5 backdrop-blur-md xl:hidden" data-pagefind-ignore="all" data-mobile-toc data-astro-cid-p33bl5ka><summary class="focus-outline flex cursor-pointer items-center justify-between gap-4 py-1 font-medium" data-astro-cid-p33bl5ka><span data-astro-cid-p33bl5ka>文章目录</span><span class="toc-count text-muted-foreground text-xs" data-astro-cid-p33bl5ka>14 节</span></summary><ol class="toc-list mt-2 text-sm" data-astro-cid-p33bl5ka><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="前言" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#前言" data-toc-link data-heading-id="前言" data-astro-cid-p33bl5ka>前言</a></li><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="判断" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#判断" data-toc-link data-heading-id="判断" data-astro-cid-p33bl5ka>判断</a></li><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="创建还原点" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#创建还原点" data-toc-link data-heading-id="创建还原点" data-astro-cid-p33bl5ka>创建还原点</a></li><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="启用administrator账户" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#启用administrator账户" data-toc-link data-heading-id="启用administrator账户" data-astro-cid-p33bl5ka>启用Administrator账户</a></li><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="切换administrator账户并注销原账户" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#切换administrator账户并注销原账户" data-toc-link data-heading-id="切换administrator账户并注销原账户" data-astro-cid-p33bl5ka>切换Administrator账户并注销原账户</a></li><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="重命名用户主文件夹" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#重命名用户主文件夹" data-toc-link data-heading-id="重命名用户主文件夹" data-astro-cid-p33bl5ka>重命名用户主文件夹</a></li><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="处理文件夹占用" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#处理文件夹占用" data-toc-link data-heading-id="处理文件夹占用" data-astro-cid-p33bl5ka>处理文件夹占用</a></li><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="修改注册表" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#修改注册表" data-toc-link data-heading-id="修改注册表" data-astro-cid-p33bl5ka>修改注册表</a></li><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="关闭administrator账户" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#关闭administrator账户" data-toc-link data-heading-id="关闭administrator账户" data-astro-cid-p33bl5ka>关闭Administrator账户</a></li><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="更新环境变量" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#更新环境变量" data-toc-link data-heading-id="更新环境变量" data-astro-cid-p33bl5ka>更新环境变量</a></li><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="更新用户账户信息可选" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#更新用户账户信息可选" data-toc-link data-heading-id="更新用户账户信息可选" data-astro-cid-p33bl5ka>更新用户账户信息（可选）</a></li><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="创建符号链接" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#创建符号链接" data-toc-link data-heading-id="创建符号链接" data-astro-cid-p33bl5ka>创建符号链接</a></li><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="重启" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#重启" data-toc-link data-heading-id="重启" data-astro-cid-p33bl5ka>重启</a></li><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="后记" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#后记" data-toc-link data-heading-id="后记" data-astro-cid-p33bl5ka>后记</a></li></ol></details><button type="button" class="mobile-toc-trigger bg-background/92 text-foreground fixed end-4 bottom-[5.25rem] z-50 flex min-h-11 items-center gap-2 border px-3 py-2 backdrop-blur-md xl:hidden" aria-label="打开文章目录" aria-controls="mobile-toc-dialog" aria-expanded="false" aria-haspopup="dialog" data-pagefind-ignore="all" data-mobile-toc-trigger data-astro-cid-p33bl5ka><span class="mobile-toc-trigger-icon" aria-hidden="true" data-astro-cid-p33bl5ka><i data-astro-cid-p33bl5ka></i><i data-astro-cid-p33bl5ka></i><i data-astro-cid-p33bl5ka></i></span><span class="font-sketch text-sm font-medium" data-astro-cid-p33bl5ka>目录</span></button><dialog id="mobile-toc-dialog" class="mobile-toc-dialog" aria-labelledby="mobile-toc-dialog-title" data-pagefind-ignore="all" data-mobile-toc-dialog data-astro-cid-p33bl5ka><div class="mobile-toc-dialog-header" data-astro-cid-p33bl5ka><div class="flex items-baseline gap-2" data-astro-cid-p33bl5ka><span id="mobile-toc-dialog-title" class="font-sketch text-lg font-semibold" data-astro-cid-p33bl5ka>文章目录</span><span class="toc-count text-muted-foreground" data-astro-cid-p33bl5ka>14 节</span></div><button type="button" class="mobile-toc-dialog-close focus-outline" aria-label="关闭文章目录" data-mobile-toc-close data-astro-cid-p33bl5ka><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="icon icon-tabler icons-tabler-outline icon-tabler-x" viewBox="0 0 24 24" aria-hidden="true" data-astro-cid-p33bl5ka="true"><path stroke="none" d="M0 0h24v24H0z" /><path d="M18 6 6 18M6 6l12 12" /></svg></button></div><div class="mobile-toc-dialog-scroll" data-mobile-toc-dialog-scroll data-astro-cid-p33bl5ka><ol class="toc-list text-sm" data-astro-cid-p33bl5ka><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="前言" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#前言" data-toc-link data-heading-id="前言" data-astro-cid-p33bl5ka>前言</a></li><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="判断" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#判断" data-toc-link data-heading-id="判断" data-astro-cid-p33bl5ka>判断</a></li><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="创建还原点" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#创建还原点" data-toc-link data-heading-id="创建还原点" data-astro-cid-p33bl5ka>创建还原点</a></li><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="启用administrator账户" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#启用administrator账户" data-toc-link data-heading-id="启用administrator账户" data-astro-cid-p33bl5ka>启用Administrator账户</a></li><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="切换administrator账户并注销原账户" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#切换administrator账户并注销原账户" data-toc-link data-heading-id="切换administrator账户并注销原账户" data-astro-cid-p33bl5ka>切换Administrator账户并注销原账户</a></li><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="重命名用户主文件夹" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#重命名用户主文件夹" data-toc-link data-heading-id="重命名用户主文件夹" data-astro-cid-p33bl5ka>重命名用户主文件夹</a></li><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="处理文件夹占用" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#处理文件夹占用" data-toc-link data-heading-id="处理文件夹占用" data-astro-cid-p33bl5ka>处理文件夹占用</a></li><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="修改注册表" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#修改注册表" data-toc-link data-heading-id="修改注册表" data-astro-cid-p33bl5ka>修改注册表</a></li><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="关闭administrator账户" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#关闭administrator账户" data-toc-link data-heading-id="关闭administrator账户" data-astro-cid-p33bl5ka>关闭Administrator账户</a></li><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="更新环境变量" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#更新环境变量" data-toc-link data-heading-id="更新环境变量" data-astro-cid-p33bl5ka>更新环境变量</a></li><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="更新用户账户信息可选" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#更新用户账户信息可选" data-toc-link data-heading-id="更新用户账户信息可选" data-astro-cid-p33bl5ka>更新用户账户信息（可选）</a></li><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="创建符号链接" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#创建符号链接" data-toc-link data-heading-id="创建符号链接" data-astro-cid-p33bl5ka>创建符号链接</a></li><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="重启" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#重启" data-toc-link data-heading-id="重启" data-astro-cid-p33bl5ka>重启</a></li><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="后记" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#后记" data-toc-link data-heading-id="后记" data-astro-cid-p33bl5ka>后记</a></li></ol></div></dialog><aside class="fixed end-4 top-24 hidden max-h-[calc(100vh-11rem)] w-48 overflow-y-auto pe-1 xl:block 2xl:end-[calc(50%-43rem)] 2xl:w-52" aria-label="文章目录" data-pagefind-ignore="all" data-toc data-astro-cid-p33bl5ka><div class="toc-heading mb-2 flex items-center justify-between gap-3" data-astro-cid-p33bl5ka><span data-astro-cid-p33bl5ka>文章目录</span><span class="toc-count text-muted-foreground" data-astro-cid-p33bl5ka>14 节</span></div><ol class="toc-list text-sm" data-astro-cid-p33bl5ka><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="前言" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#前言" data-toc-link data-heading-id="前言" data-astro-cid-p33bl5ka>前言</a></li><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="判断" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#判断" data-toc-link data-heading-id="判断" data-astro-cid-p33bl5ka>判断</a></li><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="创建还原点" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#创建还原点" data-toc-link data-heading-id="创建还原点" data-astro-cid-p33bl5ka>创建还原点</a></li><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="启用administrator账户" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#启用administrator账户" data-toc-link data-heading-id="启用administrator账户" data-astro-cid-p33bl5ka>启用Administrator账户</a></li><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="切换administrator账户并注销原账户" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#切换administrator账户并注销原账户" data-toc-link data-heading-id="切换administrator账户并注销原账户" data-astro-cid-p33bl5ka>切换Administrator账户并注销原账户</a></li><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="重命名用户主文件夹" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#重命名用户主文件夹" data-toc-link data-heading-id="重命名用户主文件夹" data-astro-cid-p33bl5ka>重命名用户主文件夹</a></li><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="处理文件夹占用" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#处理文件夹占用" data-toc-link data-heading-id="处理文件夹占用" data-astro-cid-p33bl5ka>处理文件夹占用</a></li><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="修改注册表" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#修改注册表" data-toc-link data-heading-id="修改注册表" data-astro-cid-p33bl5ka>修改注册表</a></li><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="关闭administrator账户" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#关闭administrator账户" data-toc-link data-heading-id="关闭administrator账户" data-astro-cid-p33bl5ka>关闭Administrator账户</a></li><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="更新环境变量" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#更新环境变量" data-toc-link data-heading-id="更新环境变量" data-astro-cid-p33bl5ka>更新环境变量</a></li><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="更新用户账户信息可选" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#更新用户账户信息可选" data-toc-link data-heading-id="更新用户账户信息可选" data-astro-cid-p33bl5ka>更新用户账户信息（可选）</a></li><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="创建符号链接" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#创建符号链接" data-toc-link data-heading-id="创建符号链接" data-astro-cid-p33bl5ka>创建符号链接</a></li><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="重启" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#重启" data-toc-link data-heading-id="重启" data-astro-cid-p33bl5ka>重启</a></li><li class="toc-item" data-toc-item data-toc-depth="2" data-toc-section="后记" data-toc-parent data-astro-cid-p33bl5ka><a class="toc-link text-muted-foreground" href="#后记" data-toc-link data-heading-id="后记" data-astro-cid-p33bl5ka>后记</a></li></ol></aside><script type="module" src="/_astro/TableOfContents.astro_astro_type_script_index_0_lang.Ckx0ik07.js"></script><article id="article" class="mt-8 w-full app-prose max-w-app prose-pre:bg-(--shiki-light-bg) dark:prose-pre:bg-(--shiki-dark-bg)"><h2 id="前言">前言</h2>
+<p>在Windows下，部分软件对于中文目录的适配性并不完整，导致程序无法正常运行或是出现一堆奇奇怪怪的报错。大部分软件会要求你选择一个非中文目录，但是由于部分软件的用户配置数据存储在了用户文件夹下，而用户文件夹的名字一般由Windows自动配置，若我们在OOBE阶段设置了中文名，则用户主文件夹也将是中文名，不利于后续操作。因此本教程将向您介绍在不重装系统、不创建新用户的情况下修改用户主文件夹名。</p>
+<h2 id="判断">判断</h2>
+<p>如何判断自己的用户主文件夹名是否为中文？
+若您在Windows的OOBE阶段（激活）使用了Microsoft账户登录，那么您的用户主文件夹应该为邮箱前缀。您无需继续浏览本教程。
+若您在Windows的OOBE阶段（激活）使用了<strong>oobe\bypassnro</strong>跳过联网而创建本地用户，并为账户起了中文名，那么您将会拥有一个中文用户主文件夹，正如下图所示：</p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #e6eff6, #eaf1f8 50%, #dbe3f0)" loading="lazy" decoding="async" sizes="(min-width: 1024px) 1024px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="1024" height="768" src="/_astro/image-20251003084919376.uumTSqOE_Z2sgUhr.webp" srcset="/_astro/image-20251003084919376.uumTSqOE_1rMSRS.webp 480w, /_astro/image-20251003084919376.uumTSqOE_1XP2X1.webp 768w, /_astro/image-20251003084919376.uumTSqOE_Z2sgUhr.webp 1024w"></p>
+<p>如果您已经忘记了自己如何激活的Windows，那么您可以转到<strong>C:\Users</strong>文件夹下进行判断。在文件资源管理器中，<strong>User</strong>文件夹一般显示为中文<strong>用户</strong>。如下图所示：</p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #f5f8f2, #f7faf4 50%, #fbf9f7)" loading="lazy" decoding="async" sizes="(min-width: 2558px) 2558px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="2558" height="1330" src="/_astro/image-20251003085747561.CeSqABwg_Z1cpR3q.webp" srcset="/_astro/image-20251003085747561.CeSqABwg_ZPLWwi.webp 480w, /_astro/image-20251003085747561.CeSqABwg_2q3D34.webp 768w, /_astro/image-20251003085747561.CeSqABwg_R01Ki.webp 1280w, /_astro/image-20251003085747561.CeSqABwg_Z1cpR3q.webp 2558w"></p>
+<p>图示“姓名”不合规的中文主文件夹，现在我们将对其进行修改，使之变为英文文件夹</p>
+<p><strong>注意！以下操作存在极大风险！可能导致部分软件无法使用需要重装！</strong></p>
+<h2 id="创建还原点">创建还原点</h2>
+<p>对系统做这么大手术，当然需要创建一个还原点了，方便恢复修改前状态。在Windows开始菜单搜索框中搜索<strong>还原点</strong></p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #9bb48c, #9cb291 50%, #b4b29d)" loading="lazy" decoding="async" sizes="(min-width: 2558px) 2558px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="2558" height="1330" src="/_astro/image-20251003090032036.D8YnlJ6g_ZvNM3q.webp" srcset="/_astro/image-20251003090032036.D8YnlJ6g_Z2sv0cY.webp 480w, /_astro/image-20251003090032036.D8YnlJ6g_NkAmn.webp 768w, /_astro/image-20251003090032036.D8YnlJ6g_1xB6Ki.webp 1280w, /_astro/image-20251003090032036.D8YnlJ6g_ZvNM3q.webp 2558w"></p>
+<p>即可找到创建还原点选项。</p>
+<p>首先先点击<strong>配置</strong>启用系统保护（若已启用则忽略）</p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #b6c4ad, #a3b199 50%, #bdbab2)" loading="lazy" decoding="async" sizes="(min-width: 2558px) 2558px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="2558" height="1330" src="/_astro/image-20251003090225081.CIrtYcGn_ZOi8H1.webp" srcset="/_astro/image-20251003090225081.CIrtYcGn_1C3pRy.webp 480w, /_astro/image-20251003090225081.CIrtYcGn_Zbi7m1.webp 768w, /_astro/image-20251003090225081.CIrtYcGn_1f7K6H.webp 1280w, /_astro/image-20251003090225081.CIrtYcGn_ZOi8H1.webp 2558w"></p>
+<p>然后点击<strong>创建</strong>，名字随意，创建一个还原点。</p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #b7c6ae, #a2b396 50%, #6d6b43)" loading="lazy" decoding="async" sizes="(min-width: 2558px) 2558px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="2558" height="1330" src="/_astro/image-20251003090322343.DC6mXskl_Z1QMJ8.webp" srcset="/_astro/image-20251003090322343.DC6mXskl_Z2rx4ao.webp 480w, /_astro/image-20251003090322343.DC6mXskl_OiwoX.webp 768w, /_astro/image-20251003090322343.DC6mXskl_22y64A.webp 1280w, /_astro/image-20251003090322343.DC6mXskl_Z1QMJ8.webp 2558w"></p>
+<p>耐心等待还原点创建完成，然后点击<strong>确定</strong>关闭所有窗口。</p>
+<h2 id="启用administrator账户">启用Administrator账户</h2>
+<p>右键开始菜单的微软徽标，点击<strong>终端管理员</strong></p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #859e78, #a8bc8a 50%, #b8b196)" loading="lazy" decoding="async" sizes="(min-width: 418px) 418px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="418" height="1268" src="/_astro/image-20251003090715686.Bq1Tob_n_ZUzHxt.webp" srcset="/_astro/image-20251003090715686.Bq1Tob_n_ZUzHxt.webp 418w"></p>
+<p>在出现的终端中输入命令并回车</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="cmd"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">net user </span><span style="--shiki-light:#24292EFF;--shiki-dark:#C5E478">administrator</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB"> /</span><span style="--shiki-light:#24292EFF;--shiki-dark:#C5E478">active</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">:yes</span></span></code></pre>
+<p>执行后，屏幕会提示“命令成功完成”，说明Administrator账号已启用。如下图所示：</p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #222222, #181918 50%, #0b0b0b)" loading="lazy" decoding="async" sizes="(min-width: 1000px) 1000px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="1000" height="180" src="/_astro/image-20251003090912298.CvPEYkVy_Z2owAAX.webp" srcset="/_astro/image-20251003090912298.CvPEYkVy_20suat.webp 480w, /_astro/image-20251003090912298.CvPEYkVy_Z25h32v.webp 768w, /_astro/image-20251003090912298.CvPEYkVy_Z2owAAX.webp 1000w"></p>
+<h2 id="切换administrator账户并注销原账户">切换Administrator账户并注销原账户</h2>
+<figure class="article-figure"><img src="/images/202510030001.webp" alt="202510030001" style="--image-placeholder:linear-gradient(135deg, #42701a, #4b761e 50%, #6a6937)"><figcaption class="article-figcaption">202510030001</figcaption></figure>
+<p>将所有选项取消勾选</p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #e2e6e5, #eaeeef 50%, #e6eeee)" loading="lazy" decoding="async" sizes="(min-width: 1598px) 1598px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="1598" height="1028" src="/_astro/image-20251003091504362.DxAFO8rp_lWpTp.webp" srcset="/_astro/image-20251003091504362.DxAFO8rp_Z8SleJ.webp 480w, /_astro/image-20251003091504362.DxAFO8rp_Z1foWVp.webp 768w, /_astro/image-20251003091504362.DxAFO8rp_1QCgF2.webp 1280w, /_astro/image-20251003091504362.DxAFO8rp_lWpTp.webp 1598w"></p>
+<p>进入桌面后，切回原用户，注销后再登录Administrator账户。</p>
+<figure class="article-figure"><img src="/images/202510030002.webp" alt="202510030002" style="--image-placeholder:linear-gradient(135deg, #3f645f, #748e91 50%, #7da0a2)"><figcaption class="article-figcaption">202510030002</figcaption></figure>
+<h2 id="重命名用户主文件夹">重命名用户主文件夹</h2>
+<p>现在转到<strong>C:\Users</strong>，修改原来的中文用户主文件夹文件名为英文，可能会提示“操作无法完成，因为文件或文件夹已在其他程序中打开”。</p>
+<h2 id="处理文件夹占用">处理文件夹占用</h2>
+<p>Win + R打开cmd，执行以下命令（替换“用户名”为你实际的用户名）</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="cmd"><code><span class="line"><span style="--shiki-light:#D32F2F;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">for</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB"> /</span><span style="--shiki-light:#24292EFF;--shiki-dark:#C5E478">f</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD"> "</span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D">skip=1 tokens=3</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">"</span><span style="--shiki-light:#D32F2F;--shiki-dark:#7FDBCA"> %</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">s </span><span style="--shiki-light:#24292EFF;--shiki-dark:#C5E478">in</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB"> (</span><span style="--shiki-light:#C2C3C5;--shiki-light-font-style:inherit;--shiki-dark:#637777;--shiki-dark-font-style:italic">'query user 用户名') do taskkill /f /fi "sessionname eq %s"</span></span></code></pre>
+<p>杀死进程后再次修改。</p>
+<h2 id="修改注册表">修改注册表</h2>
+<p>按Win + R输入regedit并回车打开注册表编辑器</p>
+<p>在上方输入框中输入</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="txt"><code><span class="line"><span>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\ProfileList</span></span></code></pre>
+<p>在此路径下还有很多以S开头的目录，挨个排查，直到找到右边的<strong>ProfileImagePath</strong>为中文的目录，如下图</p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #e7e9e8, #f2f5f4 50%, #f9fafa)" loading="lazy" decoding="async" sizes="(min-width: 1892px) 1892px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="1892" height="884" src="/_astro/image-20251003093307131.C-jnCN7h_ZDfuSb.webp" srcset="/_astro/image-20251003093307131.C-jnCN7h_1tyzgk.webp 480w, /_astro/image-20251003093307131.C-jnCN7h_1C5Bjj.webp 768w, /_astro/image-20251003093307131.C-jnCN7h_Z1RfBiI.webp 1280w, /_astro/image-20251003093307131.C-jnCN7h_ZDfuSb.webp 1892w"></p>
+<p>双击<strong>ProfileImagePath</strong>条目修改，将中文替换为您刚修改的英文文件夹名称。</p>
+<p>在上方输入框中输入</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="txt"><code><span class="line"><span>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\UserManager\Users</span></span></code></pre>
+<p>找到包含中文用户名的数字项(<strong>UserPicture</strong>)，双击对应的键值，将中文用户名改为英文全拼，点击“确定”</p>
+<h2 id="关闭administrator账户">关闭Administrator账户</h2>
+<p>按Win + R打开终端，输入命令并回车，关闭Administrator账户</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="cmd"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">net user </span><span style="--shiki-light:#24292EFF;--shiki-dark:#C5E478">administrator</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB"> /</span><span style="--shiki-light:#24292EFF;--shiki-dark:#C5E478">active</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">:no</span></span></code></pre>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #1d1d1d, #151515 50%, #0c0c0c)" loading="lazy" decoding="async" sizes="(min-width: 1096px) 1096px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="1096" height="234" src="/_astro/image-20251003093749028.DwYTuEH-_Z1WHQxS.webp" srcset="/_astro/image-20251003093749028.DwYTuEH-_ZAyXVv.webp 480w, /_astro/image-20251003093749028.DwYTuEH-_kxeA9.webp 768w, /_astro/image-20251003093749028.DwYTuEH-_Z1WHQxS.webp 1096w"></p>
+<p>提示“命令成功完成”后，注销Administrator账号，回到登录页面。</p>
+<h2 id="更新环境变量"><strong>更新环境变量</strong></h2>
+<p>登录回原用户后，搜索<strong>环境变量</strong>，编辑<strong>用户</strong>环境变量</p>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #e0edcc, #deebdb 50%, #e1dfd3)" loading="lazy" decoding="async" sizes="(min-width: 1610px) 1610px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="1610" height="1228" src="/_astro/image-20251003093857619.C_VHqU3s_1bloHq.webp" srcset="/_astro/image-20251003093857619.C_VHqU3s_Z12qViQ.webp 480w, /_astro/image-20251003093857619.C_VHqU3s_jzsMv.webp 768w, /_astro/image-20251003093857619.C_VHqU3s_UDpHt.webp 1280w, /_astro/image-20251003093857619.C_VHqU3s_1bloHq.webp 1610w"></p>
+<p>接下来要对<strong>用户变量</strong>进行操作，首先把OneDrive的变量进行修改，将原来的中文文件夹名改为你原来的英文文件夹名。</p>
+<p>然后单击<strong>Path</strong>条目，点击<strong>编辑</strong>，检查所有包含中文用户名的路径，将条目中原来的中文文件夹名改为你原来的英文文件夹名。</p>
+<p>连续点击三个<strong>确定</strong>，完成环境变量编辑。</p>
+<h2 id="更新用户账户信息可选">更新用户账户信息（可选）</h2>
+<p>如果你想一并把显示的用户信息进行修改，请完成以下操作。</p>
+<p>按Win + R，输入</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="cmd"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">control userpasswords2</span></span></code></pre>
+<p><img alt="" style="--image-placeholder:linear-gradient(135deg, #e9eae8, #eef0eb 50%, #f2f1f0)" loading="lazy" decoding="async" sizes="(min-width: 1884px) 1884px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="1884" height="1074" src="/_astro/image-20251003094407027.Bl6ePS7C_ZUf68Q.webp" srcset="/_astro/image-20251003094407027.Bl6ePS7C_1davtz.webp 480w, /_astro/image-20251003094407027.Bl6ePS7C_2uuN4D.webp 768w, /_astro/image-20251003094407027.Bl6ePS7C_Zw2CYb.webp 1280w, /_astro/image-20251003094407027.Bl6ePS7C_ZUf68Q.webp 1884w"></p>
+<p>对其进行修改，点两次<strong>确定</strong>退出即可。</p>
+<h2 id="创建符号链接">创建符号链接</h2>
+<p>部分软件可能认死理，这时我们要照顾这些软件的情绪，想办法让它们读到文件。</p>
+<p>右键开始菜单的微软徽标，点击<strong>终端管理员</strong></p>
+<p>对下方命令按照实际情况进行修改后，在出现的终端中输入命令并回车</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="cmd"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">cmd</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#C5E478">mklink</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB"> /</span><span style="--shiki-light:#24292EFF;--shiki-dark:#C5E478">d</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD"> "</span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D">C:\Users\用户</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">"</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD"> "</span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D">C:\Users\User</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">"</span></span></code></pre>
+<p>这会将旧用户名路径链接到新路径，解决软件路径报错问题。</p>
+<h2 id="重启">重启</h2>
+<p>确保全部操作完成后重启计算机，如果正常进入桌面，那么基本没有什么问题了</p>
+<h2 id="后记">后记</h2>
+<ul>
+<li>备份重要数据：修改用户名涉及注册表操作，建议提前备份重要文件，以防万一。单纯仅仅创建还原点是不够的，还原点只可备份当前系统配置文件</li>
+<li>谨慎操作注册表：确保按照步骤修改，避免误删关键项。</li>
+<li>软件路径问题：部分软件可能仍需重新安装，确保路径正确。</li>
+<li>桌面文件丢失：如果重启后桌面只剩“此电脑”和“回收站”，用符号链接方法即可恢复。</li>
+</ul></article><script>
+  (() => {
+    const SELECTOR = ".asciinema-player[data-cast]";
+
+    function ensureCss() {
+      if (document.querySelector('link[data-asciinema-player="1"]')) return;
+      const link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.href = "/assets/css/asciinema-player.css";
+      link.dataset.asciinemaPlayer = "1";
+      document.head.appendChild(link);
+    }
+
+    function ensureScript() {
+      if (window.AsciinemaPlayer?.create) {
+        return Promise.resolve(window.AsciinemaPlayer);
+      }
+      if (window.__asciinemaPlayerPromise) {
+        return window.__asciinemaPlayerPromise;
+      }
+      window.__asciinemaPlayerPromise = new Promise((resolve, reject) => {
+        const script = document.createElement("script");
+        script.src = "/assets/js/asciinema-player.min.js";
+        script.async = true;
+        script.dataset.asciinemaPlayer = "1";
+        script.addEventListener("load", () => resolve(window.AsciinemaPlayer));
+        script.addEventListener("error", reject);
+        document.body.appendChild(script);
+      });
+      return window.__asciinemaPlayerPromise;
+    }
+
+    async function initAsciinema() {
+      const elements = [...document.querySelectorAll(SELECTOR)];
+      if (elements.length === 0) return;
+      ensureCss();
+      const player = await ensureScript();
+      if (!player?.create) return;
+
+      for (const element of elements) {
+        if (element.dataset.asciinemaInitialized === "1") continue;
+        const source = element.dataset.cast;
+        if (!source) continue;
+        player.create(source, element, {
+          preload: element.dataset.preload === "true",
+          theme: element.dataset.theme || "asciinema",
+        });
+        element.dataset.asciinemaInitialized = "1";
+      }
+    }
+
+    initAsciinema().catch(() => undefined);
+    document.addEventListener("astro:page-load", () => {
+      initAsciinema().catch(() => undefined);
+    });
+    document.addEventListener("password:decrypted", () => {
+      initAsciinema().catch(() => undefined);
+    });
+  })();
+</script><aside class="border-border text-muted-foreground mt-8 border-y py-4 text-sm"><p>许可： <a class="underline underline-offset-4" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p></aside><hr class="my-8 border-dashed"><div id="btt-btn-container" class="fixed inset-e-4 bottom-5 z-50 sm:inset-e-6 sm:bottom-6 translate-y-4 opacity-0 transition duration-300"><button data-button="back-to-top" aria-label="返回顶部" title="返回顶部" class="bg-background/92 text-foreground relative grid size-12 place-items-center border p-0 shadow-sm backdrop-blur-md"><span id="progress-indicator" class="absolute -inset-1 -z-10 block bg-transparent"></span><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="size-5" viewBox="0 0 24 24" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" /><path d="M12 5v14M16 9l-4-4M8 9l4-4" /></svg><span class="sr-only">返回顶部</span></button></div><script type="module">function e(){let e=document.querySelector(`[data-button='back-to-top']`);if(!e||e.hasAttribute(`data-enhanced`)||(e.setAttribute(`data-enhanced`,``),e.addEventListener(`click`,()=>{window.scrollTo({top:0,left:0,behavior:window.matchMedia(`(prefers-reduced-motion: reduce)`).matches?`instant`:`smooth`})}),window.__backToTopScrollBound))return;window.__backToTopScrollBound=!0;let t=null;function n(){let e=document.documentElement,n=document.querySelector(`#btt-btn-container`),r=document.querySelector(`#progress-indicator`);if(!n||!r)return;let i=e.scrollHeight-e.clientHeight,a=e.scrollTop,o=i>0?Math.floor(a/i*100):0;r.style.setProperty(`background-image`,`conic-gradient(var(--accent), var(--accent) ${o}%, transparent ${o}%)`);let s=Math.min(480,e.clientHeight*.6),c=i>0&&a>s;c!==t&&(n.classList.toggle(`opacity-100`,c),n.classList.toggle(`translate-y-0`,c),n.classList.toggle(`opacity-0`,!c),n.classList.toggle(`translate-y-4`,!c),t=c)}let r=!1;document.addEventListener(`scroll`,()=>{r||=(window.requestAnimationFrame(()=>{n(),r=!1}),!0)},{passive:!0}),n()}e(),document.addEventListener(`astro:page-load`,e);</script><ul class="mt-4 mb-8 flex flex-wrap gap-4 sm:my-8"><li><a data-astro-transition-scope="astro-bztu2lml-1" href="/tags/windows/" class="tag-link flex items-center gap-0.5 border-foreground border-b-2 border-dashed hover:border-accent hover:text-accent hover:-translate-y-0.5 focus-visible:text-accent focus-visible:border-none text-sm"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="opacity-80 size-4" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" /><path d="M5 9h14M5 15h14M11 4 7 20M17 4l-4 16" /></svg>Windows</a></li><li><a data-astro-transition-scope="astro-bztu2lml-2" href="/tags/用户目录/" class="tag-link flex items-center gap-0.5 border-foreground border-b-2 border-dashed hover:border-accent hover:text-accent hover:-translate-y-0.5 focus-visible:text-accent focus-visible:border-none text-sm"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="opacity-80 size-4" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" /><path d="M5 9h14M5 15h14M11 4 7 20M17 4l-4 16" /></svg>用户目录</a></li><li><a data-astro-transition-scope="astro-bztu2lml-3" href="/tags/系统配置/" class="tag-link flex items-center gap-0.5 border-foreground border-b-2 border-dashed hover:border-accent hover:text-accent hover:-translate-y-0.5 focus-visible:text-accent focus-visible:border-none text-sm"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="opacity-80 size-4" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" /><path d="M5 9h14M5 15h14M11 4 7 20M17 4l-4 16" /></svg>系统配置</a></li><li><a data-astro-transition-scope="astro-bztu2lml-4" href="/tags/教程/" class="tag-link flex items-center gap-0.5 border-foreground border-b-2 border-dashed hover:border-accent hover:text-accent hover:-translate-y-0.5 focus-visible:text-accent focus-visible:border-none text-sm"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="opacity-80 size-4" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" /><path d="M5 9h14M5 15h14M11 4 7 20M17 4l-4 16" /></svg>教程</a></li><li><a data-astro-transition-scope="astro-bztu2lml-5" href="/tags/排错/" class="tag-link flex items-center gap-0.5 border-foreground border-b-2 border-dashed hover:border-accent hover:text-accent hover:-translate-y-0.5 focus-visible:text-accent focus-visible:border-none text-sm"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="opacity-80 size-4" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" /><path d="M5 9h14M5 15h14M11 4 7 20M17 4l-4 16" /></svg>排错</a></li><li><a data-astro-transition-scope="astro-bztu2lml-6" href="/tags/最佳实践/" class="tag-link flex items-center gap-0.5 border-foreground border-b-2 border-dashed hover:border-accent hover:text-accent hover:-translate-y-0.5 focus-visible:text-accent focus-visible:border-none text-sm"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="opacity-80 size-4" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" /><path d="M5 9h14M5 15h14M11 4 7 20M17 4l-4 16" /></svg>最佳实践</a></li></ul><div class="flex flex-none flex-col items-center justify-center gap-1 md:items-start"><span class="font-sketch">分享文章：</span><div class="text-center"><a href="https://t.me/share/url?url=https://mjy.js.org/posts/windows-rename-chinese-user-home-folder/" title="分享到 Telegram" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-1 hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" /><path d="m15 10-4 4 6 6 4-16-18 7 4 2 2 6 3-4" /></svg><span class="sr-only">分享到 Telegram</span></a><a href="mailto:?subject=See%20this%20post&amp;body=https://mjy.js.org/posts/windows-rename-chinese-user-home-folder/" title="通过邮件分享" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-1 hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" /><path d="M3 7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><path d="m3 7 9 6 9-6" /></svg><span class="sr-only">通过邮件分享</span></a></div></div><hr class="my-8 border-dashed"><section class="border-border my-8 border-y py-6" aria-labelledby="related-posts-title" data-related-posts data-pagefind-ignore="all"><h2 id="related-posts-title" class="mb-4 text-lg font-semibold tracking-wide">继续阅读</h2><ol class="space-y-4"><li><a class="reader-related-link group block" href="/posts/slurm-job-submission-queue-management/"><span class="group-hover:text-accent font-medium">Slurm 使用入门教程</span><span class="font-sketch text-muted-foreground mt-1 block text-sm">教程 · Slurm 使用入门教程：作业脚本编写、任务提交与队列管理指南</span></a></li><li><a class="reader-related-link group block" href="/posts/windows-python-environment-setup/"><span class="group-hover:text-accent font-medium">Windows下的Python环境配置</span><span class="font-sketch text-muted-foreground mt-1 block text-sm">教程 · 使用Anaconda来进行Python环境管理</span></a></li><li><a class="reader-related-link group block" href="/posts/js-org-free-domain-setup/"><span class="group-hover:text-accent font-medium">js.org free domain</span><span class="font-sketch text-muted-foreground mt-1 block text-sm">教程 · 面向JavaScript开发者与开发项目的二级域名</span></a></li></ol></section><div data-pagefind-ignore class="my-8 grid grid-cols-1 gap-6 sm:grid-cols-2"><a href="/posts/python-notes-0003/" class="reader-nav-link group flex w-full gap-1 hover:opacity-75"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="inline-block flex-none rtl:rotate-180" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" /><path d="M5 12h14M5 12l6 6M5 12l6-6" /></svg><div><span>上一篇</span><div class="text-accent/85 text-sm">Python学习笔记其三</div></div></a><a href="/posts/python-notes-0002/" class="reader-nav-link group flex w-full justify-end gap-1 text-end hover:opacity-75 sm:col-start-2"><div><span>下一篇</span><div class="text-accent/85 text-sm">Python学习笔记其二</div></div><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="inline-block flex-none rtl:rotate-180" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" /><path d="M5 12h14M13 18l6-6M13 6l6 6" /></svg></a></div></main><footer class="app-layout mt-auto"><div class="border-border flex flex-col items-center justify-between border-t py-6 sm:flex-row-reverse sm:py-4"><div class="flex flex-wrap items-center gap-1"><a href="https://github.com/majianyu2007" title="MaJianyu 的 GitHub" class="group inline-flex items-center gap-1 hover:text-accent p-2 hover:-translate-y-0.5 hover:rotate-3 sm:p-1"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" /><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21" /></svg><span class="sr-only">MaJianyu 的 GitHub</span></a><a href="https://space.bilibili.com/600064036" title="MaJianyu 的 BiliBili" class="group inline-flex items-center gap-1 hover:text-accent p-2 hover:-translate-y-0.5 hover:rotate-3 sm:p-1"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewBox="0 0 24 24" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path d="m8.5 3 2 2.5m5-2.5-2 2.5" /><rect width="18" height="14" x="3" y="6" rx="3" /><path d="M8 11v4m8-4v4" /></svg><span class="sr-only">MaJianyu 的 BiliBili</span></a></div><div class="my-2 flex flex-col items-center gap-1"><div class="flex flex-col items-center justify-center gap-x-1 gap-y-0.5 text-center sm:flex-row"><span class="whitespace-nowrap">版权所有 &#169; 2026 MaJianyu</span><span class="flex items-center gap-x-1 whitespace-nowrap"><span aria-hidden="true" class="hidden sm:inline">·</span><a href="/rss.xml" type="application/rss+xml" title="RSS 订阅源" class="hover:underline">RSS</a><span aria-hidden="true">·</span><a href="https://icp.gov.moe/?keyword=20216556" target="_blank" rel="noopener noreferrer" class="hover:underline">萌ICP备20216556号</a></span></div><span class="text-muted-foreground text-xs">本站已运行 <span data-site-runtime data-start="2020-12-11T16:00:00.000Z" aria-live="off">2,089</span> 天<span class="journal-footer-mark ms-1" aria-hidden="true">( •̀ᴗ•́ )و</span></span></div></div></footer><script type="module">function e(){document.querySelectorAll(`[data-site-runtime]`).forEach(e=>{let t=Date.parse(e.dataset.start??``);Number.isFinite(t)&&(e.textContent=Math.max(0,Math.floor((Date.now()-t)/864e5)).toLocaleString(`zh-CN`))})}e(),document.addEventListener(`astro:page-load`,e);</script><script type="module">var e=`theme`,t=`light`,n=`dark`;function r(){return localStorage.getItem(e)||(window.matchMedia(`(prefers-color-scheme: dark)`).matches?n:t)}var i=window.__theme?.value??r();function a(){localStorage.setItem(e,i),o()}function o(){let e=document.firstElementChild;e?.setAttribute(`data-theme`,i),e?.classList.toggle(`dark`,i===n),document.querySelector(`#theme-btn`)?.setAttribute(`aria-label`,i);let t=window.getComputedStyle(document.body).backgroundColor;document.querySelector(`meta[name='theme-color']`)?.setAttribute(`content`,t)}function s(){o(),document.querySelector(`#theme-btn`)?.addEventListener(`click`,()=>{i=i===t?n:t,a()})}s(),document.addEventListener(`astro:after-swap`,s),document.addEventListener(`astro:before-swap`,e=>{let t=document.querySelector(`meta[name='theme-color']`)?.getAttribute(`content`);t&&e.newDocument.querySelector(`meta[name='theme-color']`)?.setAttribute(`content`,t)}),window.matchMedia(`(prefers-color-scheme: dark)`).addEventListener(`change`,({matches:e})=>{i=e?n:t,a()}),document.addEventListener(`astro:page-load`,()=>{let e=!!location.hash;document.documentElement.toggleAttribute(`data-fragment-navigation`,e),document.documentElement.toggleAttribute(`data-fragment-font-pending`,e),e&&document.fonts.ready.then(()=>{document.documentElement.removeAttribute(`data-fragment-font-pending`)})});</script></body></html><script type="module" src="/_astro/index.astro_astro_type_script_index_0_lang.DtqqC1rV.js"></script>
